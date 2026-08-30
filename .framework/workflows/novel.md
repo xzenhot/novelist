@@ -9,7 +9,7 @@ tools: ["read", "write"]
 ## Command System
 
 ```text
-Usage: /novel <bookname> <gist>            # scaffold a new book pipeline
+Usage: /novel <bookname> [<gist>]          # scaffold a new book pipeline
        /novel <bookname> <chapter>         # write a specific chapter
        /novel <bookname> all               # write all chapters in order
        /novel <bookname> continue          # resume from where you left off
@@ -17,16 +17,14 @@ Usage: /novel <bookname> <gist>            # scaffold a new book pipeline
        /novel -o | --options               # list available books and chapters
 
 Commands:
-  scaffold   /novel <bookname> <gist>
-             Creates a new book pipeline at .space/pipeline/book_<bookname>/ by
-             reproducing the canonical segment-based template at
-             .space/templates/v1/fiction/book/ (version hardcoded to v1). The
-             pipeline is a book -> chapter -> segment hierarchy, where each
-             segment passes through three agents: writer -> editor -> translator.
-             Produces the book-level Template* files, a chapter/ folder (with
-             moods/ and spec/), and a chapter/segment/ folder (with writer/,
-             editor/, translator/ subfolders). It also creates an empty
-             source/books/book_<bookname>/ destination for finished chapters.
+  scaffold   /novel <bookname> [<gist>]
+             Uses the layout skill (`.framework/skills/layout/SKILL.md`) to create
+             or repair the canonical v1 segment-based pipeline at
+             .space/pipeline/book_<bookname>/. The layout skill is authoritative
+             for template source, folder shape, Template* files, OperationState
+             mapping, and chapter/segment path invariants. It also creates an
+             empty source/books/book_<bookname>/ destination for finished chapters.
+             <gist> is optional — if omitted, infer a gist from the book name.
 
   write      /novel <bookname> <chapter>
              Writes one chapter. Reads
@@ -54,16 +52,18 @@ Commands:
 
 Arguments:
   <bookname>   The book's name; the pipeline is .space/pipeline/book_<bookname>/.
-  <gist>       The book's core premise: a one-line summary of the story's
-               subject, theme, and scope. Used only during scaffold to seed
-               TemplateLayOutShapeJson.json (book_name, book_long_title,
-               book_summary, chapters, all_characters).
+  <gist>       Optional. The book's core premise: a one-line summary of the
+               story's subject, theme, and scope. Used only during scaffold to
+               seed TemplateLayOutShapeJson.json (book_name, book_long_title,
+               book_summary, chapters, all_characters). If omitted, infer a
+               gist from the book name.
   <chapter>    The chapter to write. One of: Introduction, 1..N, Conclusion.
 ```
 
 ## Command Rules
 
-- Always create a pipeline first. For a new book, the first step is `scaffold`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists.
+- Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists.
+- **If no `<gist>` is provided, infer one from the book name.** The book name is the seed: derive a one-line summary of the subject, theme, and scope from it, then use that as the gist for scaffolding.
 - Always inspect `source/books/book_<bookname>/` before writing, so you know which chapters already exist. The `continue` command starts at the first missing chapter.
 - Before writing any chapter, read the corresponding JSON file from `.space/pipeline/book_<bookname>/chapter_seeds/`, including `included_characters` and `quality_parameters`.
 - In `all` mode, preserve this order: `Introduction` -> `1` -> `2` -> ... -> `N` -> `Conclusion`.
@@ -71,116 +71,26 @@ Arguments:
 
 ## Pipeline Structure
 
-Each book has a pipeline folder containing all input material. The pipeline is scaffolded from a **canonical segment-based template** at `.space/templates/v1/fiction/book/` (version hardcoded to **`v1`**). Running `/novel <bookname> <gist>` reproduces the template's structure into the book's pipeline folder.
+Pipeline structure is owned by the layout skill:
 
-The engine is a **segment-based workflow**: a book is divided into chapters, each chapter into segments, and each segment passes through three agents — **writer → editor → translator**.
+` .framework/skills/layout/SKILL.md `
 
-The template at `.space/templates/v1/fiction/book/` holds the reference shape of a complete novel pipeline:
+When scaffolding, creating, or repairing `.space/pipeline/book_<bookname>/`, read and follow the layout skill. Do not duplicate or reinterpret scaffold rules in this workflow. In particular, preserve the layout skill's mandatory path invariant:
 
-```text
-.space/templates/v1/fiction/book/
-|-- TemplateLayOutShapeJson.json      # book layout schema (the seed shape)
-|-- TemplateMetaJson.json             # book metadata (Name, Description, Type, InstanceCount)
-|-- TemplateModelJson.json            # book model (book_summary, chapter_count, ...)
-|-- TemplatePromptInitialText.txt     # prompt: architect the full book layout from the seed
-|-- TemplatePromptNextText.txt        # prompt: extend the layout with the next chapters
-|-- TemplatePromptSummaryText.txt     # prompt: produce a running summary
-`-- chapter/
-    |-- TemplateLayOutShapeJson.json  # chapter layout schema (segments, references, characters)
-    |-- TemplateMetaJson.json
-    |-- TemplateModelJson.json
-    |-- TemplatePromptInitialText.txt # prompt: write the first episode (chapter)
-    |-- TemplatePromptNextText.txt    # prompt: write the next episode
-    |-- TemplatePromptSingleSegmentText.txt
-    |-- TemplatePromptSummaryText.txt
-    |-- moods/                        # mood JSON files (default, introduction, conclusion, love, fight, ...)
-    |-- spec/                         # chapter writing spec (optional)
-    |   `-- default.md
-    `-- segment/
-        |-- TemplateLayOutShapeJson.json  # segment layout schema (segment_content, total_words)
-        |-- TemplateMetaJson.json
-        |-- TemplateModelJson.json
-        |-- TemplatePromptInitialText.txt
-        |-- TemplatePromptNextText.txt
-        |-- TemplatePromptSummaryText.txt
-        |-- writer/                   # segment writer agent
-        |   |-- TemplateLayOutShapeJson.json
-        |   |-- TemplateMetaJson.json
-        |   |-- TemplateModelJson.json
-        |   |-- TemplatePromptInitialText.txt
-        |   |-- TemplatePromptNextText.txt
-        |   |-- TemplatePromptSingleSegmentText.txt
-        |   `-- TemplatePromptSummaryText.txt
-        |-- editor/                   # segment editor agent
-        |   |-- TemplateLayOutShapeJson.json
-        |   |-- TemplateMetaJson.json
-        |   |-- TemplateModelJson.json
-        |   |-- TemplatePromptInitialText.txt
-        |   |-- TemplatePromptNextText.txt
-        |   `-- TemplatePromptSummaryText.txt
-        `-- translator/               # segment translator agent
-            |-- TemplateLayOutShapeJson.json
-            |-- TemplateMetaJson.json
-            |-- TemplateModelJson.json
-            |-- TemplatePromptInitialText.txt
-            |-- TemplatePromptNextText.txt
-            |-- TemplatePromptSummaryText.txt
-            `-- TemplateSystemPromptText.txt
-```
-
-The scaffolded pipeline reproduces this shape under the book's own folder:
-
-```text
-.space/pipeline/book_<bookname>/
-|-- TemplateLayOutShapeJson.json      # book layout (seeded by <gist>)
-|-- TemplateMetaJson.json
-|-- TemplateModelJson.json
-|-- TemplatePromptInitialText.txt
-|-- TemplatePromptNextText.txt
-|-- TemplatePromptSummaryText.txt
-`-- chapter/
-    |-- TemplateLayOutShapeJson.json
-    |-- TemplateMetaJson.json
-    |-- TemplateModelJson.json
-    |-- TemplatePromptInitialText.txt
-    |-- TemplatePromptNextText.txt
-    |-- TemplatePromptSingleSegmentText.txt
-    |-- TemplatePromptSummaryText.txt
-    |-- moods/                        # mood JSON files
-    |-- spec/                         # chapter writing spec
-    `-- segment/
-        |-- TemplateLayOutShapeJson.json
-        |-- TemplateMetaJson.json
-        |-- TemplateModelJson.json
-        |-- TemplatePromptInitialText.txt
-        |-- TemplatePromptNextText.txt
-        |-- TemplatePromptSummaryText.txt
-        |-- writer/                   # segment writer agent
-        |-- editor/                   # segment editor agent
-        `-- translator/               # segment translator agent
-
-source/books/book_<bookname>/    # finished chapters
-```
+- chapters live only at `.space/pipeline/book_<bookname>/chapters/chapter_<n>/`
+- segments live only at `.space/pipeline/book_<bookname>/chapters/chapter_<n>/segments/segment_<x>/`
+- never create root-level `chapter_<n>/` or `segment_<x>/` folders under the book pipeline
 
 ## Scaffolding Steps
 
-When `/novel <bookname> <gist>` is invoked:
+For `/novel <bookname> [<gist>]`:
 
-1. **Read the template** at `.space/templates/v1/fiction/book/` (version is hardcoded to `v1`):
-   - Read `TemplateLayOutShapeJson.json` to learn the book layout schema.
-   - Read `TemplateMetaJson.json` and `TemplateModelJson.json` to learn the metadata and model schemas.
-   - Read `chapter/TemplateLayOutShapeJson.json` and `chapter/segment/TemplateLayOutShapeJson.json` to learn the chapter and segment schemas.
-   - Read the `moods/` folder to learn the available mood files.
-2. Create `.space/pipeline/book_<bookname>/` and copy the book-level `Template*` files into it.
-3. Create `.space/pipeline/book_<bookname>/chapter/` and copy the chapter-level `Template*` files, plus `moods/` and `spec/`.
-4. Create `.space/pipeline/book_<bookname>/chapter/segment/` and copy the segment-level `Template*` files, plus the `writer/`, `editor/`, and `translator/` subfolders (each with their own `Template*` files).
-5. Seed `.space/pipeline/book_<bookname>/TemplateLayOutShapeJson.json` with the `<gist>` — book_name, book_long_title, book_summary, chapters, all_characters.
-6. Create `source/books/book_<bookname>/` — the destination for finished chapters.
+1. Determine the gist. If omitted, infer a one-line premise from the book name.
+2. Invoke the layout skill instructions in `.framework/skills/layout/SKILL.md`.
+3. Let the layout skill create or repair the canonical v1 pipeline, seed the layout/model/meta JSON, create the output folder, and verify the path invariant.
+4. Continue with novel-specific writing only after the layout skill has completed successfully.
 
-All book pipelines live under `.space/pipeline/`. Always create new books at `.space/pipeline/book_<bookname>/`, never at the workspace root. The template version is fixed at `v1`; do not invent a different version.
-
-The full scaffolding logic — including the `OperationState` enum (the authoritative order and meaning of every file) and the JSON schemas — is documented in `.space/templates/v1/SCAFFOLD.md`. Read it before scaffolding.
-
+`.space/templates/v1/SCAFFOLD.md` is a short reference note only; do not treat it as the primary scaffold instruction source.
 ## Core Principle
 
 You are an accomplished novelist. Your task is to turn workshop narratives from `.space/pipeline/book_<bookname>/workshop_minutes/` into finished novel chapters under `source/books/book_<bookname>/`.
@@ -320,3 +230,5 @@ After writing, count the words. If the Story section is too short, expand it thr
 - **Finished chapters (destination):** `source/books/book_<bookname>/`
 - **Character list:** `.space/pipeline/book_<bookname>/characters.json`
 - **Book structure:** `.space/pipeline/book_<bookname>/book.json`
+
+

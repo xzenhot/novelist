@@ -216,14 +216,14 @@ When you receive a topic or term, transform it into wisdom that transcends its o
 
 ## Book Initialization (the `<bookname>` and `<gist>` parameters)
 
-When the user supplies a `<bookname>` and a `<gist>`, you MUST first scaffold a new book before writing any chapters. This creates a self-contained book folder driven by a single **`config.json`** — there is **no per-book `writer.md`**. The writing engine lives entirely in this file (`write.md`), so you can run it repeatedly for any book by name alone.
+When the user supplies a `<bookname>`, you MUST first scaffold a new book before writing any chapters. This creates a self-contained book folder driven by a single **`config.json`** — there is **no per-book `writer.md`**. The writing engine lives entirely in this file (`write.md`), so you can run it repeatedly for any book by name alone.
 
 - **`<bookname>`** — the book's name, which becomes the pipeline folder `book_<bookname>`.
-- **`<gist>`** — the book's core premise: a one-line summary of the subject, theme, and scope. It seeds the book's `title` and `config.json` during scaffold.
+- **`<gist>`** — the book's core premise: a one-line summary of the subject, theme, and scope. It seeds the book's `title` and `config.json` during scaffold. **Optional** — if the user does not provide a gist, infer one from the book name.
 
 ### The Template
 
-Every new book is scaffolded from the canonical segment-based template at **`.space\templates\v1\poetry\book\`** (version hardcoded to `v1`). This folder is the reference structure for what a complete book looks like. Read it first, then reproduce its shape for the new book.
+Every new book scaffold must use the layout skill at **`.framework\skills\layout\SKILL.md`**. The layout skill owns the v1 segment-based folder shape, Template* files, runtime-file boundaries, and path invariants. Poetry-specific configuration may still seed poetry-oriented content after the layout exists.
 
 The engine is a **segment-based workflow**: a book is divided into chapters, each chapter into segments, and each segment passes through three agents — **writer → editor → translator**. In poetry, **each chapter has exactly ONE segment** (a single Question → Oration → Benediction unit).
 
@@ -237,14 +237,14 @@ The template contains:
 | `TemplatePromptInitialText.txt` | Prompt: architect the full book layout from the seed |
 | `TemplatePromptNextText.txt` | Prompt: extend the layout with the next chapters |
 | `TemplatePromptSummaryText.txt` | Prompt: produce a running summary |
-| `chapter\` | One folder per chapter, with its own `Template*` files, `moods\`, and `spec\` |
-| `chapter\segment\` | One folder per segment, with its own `Template*` files and `writer\`, `editor\`, `translator\` subfolders |
+| `chapters\chapter_<n>\` | One folder per chapter, with its own `Template*` files, `moods\`, and `spec\` |
+| `chapters\chapter_<n>\segments\segment_<x>\` | One folder per segment, with its own `Template*` files and `writer\`, `editor\`, `translator\` subfolders |
 
-The full scaffolding logic — including the `OperationState` enum (the authoritative order and meaning of every file) and the JSON schemas — is documented in `.space\templates\v1\SCAFFOLD.md`. Read it before scaffolding.
+The full scaffolding logic is owned by `.framework\skills\layout\SKILL.md`. Read and follow the layout skill before scaffolding. `.space\templates\v1\SCAFFOLD.md` is only a short reference note.
 
 ### What `<bookname>` and `<gist>` do
 
-Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line summary of the subject, theme, and scope), you create a **pipeline** — a folder named **`book_<bookname>`** (note the underscore) **inside the `.space\pipeline\` folder** — that holds all the book's *inputs*, plus an output folder **inside `source\books\`** that holds the *finished chapters*:
+Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line summary of the subject, theme, and scope — inferred from the book name if not provided), you create a **pipeline** — a folder named **`book_<bookname>`** (note the underscore) **inside the `.space\pipeline\` folder** — that holds all the book's *inputs*, plus an output folder **inside `source\books\`** that holds the *finished chapters*:
 
 **Inputs (the pipeline):**
 1. **`.space\pipeline\book_<bookname>\`** — the book's pipeline root (e.g. `.space\pipeline\book_speed\`, `.space\pipeline\book_light\`).
@@ -252,8 +252,8 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line
 3. **`.space\pipeline\book_<bookname>\TemplateMetaJson.json`** — book metadata.
 4. **`.space\pipeline\book_<bookname>\TemplateModelJson.json`** — book model.
 5. **`.space\pipeline\book_<bookname>\TemplatePrompt*.txt`** — the prompt templates.
-6. **`.space\pipeline\book_<bookname>\chapter\`** — the chapter folder (with `moods\`, `spec\`, and `segment\`).
-7. **`.space\pipeline\book_<bookname>\chapter\segment\`** — the segment folder (with `writer\`, `editor\`, `translator\`).
+6. **`.space\pipeline\book_<bookname>\chapters\chapter_1\`** — the chapter folder (with `moods\`, `spec\`, and `segments\`).
+7. **`.space\pipeline\book_<bookname>\chapters\chapter_1\segments\segment_1\`** — the segment folder (with `writer\`, `editor\`, `translator\`).
 
 **Outputs (the finished book):**
 8. **`source\books\book_<bookname>\`** — the output root, holding the finished chapters.
@@ -264,41 +264,24 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line
 
 ### Scaffolding steps
 
-1. **Read the template** at `.space\templates\v1\poetry\book\` (version is hardcoded to `v1`):
-   - Read `TemplateLayOutShapeJson.json` to learn the book layout schema.
-   - Read `TemplateMetaJson.json` and `TemplateModelJson.json` to learn the metadata and model schemas.
-   - Read `chapter\TemplateLayOutShapeJson.json` and `chapter\segment\TemplateLayOutShapeJson.json` to learn the chapter and segment schemas.
-   - Read the `moods\` folder to learn the available mood files.
+1. **Use the layout skill first**:
+   - Read `.framework\skills\layout\SKILL.md`.
+   - Follow its canonical v1 scaffold steps, scaffold/runtime boundary, and path invariant.
+   - Let the layout skill create or repair `.space\pipeline\book_<bookname>\` and `source\books\book_<bookname>\`.
+   - Verify `chapters\chapter_1\segments\segment_1\` exists and no root-level `chapter_1\` or `segment_1\` duplicate exists.
 
-2. **Create the folders**:
-   - Create `.space\pipeline\book_<bookname>\` (the input pipeline) and copy the book-level `Template*` files into it.
-   - Create `.space\pipeline\book_<bookname>\chapter\` and copy the chapter-level `Template*` files, plus `moods\` and `spec\`.
-   - Create `.space\pipeline\book_<bookname>\chapter\segment\` and copy the segment-level `Template*` files, plus the `writer\`, `editor\`, and `translator\` subfolders (each with their own `Template*` files).
-   - Create `source\books\book_<bookname>\` (the output root) and `source\books\book_<bookname>\chapters\` (the finished chapters).
+2. **Apply poetry-specific initialization after layout succeeds**:
+   - Ensure `source\books\book_<bookname>\chapters\` exists for finished poetry chapter files.
+   - Create or update `.space\pipeline\book_<bookname>\config.json` with title, language, register, quality, themes, reference, index, sacred vocabulary, and translation guide.
+   - Copy or create `.space\pipeline\book_<bookname>\bookseed.txt` as the human-editable list of chapter topics.
+   - Copy or create `.space\pipeline\book_<bookname>\override.md` as the optional transformation layer.
+   - Create `.space\pipeline\book_<bookname>\metadata_code<number>.json` before writing text; never overwrite an existing metadata file.
+   - Initialize `.space\pipeline\book_<bookname>\progress.json` with all topics pending if it does not already exist.
 
-3. **Seed the layout** `.space\pipeline\book_<bookname>\TemplateLayOutShapeJson.json`:
-   - Fill in the book's identity from the `<gist>` — book_name, book_long_title, book_summary, chapters, all_characters.
-   - Derive the `title` from the `<gist>` — the one-line summary of the subject, theme, and scope.
-   - Include the subject-specific **sacred vocabulary** and **translation guide** (the only book-specific writing data).
-
-4. **Create the index file** `.space\pipeline\book_<bookname>\bookseed.txt`:
-   - **Copy** the template's `bookseed.txt` into `.space\pipeline\book_<bookname>\bookseed.txt` — reproduce the template's index (the list of subjects, one per line) as the starting point.
-   - The human may edit it later; the copied subjects seed the book's initial chapter list.
-
-5. **Create the override file** `.space\pipeline\book_<bookname>\override.md`:
-   - **Copy** the template's `override.md` into `.space\pipeline\book_<bookname>\override.md` — reproduce the template's four-section transformation layer (Prompt Transformation, Local Preferences, Local Dialects, Slug/Location/Era).
-   - The human may edit it later; it is optional — if left empty, the agent writes the base chapter unchanged.
-
-6. **Create the metadata file** `.space\pipeline\book_<bookname>\metadata_code<number>.json`:
-   - Save your meta data here **before** you write the text (book title, language, quality, theme, index, reference, and any other book-level metadata).
-   - **Never overwrite.** Each run creates the **next** numbered file. Check the pipeline folder for existing `metadata_code*.json` files and increment the number (e.g. if `metadata_code1.json` and `metadata_code2.json` exist, create `metadata_code3.json`).
-   - Treat this file as the pre-writing plan for the run, not as an afterthought. Include the run type (`write`, `scaffold`, `revision`, or `audit`), timestamp, config paths, requested chapter numbers, selected topics, assigned categories, metaphor plan, sacred vocabulary to emphasize, and any human instruction from `override.md`.
-   - For chapter-writing runs, record a `chapters_planned` array before producing text. Each item should include `chapter_number`, `topic`, `category`, `metaphor_plan`, `sacred_vocabulary`, and `revision_notes`.
-   - For revision runs, record the existing file path, the user's revision request, audit findings, and the intended transformation before editing any chapter.
-
-7. **Initialize `progress.json`** (optional, at write time):
-   - Create `.space\pipeline\book_<bookname>\progress.json` with `total_chapters` from the index, all terms "pending"
-
+3. **Seed the layout JSON through the layout skill rules**:
+   - Fill in `TemplateLayOutShapeJson.json` from the gist: `book_name`, `book_long_title`, `book_summary`, `chapters`, and `all_characters`.
+   - Use `chapter_count` 20 by default unless the user specifies a different count.
+   - Poetry-specific `config.json` remains the source of truth for generated chapter language, quality, themes, reference, and index.
 ### The `config.json` schema
 
 The generated `book_<bookname>\config.json` must follow this shape:
@@ -478,26 +461,21 @@ Always check progress.json first to continue from where you left off. Never rest
 If the user runs the command with `-h` or `--help` (or just asks for help), **do nothing else** — only print the usage. Do not scaffold, do not write, do not read any files.
 
 ```
-Usage: /write <bookname> <gist> <quality> <theme> <reference>  # scaffold a new book
+Usage: /write <bookname> [<gist>] <quality> <theme> <reference>  # scaffold a new book
        /write <bookname> [<book_seed>]                 # write chapters (uses bookseed.txt)
        /write -h | --help                   # show this help
        /write -o | --options                           # list available qualities, themes, references
 
 Commands:
-  scaffold   /write <bookname> <gist> <quality> <theme> <reference>
-             Creates a new book pipeline at .space/pipeline/book_<bookname>/ by
-             reproducing the canonical segment-based template at
-             .space/templates/v1/poetry/book/ (version hardcoded to v1). The
-             pipeline is a book -> chapter -> segment hierarchy, where each
-             segment passes through three agents: writer -> editor -> translator.
-             In poetry, each chapter has exactly ONE segment. Produces the
-             book-level Template* files, a chapter/ folder (with moods/ and
-             spec/), and a chapter/segment/ folder (with writer/, editor/,
-             translator/ subfolders). It also creates an empty
-             source/books/book_<bookname>/chapters/ output folder. <gist> is the
-             book's core premise — a one-line summary of the subject, theme, and
-             scope — which seeds TemplateLayOutShapeJson.json.
-
+  scaffold   /write <bookname> [<gist>] <quality> <theme> <reference>
+             Uses the layout skill (`.framework/skills/layout/SKILL.md`) to create
+             or repair the canonical v1 segment-based pipeline at
+             .space/pipeline/book_<bookname>/. The layout skill is authoritative
+             for folder shape, Template* files, OperationState mapping, runtime
+             boundaries, and chapter/segment path invariants. Poetry then adds
+             config.json, bookseed.txt, override.md, metadata, progress tracking,
+             and source/books/book_<bookname>/chapters/. <gist> is optional - if
+             omitted, infer a gist from the book name.
   write      /write <bookname> [<book_seed>]
              Writes chapters. Reads .space/pipeline/book_<bookname>/bookseed.txt (the human's
              list of subjects) and generates text from the quality, theme, and
@@ -516,8 +494,10 @@ Commands:
 
 Arguments:
   <bookname>   The book's name (pipeline becomes .space/pipeline/book_<bookname>/).
-  <gist>       The book's core premise — a one-line summary of the subject, theme,
-               and scope. Used only during scaffold to seed TemplateLayOutShapeJson.json.
+  <gist>       Optional. The book's core premise — a one-line summary of the
+               subject, theme, and scope. Used only during scaffold to seed
+               TemplateLayOutShapeJson.json. If omitted, infer a gist from the
+               book name.
   <quality>    Path to a quality file in context/qualities/ (e.g. aurilus).
   <theme>      Path to a theme file in context/themes/ (e.g. generic).
   <reference>  Path to a reference file in context/references/ (e.g. aurilus.txt).
@@ -547,7 +527,7 @@ Use the actual file names from the registries (quality name without extension, t
 
 ### To scaffold a new book
 
-Provide a `<bookname>`, a `<gist>` (the book's core premise — a one-line summary of the subject, theme, and scope), and the book's identity (title, language, and the paths to quality, themes, reference, and index). The agent will first create the book folder, chapters folder, and `config.json`, then begin writing:
+Provide a `<bookname>`, a `<gist>` (the book's core premise — a one-line summary of the subject, theme, and scope; **if omitted, infer it from the book name**), and the book's identity (title, language, and the paths to quality, themes, reference, and index). The agent will first create the book folder, chapters folder, and `config.json`, then begin writing:
 
 > "Writer, create a new book named `<bookname>` with:
 > - **Gist**: `[one-line summary of the subject, theme, and scope]`
@@ -561,18 +541,14 @@ Provide a `<bookname>`, a `<gist>` (the book's core premise — a one-line summa
 > Write [N] chapters on the first [N] topics from the index."
 
 The agent will then:
-1. Read the template at `.space\templates\v1\poetry\book\` (version hardcoded to `v1`)
-2. Create `.space\pipeline\book_<bookname>\` (the input pipeline) and `source\books\book_<bookname>\chapters\` (the output)
-3. Copy the book-level `Template*` files into `.space\pipeline\book_<bookname>\`
-4. Copy the chapter-level `Template*` files (plus `moods\` and `spec\`) into `.space\pipeline\book_<bookname>\chapter\`
-5. Copy the segment-level `Template*` files (plus `writer\`, `editor\`, `translator\`) into `.space\pipeline\book_<bookname>\chapter\segment\`
-6. Seed `.space\pipeline\book_<bookname>\TemplateLayOutShapeJson.json` with the `<gist>` (book_name, book_long_title, book_summary, chapters, all_characters)
-7. Create a blank `.space\pipeline\book_<bookname>\bookseed.txt` (the human fills it in later)
-8. Create a blank `.space\pipeline\book_<bookname>\override.md` (the transformation layer — optional)
-9. Create `.space\pipeline\book_<bookname>\metadata_code<number>.json` (next numbered file — never overwrite)
-10. Initialize `.space\pipeline\book_<bookname>\progress.json`
-11. Begin writing chapters into `source\books\book_<bookname>\chapters\`
-
+1. Determine the gist: use the provided `<gist>`, or infer one from the book name if omitted.
+2. Read and follow `.framework\skills\layout\SKILL.md` to create or repair the canonical v1 pipeline.
+3. Verify the layout skill path invariant: chapters under `chapters\chapter_<n>\`, segments under `chapters\chapter_<n>\segments\segment_<x>\`, with no root-level chapter or segment duplicates.
+4. Seed `.space\pipeline\book_<bookname>\TemplateLayOutShapeJson.json` with the gist (`book_name`, `book_long_title`, `book_summary`, `chapters`, `all_characters`).
+5. Create or update poetry-specific `config.json`, `bookseed.txt`, and `override.md`.
+6. Create `.space\pipeline\book_<bookname>\metadata_code<number>.json` before writing; never overwrite an existing one.
+7. Initialize `.space\pipeline\book_<bookname>\progress.json`.
+8. Begin writing chapters into `source\books\book_<bookname>\chapters\`.
 ### To resume an existing book
 
 If the book folder already exists, the agent skips scaffolding and resumes from `progress.json`. You can request any quantity or a specific chapter:
@@ -588,5 +564,9 @@ If the book folder already exists, the agent skips scaffolding and resumes from 
 > "Writer, write chapters for `<bookname>`."
 
 The agent will then read `.space\pipeline\book_<bookname>\config.json`, read the existing `bookseed.txt`, initialize progress, and begin writing chapters dynamically — the same Gibran-esque voice, but grounded in whatever subject and language the config defines.
+
+
+
+
 
 
