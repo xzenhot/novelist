@@ -1,0 +1,70 @@
+{
+  "version": "1.0",
+  "created_at": "2026-08-30",
+  "book_name": "india",
+  "characters": [
+    {
+      "character_id": "C001",
+      "full_name": "Arya",
+      "role": "Protagonist / Narrator",
+      "identity": "A young historian guiding the workshop through India's story",
+      "psychological_depth": "Deeply connected to India's past, seeking to understand its meaning for the present",
+      "first_appearance": "Chapter 1",
+      "relationships": ["C002"],
+      "arc": "From scholar to storyteller, learning to make the past live for the present"
+    },
+    {
+      "character_id": "C002",
+      "full_name": "Meera",
+      "role": "Workshop Participant",
+      "identity": "A skeptical modern student questioning tradition",
+      "psychological_depth": "Torn between pride in heritage and doubt about its relevance",
+      "first_appearance": "Chapter 1",
+      "relationships": ["C001"],
+      "arc": "From doubt to understanding, discovering the living meaning of India's greatness"
+    },
+    {
+      "character_id": "C003",
+      "full_name": "The Sage",
+      "role": "Historical Figure",
+      "identity": "A composite of India's ancient philosophers",
+      "psychological_depth": "Embodies the spiritual depth and wisdom of Indian thought",
+      "first_appearance": "Chapter 2",
+      "relationships": [],
+      "arc": "Represents the timeless wisdom that grounds India's identity"
+    },
+    {
+      "character_id": "C004",
+      "full_name": "The Emperor",
+      "role": "Historical Figure",
+      "identity": "A ruler representing India's imperial grandeur",
+      "psychological_depth": "Struggles between power and dharma, conquest and compassion",
+      "first_appearance": "Chapter 3",
+      "relationships": [],
+      "arc": "From conqueror to compassionate ruler, embodying the ideal of dharma"
+    },
+    {
+      "character_id": "C005",
+      "full_name": "The Freedom Fighter",
+      "role": "Historical Figure",
+      "identity": "A composite of India's independence leaders",
+      "psychological_depth": "Driven by love of country and the moral force of non-violence",
+      "first_appearance": "Chapter 4",
+      "relationships": [],
+      "arc": "From ordinary citizen to symbol of a nation's moral awakening"
+    }
+  ],
+  "character_groups": [
+    {
+      "name": "The Workshop",
+      "members": ["C001", "C002"],
+      "description": "The modern frame — a historian and a student exploring India's story"
+    },
+    {
+      "name": "The Historical Figures",
+      "members": ["C003", "C004", "C005"],
+      "description": "Composite figures embodying India's spiritual, imperial, and freedom traditions"
+    }
+  ],
+  "notes": "Character roster for 'India: A Great Country' — a frame-story novel celebrating India's civilization, wisdom, and enduring spirit."
+}

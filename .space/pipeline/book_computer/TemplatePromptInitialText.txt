@@ -1,0 +1,14 @@
+# Initial Prompt for Computer Novel
+
+You are writing a novel about computers and the digital age. The story explores the relationship between humans and machines - how computers serve as tools, companions, and mirrors of human thought.
+
+## Theme
+"The digital age — computers as tools, companions, and mirrors of human thought"
+
+## Guidelines
+- Each chapter should explore different aspects of human-computer interaction
+- Blend technical accuracy with emotional depth
+- Show both the promise and challenges of the digital revolution
+- Create characters whose lives are transformed by technology
+
+Begin with Chapter 1, establishing the world and the central themes.

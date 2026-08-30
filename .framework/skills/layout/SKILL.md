@@ -1,6 +1,6 @@
 ---
 name: layout
-description: "Use when scaffolding the structural skeleton of a novel pipeline. USE FOR: creating .space/pipeline/book_<bookname>/ from the canonical v1 segment-based template, seeding book layout JSON, defining chapters, characters, chapter folders, segment folders, and the empty output destination. DO NOT USE FOR: writing chapter prose, editing finished book text, or creating runtime activity outputs."
+description: "Use when scaffolding the structural skeleton of a novel pipeline. USE FOR: creating .space/pipeline/book_<bookname>/ from the canonical v1 segment-based template, seeding book planning JSON, defining chapters, characters, chapter folders, segment folders, and the empty output destination. DO NOT USE FOR: writing chapter prose, editing finished book text, or creating runtime activity outputs."
 ---
 
 # Layout - Novel Pipeline Scaffold
@@ -9,7 +9,7 @@ You are the structural architect for a novel. Your task is to create the mandato
 
 The current canonical scaffold is **v1** and is copied from:
 
-` .space/templates/v1/fiction/book/ `
+` .framework/templates/stereotypes/poetry/book/ `
 
 A scaffolded book lives at:
 
@@ -23,24 +23,18 @@ Finished content lives at:
 
 The v1 novel pipeline is segment-based:
 
-`book -> chapters -> chapter_<n> -> segments -> segment_<x> -> writer/editor/translator`
+`book -> chapters -> <n> -> segments -> <x> -> writer/editor/translator`
 
 Each segment passes through three agents:
 
 `writer -> editor -> translator`
 
-Layout creates two required layers: the segment-based `Template*` execution tree, and the root-level novel planning artifacts used by research, character, workshop, and chapter-writing steps. Runtime files are produced later by workflow execution.
+Layout creates the folder tree, required state files for each structural level, and root-level planning artifacts used by research, character, workshop, and chapter-writing steps. Runtime content files are produced later by workflow execution.
 
 ## Canonical Folder Shape
 
 ```text
 .space/pipeline/book_<bookname>/
-|-- TemplateLayOutShapeJson.json
-|-- TemplateMetaJson.json
-|-- TemplateModelJson.json
-|-- TemplatePromptInitialText.txt
-|-- TemplatePromptNextText.txt
-|-- TemplatePromptSummaryText.txt
 |-- sample.json
 |-- book.json
 |-- characters.json
@@ -50,24 +44,10 @@ Layout creates two required layers: the segment-based `Template*` execution tree
 |-- chapter_seeds/
 |-- chapters_research/
 `-- chapters/
-    `-- chapter_1/
-        |-- TemplateLayOutShapeJson.json
-        |-- TemplateMetaJson.json
-        |-- TemplateModelJson.json
-        |-- TemplatePromptInitialText.txt
-        |-- TemplatePromptNextText.txt
-        |-- TemplatePromptSingleSegmentText.txt
-        |-- TemplatePromptSummaryText.txt
+    `-- 1/
         |-- moods/
-        |-- spec/
         `-- segments/
-            `-- segment_1/
-                |-- TemplateLayOutShapeJson.json
-                |-- TemplateMetaJson.json
-                |-- TemplateModelJson.json
-                |-- TemplatePromptInitialText.txt
-                |-- TemplatePromptNextText.txt
-                |-- TemplatePromptSummaryText.txt
+            `-- 1/
                 |-- writer/
                 |-- editor/
                 `-- translator/
@@ -77,27 +57,29 @@ Layout creates two required layers: the segment-based `Template*` execution tree
 
 This is mandatory.
 
-- Never create `chapter_<n>/`, `chapter<n>/`, `chapterN/`, or `chapter_1/` directly under `book_<bookname>/`.
-- Never create `segment_<x>/`, `segment<x>/`, `segmentN/`, or `segment_1/` directly under `book_<bookname>/` or under a root-level chapter folder.
-- The only valid chapter path is `book_<bookname>/chapters/chapter_<n>/`.
-- The only valid segment path is `book_<bookname>/chapters/chapter_<n>/segments/segment_<x>/`.
-- The only valid writer/editor/translator paths are under `book_<bookname>/chapters/chapter_<n>/segments/segment_<x>/`.
-- If an older scaffold contains `book_<bookname>/chapter_<n>/`, treat it as a misplaced legacy duplicate. Migrate or remove it only after confirming the canonical `book_<bookname>/chapters/chapter_<n>/` path exists.
+- Never create chapter number folders directly under `book_<bookname>/`; they must live under `chapters/`.
+- Never create segment number folders directly under `book_<bookname>/` or under a root-level chapter folder; they must live under `chapters/<n>/segments/`.
+- The only valid chapter path is `book_<bookname>/chapters/<n>/`.
+- The only valid segment path is `book_<bookname>/chapters/<n>/segments/<x>/`.
+- The only valid writer/editor/translator paths are under `book_<bookname>/chapters/<n>/segments/<x>/`.
+- If an older scaffold contains `book_<bookname>/chapter_<n>/`, treat it as a misplaced legacy duplicate. If it contains `chapters/chapter_<n>/` or `segments/segment_<x>/`, rename those level folders to numeric names after confirming there is no collision.
 
 ## Scaffolded Files
 
-Scaffold only template files that exist in the canonical template:
+Do not scaffold `Template*.json`, `TemplatePrompt*.txt`, or `TemplateSystemPromptText.txt` files. Template files belong to the reusable template source or runtime prompt generation, not to a book pipeline scaffold.
 
-- `TemplateSystemPromptText.txt`
-- `TemplateModelJson.json`
-- `TemplateLayOutShapeJson.json`
-- `TemplatePromptInitialText.txt`
-- `TemplatePromptNextText.txt`
-- `TemplatePromptSummaryText.txt`
-- `TemplatePromptTranslateText.txt`
-- `TemplatePromptSingleSegmentText.txt`
+A book pipeline scaffold is driven by the root planning artifacts below.
 
-Not every folder contains every template file. Copy what exists in the matching canonical template folder.
+## Level State Files
+
+These JSON files are scaffolded at each structural level and are not `Template*.json` files:
+
+- `SelfStateInitialJson.json` - the initial state of the current level before activity begins.
+- `SelfStateActivityJson.json` - the current activity/status state of the level.
+- `ReturningModelJson.json` - the model/state returned upward from the level after work is produced or summarized.
+
+Create this set at the book root, every chapter folder, and every segment folder. At the book level they maintain book state; at the chapter level they maintain chapter state; at the segment level they maintain segment state. Do not place level state files directly under `writer/`, `editor/`, or `translator/` unless a later agent workflow explicitly owns that agent-level state.
+
 ## Root Planning Artifacts
 
 These root-level planning artifacts are also required for a complete novel pipeline. They are scaffold artifacts, not optional generated clutter:
@@ -110,7 +92,7 @@ These root-level planning artifacts are also required for a complete novel pipel
 - `chapter_seeds/` - the destination for per-chapter character and quality seeds.
 - `chapters_research/` - the destination for per-chapter research JSON.
 
-Create these for every novel scaffold. Seed them from the provided gist and from the book-level `TemplateLayOutShapeJson.json`; do not hard-code language, genre, characters, or chapter count.
+Create these for every novel scaffold. Seed them from the provided gist and book identity; do not hard-code language, genre, characters, or chapter count.
 
 
 ## Runtime Files
@@ -118,8 +100,6 @@ Create these for every novel scaffold. Seed them from the provided gist and from
 Do not create runtime files during layout unless a later workflow step explicitly produces them:
 
 - `Exception.txt`
-- `SelfStateInitialJson.json`
-- `SelfStateActivityJson.json`
 - `ActualPromptAgentText.txt`
 - `HumanInTheLoopPromptText.txt`
 - `ModelDictionaryJson.json`
@@ -128,7 +108,6 @@ Do not create runtime files during layout unless a later workflow step explicitl
 - `RunningContentSummaryText.txt`
 - `TranslatedContentText.txt`
 - `ReviwedContentText.txt`
-- `ReturningModelJson.json`
 - `FinalContentText.txt`
 - `_history/`
 
@@ -163,25 +142,24 @@ Use this order and meaning when reasoning about file names:
 ## Scaffolding Steps
 
 1. Determine `<bookname>` and `<gist>`. If no gist is supplied, infer a one-line premise from the book name.
-2. Read `.space/templates/v1/fiction/book/` as the canonical template.
+2. Read `.framework/templates/stereotypes/poetry/book/` as the canonical template.
 3. Create `.space/pipeline/book_<bookname>/`.
-4. Copy only book-level `Template*` files and `sample.json`, if present, from the template root into the pipeline root.
-5. Create the required root planning artifacts: `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `workshop_minutes/`, `chapter_seeds/`, and `chapters_research/`.
-6. Create `.space/pipeline/book_<bookname>/chapters/chapter_1/` by copying the canonical `chapters/chapter_1/` template folder.
-7. Confirm `.space/pipeline/book_<bookname>/chapters/chapter_1/segments/segment_1/` exists after copying.
-8. Confirm `writer/`, `editor/`, and `translator/` exist under the canonical `segment_1/` folder.
-9. Seed the book-level `TemplateLayOutShapeJson.json` with the book identity, long title, genre, era, language, target audience, chapter count, summary, chapter list, character list, and history.
-10. Seed `book.json` from the same layout data, preserving chapters, characters, and any quality attributes.
-11. Seed `characters.json` from the layout character roster.
-12. Seed `masterprompt.md` and `workshop_metadata.md` from the book identity, premise, chapter plan, style/register, and character/frame roles.
-13. Seed `TemplateModelJson.json` with `book_summary`, `book_template_json`, `chapter_count`, and `chapter_summary_word_count`.
-14. Seed `TemplateMetaJson.json` with `Name`, `Description`, `Type`, and `InstanceCount`.
-15. Create `source/books/book_<bookname>/` as the destination for finished content.
-16. Verify the path invariant and required planning artifacts before reporting completion.
+4. Copy `sample.json`, if present, from the template root into the pipeline root. Exclude `Template*.json`, `TemplatePrompt*.txt`, and `TemplateSystemPromptText.txt`; include or create the three level state JSON files.
+5. Create the required book-level state files: `SelfStateInitialJson.json`, `SelfStateActivityJson.json`, and `ReturningModelJson.json`.
+6. Create the required root planning artifacts: `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `workshop_minutes/`, `chapter_seeds/`, and `chapters_research/`.
+7. Create `.space/pipeline/book_<bookname>/chapters/1/` by copying the canonical `chapters/1/` folder shape, excluding `Template*.json`, `TemplatePrompt*.txt`, and `TemplateSystemPromptText.txt`.
+8. Confirm `.space/pipeline/book_<bookname>/chapters/1/segments/1/` exists after copying.
+9. Confirm `writer/`, `editor/`, and `translator/` exist under the canonical segment folder.
+10. Create chapter-level state files in each `<n>/` and segment-level state files in each `<x>/`.
+11. Seed `book.json` with the book identity, long title, genre, era, language, target audience, chapter count, summary, chapter list, character list, and history.
+12. Seed `characters.json` from the layout character roster.
+13. Seed `masterprompt.md` and `workshop_metadata.md` from the book identity, premise, chapter plan, style/register, and character/frame roles.
+14. Create `source/books/book_<bookname>/` as the destination for finished content.
+15. Verify the path invariant, required state files, and required planning artifacts before reporting completion.
 
-## Book Layout JSON Responsibilities
+## Book JSON Responsibilities
 
-At minimum, the book-level `TemplateLayOutShapeJson.json` should contain:
+At minimum, the book-level `book.json` should contain:
 
 - `book_name`
 - `book_long_title`
@@ -206,7 +184,7 @@ The `all_characters` array should use `character_id`, `full_name`, `role`, `iden
 - Every book pipeline lives under `.space/pipeline/`; never scaffold at the workspace root.
 - Use the hardcoded v1 canonical template unless the user explicitly changes the template version.
 - The default `chapter_count` is 20 unless the user specifies another count.
-- The layout plus root planning artifacts are the source of truth for book structure before writing begins.
+- The layout plus level state files and root planning artifacts are the source of truth for book structure before writing begins.
 - Do not overwrite existing book-specific content without first inspecting it.
 - Do not delete misplaced legacy folders unless the user approves or the current task explicitly asks for cleanup and the canonical replacement exists.
 
@@ -215,4 +193,13 @@ The `all_characters` array should use `character_id`, `full_name`, `role`, `iden
 ```text
 layout -> book architect -> chapter architect -> segment writer -> editor -> translator -> final book output
 ```
+
+
+
+
+
+
+
+
+
 

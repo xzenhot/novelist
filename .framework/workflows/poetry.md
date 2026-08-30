@@ -223,7 +223,7 @@ When the user supplies a `<bookname>`, you MUST first scaffold a new book before
 
 ### The Template
 
-Every new book scaffold must use the layout skill at **`.framework\skills\layout\SKILL.md`**. The layout skill owns the v1 segment-based folder shape, Template* files, runtime-file boundaries, and path invariants. Poetry-specific configuration may still seed poetry-oriented content after the layout exists.
+Every new book scaffold must use the layout skill at **`.framework\skills\layout\SKILL.md`**. The layout skill owns the v1 segment-based folder shape, level state files, planning artifacts, runtime-file boundaries, and path invariants. Poetry-specific configuration may still seed poetry-oriented content after the layout exists.
 
 The engine is a **segment-based workflow**: a book is divided into chapters, each chapter into segments, and each segment passes through three agents — **writer → editor → translator**. In poetry, **each chapter has exactly ONE segment** (a single Question → Oration → Benediction unit).
 
@@ -231,16 +231,10 @@ The template contains:
 
 | Path | What it is |
 |------|-----------|
-| `TemplateLayOutShapeJson.json` | The book layout schema (the seed shape) — book identity, chapter list, character roster, history |
-| `TemplateMetaJson.json` | Book metadata (Name, Description, Type, InstanceCount) |
-| `TemplateModelJson.json` | Book model (book_summary, chapter_count, ...) |
-| `TemplatePromptInitialText.txt` | Prompt: architect the full book layout from the seed |
-| `TemplatePromptNextText.txt` | Prompt: extend the layout with the next chapters |
-| `TemplatePromptSummaryText.txt` | Prompt: produce a running summary |
-| `chapters\chapter_<n>\` | One folder per chapter, with its own `Template*` files, `moods\`, and `spec\` |
-| `chapters\chapter_<n>\segments\segment_<x>\` | One folder per segment, with its own `Template*` files and `writer\`, `editor\`, `translator\` subfolders |
+| `chapters\<n>\` | One folder per chapter, with `moods\` and `segments\` |
+| `chapters\<n>\segments\<x>\` | One folder per segment, with `writer\`, `editor\`, `translator\` subfolders |
 
-The full scaffolding logic is owned by `.framework\skills\layout\SKILL.md`. Read and follow the layout skill before scaffolding. `.space\templates\v1\SCAFFOLD.md` is only a short reference note.
+The full scaffolding logic is owned by `.framework\skills\layout\SKILL.md`. Read and follow the layout skill before scaffolding. `.framework\templates\SCAFFOLD.md` is only a short reference note.
 
 ### What `<bookname>` and `<gist>` do
 
@@ -248,12 +242,8 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line
 
 **Inputs (the pipeline):**
 1. **`.space\pipeline\book_<bookname>\`** — the book's pipeline root (e.g. `.space\pipeline\book_speed\`, `.space\pipeline\book_light\`).
-2. **`.space\pipeline\book_<bookname>\TemplateLayOutShapeJson.json`** — the book layout (seeded by `<gist>`).
-3. **`.space\pipeline\book_<bookname>\TemplateMetaJson.json`** — book metadata.
-4. **`.space\pipeline\book_<bookname>\TemplateModelJson.json`** — book model.
-5. **`.space\pipeline\book_<bookname>\TemplatePrompt*.txt`** — the prompt templates.
-6. **`.space\pipeline\book_<bookname>\chapters\chapter_1\`** — the chapter folder (with `moods\`, `spec\`, and `segments\`).
-7. **`.space\pipeline\book_<bookname>\chapters\chapter_1\segments\segment_1\`** — the segment folder (with `writer\`, `editor\`, `translator\`).
+6. **`.space\pipeline\book_<bookname>\chapters\1\`** — the chapter folder (with `moods\` and `segments\`).
+7. **`.space\pipeline\book_<bookname>\chapters\1\segments\1\`** — the segment folder (with `writer\`, `editor\`, `translator\`).
 
 **Outputs (the finished book):**
 8. **`source\books\book_<bookname>\`** — the output root, holding the finished chapters.
@@ -267,8 +257,8 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line
 1. **Use the layout skill first**:
    - Read `.framework\skills\layout\SKILL.md`.
    - Follow its canonical v1 scaffold steps, scaffold/runtime boundary, and path invariant.
-   - Let the layout skill create or repair `.space\pipeline\book_<bookname>\` and `source\books\book_<bookname>\`.
-   - Verify `chapters\chapter_1\segments\segment_1\` exists and no root-level `chapter_1\` or `segment_1\` duplicate exists.
+   - Let the layout skill create or repair `.space\pipeline\book_<bookname>\`, including book/chapter/segment state files, and `source\books\book_<bookname>\`.
+   - Verify `chapters\1\segments\1\` exists and no numeric chapter folder exists directly under the book root.
 
 2. **Apply poetry-specific initialization after layout succeeds**:
    - Ensure `source\books\book_<bookname>\chapters\` exists for finished poetry chapter files.
@@ -279,7 +269,6 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line
    - Initialize `.space\pipeline\book_<bookname>\progress.json` with all topics pending if it does not already exist.
 
 3. **Seed the layout JSON through the layout skill rules**:
-   - Fill in `TemplateLayOutShapeJson.json` from the gist: `book_name`, `book_long_title`, `book_summary`, `chapters`, and `all_characters`.
    - Use `chapter_count` 20 by default unless the user specifies a different count.
    - Poetry-specific `config.json` remains the source of truth for generated chapter language, quality, themes, reference, and index.
 ### The `config.json` schema
@@ -471,7 +460,7 @@ Commands:
              Uses the layout skill (`.framework/skills/layout/SKILL.md`) to create
              or repair the canonical v1 segment-based pipeline at
              .space/pipeline/book_<bookname>/. The layout skill is authoritative
-             for folder shape, Template* files, OperationState mapping, runtime
+             for folder shape, planning artifacts, OperationState mapping, runtime
              boundaries, and chapter/segment path invariants. Poetry then adds
              config.json, bookseed.txt, override.md, metadata, progress tracking,
              and source/books/book_<bookname>/chapters/. <gist> is optional - if
@@ -496,7 +485,6 @@ Arguments:
   <bookname>   The book's name (pipeline becomes .space/pipeline/book_<bookname>/).
   <gist>       Optional. The book's core premise — a one-line summary of the
                subject, theme, and scope. Used only during scaffold to seed
-               TemplateLayOutShapeJson.json. If omitted, infer a gist from the
                book name.
   <quality>    Path to a quality file in context/qualities/ (e.g. aurilus).
   <theme>      Path to a theme file in context/themes/ (e.g. generic).
@@ -543,8 +531,7 @@ Provide a `<bookname>`, a `<gist>` (the book's core premise — a one-line summa
 The agent will then:
 1. Determine the gist: use the provided `<gist>`, or infer one from the book name if omitted.
 2. Read and follow `.framework\skills\layout\SKILL.md` to create or repair the canonical v1 pipeline.
-3. Verify the layout skill path invariant: chapters under `chapters\chapter_<n>\`, segments under `chapters\chapter_<n>\segments\segment_<x>\`, with no root-level chapter or segment duplicates.
-4. Seed `.space\pipeline\book_<bookname>\TemplateLayOutShapeJson.json` with the gist (`book_name`, `book_long_title`, `book_summary`, `chapters`, `all_characters`).
+3. Verify the layout skill path invariant: chapters under `chapters\<n>\`, segments under `chapters\<n>\segments\<x>\`, with no root-level chapter or segment duplicates.
 5. Create or update poetry-specific `config.json`, `bookseed.txt`, and `override.md`.
 6. Create `.space\pipeline\book_<bookname>\metadata_code<number>.json` before writing; never overwrite an existing one.
 7. Initialize `.space\pipeline\book_<bookname>\progress.json`.
@@ -564,6 +551,13 @@ If the book folder already exists, the agent skips scaffolding and resumes from 
 > "Writer, write chapters for `<bookname>`."
 
 The agent will then read `.space\pipeline\book_<bookname>\config.json`, read the existing `bookseed.txt`, initialize progress, and begin writing chapters dynamically — the same Gibran-esque voice, but grounded in whatever subject and language the config defines.
+
+
+
+
+
+
+
 
 
 

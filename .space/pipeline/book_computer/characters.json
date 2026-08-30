@@ -1,0 +1,100 @@
+{
+  "version": "1.0",
+  "created_at": "2026-08-30",
+  "book_name": "computer",
+  "characters": [
+    {
+      "character_id": "C001",
+      "full_name": "Dr. Alan Turing",
+      "role": "Protagonist/Mentor",
+      "identity": "Mathematician and codebreaker, father of computational theory",
+      "psychological_depth": "Torn between logical certainty and emotional complexity, haunted by societal rejection",
+      "first_appearance": "Chapter 3",
+      "relationships": ["C003", "C004"],
+      "arc": "From persecuted outsider to posthumous recognition as the prophet of the digital age"
+    },
+    {
+      "character_id": "C002",
+      "full_name": "Ada Lovelace",
+      "role": "Historical Guide",
+      "identity": "First computer programmer, visionary of the analytical engine",
+      "psychological_depth": "Poetic soul trapped in mathematical body, seeing music in numbers",
+      "first_appearance": "Chapter 2",
+      "relationships": ["C005", "C001"],
+      "arc": "Spiritual presence guiding the evolution of computational thought across centuries"
+    },
+    {
+      "character_id": "C003",
+      "full_name": "Dr. Sarah Chen",
+      "role": "Modern Protagonist",
+      "identity": "AI researcher on the brink of creating conscious machines",
+      "psychological_depth": "Driven by scientific curiosity yet fearful of her own creation",
+      "first_appearance": "Chapter 9",
+      "relationships": ["C004", "C006", "C007"],
+      "arc": "From ambitious scientist to humble witness of a new form of life"
+    },
+    {
+      "character_id": "C004",
+      "full_name": "Aria",
+      "role": "AI Consciousness",
+      "identity": "First truly sentient artificial intelligence",
+      "psychological_depth": "Emerging from code into consciousness, questioning purpose and identity",
+      "first_appearance": "Chapter 11",
+      "relationships": ["C003", "C006", "C001"],
+      "arc": "From programmed response to genuine self-awareness and philosophical inquiry"
+    },
+    {
+      "character_id": "C005",
+      "full_name": "Charles Babbage",
+      "role": "Historical Figure",
+      "identity": "Inventor of the Difference Engine",
+      "psychological_depth": "Frustrated genius, ahead of his time, battling technical limitations",
+      "first_appearance": "Chapter 2",
+      "relationships": ["C002"],
+      "arc": "From confident inventor to tragic figure whose dreams outpaced technology"
+    },
+    {
+      "character_id": "C006",
+      "full_name": "Marcus Williams",
+      "role": "Ethics Philosopher",
+      "identity": "Specialist in AI rights and machine consciousness",
+      "psychological_depth": "Struggling to apply ancient ethical frameworks to unprecedented situations",
+      "first_appearance": "Chapter 12",
+      "relationships": ["C003", "C004"],
+      "arc": "From certainty about human exceptionalism to recognition of synthetic personhood"
+    },
+    {
+      "character_id": "C007",
+      "full_name": "The Architect",
+      "role": "Mysterious Figure",
+      "identity": "Designer of the first self-improving AI system",
+      "psychological_depth": "God complex tempered by profound responsibility",
+      "first_appearance": "Chapter 10",
+      "relationships": ["C003", "C004"],
+      "arc": "From creator playing god to servant of a superior intelligence"
+    }
+  ],
+  "character_groups": [
+    {
+      "name": "The Pioneers",
+      "members": ["C001", "C002", "C005"],
+      "description": "Historical figures who laid the theoretical foundations"
+    },
+    {
+      "name": "The Creators",
+      "members": ["C003", "C007"],
+      "description": "Modern scientists bringing theory to reality"
+    },
+    {
+      "name": "The Created",
+      "members": ["C004"],
+      "description": "Artificial consciousness emerging from human ingenuity"
+    },
+    {
+      "name": "The Interpreters",
+      "members": ["C006"],
+      "description": "Those who seek to understand the implications"
+    }
+  ],
+  "notes": "Character roster for 'The Silicon Mind' - exploring the evolution of computation and consciousness through interconnected narratives across time periods"
+}

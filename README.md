@@ -14,8 +14,12 @@ The system is split into two layers:
 ```
 novelist/
 ├── .framework/              # the agents
+│   ├── agents/              # role agents (poet, editor, translator, character, …)
 │   ├── skills/              # on-demand workflows (slash commands)
-│   └── workflows/           # the writing engines (poetry.md, reframe.md, novel.md, guide.md)
+│   ├── workflows/           # the writing engines (poetry.md, reframe.md, novel.md, guide.md)
+│   ├── streams/             # narrative streams (novel, poetry, story, play, feature)
+│   ├── rules/               # shared rules
+│   └── templates/           # canonical templates (poetry, stereotypes, novel)
 ├── .space/                  # inputs & data
 │   ├── context/             # qualities/, references/, themes/
 │   ├── pipeline/            # novel layouts (book_<name>/)
@@ -46,6 +50,75 @@ Each skill is an on-demand workflow, invoked as a slash command.
 
 ---
 
+## The Writing Agents
+
+The `.framework/` layer is organized into four kinds of agents:
+
+| Kind | Location | Role |
+|------|----------|------|
+| **Workflows** | `.framework/workflows/` | The top-level writing engines that orchestrate a whole book. |
+| **Skills** | `.framework/skills/` | On-demand, single-purpose workflows invoked as slash commands. |
+| **Role agents** | `.framework/agents/` | Specialized roles (poet, editor, translator, character, …). |
+| **Streams** | `.framework/streams/` | Narrative streams (novel, poetry, story, play, feature). |
+
+### Workflows (`.framework/workflows/`)
+
+| Workflow | Purpose |
+|----------|---------|
+| `poetry.md` | The **writer** engine — transforms topics/terms into Gibran-esque poetic prose chapters. |
+| `reframe.md` | The **reframer** engine — reshapes finished chapters (voice, register, dialect) while preserving their core. |
+| `novel.md` | The **novel-writer** engine — turns workshop narratives into frame-story novel chapters. |
+| `guide.md` | Implementation guide for the writer agent. |
+
+### Skills (`.framework/skills/`)
+
+Each skill is a single-purpose workflow with a `SKILL.md` that defines when to use it and what it produces.
+
+| Skill | Purpose |
+|-------|---------|
+| `layout` | Scaffold the structural skeleton of a novel pipeline (`.space/pipeline/book_<name>/`). |
+| `narrative` | Write/revise frame-story novel chapters (Workshop / Story / Discussion). |
+| `poeticprose` | Write/revise Gibran-esque philosophical poetic prose. |
+| `research` | Gather, organize, and verify source material (qualities, themes, references). |
+| `history` | Gather and weave historical material into a narrative. |
+| `philosophy` | Build the philosophical grounding (seed/quality analysis). |
+| `theme` | Define and weave thematic categories into chapters. |
+| `revision` | Revise, tighten, audit, or transform already-written chapters. |
+| `translation` | Translate/localize literary text across languages. |
+| `dialogue` | Write and polish spoken exchanges between characters. |
+| `pacing` | Control rhythm, tempo, tension, and cliffhangers. |
+| `contemporary` | Write the modern frame scenes of a frame-story. |
+| `geography` | Build the physical and cultural sense of place. |
+| `indian` | Ground a story in Indian cultural, historical, and literary context. |
+| `mythology` | Draw on myth, legend, folklore, and sacred narrative. |
+
+### Role Agents (`.framework/agents/`)
+
+| Agent | Role |
+|-------|------|
+| `poet` | The poetic-prose voice. |
+| `editor` | Revision and tightening. |
+| `translator` | Cross-language rendering. |
+| `character` | Character roster and depth. |
+| `review` | Audit and review. |
+| `reference` | Source-text grounding. |
+| `discovery` | Material discovery. |
+| `place` | Setting and geography. |
+| `prose` | Prose craft. |
+| `time` | Era and chronology. |
+
+### Streams (`.framework/streams/`)
+
+| Stream | Purpose |
+|--------|---------|
+| `novel` | Frame-story novel stream. |
+| `poetry` | Poetic-prose stream. |
+| `story` | Short-story stream. |
+| `play` | Dramatic/play stream. |
+| `feature` | Feature-writing stream. |
+
+---
+
 ## The Two Engines
 
 ### 1. Poet — Gibran-esque Poetic Prose
@@ -58,8 +131,8 @@ Transforms a list of topics/terms into philosophical poetic prose chapters. Weav
 
 - Engine: `.framework/workflows/poetry.md`
 - Reframer: `.framework/workflows/reframe.md`
-- Inputs: `.space/context/` (qualities, themes, references)
-- Template: `.space/templates/poetry/default/`
+- Inputs: `.framework/templates/novel/` (qualities, themes, references)
+- Template: `.framework/templates/stereotypes/poetry/default/`
 - Outputs: `source/book_<name>/`
 
 ### 2. Novelist — Frame-Story Novels
@@ -108,9 +181,10 @@ layout → research → characters → workshops → chapters
 
 | Folder | Role |
 |--------|------|
-| `.space/context/qualities/` | Seed analyses (philosophical grounding) |
-| `.space/context/themes/` | Thematic category sets |
-| `.space/context/references/` | Source texts and dictionaries |
+| `.framework/templates/novel/qualities/` | Seed analyses (philosophical grounding) |
+| `.framework/templates/novel/themes/` | Thematic category sets |
+| `.framework/templates/novel/references/` | Source texts and dictionaries |
 | `.space/pipeline/` | Novel layouts (inputs) |
-| `.space/templates/` | Canonical templates (poetry, stereotypes, novel) |
+| `.framework/templates/` | Canonical templates (poetry, stereotypes, novel) |
 | `source/` | Finished chapters (outputs) |
+

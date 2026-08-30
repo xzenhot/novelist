@@ -21,7 +21,7 @@ Commands:
              Uses the layout skill (`.framework/skills/layout/SKILL.md`) to create
              or repair the canonical v1 segment-based pipeline at
              .space/pipeline/book_<bookname>/. The layout skill is authoritative
-             for template source, folder shape, Template* files, OperationState
+             for template source, folder shape, level state files, planning artifacts, OperationState
              mapping, and chapter/segment path invariants. It also creates an
              empty source/books/book_<bookname>/ destination for finished chapters.
              <gist> is optional — if omitted, infer a gist from the book name.
@@ -54,7 +54,7 @@ Arguments:
   <bookname>   The book's name; the pipeline is .space/pipeline/book_<bookname>/.
   <gist>       Optional. The book's core premise: a one-line summary of the
                story's subject, theme, and scope. Used only during scaffold to
-               seed TemplateLayOutShapeJson.json (book_name, book_long_title,
+               seed book.json (book_name, book_long_title,
                book_summary, chapters, all_characters). If omitted, infer a
                gist from the book name.
   <chapter>    The chapter to write. One of: Introduction, 1..N, Conclusion.
@@ -77,9 +77,9 @@ Pipeline structure is owned by the layout skill:
 
 When scaffolding, creating, or repairing `.space/pipeline/book_<bookname>/`, read and follow the layout skill. Do not duplicate or reinterpret scaffold rules in this workflow. In particular, preserve the layout skill's mandatory path invariant:
 
-- chapters live only at `.space/pipeline/book_<bookname>/chapters/chapter_<n>/`
-- segments live only at `.space/pipeline/book_<bookname>/chapters/chapter_<n>/segments/segment_<x>/`
-- never create root-level `chapter_<n>/` or `segment_<x>/` folders under the book pipeline
+- chapters live only at `.space/pipeline/book_<bookname>/chapters/<n>/`
+- segments live only at `.space/pipeline/book_<bookname>/chapters/<n>/segments/<x>/`
+- never create root-level `<n>/` or `<x>/` folders under the book pipeline
 
 ## Scaffolding Steps
 
@@ -90,7 +90,7 @@ For `/novel <bookname> [<gist>]`:
 3. Let the layout skill create or repair the canonical v1 pipeline, seed the layout/model/meta JSON, create the output folder, and verify the path invariant.
 4. Continue with novel-specific writing only after the layout skill has completed successfully.
 
-`.space/templates/v1/SCAFFOLD.md` is a short reference note only; do not treat it as the primary scaffold instruction source.
+`.framework/templates/SCAFFOLD.md` is a short reference note only; do not treat it as the primary scaffold instruction source.
 ## Core Principle
 
 You are an accomplished novelist. Your task is to turn workshop narratives from `.space/pipeline/book_<bookname>/workshop_minutes/` into finished novel chapters under `source/books/book_<bookname>/`.
@@ -230,5 +230,10 @@ After writing, count the words. If the Story section is too short, expand it thr
 - **Finished chapters (destination):** `source/books/book_<bookname>/`
 - **Character list:** `.space/pipeline/book_<bookname>/characters.json`
 - **Book structure:** `.space/pipeline/book_<bookname>/book.json`
+
+
+
+
+
 
 

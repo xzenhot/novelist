@@ -1,0 +1,48 @@
+{
+  "book_name": "human",
+  "book_long_title": "The Human Condition: A Frame-Story of Consciousness, Emotion, and Meaning",
+  "generic": "Philosophical Fiction / Literary Fiction",
+  "era": "Prehistory to the Present",
+  "language": "en",
+  "target_audience": "general public, philosophy enthusiasts, students",
+  "chapter_count": 20,
+  "created_at": "2026-08-30",
+  "user_name": "novelist",
+  "book_summary": "A frame-story novel exploring what it means to be human — the journey of consciousness, emotion, and the search for meaning across the ages. Through a modern workshop frame and a sweeping historical narrative, the story traces humanity's awakening from the first spark of self-awareness to the modern quest for purpose, weaving together love, fear, hope, and the eternal question of who we are.",
+  "chapters": [
+    {"chapter_index": 1, "name": "The First Spark", "chapter_title": "The Dawn of Consciousness", "chapter_summary": "The moment early humans first became aware of themselves — the birth of self-consciousness and the first stirrings of wonder."},
+    {"chapter_index": 2, "name": "The Fire", "chapter_title": "Warmth and Community", "chapter_summary": "The discovery of fire and the birth of community, storytelling, and shared identity around the hearth."},
+    {"chapter_index": 3, "name": "The Word", "chapter_title": "Language and Thought", "chapter_summary": "The emergence of language and its power to shape thought, memory, and the transmission of knowledge."},
+    {"chapter_index": 4, "name": "The Question", "chapter_title": "Why Are We Here?", "chapter_summary": "The first philosophical questions — the search for meaning, origin, and purpose in the face of mortality."},
+    {"chapter_index": 5, "name": "The Myth", "chapter_title": "Stories of the Gods", "chapter_summary": "The creation of myth and religion as humanity's first attempt to explain the cosmos and its place within it."},
+    {"chapter_index": 6, "name": "The City", "chapter_title": "Civilization and Order", "chapter_summary": "The rise of cities, laws, and social order — the tension between individual freedom and collective life."},
+    {"chapter_index": 7, "name": "The Love", "chapter_title": "The Heart's Awakening", "chapter_summary": "The experience of love in all its forms — romantic, familial, and the love of humanity itself."},
+    {"chapter_index": 8, "name": "The Fear", "chapter_title": "The Shadow Within", "chapter_summary": "The confrontation with fear, suffering, and death — the darker dimensions of the human experience."},
+    {"chapter_index": 9, "name": "The Reason", "chapter_title": "The Age of Thought", "chapter_summary": "The rise of philosophy and science — humanity's turn toward reason and the systematic pursuit of truth."},
+    {"chapter_index": 10, "name": "The Art", "chapter_title": "Beauty and Creation", "chapter_summary": "The human impulse to create — art, music, and literature as expressions of the soul."},
+    {"chapter_index": 11, "name": "The Faith", "chapter_title": "Belief and Doubt", "chapter_summary": "The struggle between faith and doubt — the search for transcendence in a material world."},
+    {"chapter_index": 12, "name": "The Machine", "chapter_title": "The Industrial Awakening", "chapter_summary": "The industrial revolution and its transformation of human labor, identity, and relationship to nature."},
+    {"chapter_index": 13, "name": "The War", "chapter_title": "The Cost of Conflict", "chapter_summary": "The devastation of war and the human capacity for both cruelty and compassion."},
+    {"chapter_index": 14, "name": "The Dream", "chapter_title": "Hope and Aspiration", "chapter_summary": "The enduring human capacity for hope, dreams, and the pursuit of a better world."},
+    {"chapter_index": 15, "name": "The Self", "chapter_title": "Identity and Belonging", "chapter_summary": "The modern quest for identity — the search for self in a fragmented, globalized world."},
+    {"chapter_index": 16, "name": "The Connection", "chapter_title": "The Digital Age", "chapter_summary": "The digital revolution and its reshaping of human connection, community, and consciousness."},
+    {"chapter_index": 17, "name": "The Meaning", "chapter_title": "The Search for Purpose", "chapter_summary": "The modern existential quest — finding meaning in a world that often seems indifferent."},
+    {"chapter_index": 18, "name": "The Compassion", "chapter_title": "The Better Angels", "chapter_summary": "The human capacity for empathy, kindness, and moral growth — the better angels of our nature."},
+    {"chapter_index": 19, "name": "The Legacy", "chapter_title": "What We Leave Behind", "chapter_summary": "The question of legacy — what humanity passes on to future generations."},
+    {"chapter_index": 20, "name": "The Human", "chapter_title": "The Eternal Question", "chapter_summary": "A return to the central question — what it means to be human, and the enduring mystery of consciousness."}
+  ],
+  "all_characters": [
+    {"character_id": "C001", "full_name": "Elena", "role": "Protagonist / Narrator", "identity": "A philosopher and storyteller guiding the workshop through humanity's story", "psychological_depth": "Deeply reflective, seeking to understand the essence of human experience"},
+    {"character_id": "C002", "full_name": "Daniel", "role": "Workshop Participant", "identity": "A skeptical young scientist questioning the value of emotion and meaning", "psychological_depth": "Torn between rational detachment and a longing for connection"},
+    {"character_id": "C003", "full_name": "The First Human", "role": "Historical Figure", "identity": "A composite of early humans at the dawn of consciousness", "psychological_depth": "Experiencing the first stirrings of self-awareness and wonder"},
+    {"character_id": "C004", "full_name": "The Philosopher", "role": "Historical Figure", "identity": "A composite of humanity's great thinkers", "psychological_depth": "Driven by the eternal question of meaning and truth"},
+    {"character_id": "C005", "full_name": "The Artist", "role": "Historical Figure", "identity": "A composite of humanity's creators", "psychological_depth": "Expressing the inexpressible through beauty and creation"}
+  ],
+  "history": [
+    {
+      "timestamp": "2026-08-30T00:00:00Z",
+      "action": "Initial scaffold created",
+      "details": "Book pipeline structure established with 20 chapters"
+    }
+  ]
+}
