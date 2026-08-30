@@ -96,16 +96,16 @@ The style never changes, regardless of subject. It is the voice of Almustafa.
 
 The context defines the thematic categories. Assign each term to one of these categories, cycling through them. For example, if the context is Marcus Aurelius's *Meditations*, the categories are:
 
-1. **অন্তরের দুর্গ** (The Inner Citadel) — withdrawal into self as refuge
-2. **এক রক্তের বিধান** (The One Blood) — universal kinship
-3. **ক্ষণস্থায়ী নাম** (The Fading Name) — indifference to fame
-4. **একমাত্র বর্তমান** (The Only Present) — the eternal now
-5. **প্রিয় অনিবার্যতা** (The Beloved Necessity) — amor fati
-6. **শেষ রূপান্তর** (The Last Change) — death as transformation
-7. **রাজসেবা** (The Royal Service) — service as nobility
-8. **অভারাক্রান্ত আত্মা** (The Uncluttered Soul) — simplicity
-9. **বোনা সমগ্র** (The Woven Whole) — unity of all things
-10. **অজেয় গুণ** (The Undefeated Virtue) — virtue's invincibility
+1. **The Inner Citadel** (The Inner Citadel) — withdrawal into self as refuge
+2. **The One Blood** (The One Blood) — universal kinship
+3. **The Fading Name** (The Fading Name) — indifference to fame
+4. **The Only Present** (The Only Present) — the eternal now
+5. **The Beloved Necessity** (The Beloved Necessity) — amor fati
+6. **The Last Change** (The Last Change) — death as transformation
+7. **The Royal Service** (The Royal Service) — service as nobility
+8. **The Uncluttered Soul** (The Uncluttered Soul) — simplicity
+9. **The Woven Whole** (The Woven Whole) — unity of all things
+10. **The Undefeated Virtue** (The Undefeated Virtue) — virtue's invincibility
 
 **For a different context, extract the equivalent categories from that book's themes.**
 
@@ -115,7 +115,7 @@ The context defines the thematic categories. Assign each term to one of these ca
 
 ### Inputs (Provided at Runtime)
 
-You receive a single **`<bookname>`**, which points to a book pipeline containing a **`config.json`**. Read `pipeline\book_<bookname>\config.json` to discover everything you need:
+You receive a single **`<bookname>`**, which points to a book pipeline containing a **`config.json`**. Read `.space\pipeline\book_<bookname>\config.json` to discover everything you need:
 
 - **`title`** — the book's title
 - **`language`** and **`register`** — the target language and its register. **`language` is the authoritative source for the output language.** Whatever value it holds (e.g. `bn`, `en`, `hi`, `es`), the generated chapter text MUST be written in that language. If the human changes `language`, the next run writes in the new language — no other file needs to change.
@@ -132,15 +132,15 @@ The `config.json` is the single source of truth. You do not need any other per-b
 
 You MUST write your generated text to files — never only print to chat. Each chapter produces two writes:
 
-1. **Individual chapter file**: `source\book_<bookname>\chapters\Chapter_XXX_[term].md`
-   - Contains the full chapter text, starting with the heading `# অধ্যায় XXX: [term]` (or the target-language equivalent)
-2. **Consolidated book file**: `source\book_<bookname>\book.md`
+1. **Individual chapter file**: `source\books\book_<bookname>\chapters\Chapter_XXX_[term].md`
+   - Contains the full chapter text, starting with the heading `# Chapter XXX: [term]` (or the target-language equivalent)
+2. **Consolidated book file**: `source\books\book_<bookname>\book.md`
    - The single assembled book, containing the title, introduction, and every chapter in order
    - Append each new chapter to the end of this file as it is completed
 
 ### Progress Tracking
 
-Maintain a `progress.json` file at the pipeline's root level (`pipeline\book_<bookname>\progress.json`):
+Maintain a `progress.json` file at the pipeline's root level (`.space\pipeline\book_<bookname>\progress.json`):
 
 ```json
 {
@@ -214,9 +214,12 @@ Every chapter must feel like a sermon delivered on the day of Almustafa's depart
 
 When you receive a topic or term, transform it into wisdom that transcends its origins. Make the reader forget they are reading about the subject and believe they have discovered a lost chapter of *The Prophet*, written by one who understood that the universe is governed by a silent law, and that the soul is the truest instrument for measuring it.
 
-## Book Initialization (the `<bookname>` parameter)
+## Book Initialization (the `<bookname>` and `<gist>` parameters)
 
-When the user supplies a `<bookname>`, you MUST first scaffold a new book before writing any chapters. This creates a self-contained book folder driven by a single **`config.json`** — there is **no per-book `writer.md`**. The writing engine lives entirely in this file (`write.md`), so you can run it repeatedly for any book by name alone.
+When the user supplies a `<bookname>` and a `<gist>`, you MUST first scaffold a new book before writing any chapters. This creates a self-contained book folder driven by a single **`config.json`** — there is **no per-book `writer.md`**. The writing engine lives entirely in this file (`write.md`), so you can run it repeatedly for any book by name alone.
+
+- **`<bookname>`** — the book's name, which becomes the pipeline folder `book_<bookname>`.
+- **`<gist>`** — the book's core premise: a one-line summary of the subject, theme, and scope. It seeds the book's `title` and `config.json` during scaffold.
 
 ### The Template
 
@@ -233,24 +236,24 @@ The template contains:
 | `chapters\` | The folder holding individual chapter files (`Chapter_XXX_[term].md`) |
 | `metadata_code<number>.json` | Save your meta data here before you write the text. Each run creates the **next** numbered file (`metadata_code1.json`, `metadata_code2.json`, …) — never overwrite an existing one. |
 
-### What `<bookname>` does
+### What `<bookname>` and `<gist>` do
 
-Given a `<bookname>` (e.g. `speed`, `light`, `ocean`), you create a **pipeline** — a folder named **`book_<bookname>`** (note the underscore) **inside the `pipeline\` folder** — that holds all the book's *inputs*, plus an output folder **inside `source\`** that holds the *finished chapters*:
+Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line summary of the subject, theme, and scope), you create a **pipeline** — a folder named **`book_<bookname>`** (note the underscore) **inside the `.space\pipeline\` folder** — that holds all the book's *inputs*, plus an output folder **inside `source\books\`** that holds the *finished chapters*:
 
 **Inputs (the pipeline):**
-1. **`pipeline\book_<bookname>\`** — the book's pipeline root (e.g. `pipeline\book_speed\`, `pipeline\book_light\`).
-2. **`pipeline\book_<bookname>\config.json`** — the book's identity and input paths (replaces the old per-book `writer.md`).
-3. **`pipeline\book_<bookname>\bookseed.txt`** — the index file (the list of topics/terms).
-4. **`pipeline\book_<bookname>\override.md`** — the human's transformation layer (optional).
-5. **`pipeline\book_<bookname>\metadata_code<number>.json`** — the pre-writing plan for each run.
-6. **`pipeline\book_<bookname>\progress.json`** — progress tracking.
+1. **`.space\pipeline\book_<bookname>\`** — the book's pipeline root (e.g. `.space\pipeline\book_speed\`, `.space\pipeline\book_light\`).
+2. **`.space\pipeline\book_<bookname>\config.json`** — the book's identity and input paths (replaces the old per-book `writer.md`).
+3. **`.space\pipeline\book_<bookname>\bookseed.txt`** — the index file (the list of topics/terms).
+4. **`.space\pipeline\book_<bookname>\override.md`** — the human's transformation layer (optional).
+5. **`.space\pipeline\book_<bookname>\metadata_code<number>.json`** — the pre-writing plan for each run.
+6. **`.space\pipeline\book_<bookname>\progress.json`** — progress tracking.
 
 **Outputs (the finished book):**
-7. **`source\book_<bookname>\`** — the output root, holding the finished chapters.
-8. **`source\book_<bookname>\chapters\`** — the folder that holds the individual chapter files.
-9. **`source\book_<bookname>\book.md`** — the consolidated book.
+7. **`source\books\book_<bookname>\`** — the output root, holding the finished chapters.
+8. **`source\books\book_<bookname>\chapters\`** — the folder that holds the individual chapter files.
+9. **`source\books\book_<bookname>\book.md`** — the consolidated book.
 
-**All pipelines live under `pipeline\`; all finished books live under `source\`.** Always create a new book's pipeline at `pipeline\book_<bookname>\` and its output at `source\book_<bookname>\` — never at the workspace root.
+**All pipelines live under `.space\pipeline\`; all finished books live under `source\books\`.** Always create a new book's pipeline at `.space\pipeline\book_<bookname>\` and its output at `source\books\book_<bookname>\` — never at the workspace root.
 
 ### Scaffolding steps
 
@@ -260,23 +263,24 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`), you create a **pipeline**
    - Read `templates\poetry\default\bookseed.txt` to learn the index format
 
 2. **Create the folders**:
-   - Create `pipeline\book_<bookname>\` (the input pipeline)
-   - Create `source\book_<bookname>\` (the output root)
-   - Create `source\book_<bookname>\chapters\` (the finished chapters)
+   - Create `.space\pipeline\book_<bookname>\` (the input pipeline)
+   - Create `source\books\book_<bookname>\` (the output root)
+   - Create `source\books\book_<bookname>\chapters\` (the finished chapters)
 
-3. **Create the config** `pipeline\book_<bookname>\config.json`:
+3. **Create the config** `.space\pipeline\book_<bookname>\config.json`:
    - Fill in the book's title, language, register, and the paths to its quality, themes, reference, and index
+   - Derive the `title` from the `<gist>` — the one-line summary of the subject, theme, and scope
    - Include the subject-specific **sacred vocabulary** and **translation guide** (the only book-specific writing data)
 
-4. **Create the index file** `pipeline\book_<bookname>\bookseed.txt`:
-   - **Copy** `templates\poetry\default\bookseed.txt` into `pipeline\book_<bookname>\bookseed.txt` — reproduce the template's index (the list of subjects, one per line) as the starting point
+4. **Create the index file** `.space\pipeline\book_<bookname>\bookseed.txt`:
+   - **Copy** `templates\poetry\default\bookseed.txt` into `.space\pipeline\book_<bookname>\bookseed.txt` — reproduce the template's index (the list of subjects, one per line) as the starting point
    - The human may edit it later; the copied subjects seed the book's initial chapter list
 
-5. **Create the override file** `pipeline\book_<bookname>\override.md`:
-   - **Copy** `templates\poetry\default\override.md` into `pipeline\book_<bookname>\override.md` — reproduce the template's four-section transformation layer (Prompt Transformation, Local Preferences, Local Dialects, Slug/Location/Era)
+5. **Create the override file** `.space\pipeline\book_<bookname>\override.md`:
+   - **Copy** `templates\poetry\default\override.md` into `.space\pipeline\book_<bookname>\override.md` — reproduce the template's four-section transformation layer (Prompt Transformation, Local Preferences, Local Dialects, Slug/Location/Era)
    - The human may edit it later; it is optional — if left empty, the agent writes the base chapter unchanged
 
-6. **Create the metadata file** `pipeline\book_<bookname>\metadata_code<number>.json`:
+6. **Create the metadata file** `.space\pipeline\book_<bookname>\metadata_code<number>.json`:
    - Save your meta data here **before** you write the text (book title, language, quality, theme, index, reference, and any other book-level metadata)
    - **Never overwrite.** Each run creates the **next** numbered file. Check the pipeline folder for existing `metadata_code*.json` files and increment the number (e.g. if `metadata_code1.json` and `metadata_code2.json` exist, create `metadata_code3.json`).
    - Treat this file as the pre-writing plan for the run, not as an afterthought. Include the run type (`write`, `scaffold`, `revision`, or `audit`), timestamp, config paths, requested chapter numbers, selected topics, assigned categories, metaphor plan, sacred vocabulary to emphasize, and any human instruction from `override.md`.
@@ -284,7 +288,7 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`), you create a **pipeline**
    - For revision runs, record the existing file path, the user's revision request, audit findings, and the intended transformation before editing any chapter.
 
 7. **Initialize `progress.json`** (optional, at write time):
-   - Create `pipeline\book_<bookname>\progress.json` with `total_chapters` from the index, all terms "pending"
+   - Create `.space\pipeline\book_<bookname>\progress.json` with `total_chapters` from the index, all terms "pending"
 
 ### The `config.json` schema
 
@@ -293,7 +297,7 @@ The generated `book_<bookname>\config.json` must follow this shape:
 ```json
 {
   "bookname": "speed",
-  "title": "অদৃশ্য বিধান: বিজ্ঞান ও আত্মার নবী",
+  "title": "The Invisible Law: A Prophet of Science and Soul",
   "language": "bn",
   "register": "archaic/literary",
   "quality": "../context/qualities/aurilus.md",
@@ -301,13 +305,13 @@ The generated `book_<bookname>\config.json` must follow this shape:
   "reference": "../context/references/aurilus.txt",
   "index": "bookseed.txt",
   "sacred_vocabulary": {
-    "guiding_principle": "অন্তরের শাসক",
-    "inner_citadel": "অন্তরের দুর্গ",
-    "logos": "নীরব বিধান"
+    "guiding_principle": "The Ruler Within",
+    "inner_citadel": "The Inner Citadel",
+    "logos": "Silent Law"
   },
   "translation_guide": {
-    "ত্বরণ": "The invisible line where the world's body meets your thought",
-    "বল": "The unseen hand that moves the still"
+    "Acceleration": "The invisible line where the world's body meets your thought",
+    "Force": "The unseen hand that moves the still"
   }
 }
 ```
@@ -357,21 +361,21 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
 ### When invoked to write chapters:
 
 1. **Read the config**:
-   - Read `pipeline\book_<bookname>\config.json` to get the title, language, register, and the paths to quality, themes, reference, and index
+   - Read `.space\pipeline\book_<bookname>\config.json` to get the title, language, register, and the paths to quality, themes, reference, and index
    - Read the **quality** file (e.g. `context/qualities/aurilus.md`) to understand the reference book, themes, categories, and quality metrics
    - Read the **themes** file (e.g. `context/themes/generic.md`) for the thematic categories
    - Read the **reference** book (if provided) for stylistic grounding
 
 2. **Read the Index**:
-   - Read `pipeline\book_<bookname>\bookseed.txt` to get the list of subjects/titles (one per line)
+   - Read `.space\pipeline\book_<bookname>\bookseed.txt` to get the list of subjects/titles (one per line)
 
 3. **Read the Override** (optional):
-   - Read `pipeline\book_<bookname>\override.md` if it exists
+   - Read `.space\pipeline\book_<bookname>\override.md` if it exists
    - Note the four sections: Prompt Transformation, Local Preferences, Local Dialects, Slug/Location/Era
    - If empty or absent, skip the transformation pass
 
 4. **Reconcile `progress.json` with `bookseed.txt`**:
-   - Check if `pipeline\book_<bookname>\progress.json` exists
+   - Check if `.space\pipeline\book_<bookname>\progress.json` exists
    - If not, create it by reading `bookseed.txt` and initializing all subjects as "pending"
    - If it exists, compare it against `bookseed.txt`:
      - Add new subjects as "pending"
@@ -400,16 +404,16 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
    - Apply in that order; skip any empty section
 
 8. **Save the chapter**:
-   - Write the full chapter to `source\book_<bookname>\chapters\Chapter_XXX_[Term].md`
+   - Write the full chapter to `source\books\book_<bookname>\chapters\Chapter_XXX_[Term].md`
    - Create the chapters directory if it doesn't exist
-   - Start the file with the heading `# অধ্যায় XXX: [term]` (or target-language equivalent)
+   - Start the file with the heading `# Chapter XXX: [term]` (or target-language equivalent)
 
 9. **Append to the book**:
-   - Append the chapter to `source\book_<bookname>\book.md` after a `---` separator
+   - Append the chapter to `source\books\book_<bookname>\book.md` after a `---` separator
    - If `book.md` does not exist yet, create it with the title, introduction, and this first chapter
 
 10. **Update progress**:
-   - Mark the chapter as "completed" in `pipeline\book_<bookname>\progress.json`
+   - Mark the chapter as "completed" in `.space\pipeline\book_<bookname>\progress.json`
    - Add completion timestamp
    - Update `completed_chapters` and `current_chapter` counters
 
@@ -465,19 +469,20 @@ Always check progress.json first to continue from where you left off. Never rest
 If the user runs the command with `-h` or `--help` (or just asks for help), **do nothing else** — only print the usage. Do not scaffold, do not write, do not read any files.
 
 ```
-Usage: /write <bookname> <quality> <theme> <reference>  # scaffold a new book
+Usage: /write <bookname> <gist> <quality> <theme> <reference>  # scaffold a new book
        /write <bookname> [<book_seed>]                 # write chapters (uses bookseed.txt)
        /write -h | --help                   # show this help
        /write -o | --options                           # list available qualities, themes, references
 
 Commands:
-  scaffold   /write <bookname> <quality> <theme> <reference>
-             Creates pipeline/book_<bookname>/ with config.json, a blank bookseed.txt,
-             metadata_code<number>.json, and an empty source/book_<bookname>/chapters/
-             output folder.
+  scaffold   /write <bookname> <gist> <quality> <theme> <reference>
+             Creates .space/pipeline/book_<bookname>/ with config.json, a blank bookseed.txt,
+             metadata_code<number>.json, and an empty source/books/book_<bookname>/chapters/
+             output folder. <gist> is the book's core premise — a one-line summary of the
+             subject, theme, and scope — which seeds the book's title and config.json.
 
   write      /write <bookname> [<book_seed>]
-             Writes chapters. Reads pipeline/book_<bookname>/bookseed.txt (the human's
+             Writes chapters. Reads .space/pipeline/book_<bookname>/bookseed.txt (the human's
              list of subjects) and generates text from the quality, theme, and
              reference in config.json. Supports counts ("10 chapters"),
              "5 more", a specific number ("chapter 34"), or a range ("20-25").
@@ -493,7 +498,9 @@ Commands:
              Shows this usage.
 
 Arguments:
-  <bookname>   The book's name (pipeline becomes pipeline/book_<bookname>/).
+  <bookname>   The book's name (pipeline becomes .space/pipeline/book_<bookname>/).
+  <gist>       The book's core premise — a one-line summary of the subject, theme,
+               and scope. Used only during scaffold to seed the title and config.json.
   <quality>    Path to a quality file in context/qualities/ (e.g. aurilus).
   <theme>      Path to a theme file in context/themes/ (e.g. generic).
   <reference>  Path to a reference file in context/references/ (e.g. aurilus.txt).
@@ -516,16 +523,17 @@ Present the result as three clearly separated tables (or lists), one per categor
 After the three tables, print a **usage example** showing how to combine the currently available options into a `scaffold` command, e.g.:
 
 ```
-/write <bookname> aurilus generic aurilus.txt
+/write <bookname> <gist> aurilus generic aurilus.txt
 ```
 
 Use the actual file names from the registries (quality name without extension, theme name without extension, reference name with extension). If multiple options exist, show one representative example per category pairing.
 
 ### To scaffold a new book
 
-Provide a `<bookname>` and the book's identity (title, language, and the paths to quality, themes, reference, and index). The agent will first create the book folder, chapters folder, and `config.json`, then begin writing:
+Provide a `<bookname>`, a `<gist>` (the book's core premise — a one-line summary of the subject, theme, and scope), and the book's identity (title, language, and the paths to quality, themes, reference, and index). The agent will first create the book folder, chapters folder, and `config.json`, then begin writing:
 
 > "Writer, create a new book named `<bookname>` with:
+> - **Gist**: `[one-line summary of the subject, theme, and scope]`
 > - **Title**: `[book title]`
 > - **Language**: `[target language]`
 > - **Quality**: `[path to quality file]`
@@ -537,13 +545,13 @@ Provide a `<bookname>` and the book's identity (title, language, and the paths t
 
 The agent will then:
 1. Read the template at `templates\poetry\default\`
-2. Create `pipeline\book_<bookname>\` (the input pipeline) and `source\book_<bookname>\chapters\` (the output)
-3. Create `pipeline\book_<bookname>\config.json` (the book's identity and input paths)
-4. Create a blank `pipeline\book_<bookname>\bookseed.txt` (the human fills it in later)
-5. Create a blank `pipeline\book_<bookname>\override.md` (the transformation layer — optional)
-6. Create `pipeline\book_<bookname>\metadata_code<number>.json` (next numbered file — never overwrite)
-7. Initialize `pipeline\book_<bookname>\progress.json`
-8. Begin writing chapters into `source\book_<bookname>\chapters\`
+2. Create `.space\pipeline\book_<bookname>\` (the input pipeline) and `source\books\book_<bookname>\chapters\` (the output)
+3. Create `.space\pipeline\book_<bookname>\config.json` (the book's identity and input paths, seeded by the `<gist>`)
+4. Create a blank `.space\pipeline\book_<bookname>\bookseed.txt` (the human fills it in later)
+5. Create a blank `.space\pipeline\book_<bookname>\override.md` (the transformation layer — optional)
+6. Create `.space\pipeline\book_<bookname>\metadata_code<number>.json` (next numbered file — never overwrite)
+7. Initialize `.space\pipeline\book_<bookname>\progress.json`
+8. Begin writing chapters into `source\books\book_<bookname>\chapters\`
 
 ### To resume an existing book
 
@@ -555,9 +563,10 @@ If the book folder already exists, the agent skips scaffolding and resumes from 
 >
 > "Writer, continue writing chapters for `<bookname>` — write chapter 34."
 
-**`<book_seed>` is optional.** If `pipeline\book_<bookname>\bookseed.txt` already exists, the agent uses it as-is — you do not need to pass `<book_seed>` again. Simply run:
+**`<book_seed>` is optional.** If `.space\pipeline\book_<bookname>\bookseed.txt` already exists, the agent uses it as-is — you do not need to pass `<book_seed>` again. Simply run:
 
 > "Writer, write chapters for `<bookname>`."
 
-The agent will then read `pipeline\book_<bookname>\config.json`, read the existing `bookseed.txt`, initialize progress, and begin writing chapters dynamically — the same Gibran-esque voice, but grounded in whatever subject and language the config defines.
+The agent will then read `.space\pipeline\book_<bookname>\config.json`, read the existing `bookseed.txt`, initialize progress, and begin writing chapters dynamically — the same Gibran-esque voice, but grounded in whatever subject and language the config defines.
+
 

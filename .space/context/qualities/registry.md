@@ -10,7 +10,7 @@ The writer agent reads this registry to discover available qualities, then reads
 
 | # | Quality File | Reference Work | Author | Genre | Language | Status |
 |---|-----------|----------------|--------|-------|----------|--------|
-| 1 | [`aurilus.md`](aurilus.md) | *The Meditations* | Marcus Aurelius | Stoic Philosophy / Personal Reflections | Bengali (বাংলা) | ✅ Active |
+| 1 | [`aurilus.md`](aurilus.md) | *The Meditations* | Marcus Aurelius | Stoic Philosophy / Personal Reflections | Target language | ✅ Active |
 
 ---
 
@@ -22,8 +22,8 @@ The writer agent reads this registry to discover available qualities, then reads
 - **Author:** Marcus Aurelius (121–180 CE), Roman Emperor and Stoic philosopher
 - **Genre:** Stoic Philosophy / Personal Reflections / Philosophical Memoir
 - **Structure:** 12 Books of aphorisms, reflections, and moral teachings
-- **Target Language:** Bengali (বাংলা) — archaic/literary register
-- **Book Title:** অদৃশ্য বিধান: বিজ্ঞান ও আত্মার নবী (The Invisible Law: A Prophet of Science and Soul)
+- **Target Language:** Target language — archaic/literary register
+- **Book Title:** The Invisible Law: A Prophet of Science and Soul (The Invisible Law: A Prophet of Science and Soul)
 
 **Core Philosophical Themes:**
 - Virtue as Sole Good
@@ -51,7 +51,7 @@ The writer agent reads this registry to discover available qualities, then reads
 
 **Thematic Categories:** See [`../themes/generic.md`](../themes/generic.md) for the ten Stoic themes derived from this work.
 
-**Associated Index:** `bookseed.txt` (physics/science terms in Bengali)
+**Associated Index:** `bookseed.txt` (topics/terms in the target language)
 
 ---
 
@@ -79,3 +79,4 @@ The writer agent reads this registry to discover available qualities, then reads
 - **Quality files are read-only inputs.** The writer agent reads them; it never modifies them.
 - **Themes live separately.** Thematic categories derived from a quality belong in `context/themes/`, not in the quality file itself.
 - **References live separately.** The source text itself belongs in `context/references/`, not in the quality file.
+

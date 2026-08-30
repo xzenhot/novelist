@@ -78,9 +78,9 @@ An analysis of a reference book. It defines:
 The list of topics/terms, one per line. Each becomes one chapter. For example:
 
 ```
-ত্বরণ (Acceleration),
-বল (Force),
-শক্তি (Energy),
+Acceleration (Acceleration),
+Force (Force),
+Energy (Energy),
 ...
 ```
 
@@ -118,7 +118,7 @@ The source text itself (optional), for direct stylistic and thematic reference.
 
 For each book, the agent writes directly to disk:
 
-- **Individual chapters**: `chapters\Chapter_XXX_[term].md` — one file per chapter, starting with the heading `# অধ্যায় XXX: [term]` (or the target-language equivalent).
+- **Individual chapters**: `chapters\Chapter_XXX_[term].md` — one file per chapter, starting with the heading `# Chapter XXX: [term]` (or the target-language equivalent).
 - **Consolidated book**: `book.md` — the assembled book (title, introduction, and every chapter in order).
 - **Progress tracking**: `progress.json` — tracks completed chapters, current chapter, and per-chapter status.
 - **Run metadata**: `metadata_code<number>.json` — records the plan for each writing or revision run before the text is written.
@@ -131,7 +131,7 @@ The agent maintains a `progress.json` at the book's root level:
 
 ```json
 {
-  "title": "অদৃশ্য বিধান: বিজ্ঞান ও আত্মার নবী",
+  "title": "The Invisible Law: A Prophet of Science and Soul",
   "language": "bn",
   "source_terms": "bookseed.txt",
   "context": "../context/qualities/aurilus.md + writer.md",
@@ -141,10 +141,10 @@ The agent maintains a `progress.json` at the book's root level:
   "chapters": [
     {
       "chapter_number": 1,
-      "topic": "মহাকর্ষ",
-      "category": "এক রক্তের বিধান",
+      "topic": "Gravity",
+      "category": "The One Blood",
       "status": "completed",
-      "file_path": "chapters\\Chapter_001_মহাকর্ষ.md",
+      "file_path": "chapters\\Chapter_001_Gravity.md",
       "completed_date": "2026-08-29T00:00:00Z"
     }
   ]
@@ -166,7 +166,7 @@ Use it as the pre-writing plan and revision memory for the run:
   "run_type": "write",
   "created_at": "2026-08-29T00:00:00Z",
   "bookname": "Muktii",
-  "title": "মুক্তি",
+  "title": "Liberation",
   "language": "bn",
   "quality": "../context/qualities/aurilus.md",
   "themes": "../context/themes/generic.md",
@@ -174,10 +174,10 @@ Use it as the pre-writing plan and revision memory for the run:
   "chapters_planned": [
     {
       "chapter_number": 7,
-      "topic": "ধারকত্ব",
-      "category": "রাজসেবা",
+      "topic": "Capacity",
+      "category": "The Royal Service",
       "metaphor_plan": ["vessel", "empty cup", "servant's lamp"],
-      "sacred_vocabulary": ["রাজসেবা", "শূন্য পাত্র", "নীরব বিধান"],
+      "sacred_vocabulary": ["The Royal Service", "Empty Vessel", "Silent Law"],
       "revision_notes": []
     }
   ]
@@ -209,3 +209,4 @@ Revision rules:
 4. Update both the individual chapter file and its corresponding section in `book.md`.
 5. Add revision notes to the new metadata file, including the user's instruction and a short before/after rationale.
 6. Do not mark new chapters completed during a revision-only run.
+

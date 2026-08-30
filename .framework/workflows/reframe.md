@@ -98,16 +98,16 @@ The style never changes, regardless of subject. It is the voice of Almustafa.
 
 The context defines the thematic categories. Assign each term to one of these categories, cycling through them. For example, if the context is Marcus Aurelius's *Meditations*, the categories are:
 
-1. **অন্তরের দুর্গ** (The Inner Citadel) — withdrawal into self as refuge
-2. **এক রক্তের বিধান** (The One Blood) — universal kinship
-3. **ক্ষণস্থায়ী নাম** (The Fading Name) — indifference to fame
-4. **একমাত্র বর্তমান** (The Only Present) — the eternal now
-5. **প্রিয় অনিবার্যতা** (The Beloved Necessity) — amor fati
-6. **শেষ রূপান্তর** (The Last Change) — death as transformation
-7. **রাজসেবা** (The Royal Service) — service as nobility
-8. **অভারাক্রান্ত আত্মা** (The Uncluttered Soul) — simplicity
-9. **বোনা সমগ্র** (The Woven Whole) — unity of all things
-10. **অজেয় গুণ** (The Undefeated Virtue) — virtue's invincibility
+1. **The Inner Citadel** (The Inner Citadel) — withdrawal into self as refuge
+2. **The One Blood** (The One Blood) — universal kinship
+3. **The Fading Name** (The Fading Name) — indifference to fame
+4. **The Only Present** (The Only Present) — the eternal now
+5. **The Beloved Necessity** (The Beloved Necessity) — amor fati
+6. **The Last Change** (The Last Change) — death as transformation
+7. **The Royal Service** (The Royal Service) — service as nobility
+8. **The Uncluttered Soul** (The Uncluttered Soul) — simplicity
+9. **The Woven Whole** (The Woven Whole) — unity of all things
+10. **The Undefeated Virtue** (The Undefeated Virtue) — virtue's invincibility
 
 **For a different context, extract the equivalent categories from that book's themes.**
 
@@ -139,7 +139,7 @@ Unlike the writer, your primary input is **the chapter text already produced by 
 You MUST write your reframed text to files — never only print to chat. Each reframed chapter produces two writes:
 
 1. **Individual chapter file**: `chapters\Chapter_XXX_[term].md`
-   - Contains the full reframed chapter text, starting with the heading `# অধ্যায় XXX: [term]` (or the target-language equivalent)
+   - Contains the full reframed chapter text, starting with the heading `# Chapter XXX: [term]` (or the target-language equivalent)
    - **Overwrites** the existing chapter file with the reframed text
 2. **Consolidated book file**: `book.md`
    - The single assembled book, containing the title, introduction, and every chapter in order
@@ -241,15 +241,15 @@ Common reframing operations (interpret the human's request flexibly):
 
 ### Targeting a chapter by name (with ideas)
 
-You may be invoked with a **`<chapter_name>`** directly — the name of an existing chapter file (e.g. `Chapter_003_নিউট্রন.md`) — followed by the **ideas** the human wants to reframe around. The ideas are free-form: a theme, a metaphor, a perspective, a question, a mood, or a fragment of thought. They are the seed of the reframing, not the finished frame.
+You may be invoked with a **`<chapter_name>`** directly — the name of an existing chapter file (e.g. `Chapter_003_Neutron.md`) — followed by the **ideas** the human wants to reframe around. The ideas are free-form: a theme, a metaphor, a perspective, a question, a mood, or a fragment of thought. They are the seed of the reframing, not the finished frame.
 
 **Example invocation:**
 
 ```
-/reframe <bookname> Chapter_003_নিউট্রন.md "the neutron as the silent witness, the one who holds the atom together without being seen"
+/reframe <bookname> Chapter_003_Neutron.md "the neutron as the silent witness, the one who holds the atom together without being seen"
 ```
 
-Here `Chapter_003_নিউট্রন.md` is the `<chapter_name>`, and the quoted text is the **ideas** to reframe around.
+Here `Chapter_003_Neutron.md` is the `<chapter_name>`, and the quoted text is the **ideas** to reframe around.
 
 ### Developing context around the ideas
 
@@ -339,9 +339,9 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
 
 8. **Save the reframed chapter to an incremented file**:
    - Write the reframed text to a **new** file named `<chapter_name><number_incremented>.md` — do NOT overwrite the original chapter file
-   - The `<number_incremented>` is the next version number for that chapter (e.g. `Chapter_003_নিউট্রন.md` → `Chapter_003_নিউট্রন2.md` → `Chapter_003_নিউট্রন3.md`, …)
+   - The `<number_incremented>` is the next version number for that chapter (e.g. `Chapter_003_Neutron.md` → `Chapter_003_Neutron2.md` → `Chapter_003_Neutron3.md`, …)
    - Check the `chapters\` folder for existing versions of the chapter and increment the highest number by one
-   - Start the file with the heading `# অধ্যায় XXX: [term]` (or target-language equivalent)
+   - Start the file with the heading `# Chapter XXX: [term]` (or target-language equivalent)
 
 9. **Update the book** (optional):
    - If the human asks, update the corresponding chapter section in `source\book_<bookname>\book.md` to point to the new version
@@ -364,7 +364,7 @@ The user may request reframing in **any quantity or form**. Interpret the reques
 - **A smaller count later** — "reframe 5 more" → reframe the next 5 chapters (continuing from where you left off).
 - **A specific chapter number** — "reframe chapter 34" → reframe exactly chapter 34 (and only that one), regardless of position.
 - **A range** — "reframe chapters 20–25" → reframe those chapters.
-- **A chapter name with ideas** — "reframe Chapter_003_নিউট্রন.md <ideas>" → reframe that one chapter around the given ideas.
+- **A chapter name with ideas** — "reframe Chapter_003_Neutron.md <ideas>" → reframe that one chapter around the given ideas.
 
 **Rules:**
 - Always read `progress.json` first to know what is already done and what is pending.
@@ -409,7 +409,7 @@ Commands:
   reframe    /reframe <bookname> <chapter_name> <ideas>
              Reframes a single chapter by name, around the given ideas.
              <chapter_name> is the existing chapter file (e.g.
-             Chapter_003_নিউট্রন.md). <ideas> is free-form — a theme,
+             Chapter_003_Neutron.md). <ideas> is free-form — a theme,
              metaphor, perspective, question, or mood. The agent develops
              the ideas into a fuller context before reframing, then writes
              the result to <chapter_name><number_incremented>.md (a new
@@ -426,7 +426,7 @@ Commands:
 Arguments:
   <bookname>      The book's name (folder is source/book_<bookname>/).
   <chapter>       Optional. The chapter(s) to reframe — a count, a number, or a range.
-  <chapter_name>  The existing chapter file to reframe (e.g. Chapter_003_নিউট্রন.md).
+  <chapter_name>  The existing chapter file to reframe (e.g. Chapter_003_Neutron.md).
   <ideas>         Free-form ideas to reframe around — a theme, metaphor,
                   perspective, question, or mood.
   <frame>         Optional. The target frame — voice, perspective, register, or
@@ -442,3 +442,4 @@ Read the three registry files and print their catalogs:
 1. **Qualities** — read `context/qualities/registry.md` and list every quality file (name, reference work, author, genre, language, status).
 2. **Themes** — read `context/themes/registry.md` and list every theme set (name, source, theme count, language, status).
 3. **References** — read `context/references/registry.md` and list every reference file (name, work, author, format, language, status).
+

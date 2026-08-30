@@ -10,7 +10,7 @@ The writer agent reads this registry to discover available theme sets, then read
 
 | # | Theme File | Source | Theme Count | Language | Status |
 |---|-----------|--------|-------------|----------|--------|
-| 1 | [`generic.md`](generic.md) | Marcus Aurelius — *The Meditations* | 10 | Bengali (বাংলা) | ✅ Active |
+| 1 | [`generic.md`](generic.md) | Marcus Aurelius — *The Meditations* | 10 | Target language | ✅ Active |
 
 ---
 
@@ -20,26 +20,24 @@ The writer agent reads this registry to discover available theme sets, then read
 
 - **Source:** Marcus Aurelius's *Meditations* (Stoic philosophy)
 - **Theme Count:** 10
-- **Language:** Bengali (বাংলা) — archaic/literary register
+- **Language:** Target language — archaic/literary register
 - **Associated Quality:** [`../qualities/aurilus.md`](../qualities/aurilus.md)
-- **Associated Index:** `bookseed.txt` (physics/science terms in Bengali)
+- **Associated Index:** `bookseed.txt` (topics/terms in the target language)
 
-**The Ten Themes:**
+**The Ten Themes:**`r`n`r`n| # | Theme | Essence | Notes |
+|---|-------|---------|-------|
+| 1 | The Inner Citadel | Withdrawal into the self as an unbreachable refuge | Use the target-language equivalent at generation time. |
+| 2 | The One Blood | Universal kinship; all beings as limbs of one body | Use the target-language equivalent at generation time. |
+| 3 | The Fading Name | Indifference to fame; the vanity of reputation | Use the target-language equivalent at generation time. |
+| 4 | The Only Present | The eternal now; past and future as ghosts | Use the target-language equivalent at generation time. |
+| 5 | The Beloved Necessity | Amor fati — loving one's fate | Use the target-language equivalent at generation time. |
+| 6 | The Last Change | Death as transformation, not ending | Use the target-language equivalent at generation time. |
+| 7 | The Royal Service | Service as the highest nobility | Use the target-language equivalent at generation time. |
+| 8 | The Uncluttered Soul | Simplicity and detachment | Use the target-language equivalent at generation time. |
+| 9 | The Woven Whole | The unity of all things | Use the target-language equivalent at generation time. |
+| 10 | The Undefeated Virtue | Virtue's invincibility | Use the target-language equivalent at generation time. |
 
-| # | Bengali | English | Essence |
-|---|---------|---------|---------|
-| 1 | অন্তরের দুর্গ | The Inner Citadel | Withdrawal into the self as an unbreachable refuge |
-| 2 | এক রক্তের বিধান | The One Blood | Universal kinship; all beings as limbs of one body |
-| 3 | ক্ষণস্থায়ী নাম | The Fading Name | Indifference to fame; the vanity of reputation |
-| 4 | একমাত্র বর্তমান | The Only Present | The eternal now; past and future as ghosts |
-| 5 | প্রিয় অনিবার্যতা | The Beloved Necessity | Amor fati — loving one's fate |
-| 6 | শেষ রূপান্তর | The Last Change | Death as transformation, not ending |
-| 7 | রাজসেবা | The Royal Service | Service as the highest nobility |
-| 8 | অভারাক্রান্ত আত্মা | The Uncluttered Soul | Simplicity and detachment |
-| 9 | বোনা সমগ্র | The Woven Whole | The unity of all things |
-| 10 | অজেয় গুণ | The Undefeated Virtue | Virtue's invincibility |
-
-Each theme in `generic.md` provides: **essence**, **Stoic source** (the grounding quote), **Gibran transformation** (how to render it prophetically), **metaphor family** (imagery to draw from), **sacred words** (the Bengali lexicon), and a **sample opening** (a ready-made "The Question" line).
+Each theme in `generic.md` provides: **essence**, **Stoic source** (the grounding quote), **Gibran transformation** (how to render it prophetically), **metaphor family** (imagery to draw from), **sacred words** (the target-language lexicon), and a **sample opening** (a ready-made "The Question" line).
 
 ---
 
@@ -67,3 +65,4 @@ Each theme in `generic.md` provides: **essence**, **Stoic source** (the groundin
 - **Theme files are read-only inputs.** The writer agent reads them; it never modifies them.
 - **Themes are distinct from qualities.** A quality (`context/qualities/`) defines *how* to write (voice, metaphor families, quality metrics); a theme set (`context/themes/`) defines *what lens* to apply to each chapter.
 - **Cycle in order.** The writer assigns themes by cycling through the list (1 → N → 1) so no theme dominates.
+
