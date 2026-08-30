@@ -19,7 +19,7 @@ param(
     [string]$BookName,
 
     [Parameter(Position = 1)]
-    [int]$ChapterCount = 20,
+    [int]$ChapterCount = 5,
 
     [Parameter(Position = 2)]
     [string]$Gist = ""
@@ -31,7 +31,7 @@ $ErrorActionPreference = "Stop"
 $ScriptDir   = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Framework   = Split-Path -Parent $ScriptDir            # .framework/
 $RepoRoot    = Split-Path -Parent $Framework            # novelist/
-$Template    = Join-Path $Framework "templates\stereotypes\poetry\book"
+$Template    = Join-Path $Framework "templates\novel"
 $PipelineDir = Join-Path $RepoRoot ".space\pipeline"
 $SourceDir   = Join-Path $RepoRoot "source\books"
 
@@ -49,19 +49,13 @@ if (Test-Path $BookDir) {
 # --- Helpers ----------------------------------------------------------------
 function New-StateFiles([string]$Path, [hashtable]$Data) {
     New-Item -ItemType Directory -Force -Path $Path | Out-Null
-    $initial  = @{ level = $Data.level; state = "initial" }
-    $activity = @{ level = $Data.level; state = "activity"; status = "scaffolded" }
     $returning = @{ level = $Data.level; state = "returning" }
     foreach ($k in $Data.Keys) {
         if ($k -notin @("level")) {
-            $initial[$k]  = $Data[$k]
-            $activity[$k] = $Data[$k]
             $returning[$k] = $Data[$k]
         }
     }
-    $initial  | ConvertTo-Json | Set-Content -Path (Join-Path $Path "SelfStateInitialJson.json")  -Encoding UTF8
-    $activity | ConvertTo-Json | Set-Content -Path (Join-Path $Path "SelfStateActivityJson.json") -Encoding UTF8
-    $returning | ConvertTo-Json | Set-Content -Path (Join-Path $Path "ReturningModelJson.json")    -Encoding UTF8
+    $returning | ConvertTo-Json | Set-Content -Path (Join-Path $Path "model.json")    -Encoding UTF8
 }
 
 function Copy-TemplateDir([string]$Src, [string]$Dst) {
@@ -73,14 +67,6 @@ function Copy-TemplateDir([string]$Src, [string]$Dst) {
 
 # --- 1. Book root -----------------------------------------------------------
 New-Item -ItemType Directory -Force -Path $BookDir | Out-Null
-
-# sample.json (empty, copied from template root)
-$sampleSrc = Join-Path $Template "sample.json"
-if (Test-Path $sampleSrc) {
-    Copy-Item $sampleSrc (Join-Path $BookDir "sample.json") -Force
-} else {
-    "{}" | Set-Content -Path (Join-Path $BookDir "sample.json") -Encoding UTF8
-}
 
 # Book-level state files
 New-StateFiles $BookDir @{ level = "book"; book_name = $BookName; chapter_count = $ChapterCount }
@@ -179,20 +165,20 @@ $workshopMeta += @"
 "@
 Set-Content -Path (Join-Path $BookDir "workshop_metadata.md") -Value $workshopMeta -Encoding UTF8
 
-# Runtime destinations
-New-Item -ItemType Directory -Force -Path (Join-Path $BookDir "workshop_minutes")   | Out-Null
-New-Item -ItemType Directory -Force -Path (Join-Path $BookDir "chapter_seeds")      | Out-Null
-New-Item -ItemType Directory -Force -Path (Join-Path $BookDir "chapters_research")  | Out-Null
+# Filter folders (one per pipeline filter, ordered and prefixed)
+foreach ($filterName in @("1_workshop", "2_research", "3_seeds", "4_correctness", "5_theme", "6_syntax", "7_override", "8_quality")) {
+    New-Item -ItemType Directory -Force -Path (Join-Path $BookDir "filters\$filterName") | Out-Null
+}
 
 # --- 3. Chapters and segments ----------------------------------------------
-$templateChapter = Join-Path $Template "chapters\1"
+$templateMoods = Join-Path $Template "moods"
 
 for ($i = 1; $i -le $ChapterCount; $i++) {
     $chapterDir = Join-Path $BookDir "chapters\$i"
     New-Item -ItemType Directory -Force -Path $chapterDir | Out-Null
 
-    # Copy moods/ from the canonical chapter template
-    Copy-TemplateDir (Join-Path $templateChapter "moods") (Join-Path $chapterDir "moods")
+    # Copy moods/ from the canonical template
+    Copy-TemplateDir $templateMoods (Join-Path $chapterDir "moods")
 
     # Chapter-level state files
     New-StateFiles $chapterDir @{ level = "chapter"; chapter_index = $i }
@@ -218,6 +204,6 @@ Write-Host ""
 Write-Host "Scaffolded book pipeline: $BookDir" -ForegroundColor Green
 Write-Host "  chapters: 1..$ChapterCount (each with segments/1 -> writer/editor/translator)"
 Write-Host "  planning: book.json, characters.json, masterprompt.md, workshop_metadata.md"
-Write-Host "  runtime:  workshop_minutes/, chapter_seeds/, chapters_research/"
+Write-Host "  filters:  1_workshop, 2_research, 3_seeds, 4_correctness, 5_theme, 6_syntax, 7_override, 8_quality"
 Write-Host "  output:   $OutDir"
 Write-Host ""

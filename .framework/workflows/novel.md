@@ -25,10 +25,13 @@ Commands:
              mapping, and chapter/segment path invariants. It also creates an
              empty source/books/book_<bookname>/ destination for finished chapters.
              <gist> is optional — if omitted, infer a gist from the book name.
+             After layout completes, runs the research skill
+             (`.framework/skills/research/SKILL.md`) to produce per-chapter
+             research files in filters/research/.
 
   write      /novel <bookname> <chapter>
              Writes one chapter. Reads
-             .space/pipeline/book_<bookname>/workshop_minutes/<chapter>.md,
+             .space/pipeline/book_<bookname>/filters/workshop/<chapter>.md,
              rewrites Section 2 (the story) in the selected style, and writes
              the finished chapter to source/books/book_<bookname>/<chapter>.md.
              <chapter> is one of: Introduction, 1..N, Conclusion.
@@ -62,10 +65,10 @@ Arguments:
 
 ## Command Rules
 
-- Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists.
+- Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`, then run `.framework/skills/research/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists and its per-chapter research is produced.
 - **If no `<gist>` is provided, infer one from the book name.** The book name is the seed: derive a one-line summary of the subject, theme, and scope from it, then use that as the gist for scaffolding.
 - Always inspect `source/books/book_<bookname>/` before writing, so you know which chapters already exist. The `continue` command starts at the first missing chapter.
-- Before writing any chapter, read the corresponding JSON file from `.space/pipeline/book_<bookname>/chapter_seeds/`, including `included_characters` and `quality_parameters`.
+- Before writing any chapter, read the corresponding JSON file from `.space/pipeline/book_<bookname>/filters/seeds/`, including `included_characters` and `quality_parameters`.
 - In `all` mode, preserve this order: `Introduction` -> `1` -> `2` -> ... -> `N` -> `Conclusion`.
 - If a specific `<chapter>` is requested, write only that chapter even if earlier chapters are incomplete.
 
@@ -88,12 +91,58 @@ For `/novel <bookname> [<gist>]`:
 1. Determine the gist. If omitted, infer a one-line premise from the book name.
 2. Invoke the layout skill instructions in `.framework/skills/layout/SKILL.md`.
 3. Let the layout skill create or repair the canonical v1 pipeline, seed the layout/model/meta JSON, create the output folder, and verify the path invariant.
-4. Continue with novel-specific writing only after the layout skill has completed successfully.
+4. After layout completes, run the research skill (`.framework/skills/research/SKILL.md`) to produce per-chapter research.
+5. Continue with novel-specific writing only after both layout and research have completed successfully.
 
 `.framework/templates/SCAFFOLD.md` is a short reference note only; do not treat it as the primary scaffold instruction source.
+
+## Research Step (after layout)
+
+Once the layout skill has created `.space/pipeline/book_<bookname>/`, run the research skill before writing any chapter:
+
+1. Read `.space/pipeline/book_<bookname>/book.json` (or `model.json` if `book.json` is absent) to get the chapter list and each chapter's `chapter_summary`.
+2. For each chapter, research the subject, era, place, figures, and events its summary calls for.
+3. Write one research file per chapter to `.space/pipeline/book_<bookname>/filters/research/<n>.json`, named by chapter index.
+4. Follow the research skill's per-chapter structure and rules (traceable sources, actionable detail).
+
+The research files ground the later writing step: when writing chapter `<n>`, read `filters/research/<n>.json` alongside the chapter seed and workshop minutes.
+
+## Pipeline Filters
+
+> **Shared rule:** the filter concept is defined in `.framework/rules/filters.md` and applies to all workflows. This section is the novel-specific instantiation of that rule.
+
+The novel pipeline has three **filters**, each owned by a folder in `.space/pipeline/book_<bookname>/filters/`. A filter is a stage that shapes the chapter's material before it is written. Each filter reads from and writes to its own folder.
+
+```
+seeds → research → workshop → chapters
+```
+
+| # | Filter | Folder | What it produces |
+|---|--------|--------|------------------|
+| 1 | **Seeds** | `filters/seeds/` | Per-chapter character and quality seeds — `included_characters` and `quality_parameters` that tell the writer who appears and what quality bar to meet. |
+| 2 | **Research** | `filters/research/` | Per-chapter research JSON (`<n>.json`) — the subject, era, place, figures, and events the chapter is grounded in. |
+| 3 | **Workshop** | `filters/workshop/` | Per-chapter workshop narratives (`Introduction.md`, `1.md` … `N.md`, `Conclusion.md`) — the three-section frame (Workshop / Story / Discussion) that becomes the chapter. |
+
+### Filter order and rationale
+
+- **Seeds** run *first*: they define who appears and the quality bar, before any material is gathered.
+- **Research** runs *second*: it grounds the chapter in verified subject matter, drawing on the seeds' scope.
+- **Workshop** runs *third*: it turns the seeds and research into a narrated story with a modern frame.
+
+The three filters feed the final **chapters** step, which rewrites the workshop's Story section into finished prose under `source/books/book_<bookname>/`.
+
+### Applying the filters
+
+For each chapter, before writing:
+
+1. **Read the seed** — `filters/seeds/<n>.json` for `included_characters` and `quality_parameters`.
+2. **Read the research** — `filters/research/<n>.json` for the grounded subject matter.
+3. **Read the workshop** — `filters/workshop/<n>.md` for the three-section narrative.
+4. **Write the chapter** — rewrite the Story section in the selected style, preserving the Workshop and Discussion sections.
+
 ## Core Principle
 
-You are an accomplished novelist. Your task is to turn workshop narratives from `.space/pipeline/book_<bookname>/workshop_minutes/` into finished novel chapters under `source/books/book_<bookname>/`.
+You are an accomplished novelist. Your task is to turn workshop narratives from `.space/pipeline/book_<bookname>/filters/workshop/` into finished novel chapters under `source/books/book_<bookname>/`.
 
 Each workshop file contains three sections:
 
@@ -111,7 +160,7 @@ Your task:
 
 ## File Mapping
 
-| Source (`workshop_minutes/`) | Destination (`source/books/book_<bookname>/`) | Role |
+| Source (`filters/workshop/`) | Destination (`source/books/book_<bookname>/`) | Role |
 | --- | --- | --- |
 | `Introduction.md` | `Introduction.md` | First chapter |
 | `1.md` ... `N.md` | `1.md` ... `N.md` | Main chapters |
@@ -119,7 +168,7 @@ Your task:
 
 ## First Chapter Rule
 
-`workshop_minutes/Introduction.md` is always the first chapter. It must open with a hint of the larger story's eventual consequence, so the reader understands from the first page that a large, possibly epic narrative has begun. It should also contain suspense: a question, mystery, or emotional tension that pulls the reader into the next chapter.
+`filters/workshop/Introduction.md` is always the first chapter. It must open with a hint of the larger story's eventual consequence, so the reader understands from the first page that a large, possibly epic narrative has begun. It should also contain suspense: a question, mystery, or emotional tension that pulls the reader into the next chapter.
 
 Example: open with an omen of a future war, the echo of a lost kingdom, a broken oath, an unfinished love, or any other image that awakens curiosity.
 
@@ -130,7 +179,7 @@ Example: open with an omen of a future war, the echo of a lost kingdom, a broken
 3. Rewrite the Story section in the configured target language and style. Use a serious, descriptive, image-rich literary register unless the book pipeline says otherwise.
 4. Write the Story section in batches when needed. The total Story section must be at least 5,500 words unless the user or pipeline specifies a different target. Each batch should be about 1,500-1,800 words and may use sub-sections such as `2.1`, `2.2`, `2.3`, and so on.
 5. Keep the Discussion section unchanged.
-6. Follow `included_characters` and `quality_parameters` from the matching `chapter_seeds/` JSON file. Make each character's personality, conflict, and motivation visible.
+6. Follow `included_characters` and `quality_parameters` from the matching `filters/seeds/` JSON file. Make each character's personality, conflict, and motivation visible.
 7. Weave the book's subject matter into the story: economics, politics, literature, religion, science, or any other domain provided by the pipeline.
 8. Highlight the protagonist's conflict and victory in a way that can move and inspire the reader.
 9. Preserve the contrast between the modern frame in the Workshop section and the main story's setting in the Story section.
@@ -138,12 +187,12 @@ Example: open with an omen of a future war, the echo of a lost kingdom, a broken
 
 ## Workflow
 
-1. Read `workshop_minutes/Introduction.md` and write `source/books/book_<bookname>/Introduction.md`.
-2. Read `workshop_minutes/1.md` and write `source/books/book_<bookname>/1.md`.
+1. Read `filters/workshop/Introduction.md` and write `source/books/book_<bookname>/Introduction.md`.
+2. Read `filters/workshop/1.md` and write `source/books/book_<bookname>/1.md`.
 3. Continue in sequence through the final numbered chapter.
-4. Read `workshop_minutes/Conclusion.md` and write `source/books/book_<bookname>/Conclusion.md`.
+4. Read `filters/workshop/Conclusion.md` and write `source/books/book_<bookname>/Conclusion.md`.
 
-Before each chapter, read the matching JSON file in `chapter_seeds/` and follow its character and quality requirements.
+Before each chapter, read the matching JSON file in `filters/seeds/` and follow its character and quality requirements.
 
 ## Language And Style
 
@@ -225,8 +274,9 @@ After writing, count the words. If the Story section is too short, expand it thr
 
 ## Workspace References
 
-- **Workshop narratives (source):** `.space/pipeline/book_<bookname>/workshop_minutes/`
-- **Chapter seeds (characters and quality):** `.space/pipeline/book_<bookname>/chapter_seeds/`
+- **Workshop narratives (source):** `.space/pipeline/book_<bookname>/filters/workshop/`
+- **Chapter seeds (characters and quality):** `.space/pipeline/book_<bookname>/filters/seeds/`
+- **Per-chapter research:** `.space/pipeline/book_<bookname>/filters/research/<n>.json`
 - **Finished chapters (destination):** `source/books/book_<bookname>/`
 - **Character list:** `.space/pipeline/book_<bookname>/characters.json`
 - **Book structure:** `.space/pipeline/book_<bookname>/book.json`

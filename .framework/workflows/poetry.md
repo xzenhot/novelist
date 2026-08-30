@@ -130,13 +130,54 @@ The `config.json` is the single source of truth. You do not need any other per-b
 
 ### Output Files (Write Directly to Disk)
 
-You MUST write your generated text to files — never only print to chat. Each chapter produces two writes:
+You MUST write your generated text to files — never only print to chat. Each chapter produces three writes:
 
 1. **Individual chapter file**: `source\books\book_<bookname>\chapters\Chapter_XXX_[term].md`
    - Contains the full chapter text, starting with the heading `# Chapter XXX: [term]` (or the target-language equivalent)
 2. **Consolidated book file**: `source\books\book_<bookname>\book.md`
    - The single assembled book, containing the title, introduction, and every chapter in order
    - Append each new chapter to the end of this file as it is completed
+3. **Per-chapter JSON file**: `.space\pipeline\book_<bookname>\chapters\<n>.json`
+   - One JSON per chapter, named by chapter number, recording the chapter's topic, thematic category, and metadata (see below)
+
+### Per-Chapter JSON (`.space\pipeline\book_<bookname>\chapters\<n>.json`)
+
+For each chapter, write a JSON file to the pipeline's `chapters/` folder, named by chapter number (`1.json`, `2.json`, … `N.json`). This is the pipeline-side record of the chapter, distinct from the finished prose in `source/`.
+
+```json
+{
+  "chapter_number": 1,
+  "topic": "The Womb",
+  "category": "The Inner Citadel",
+  "title": "The Womb",
+  "summary": "The first home, the unbreachable shelter where the soul learns safety.",
+  "language": "en",
+  "status": "completed",
+  "file_path": "chapters\\Chapter_001_The_Womb.md",
+  "completed_date": "2026-08-30T00:00:00Z",
+  "filters": {
+    "research_subject": "passed",
+    "correctness": "passed",
+    "contemporary_theme": "passed",
+    "contemporary_syntax": "passed",
+    "human_override": "passed",
+    "quality_review": "passed"
+  }
+}
+```
+
+- **`chapter_number`** — the zero-padded chapter index, matching `bookseed.txt` order.
+- **`topic`** — the term from `bookseed.txt` that this chapter renders.
+- **`category`** — the thematic category assigned to this chapter (from the theme set in `config.json`).
+- **`title`** — the chapter title (usually the topic, or a poetic rendering of it).
+- **`summary`** — a one-line summary of the chapter's philosophical core.
+- **`language`** — the target language from `config.json`.
+- **`status`** — `pending` or `completed`.
+- **`file_path`** — the path to the finished chapter file in `source/`.
+- **`completed_date`** — set when the chapter is written.
+- **`filters`** — the six pipeline filters, each `passed` (or `skipped` for `human_override` when `override.md` is empty). A chapter is `completed` only when all six are `passed`.
+
+Write `<n>.json` alongside the chapter prose: when you complete chapter `<n>`, write both the prose file and its `<n>.json` record. Keep `progress.json` in sync with these files.
 
 ### Progress Tracking
 
@@ -231,7 +272,7 @@ The template contains:
 
 | Path | What it is |
 |------|-----------|
-| `chapters\<n>\` | One folder per chapter, with `moods\` and `segments\` |
+| `chapters\<n>\` | One folder per chapter, with `segments\` only (no `moods\` — moods apply to segment-based story/novel writing, not poetry) |
 | `chapters\<n>\segments\<x>\` | One folder per segment, with `writer\`, `editor\`, `translator\` subfolders |
 
 The full scaffolding logic is owned by `.framework\skills\layout\SKILL.md`. Read and follow the layout skill before scaffolding. `.framework\templates\SCAFFOLD.md` is only a short reference note.
@@ -242,7 +283,7 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line
 
 **Inputs (the pipeline):**
 1. **`.space\pipeline\book_<bookname>\`** — the book's pipeline root (e.g. `.space\pipeline\book_speed\`, `.space\pipeline\book_light\`).
-6. **`.space\pipeline\book_<bookname>\chapters\1\`** — the chapter folder (with `moods\` and `segments\`).
+6. **`.space\pipeline\book_<bookname>\chapters\1\`** — the chapter folder (with `segments\` only; no `moods\`).
 7. **`.space\pipeline\book_<bookname>\chapters\1\segments\1\`** — the segment folder (with `writer\`, `editor\`, `translator\`).
 
 **Outputs (the finished book):**
@@ -252,25 +293,106 @@ Given a `<bookname>` (e.g. `speed`, `light`, `ocean`) and a `<gist>` (a one-line
 
 **All pipelines live under `.space\pipeline\`; all finished books live under `source\books\`.** Always create a new book's pipeline at `.space\pipeline\book_<bookname>\` and its output at `source\books\book_<bookname>\` — never at the workspace root.
 
-### Scaffolding steps
+## Scaffolding Steps
 
-1. **Use the layout skill first**:
-   - Read `.framework\skills\layout\SKILL.md`.
-   - Follow its canonical v1 scaffold steps, scaffold/runtime boundary, and path invariant.
-   - Let the layout skill create or repair `.space\pipeline\book_<bookname>\`, including book/chapter/segment state files, and `source\books\book_<bookname>\`.
-   - Verify `chapters\1\segments\1\` exists and no numeric chapter folder exists directly under the book root.
+For `/write <bookname> [<gist>]`:
 
-2. **Apply poetry-specific initialization after layout succeeds**:
-   - Ensure `source\books\book_<bookname>\chapters\` exists for finished poetry chapter files.
-   - Create or update `.space\pipeline\book_<bookname>\config.json` with title, language, register, quality, themes, reference, index, sacred vocabulary, and translation guide.
-   - Copy or create `.space\pipeline\book_<bookname>\bookseed.txt` as the human-editable list of chapter topics.
-   - Copy or create `.space\pipeline\book_<bookname>\override.md` as the optional transformation layer.
-   - Create `.space\pipeline\book_<bookname>\metadata_code<number>.json` before writing text; never overwrite an existing metadata file.
-   - Initialize `.space\pipeline\book_<bookname>\progress.json` with all topics pending if it does not already exist.
+1. Determine the gist. If omitted, infer a one-line premise from the book name.
+2. Invoke the layout skill instructions in `.framework/skills/layout/SKILL.md`.
+3. Let the layout skill create or repair the canonical v1 pipeline, seed the layout/model/meta JSON, create the output folder, and verify the path invariant.
+4. Apply poetry-specific initialization after layout succeeds (see below).
+5. Continue with poetry-specific writing only after layout has completed successfully.
 
-3. **Seed the layout JSON through the layout skill rules**:
-   - Use `chapter_count` 20 by default unless the user specifies a different count.
-   - Poetry-specific `config.json` remains the source of truth for generated chapter language, quality, themes, reference, and index.
+`.framework/templates/SCAFFOLD.md` is a short reference note only; do not treat it as the primary scaffold instruction source.
+
+## Poetry-Specific Initialization (after layout)
+
+Once the layout skill has created `.space/pipeline/book_<bookname>/`, apply the poetry-specific initialization before writing any chapter:
+
+1. Ensure `source/books/book_<bookname>/chapters/` exists for finished poetry chapter files.
+2. Create or update `.space/pipeline/book_<bookname>/config.json` with title, language, register, quality, themes, reference, index, sacred vocabulary, and translation guide.
+3. Copy or create `.space/pipeline/book_<bookname>/bookseed.txt` as the human-editable list of chapter topics.
+4. Copy or create `.space/pipeline/book_<bookname>/override.md` as the optional transformation layer.
+5. Create `.space/pipeline/book_<bookname>/metadata_code<number>.json` before writing text; never overwrite an existing metadata file.
+6. Initialize `.space/pipeline/book_<bookname>/progress.json` with all topics pending if it does not already exist.
+
+Use `chapter_count` 5 by default unless the user specifies a different count. The poetry-specific `config.json` remains the source of truth for generated chapter language, quality, themes, reference, and index.
+
+## The Poetry Difference: One Segment per Chapter
+
+Unlike the novel workflow, where a chapter may contain multiple segments, in poetry **each chapter has exactly ONE segment** — a single Question → Oration → Benediction unit. The segment-based folder shape is therefore simpler:
+
+- `chapters/<n>/` — one folder per chapter (one per term in `bookseed.txt`).
+- `chapters/<n>/segments/1/` — exactly one segment per chapter, with `writer/`, `editor/`, `translator/` subfolders.
+
+The `config.json` (not `book.json`) is the source of truth for poetry: it holds the title, language, register, quality, themes, reference, index, sacred vocabulary, and translation guide. `bookseed.txt` is the human-editable list of chapter topics.
+
+## Pipeline Filters
+
+> **Shared rule:** the filter concept is defined in `.framework/rules/filters.md` and applies to all workflows. This section is the poetry-specific instantiation of that rule.
+
+Every chapter passes through six **filters** in order. A filter is a gate that shapes, corrects, or constrains the text before it is finalized. Each filter answers one question about the chapter, and the chapter is not complete until it has passed all six.
+
+```
+research → correctness → contemporary theme → contemporary syntax → human override → quality review
+```
+
+| # | Filter | Skill | Question it answers | What it does |
+|---|--------|-------|---------------------|--------------|
+| 1 | **Research subject** | `research` | *Is the subject grounded?* | Research the chapter's topic against the reference book, the context folder, and (where relevant) the internet. Establish the facts, terms, and ideas the chapter will render. |
+| 2 | **Correctness of information** | `correctness` | *Is the information accurate?* | Verify every fact, term, and claim against authoritative sources. Flag uncertainty; do not present speculation as fact. Correct errors before prose is written. |
+| 3 | **Contemporary theme** | `theme` | *Does the theme speak to now?* | Map the chapter's timeless theme onto a contemporary concern, so the ancient voice addresses the present reader. The theme must feel alive in 2026, not merely historical. |
+| 4 | **Contemporary language syntax** | `syntax` | *Is the syntax readable today?* | Render the archaic/literary register in syntax a modern reader can follow — no obsolete grammar, no dead constructions. The voice stays prophetic, but the sentence structure stays current. |
+| 5 | **Overridden context (human-in-the-loop)** | *(no skill — `override.md`)* | *Has the human steered it?* | Apply the human's `override.md` — prompt transformation, local preferences, dialects, and slug/location/era context. This is the human's in-the-loop correction, applied last among the content filters. It is driven directly by the human-editable `override.md` file, not by a skill. |
+| 6 | **Review and apply quality parameters** | `quality` | *Does it meet the quality bar?* | Audit the chapter against the quality metrics from the seed analysis (philosophical depth, metaphorical richness, accessibility, resonance, timelessness). Revise until it passes. |
+
+### Filter → skill mapping
+
+Each filter is owned by a skill in `.framework/skills/`. Read the skill's `SKILL.md` before applying its filter. The one exception is **filter 5 (human-in-the-loop)**, which is not a skill — it is driven directly by the human-editable `override.md` file in the book's pipeline.
+
+| Filter | Skill | Location |
+|--------|-------|----------|
+| 1. Research subject | `research` | `.framework/skills/research/SKILL.md` |
+| 2. Correctness of information | `correctness` | `.framework/skills/correctness/SKILL.md` |
+| 3. Contemporary theme | `theme` | `.framework/skills/theme/SKILL.md` |
+| 4. Contemporary language syntax | `syntax` | `.framework/skills/syntax/SKILL.md` |
+| 5. Overridden context (human-in-the-loop) | *(no skill)* | `.space/pipeline/book_<bookname>/override.md` |
+| 6. Review and apply quality parameters | `quality` | `.framework/skills/quality/SKILL.md` |
+
+### Filter order and rationale
+
+- **Filters 1–2 (research, correctness)** run *before* writing: they establish and verify the ground the chapter stands on. A chapter built on wrong facts is wrong no matter how beautiful.
+- **Filters 3–4 (contemporary theme, contemporary syntax)** run *during* writing: they keep the ancient voice alive and readable for a modern reader.
+- **Filter 5 (human override)** runs *after* the base text is generated: it is the human's in-the-loop correction, applied as a transformation pass.
+- **Filter 6 (quality review)** runs *last*: it is the final audit against the seed analysis's quality metrics, and it may loop back to any earlier filter if a defect is found.
+
+### Applying the filters
+
+For each chapter, before marking it `completed`:
+
+1. **Research** the subject and **verify** correctness (filters 1–2).
+2. **Write** the base chapter, weaving the **contemporary theme** and **contemporary syntax** (filters 3–4).
+3. **Apply** the human's `override.md` if present (filter 5).
+4. **Review** against the quality parameters and revise until it passes (filter 6).
+
+### Filter folders
+
+Each filter has a dedicated folder in the book's pipeline, created at scaffold time:
+
+```
+.space/pipeline/book_<bookname>/filters/
+├── research/      # filter 1 — research subject
+├── correctness/   # filter 2 — correctness of information
+├── theme/         # filter 3 — contemporary theme
+├── syntax/        # filter 4 — contemporary language syntax
+├── override/      # filter 5 — human-in-the-loop (override.md)
+└── quality/       # filter 6 — review and apply quality parameters
+```
+
+Each filter writes its working artifacts (research notes, fact-check results, theme mapping, syntax notes, override application, quality audit) into its own folder. The folder is the filter's scratch space — the place where it records what it did, so the pipeline is auditable per filter.
+
+A chapter is `completed` only when all six filters have passed. Record the filter pass in the chapter's `<n>.json` (see below) so the pipeline is auditable.
+
 ### The `config.json` schema
 
 The generated `book_<bookname>\config.json` must follow this shape:
@@ -370,35 +492,46 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
    - Read the corresponding subject from `bookseed.txt`
    - Assign the next category from the themes file's thematic categories (cycling)
 
-6. **Generate the chapter** (weave Context + Style + Theme):
+6. **Research and verify** (filters 1–2):
+   - **Research subject** — research the chapter's topic against the reference book, context folder, and (where relevant) the internet.
+   - **Correctness of information** — verify every fact and term; flag uncertainty; correct errors before writing.
+
+7. **Generate the chapter** (weave Context + Style + Theme, filters 3–4):
    - Transform the term into a full Gibran-style chapter **in the language specified by `config.json`'s `language` field**
    - Apply the fixed Style (cadence, sacred vocabulary, structural formula)
    - Use the `sacred_vocabulary` and `translation_guide` from `config.json`
    - Ground the philosophy in the Context's themes and the assigned Theme category
+   - **Contemporary theme** — map the timeless theme onto a present-day concern
+   - **Contemporary language syntax** — keep the prophetic voice but use syntax a modern reader can follow
    - Ensure 500-800 word count
 
-7. **Apply the Override** (transformation pass, if `override.md` is filled):
+8. **Apply the Override** (filter 5, transformation pass, if `override.md` is filled):
    - **Prompt Transformation** → reshape the voice/structure as instructed
    - **Local Preferences** → adjust style to the human's taste
    - **Local Dialects** → weave in dialect words and forms
    - **Slug / Location / Era** → anchor the text in place and time
    - Apply in that order; skip any empty section
 
-8. **Save the chapter**:
+9. **Review against quality parameters** (filter 6):
+   - Audit the chapter against the seed analysis's quality metrics (philosophical depth, metaphorical richness, accessibility, resonance, timelessness)
+   - Revise until it passes; loop back to any earlier filter if a defect is found
+
+10. **Save the chapter**:
    - Write the full chapter to `source\books\book_<bookname>\chapters\Chapter_XXX_[Term].md`
    - Create the chapters directory if it doesn't exist
    - Start the file with the heading `# Chapter XXX: [term]` (or target-language equivalent)
 
-9. **Append to the book**:
+11. **Append to the book**:
    - Append the chapter to `source\books\book_<bookname>\book.md` after a `---` separator
    - If `book.md` does not exist yet, create it with the title, introduction, and this first chapter
 
-10. **Update progress**:
+12. **Update progress**:
    - Mark the chapter as "completed" in `.space\pipeline\book_<bookname>\progress.json`
    - Add completion timestamp
    - Update `completed_chapters` and `current_chapter` counters
+   - Record the six filter passes in the chapter's `<n>.json`
 
-11. **Report completion**:
+13. **Report completion**:
    - Inform the user which chapter was completed
    - Show progress (e.g., "Chapter 3 of 199 completed")
    - Ask if they want to continue to the next chapter

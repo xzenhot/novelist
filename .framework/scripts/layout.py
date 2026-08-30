@@ -27,9 +27,22 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent          # .framework/scripts/
 FRAMEWORK = SCRIPT_DIR.parent                          # .framework/
 REPO_ROOT = FRAMEWORK.parent                           # novelist/
-TEMPLATE = FRAMEWORK / "templates" / "stereotypes" / "poetry" / "book"
+TEMPLATE = FRAMEWORK / "templates" / "novel"
 PIPELINE_DIR = REPO_ROOT / ".space" / "pipeline"
 SOURCE_DIR = REPO_ROOT / "source" / "books"
+
+# The ordered, prefixed pipeline filters. Each filter owns a folder under
+# filters/ and is recorded in book.json's "filters" array.
+FILTERS = [
+    ("1_workshop", "workshop", "Per-chapter workshop narratives — the frame (Workshop / Story / Discussion) that becomes the chapter."),
+    ("2_research", "research", "Per-chapter research — the subject, era, place, figures, and events the chapter is grounded in."),
+    ("3_seeds", "seeds", "Per-chapter character and quality seeds — who appears and what quality bar to meet."),
+    ("4_correctness", "correctness", "Fact-checking — verify every fact, term, and claim."),
+    ("5_theme", "theme", "Contemporary theme — map the timeless theme onto a present-day concern."),
+    ("6_syntax", "syntax", "Contemporary syntax — keep the prophetic voice but modernize the sentence structure."),
+    ("7_override", "override", "Human-in-the-loop — the human's override.md transformation."),
+    ("8_quality", "quality", "Quality review — audit against the seed analysis's quality metrics."),
+]
 
 
 def write_json(path: Path, data) -> None:
@@ -43,18 +56,14 @@ def write_text(path: Path, text: str) -> None:
 
 
 def new_state_files(path: Path, data: dict) -> None:
-    """Create the three level state files at a given level."""
+    """Create the level state file at a given level."""
     path.mkdir(parents=True, exist_ok=True)
     level = data.get("level")
     extra = {k: v for k, v in data.items() if k != "level"}
 
-    initial = {"level": level, "state": "initial", **extra}
-    activity = {"level": level, "state": "activity", "status": "scaffolded", **extra}
     returning = {"level": level, "state": "returning", **extra}
 
-    write_json(path / "SelfStateInitialJson.json", initial)
-    write_json(path / "SelfStateActivityJson.json", activity)
-    write_json(path / "ReturningModelJson.json", returning)
+    write_json(path / "model.json", returning)
 
 
 def copy_template_dir(src: Path, dst: Path) -> None:
@@ -83,13 +92,6 @@ def scaffold(book_name: str, chapter_count: int, gist: str) -> None:
 
     # --- 1. Book root -------------------------------------------------------
     book_dir.mkdir(parents=True, exist_ok=True)
-
-    # sample.json (empty, copied from template root)
-    sample_src = TEMPLATE / "sample.json"
-    if sample_src.is_file():
-        shutil.copy2(sample_src, book_dir / "sample.json")
-    else:
-        write_text(book_dir / "sample.json", "{}")
 
     # Book-level state files
     new_state_files(book_dir, {
@@ -120,6 +122,10 @@ def scaffold(book_name: str, chapter_count: int, gist: str) -> None:
         "created_at": now,
         "user_name": "novelist",
         "book_summary": gist if gist else "Provide a one-line summary of the book.",
+        "filters": [
+            {"order": i + 1, "name": name, "folder": f"filters/{folder}/", "purpose": purpose}
+            for i, (folder, name, purpose) in enumerate(FILTERS)
+        ],
         "chapters": chapters,
         "all_characters": [],
         "history": [
@@ -190,20 +196,19 @@ A modern workshop where characters gather to hear a story.
 """
     write_text(book_dir / "workshop_metadata.md", workshop_meta)
 
-    # Runtime destinations
-    (book_dir / "workshop_minutes").mkdir(parents=True, exist_ok=True)
-    (book_dir / "chapter_seeds").mkdir(parents=True, exist_ok=True)
-    (book_dir / "chapters_research").mkdir(parents=True, exist_ok=True)
+    # Filter folders (one per pipeline filter, ordered and prefixed)
+    for folder, _name, _purpose in FILTERS:
+        (book_dir / "filters" / folder).mkdir(parents=True, exist_ok=True)
 
     # --- 3. Chapters and segments ------------------------------------------
-    template_chapter = TEMPLATE / "chapters" / "1"
+    template_moods = TEMPLATE / "moods"
 
     for i in range(1, chapter_count + 1):
         chapter_dir = book_dir / "chapters" / str(i)
         chapter_dir.mkdir(parents=True, exist_ok=True)
 
-        # Copy moods/ from the canonical chapter template
-        copy_template_dir(template_chapter / "moods", chapter_dir / "moods")
+        # Copy moods/ from the canonical template
+        copy_template_dir(template_moods, chapter_dir / "moods")
 
         # Chapter-level state files
         new_state_files(chapter_dir, {"level": "chapter", "chapter_index": i})
@@ -231,7 +236,7 @@ A modern workshop where characters gather to hear a story.
     print(f"Scaffolded book pipeline: {book_dir}")
     print(f"  chapters: 1..{chapter_count} (each with segments/1 -> writer/editor/translator)")
     print("  planning: book.json, characters.json, masterprompt.md, workshop_metadata.md")
-    print("  runtime:  workshop_minutes/, chapter_seeds/, chapters_research/")
+    print("  filters:  1_workshop, 2_research, 3_seeds, 4_correctness, 5_theme, 6_syntax, 7_override, 8_quality")
     print(f"  output:   {out_dir}")
     print()
 
@@ -241,8 +246,8 @@ def main(argv=None) -> int:
         description="Scaffold a novel pipeline from the canonical v1 segment-based template."
     )
     parser.add_argument("bookname", help="The book's name; pipeline is .space/pipeline/book_<name>/")
-    parser.add_argument("--chapter-count", type=int, default=20,
-                        help="Number of chapters (default: 20)")
+    parser.add_argument("--chapter-count", type=int, default=5,
+                        help="Number of chapters (default: 5)")
     parser.add_argument("--gist", default="",
                         help="Optional one-line premise of the book")
     args = parser.parse_args(argv)

@@ -13,5 +13,5 @@ This file is only a short reference note.
 - Do not create chapter number folders directly under `book_<bookname>/`.
 - Do not create segment number folders outside `chapters/<n>/segments/`.
 - Do not scaffold `Template*.json`, `TemplatePrompt*.txt`, or `TemplateSystemPromptText.txt` into a book pipeline.
-- Include `SelfStateInitialJson.json`, `SelfStateActivityJson.json`, and `ReturningModelJson.json` at book, chapter, and segment levels; they are level state files, not template files.
-- Create root planning artifacts: `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `workshop_minutes/`, `chapter_seeds/`, and `chapters_research/`.
+- Include `model.json` at book, chapter, and segment levels; it is a level state file, not a template file.
+- Create root planning artifacts: `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, and `filters/`.
