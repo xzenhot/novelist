@@ -1,0 +1,138 @@
+{
+  "book_name": "MANUSH",
+  "book_long_title": "মানুষ: কেন মানুষ মহান",
+  "generic": "Philosophical / Spiritual / Baul-Fakir Literature",
+  "era": "Timeless / Bengal",
+  "language": "Bengali",
+  "target_audience": "general public, seekers, students of philosophy and literature",
+  "chapter_count": 10,
+  "created_at": "2026-08-30",
+  "user_name": "pijush",
+  "book_summary": "Why man is great. A frame-story novel that asks the oldest question of the Baul, the Fakir, the Udasi, the Vairagi, and the home-leaver: what makes a human being great? Not wealth, not caste, not name, not power — but the inward journey of leaving the false house and finding the person of the heart. Each chapter is a workshop where a modern gathering hears a narrated story of a seeker who walks the road without owning it, practices without claiming the fruit, and loves without chaining the beloved.",
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "name": "Introduction",
+      "chapter_title": "ভূমিকা: ঘর ছাড়ার ডাক",
+      "chapter_summary": "The opening workshop frames the central question: why is man great? A modern gathering of seekers, artists, and skeptics meets to hear the first story. The narrator introduces the figure of the Gosai — the traveler who leaves home to find the deeper home under the open sky. The first story plants the seed: greatness is not in what a person owns, but in what a person is willing to leave behind."
+    },
+    {
+      "chapter_index": 2,
+      "name": "Chapter 1",
+      "chapter_title": "বাউল: পাগলের পথ",
+      "chapter_summary": "The story of the Baul — the wind-touched wanderer whose divine restlessness breaks social chains. The workshop characters debate whether madness can be wisdom. The narrated story follows a Baul who leaves caste and creed to seek the person of the heart, and in doing so reveals the first measure of human greatness: the courage to be free."
+    },
+    {
+      "chapter_index": 3,
+      "name": "Chapter 2",
+      "chapter_title": "ফকির: দারিদ্র্যের মুক্তি",
+      "chapter_summary": "The story of the Fakir — the poor one whose poverty is not lack but release. The workshop characters confront their own attachment to wealth and status. The narrated story follows a Fakir who wants nothing except freedom from wanting, and reveals the second measure of greatness: the lightness of a heart that owns nothing."
+    },
+    {
+      "chapter_index": 4,
+      "name": "Chapter 3",
+      "chapter_title": "উদাসী: বন্ধনহীন পথিক",
+      "chapter_summary": "The story of the Udasi — the unattached one who walks the road without claiming it. The workshop characters wrestle with the meaning of belonging. The narrated story follows an Udasi who loves without turning love into possession, and reveals the third measure of greatness: the blade that cuts false bondage."
+    },
+    {
+      "chapter_index": 5,
+      "name": "Chapter 4",
+      "chapter_title": "বৈরাগী: স্বপ্ন থেকে জাগরণ",
+      "chapter_summary": "The story of the Vairagi — the one who has turned away from worldly attachment. The workshop characters question whether detachment is sorrow or clarity. The narrated story follows a Vairagi who wishes to wake from the dream of the world, and reveals the fourth measure of greatness: the clarity that sees the world as it is."
+    },
+    {
+      "chapter_index": 6,
+      "name": "Chapter 5",
+      "chapter_title": "ঘরছাড়া: অন্তরের যাত্রা",
+      "chapter_summary": "The story of the home-leaver — the traveler who does not mistake shelter for truth. The workshop characters reflect on their own false houses: pride, name, possession, caste, fear, habit. The narrated story follows a home-leaver whose true departure is inward, and reveals the fifth measure of greatness: the inward turn."
+    },
+    {
+      "chapter_index": 7,
+      "name": "Chapter 6",
+      "chapter_title": "পথ: যার শেষ নেই",
+      "chapter_summary": "The story of the road — discipline, uncertainty, dust, weather, and song. The workshop characters learn that the path itself is the end. The narrated story follows a traveler who discovers there is no fixed destination, and reveals the sixth measure of greatness: the willingness to walk without a map."
+    },
+    {
+      "chapter_index": 8,
+      "name": "Chapter 7",
+      "chapter_title": "পথের গান: ধুলো, বাতাস, ছায়া",
+      "chapter_summary": "The story of the song of the road — sung by those who walk, carrying dust, wind, shade, longing, and freedom. The workshop characters hear the song and are moved. The narrated story follows a singer who lives in the act of singing, and reveals the seventh measure of greatness: the freedom that does not seek permanence."
+    },
+    {
+      "chapter_index": 9,
+      "name": "Chapter 8",
+      "chapter_title": "মনের মানুষ: লুকানো সত্য",
+      "chapter_summary": "The story of the person of the heart — the hidden self, the beloved truth within each human being. The workshop characters turn inward. The narrated story follows a seeker who leaves the false house of society's mask and inherited identity, and reveals the eighth measure of greatness: the discovery of the inner beloved."
+    },
+    {
+      "chapter_index": 10,
+      "name": "Conclusion",
+      "chapter_title": "শেষ কথা: যে কথা শেষ হয় না",
+      "chapter_summary": "The closing workshop gathers all the figures — Baul, Fakir, Udasi, Vairagi, and home-leaver — into one figure: the Gosai. The final story reveals the last word that ends all words and yet remains inexhaustible. The answer to 'why man is great' is spoken and left open: man is great because he can walk without owning the path, practice without claiming the fruit, and love without chaining the beloved."
+    }
+  ],
+  "all_characters": [
+    {
+      "character_id": 1,
+      "full_name": "Gosai",
+      "role": "The central figure — the traveler who gathers Baul, Fakir, Udasi, Vairagi, and home-leaver into one",
+      "identity": { "age": 60, "sex": "Male", "caste": "None" },
+      "psychological_depth": "Serene, detached, wise; walks without owning the path, practices without claiming the fruit, loves without chaining the beloved."
+    },
+    {
+      "character_id": 2,
+      "full_name": "Narrator",
+      "role": "The storyteller who frames each workshop and narrates the spiritual story",
+      "identity": { "age": 45, "sex": "Male", "caste": "None" },
+      "psychological_depth": "A bridge between the modern frame and the spiritual narrative; carries the voice of the road."
+    },
+    {
+      "character_id": 3,
+      "full_name": "Seeker",
+      "role": "The modern inquirer who asks the central question and is changed by each story",
+      "identity": { "age": 30, "sex": "Female", "caste": "None" },
+      "psychological_depth": "Restless, questioning, skeptical yet open; represents the reader's own search for meaning."
+    },
+    {
+      "character_id": 4,
+      "full_name": "Baul",
+      "role": "The wind-touched wanderer who breaks social chains to seek the person of the heart",
+      "identity": { "age": 40, "sex": "Male", "caste": "None" },
+      "psychological_depth": "Divinely restless, mad with freedom, eyes raised upward while feet remain on earth."
+    },
+    {
+      "character_id": 5,
+      "full_name": "Fakir",
+      "role": "The poor one whose poverty releases attachment and lightens the heart",
+      "identity": { "age": 50, "sex": "Male", "caste": "None" },
+      "psychological_depth": "Intoxicated with divine love; wants nothing except freedom from wanting."
+    },
+    {
+      "character_id": 6,
+      "full_name": "Udasi",
+      "role": "The unattached one who walks the road without claiming it",
+      "identity": { "age": 55, "sex": "Male", "caste": "None" },
+      "psychological_depth": "Impartial, unentangled; loves without turning love into possession."
+    },
+    {
+      "character_id": 7,
+      "full_name": "Vairagi",
+      "role": "The one who has turned away from worldly attachment and wishes to wake from the dream",
+      "identity": { "age": 48, "sex": "Male", "caste": "None" },
+      "psychological_depth": "Clear-eyed, detached; sees the world as a dream and seeks waking, not sorrow."
+    },
+    {
+      "character_id": 8,
+      "full_name": "Home-leaver",
+      "role": "The traveler who does not mistake shelter for truth; the true departure is inward",
+      "identity": { "age": 35, "sex": "Male", "caste": "None" },
+      "psychological_depth": "Courageous, inward-turning; leaves pride, name, possession, caste, fear, and habit."
+    }
+  ],
+  "history": [
+    {
+      "chapter_count": 10,
+      "running_summary": "A frame-story novel asking why man is great, told through the figures of the Baul, Fakir, Udasi, Vairagi, and home-leaver, all gathered into the single figure of the Gosai."
+    }
+  ]
+}

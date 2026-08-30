@@ -4,10 +4,8 @@ You have to write the first segment (First Segment) of chapter number {chapter_n
 ### INPUT DATA
 - **Book Context:** {book_summary}  
 - **Chapter Summary:** {chapter_summary}
-- **Segment Summary (Main Foundation):
-
-{self_state}
-
+- **Segment Summary (Main Foundation):** {segment_summary}
+- **Metaphor/Title (Symbol of Hope):** {segment_title}
 
 ### WRITING INSTRUCTIONS
 1. **Focus:** Focus only on the events of the 'Segment Summary'. Do not bring in any irrelevant external events.

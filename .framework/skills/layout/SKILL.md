@@ -1,6 +1,6 @@
 ---
 name: layout
-description: "Use when scaffolding the structural skeleton of a novel — the layout that defines chapters, characters, and the workshop structure before any chapter is written. USE FOR: creating a book pipeline (book.json, characters.json, masterprompt.md, workshop.txt, workshop_metadata.md, and the empty folders), defining the chapter list and structure. DO NOT USE FOR: writing chapter prose (use narrative), or building the character roster in detail (use character-builder)."
+description: "Use when scaffolding the structural skeleton of a novel — the layout that defines chapters, characters, and the workshop structure before any chapter is written. USE FOR: creating a book pipeline (book.json, characters.json, masterprompt.md, workshop_metadata.md, and the empty folders), defining the chapter list and structure. DO NOT USE FOR: writing chapter prose (use narrative), or building the character roster in detail (use character-builder)."
 ---
 
 # Layout — The Novel's Structural Skeleton
@@ -14,7 +14,6 @@ A layout lives at `.space/pipeline/book_<bookname>/` and contains:
 - **`book.json`** — the book's structure (chapter titles and summaries).
 - **`characters.json`** — the character roster.
 - **`masterprompt.md`** — the book-specific master prompt.
-- **`workshop.txt`** — the raw workshop prompt.
 - **`workshop_metadata.md`** — workshop metadata (team members).
 - **`workshop_minutes/`** — the workshop narratives (empty at scaffold).
 - **`chapter_seeds/`** — per-chapter seeds (characters + quality parameters).
@@ -28,9 +27,8 @@ Plus an output folder `source/books/book_<bookname>/` for finished chapters.
 2. Create `book.json` — the chapter list and structure.
 3. Create `characters.json` — the character roster.
 4. Create `masterprompt.md` — the book-specific master prompt.
-5. Create `workshop.txt` — the raw workshop prompt.
-6. Create `workshop_metadata.md` — workshop metadata.
-7. Create `source/books/book_<bookname>/` — the output destination.
+5. Create `workshop_metadata.md` — workshop metadata.
+6. Create `source/books/book_<bookname>/` — the output destination.
 
 ## Rules
 

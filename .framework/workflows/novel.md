@@ -18,10 +18,14 @@ Usage: /novel <bookname> <gist>            # scaffold a new book pipeline
 
 Commands:
   scaffold   /novel <bookname> <gist>
-             Creates a new book pipeline at .space/pipeline/book_<bookname>/ with
-             book.json, characters.json, masterprompt.md, workshop.txt,
-             workshop_metadata.md, workshop_minutes/, chapter_seeds/, and
-             chapters_research/. It also creates an empty
+             Creates a new book pipeline at .space/pipeline/book_<bookname>/ by
+             reproducing the canonical segment-based template at
+             .space/templates/v1/fiction/book/ (version hardcoded to v1). The
+             pipeline is a book -> chapter -> segment hierarchy, where each
+             segment passes through three agents: writer -> editor -> translator.
+             Produces the book-level Template* files, a chapter/ folder (with
+             moods/ and spec/), and a chapter/segment/ folder (with writer/,
+             editor/, translator/ subfolders). It also creates an empty
              source/books/book_<bookname>/ destination for finished chapters.
 
   write      /novel <bookname> <chapter>
@@ -51,7 +55,9 @@ Commands:
 Arguments:
   <bookname>   The book's name; the pipeline is .space/pipeline/book_<bookname>/.
   <gist>       The book's core premise: a one-line summary of the story's
-               subject, theme, and scope. Used only during scaffold.
+               subject, theme, and scope. Used only during scaffold to seed
+               TemplateLayOutShapeJson.json (book_name, book_long_title,
+               book_summary, chapters, all_characters).
   <chapter>    The chapter to write. One of: Introduction, 1..N, Conclusion.
 ```
 
@@ -65,18 +71,93 @@ Arguments:
 
 ## Pipeline Structure
 
-Each book has a pipeline folder containing all input material. Running `/novel <bookname> <gist>` creates this structure:
+Each book has a pipeline folder containing all input material. The pipeline is scaffolded from a **canonical segment-based template** at `.space/templates/v1/fiction/book/` (version hardcoded to **`v1`**). Running `/novel <bookname> <gist>` reproduces the template's structure into the book's pipeline folder.
+
+The engine is a **segment-based workflow**: a book is divided into chapters, each chapter into segments, and each segment passes through three agents — **writer → editor → translator**.
+
+The template at `.space/templates/v1/fiction/book/` holds the reference shape of a complete novel pipeline:
+
+```text
+.space/templates/v1/fiction/book/
+|-- TemplateLayOutShapeJson.json      # book layout schema (the seed shape)
+|-- TemplateMetaJson.json             # book metadata (Name, Description, Type, InstanceCount)
+|-- TemplateModelJson.json            # book model (book_summary, chapter_count, ...)
+|-- TemplatePromptInitialText.txt     # prompt: architect the full book layout from the seed
+|-- TemplatePromptNextText.txt        # prompt: extend the layout with the next chapters
+|-- TemplatePromptSummaryText.txt     # prompt: produce a running summary
+`-- chapter/
+    |-- TemplateLayOutShapeJson.json  # chapter layout schema (segments, references, characters)
+    |-- TemplateMetaJson.json
+    |-- TemplateModelJson.json
+    |-- TemplatePromptInitialText.txt # prompt: write the first episode (chapter)
+    |-- TemplatePromptNextText.txt    # prompt: write the next episode
+    |-- TemplatePromptSingleSegmentText.txt
+    |-- TemplatePromptSummaryText.txt
+    |-- moods/                        # mood JSON files (default, introduction, conclusion, love, fight, ...)
+    |-- spec/                         # chapter writing spec (optional)
+    |   `-- default.md
+    `-- segment/
+        |-- TemplateLayOutShapeJson.json  # segment layout schema (segment_content, total_words)
+        |-- TemplateMetaJson.json
+        |-- TemplateModelJson.json
+        |-- TemplatePromptInitialText.txt
+        |-- TemplatePromptNextText.txt
+        |-- TemplatePromptSummaryText.txt
+        |-- writer/                   # segment writer agent
+        |   |-- TemplateLayOutShapeJson.json
+        |   |-- TemplateMetaJson.json
+        |   |-- TemplateModelJson.json
+        |   |-- TemplatePromptInitialText.txt
+        |   |-- TemplatePromptNextText.txt
+        |   |-- TemplatePromptSingleSegmentText.txt
+        |   `-- TemplatePromptSummaryText.txt
+        |-- editor/                   # segment editor agent
+        |   |-- TemplateLayOutShapeJson.json
+        |   |-- TemplateMetaJson.json
+        |   |-- TemplateModelJson.json
+        |   |-- TemplatePromptInitialText.txt
+        |   |-- TemplatePromptNextText.txt
+        |   `-- TemplatePromptSummaryText.txt
+        `-- translator/               # segment translator agent
+            |-- TemplateLayOutShapeJson.json
+            |-- TemplateMetaJson.json
+            |-- TemplateModelJson.json
+            |-- TemplatePromptInitialText.txt
+            |-- TemplatePromptNextText.txt
+            |-- TemplatePromptSummaryText.txt
+            `-- TemplateSystemPromptText.txt
+```
+
+The scaffolded pipeline reproduces this shape under the book's own folder:
 
 ```text
 .space/pipeline/book_<bookname>/
-|-- book.json              # book structure: chapter titles and summaries
-|-- characters.json        # character list
-|-- masterprompt.md        # book-specific master prompt
-|-- workshop.txt           # raw workshop prompt
-|-- workshop_metadata.md   # workshop metadata and participants
-|-- workshop_minutes/      # workshop narratives: Introduction.md, 1..N.md, Conclusion.md
-|-- chapter_seeds/         # chapter seeds: characters + quality_parameters
-`-- chapters_research/     # research JSON per chapter
+|-- TemplateLayOutShapeJson.json      # book layout (seeded by <gist>)
+|-- TemplateMetaJson.json
+|-- TemplateModelJson.json
+|-- TemplatePromptInitialText.txt
+|-- TemplatePromptNextText.txt
+|-- TemplatePromptSummaryText.txt
+`-- chapter/
+    |-- TemplateLayOutShapeJson.json
+    |-- TemplateMetaJson.json
+    |-- TemplateModelJson.json
+    |-- TemplatePromptInitialText.txt
+    |-- TemplatePromptNextText.txt
+    |-- TemplatePromptSingleSegmentText.txt
+    |-- TemplatePromptSummaryText.txt
+    |-- moods/                        # mood JSON files
+    |-- spec/                         # chapter writing spec
+    `-- segment/
+        |-- TemplateLayOutShapeJson.json
+        |-- TemplateMetaJson.json
+        |-- TemplateModelJson.json
+        |-- TemplatePromptInitialText.txt
+        |-- TemplatePromptNextText.txt
+        |-- TemplatePromptSummaryText.txt
+        |-- writer/                   # segment writer agent
+        |-- editor/                   # segment editor agent
+        `-- translator/               # segment translator agent
 
 source/books/book_<bookname>/    # finished chapters
 ```
@@ -85,18 +166,20 @@ source/books/book_<bookname>/    # finished chapters
 
 When `/novel <bookname> <gist>` is invoked:
 
-1. Create `.space/pipeline/book_<bookname>/`.
-2. Create `.space/pipeline/book_<bookname>/workshop_minutes/`.
-3. Create `.space/pipeline/book_<bookname>/chapter_seeds/`.
-4. Create `.space/pipeline/book_<bookname>/chapters_research/`.
-5. Create `.space/pipeline/book_<bookname>/book.json`.
-6. Create `.space/pipeline/book_<bookname>/characters.json`.
-7. Create `.space/pipeline/book_<bookname>/masterprompt.md`.
-8. Create `.space/pipeline/book_<bookname>/workshop.txt`.
-9. Create `.space/pipeline/book_<bookname>/workshop_metadata.md`.
-10. Create `source/books/book_<bookname>/`.
+1. **Read the template** at `.space/templates/v1/fiction/book/` (version is hardcoded to `v1`):
+   - Read `TemplateLayOutShapeJson.json` to learn the book layout schema.
+   - Read `TemplateMetaJson.json` and `TemplateModelJson.json` to learn the metadata and model schemas.
+   - Read `chapter/TemplateLayOutShapeJson.json` and `chapter/segment/TemplateLayOutShapeJson.json` to learn the chapter and segment schemas.
+   - Read the `moods/` folder to learn the available mood files.
+2. Create `.space/pipeline/book_<bookname>/` and copy the book-level `Template*` files into it.
+3. Create `.space/pipeline/book_<bookname>/chapter/` and copy the chapter-level `Template*` files, plus `moods/` and `spec/`.
+4. Create `.space/pipeline/book_<bookname>/chapter/segment/` and copy the segment-level `Template*` files, plus the `writer/`, `editor/`, and `translator/` subfolders (each with their own `Template*` files).
+5. Seed `.space/pipeline/book_<bookname>/TemplateLayOutShapeJson.json` with the `<gist>` — book_name, book_long_title, book_summary, chapters, all_characters.
+6. Create `source/books/book_<bookname>/` — the destination for finished chapters.
 
-All book pipelines live under `.space/pipeline/`. Always create new books at `.space/pipeline/book_<bookname>/`, never at the workspace root.
+All book pipelines live under `.space/pipeline/`. Always create new books at `.space/pipeline/book_<bookname>/`, never at the workspace root. The template version is fixed at `v1`; do not invent a different version.
+
+The full scaffolding logic — including the `OperationState` enum (the authoritative order and meaning of every file) and the JSON schemas — is documented in `.space/templates/v1/SCAFFOLD.md`. Read it before scaffolding.
 
 ## Core Principle
 

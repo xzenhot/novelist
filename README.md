@@ -5,7 +5,7 @@ A multi-agent literary engine for writing **poetic prose** and **frame-story nov
 The system is split into two layers:
 
 - **`.framework/`** — the agents (skills + workflows) that do the work.
-- **`.space/`** and **`source/`** — the data: inputs (context, library, pipeline, templates) and outputs (finished chapters).
+- **`.space/`** and **`source/`** — the data: inputs (context, pipeline, templates) and outputs (finished chapters).
 
 ---
 
@@ -17,8 +17,7 @@ novelist/
 │   ├── skills/              # on-demand workflows (slash commands)
 │   └── workflows/           # the writing engines (poetry.md, reframe.md, novel.md, guide.md)
 ├── .space/                  # inputs & data
-│   ├── context/             # qualities/, references/, themes/, library/
-│   ├── library/             # poetry book instances
+│   ├── context/             # qualities/, references/, themes/
 │   ├── pipeline/            # novel layouts (book_<name>/)
 │   └── templates/           # poetry/, stereotypes/, novel/
 ├── source/                  # finished chapters (book_<name>/)
@@ -112,8 +111,6 @@ layout → research → characters → workshops → chapters
 | `.space/context/qualities/` | Seed analyses (philosophical grounding) |
 | `.space/context/themes/` | Thematic category sets |
 | `.space/context/references/` | Source texts and dictionaries |
-| `.space/context/library/` | Historical source texts |
-| `.space/library/` | Poetry book instances |
 | `.space/pipeline/` | Novel layouts (inputs) |
 | `.space/templates/` | Canonical templates (poetry, stereotypes, novel) |
 | `source/` | Finished chapters (outputs) |
