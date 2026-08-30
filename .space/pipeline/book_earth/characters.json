@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "created_at": "2026-08-30",
+  "book_name": "earth",
+  "characters": [
+    {
+      "character_id": "C001",
+      "full_name": "Maya",
+      "role": "Protagonist / Narrator",
+      "identity": "A geologist and storyteller guiding the workshop through Earth's story",
+      "psychological_depth": "Deeply attuned to the deep time of the planet, seeking to make its ancient story live for the present",
+      "first_appearance": "Chapter 1",
+      "relationships": ["C002"],
+      "arc": "From scientist to storyteller, learning to make the Earth's deep time speak to the human heart"
+    },
+    {
+      "character_id": "C002",
+      "full_name": "Arjun",
+      "role": "Workshop Participant",
+      "identity": "A skeptical young technologist questioning humanity's place in nature",
+      "psychological_depth": "Torn between faith in technology and a growing reverence for the living Earth",
+      "first_appearance": "Chapter 1",
+      "relationships": ["C001"],
+      "arc": "From detachment to wonder, discovering that the Earth is not a resource but a home"
+    },
+    {
+      "character_id": "C003",
+      "full_name": "The Earth",
+      "role": "Historical Figure / Subject",
+      "identity": "The living planet itself, 4.5 billion years old",
+      "psychological_depth": "The patient, enduring subject of the story — the one home that holds all life",
+      "first_appearance": "Chapter 1",
+      "relationships": [],
+      "arc": "Represents the enduring, living subject of the entire narrative"
+    },
+    {
+      "character_id": "C004",
+      "full_name": "The First Life",
+      "role": "Historical Figure",
+      "identity": "A composite of the earliest living organisms",
+      "psychological_depth": "The spark of life that began the long journey toward consciousness",
+      "first_appearance": "Chapter 2",
+      "relationships": [],
+      "arc": "Represents the origin point of the living world"
+    }
+  ],
+  "character_groups": [
+    {
+      "name": "The Workshop",
+      "members": ["C001", "C002"],
+      "description": "The modern frame — a geologist and a technologist exploring Earth's story"
+    },
+    {
+      "name": "The Living Earth",
+      "members": ["C003", "C004"],
+      "description": "The planet and the first life — the enduring subjects of the narrative"
+    }
+  ],
+  "notes": "Character roster for 'The Living Planet' — a frame-story novel celebrating the Earth and humanity's relationship to our only home."
+}

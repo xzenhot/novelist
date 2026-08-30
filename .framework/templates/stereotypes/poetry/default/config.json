@@ -1,0 +1,28 @@
+{
+  "bookname": "speed",
+  "title": "The Invisible Law: A Prophet of Science and Soul",
+  "language": "en",
+  "register": "archaic/literary",
+  "quality": "../context/qualities/aurilus.md",
+  "themes": "../context/themes/generic.md",
+  "reference": "../context/references/aurilus.txt",
+  "index": "bookseed.txt",
+  "sacred_vocabulary": {
+    "guiding_principle": "the ruler within / discerning reason",
+    "inner_citadel": "the inner citadel",
+    "commonwealth": "one great body / the law of one blood",
+    "logos": "silent law / great reason",
+    "amor_fati": "beloved necessity",
+    "transience": "passing / changing"
+  },
+  "translation_guide": {
+    "Acceleration": "The invisible line where the world's body meets your thought",
+    "Force": "The unseen hand that moves the still",
+    "Energy": "The hidden fire that never dies",
+    "Gravity": "The silent pull of the earth's longing",
+    "Entropy": "The slow unwinding of all order",
+    "Quantum": "The smallest door to the infinite",
+    "Light": "The sun that needs no mirror",
+    "Wave": "The tide that carries all streams to the sea"
+  }
+}
