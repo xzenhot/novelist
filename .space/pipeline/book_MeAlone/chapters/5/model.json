@@ -21,7 +21,7 @@
   ],
   "thematic_threads": ["What endures", "The realization"],
   "sources": [".space/backlog/epic/MeAlone/epic.md"],
-  "state": "correctness",
+  "state": "completed",
   "mood": "default",
   "correctness": {
     "status": "verified",
@@ -38,6 +38,25 @@
     "accessibility": "high",
     "resonance": "high",
     "timelessness": "high"
+  },
+  "stereotype": {
+    "form": "novel",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "theme": "The Last Change",
+  "contemporary_mapping": "The modern fear of death and impermanence — the understanding that the self does not die, for it was never born.",
+  "syntax": {
+    "form": "novel",
+    "sample": "generic.md"
+  },
+  "override": {
+    "status": "passed_through",
+    "applied": []
+  },
+  "quality_review": {
+    "status": "passed"
   },
   "chapter_summary": "The seeker grows old, and the body grows tired, and the world goes on with its noise and its hurry — but the self does not grow old, does not grow tired, remains whole and silent and free. When the body at last falls away, the seeker does not fear, for the self is not the body, not the name, not the story, but the one who watches, who knows, who is — and that self does not die, because it was never born. What remains is not the person but the self, the realization from within, the truth that was always there, waiting to be remembered.",
   "segments": [1, 2]

@@ -12,6 +12,7 @@ tools: ["read", "write"]
 Usage: /novel <bookname> [<gist>]          # scaffold a new book pipeline from a gist
        /novel <bookname> <chapter>         # write a specific chapter
        /novel <bookname> filter <filter>   # run a single filter agent
+       /novel <bookname> filter *          # run all filters in order
        /novel <bookname> all               # write all chapters in order
        /novel <bookname> continue          # resume from where you left off
        /novel -h | --help                  # show this help
@@ -50,6 +51,14 @@ Commands:
              command reads the pipeline data and produces/updates that filter's
              output. It never scaffolds — it requires the pipeline to exist.
 
+  filter-all /novel <bookname> filter * | all
+             Runs every filter agent in order on the existing pipeline:
+             workshop -> research -> seeds -> correctness -> theme -> syntax ->
+             override -> quality. Equivalent to invoking `filter <filter>` for
+             each filter in sequence. Each filter reads the pipeline data and
+             the output of the filters before it, and writes its own output to
+             its folder. It never scaffolds — it requires the pipeline to exist.
+
   all        /novel <bookname> all
              Writes every chapter in order: Introduction -> 1 -> 2 -> ... -> N
              -> Conclusion. Each story section may be written in numbered
@@ -68,7 +77,7 @@ Commands:
              Shows this usage.
 
 Arguments:
-  <bookname>   The book's name; the pipeline is .space/pipeline/book_<bookname>/.
+  <bookname>   The book Use `*` or `all` to run every filter in order.'s name; the pipeline is .space/pipeline/book_<bookname>/.
   <gist>       Optional. The book's core premise: a single sentence summarizing
                the story's subject, theme, and scope. Used to create the epic
                at .space/backlog/epic/<bookname>/epic.md, and to derive the
@@ -84,6 +93,7 @@ Arguments:
 - **Check the pipeline first.** `/novel <bookname> [<gist>]` checks whether `.space/pipeline/book_<bookname>/` already exists. If it does not exist, create it (scaffold). If it exists, work with the existing pipeline data.
 - **After the pipeline exists, always work from the pipeline data.** Once `.space/pipeline/book_<bookname>/` is created, every subsequent `/novel` command reads and writes the pipeline data (book.json, characters.json, filters, chapters) — never re-scaffold from scratch.
 - **The filter command never scaffolds.** `/novel <bookname> filter <filter>` requires the pipeline to already exist. It runs a single filter agent on the existing pipeline data; it does not create folders, seed planning artifacts, or run layout. If the pipeline does not exist, report that the book must be scaffolded first.
+- **`filter *` and `filter all` run every filter in order.** The literal `*` (or the keyword `all`) after `filter` is a wildcard meaning "run all filters in sequence" — `workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> quality`. It is not a filter name; it expands to the full ordered chain.
 - **The `filter` subcommand is unambiguous.** The literal keyword `filter` is a subcommand, not a chapter name or gist. It is always followed by a filter name. This removes any collision with `write` (chapter), `all`, `continue`, or `scaffold` (gist).
 - Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`, then run `.framework/skills/research/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists and its per-chapter research is produced.
 - **The epic is the single source of truth for the story.** Every chapter's actual narrative is drawn from the epic, never invented from the gist. The gist is only an indicative one-line summary.
@@ -121,6 +131,19 @@ Each filter is backed by a role agent in `.framework/agents/<filter>/agent.md` a
 2. Read the filter's role agent in `.framework/agents/<filter>/agent.md`.
 3. Read the pipeline data the filter needs (book.json, characters.json, the epic, and any upstream filter output).
 4. Run the filter, writing its output to `.space/pipeline/book_<bookname>/filters/<N>_<filter>/`.
+
+### Running all filters (`filter *` or `filter all`)
+
+`/novel <bookname> filter *` (or `filter all`) runs every filter in order on the existing pipeline:
+
+```
+workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> quality
+```
+
+1. Confirm `.space/pipeline/book_<bookname>/` exists. If not, stop and report that the book must be scaffolded first.
+2. For each filter in the order above, read its role agent in `.framework/agents/<filter>/agent.md`, read the pipeline data and any upstream filter output it needs, and run it, writing its output to `.space/pipeline/book_<bookname>/filters/<N>_<filter>/`.
+3. Each filter consumes the output of the filters before it, so run them strictly in order — do not skip or reorder.
+4. The `override` and `quality` filters are human-in-the-loop: they generate a context-aware `filter.md` from the chapter models and apply any human instructions written there. With no instructions, they pass chapters through unchanged.
 
 ### No collision with layout
 

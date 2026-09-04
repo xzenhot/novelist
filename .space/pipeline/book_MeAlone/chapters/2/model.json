@@ -22,7 +22,7 @@
   ],
   "thematic_threads": ["The turning", "The noise and the silence"],
   "sources": [".space/backlog/epic/MeAlone/epic.md"],
-  "state": "correctness",
+  "state": "completed",
   "mood": "default",
   "correctness": {
     "status": "verified",
@@ -40,6 +40,25 @@
     "accessibility": "high",
     "resonance": "high",
     "timelessness": "high"
+  },
+  "stereotype": {
+    "form": "novel",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "theme": "The Inner Citadel",
+  "contemporary_mapping": "The search for refuge in an always-on world — the need for an inner space no notification can reach.",
+  "syntax": {
+    "form": "novel",
+    "sample": "generic.md"
+  },
+  "override": {
+    "status": "passed_through",
+    "applied": []
+  },
+  "quality_review": {
+    "status": "passed"
   },
   "chapter_summary": "The turning inward is the hardest turn a person can make, for the world is loud and the self is quiet. The seeker looks outward first — in books, teachers, and practices — and finds that all of it helps and none of it is enough, for the self can only be found within. Then, in a moment of stillness, the seeker understands the truth that changes everything: the self that seeks is the self that is sought, the seeker and the sought are one. Beneath the noise there is a silence, and in the silence a self — not the name, not the face, not the story, but something older and whole that simply is. And in that silence the seeker hears the answer to the question that haunted the nights: I am.",
   "segments": [1, 2]

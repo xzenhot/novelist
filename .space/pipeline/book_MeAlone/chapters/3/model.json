@@ -22,7 +22,7 @@
   ],
   "thematic_threads": ["The realization", "The return"],
   "sources": [".space/backlog/epic/MeAlone/epic.md"],
-  "state": "correctness",
+  "state": "completed",
   "mood": "default",
   "correctness": {
     "status": "verified",
@@ -39,6 +39,25 @@
     "accessibility": "high",
     "resonance": "high",
     "timelessness": "high"
+  },
+  "stereotype": {
+    "form": "novel",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "theme": "The Woven Whole",
+  "contemporary_mapping": "The modern sense of fragmentation and isolation — the realization that the self is not separate from the whole (Tat tvam asi).",
+  "syntax": {
+    "form": "novel",
+    "sample": "generic.md"
+  },
+  "override": {
+    "status": "passed_through",
+    "applied": []
+  },
+  "quality_review": {
+    "status": "passed"
   },
   "chapter_summary": "The realization does not come as a thunderclap but as a dawn — a slow, quiet light that grows until the darkness is gone. The seeker understands that the self is not a thing to be found but a truth to be recognized, never lost, only forgotten, and that the self within and the whole without are one — Thou art That. With this comes a peace that does not depend on circumstances, a peace that is not the absence of trouble but the presence of the self. But the realization is not the end; it is the beginning, for the seeker returns to the world carrying the silence within, no longer needing approval, whole and sufficient unto oneself — Me Alone.",
   "segments": [1, 2]

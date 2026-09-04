@@ -393,6 +393,41 @@ Each filter writes its working artifacts (research notes, fact-check results, th
 
 A chapter is `completed` only when all six filters have passed. Record the filter pass in the chapter's `<n>.json` (see below) so the pipeline is auditable.
 
+## The Filter Command
+
+`/write <bookname> filter <filter>` runs a single filter on an existing pipeline. It is the per-filter entry point that complements the full `write` chain.
+
+### Running a filter
+
+1. Confirm `.space/pipeline/book_<bookname>/` exists. If not, stop and report that the book must be scaffolded first.
+2. Read the filter's skill in `.framework/skills/<filter>/SKILL.md` (except `override`, which is driven by the human-editable `override.md`).
+3. Read the pipeline data the filter needs (`config.json`, `bookseed.txt`, and any upstream filter output).
+4. Run the filter, writing its output to `.space/pipeline/book_<bookname>/filters/<filter>/`.
+
+### Running all filters (`filter *` or `filter all`)
+
+`/write <bookname> filter *` (or `filter all`) runs every filter in order on the existing pipeline:
+
+```
+research -> correctness -> theme -> syntax -> override -> quality
+```
+
+1. Confirm `.space/pipeline/book_<bookname>/` exists. If not, stop and report that the book must be scaffolded first.
+2. For each filter in the order above, read its skill (or `override.md` for the override filter), read the pipeline data and any upstream filter output it needs, and run it, writing its output to `.space/pipeline/book_<bookname>/filters/<filter>/`.
+3. Each filter consumes the output of the filters before it, so run them strictly in order — do not skip or reorder.
+4. The `override` filter is human-in-the-loop: it applies the human's `override.md` if present, and passes chapters through unchanged when `override.md` is empty.
+
+### No collision with layout
+
+The filter command is **read/write on existing pipeline data only**. It never:
+
+- creates the pipeline folder tree,
+- seeds `config.json`, `bookseed.txt`, `override.md`, or `progress.json`,
+- creates or repairs `chapters/<n>/segments/<x>/`,
+- runs the layout skill.
+
+Layout (scaffold) and filters are separate concerns: layout builds the skeleton; filters fill it with content. The filter command only does the latter.
+
 ### The `config.json` schema
 
 The generated `book_<bookname>\config.json` must follow this shape:
@@ -585,6 +620,8 @@ If the user runs the command with `-h` or `--help` (or just asks for help), **do
 ```
 Usage: /write <bookname> [<gist>] <quality> <theme> <reference>  # scaffold a new book
        /write <bookname> [<book_seed>]                 # write chapters (uses bookseed.txt)
+       /write <bookname> filter <filter>              # run a single filter
+       /write <bookname> filter *                      # run all filters in order
        /write -h | --help                   # show this help
        /write -o | --options                           # list available qualities, themes, references
 
@@ -606,6 +643,24 @@ Commands:
              <book_seed> is optional — if omitted, the existing bookseed.txt
              is used as-is.
 
+  filter     /write <bookname> filter <filter>
+             Runs a single filter on the existing pipeline. <filter> is one of:
+             research, correctness, theme, syntax, override, quality. Each filter
+             is backed by a skill in .framework/skills/<filter>/SKILL.md (except
+             override, which is driven by the human-editable override.md) and owns
+             a folder in .space/pipeline/book_<bookname>/filters/<filter>/. The
+             filter command reads the pipeline data and produces/updates that
+             filter's output. It never scaffolds — it requires the pipeline to
+             exist.
+
+  filter-all /write <bookname> filter * | all
+             Runs every filter in order on the existing pipeline:
+             research -> correctness -> theme -> syntax -> override -> quality.
+             Equivalent to invoking `filter <filter>` for each filter in
+             sequence. Each filter reads the pipeline data and the output of the
+             filters before it, and writes its own output to its folder. It never
+             scaffolds — it requires the pipeline to exist.
+
   options    /write -o | --options
              Lists every available quality, theme, and reference in the
              context/ folder. Reads the three registry files and prints
@@ -624,6 +679,9 @@ Arguments:
   <reference>  Path to a reference file in context/references/ (e.g. aurilus.txt).
   <book_seed>  Optional. The human-in-the-loop signal; if omitted, the agent
                reads the existing bookseed.txt from the pipeline folder.
+  <filter>     The filter to run (after the `filter` subcommand). One of:
+               research, correctness, theme, syntax, override, quality. Use `*`
+               or `all` to run every filter in order.
 ```
 
 ### Options (`-o` / `--options`)
