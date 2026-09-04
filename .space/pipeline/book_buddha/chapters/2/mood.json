@@ -1,0 +1,15 @@
+{
+  "template": "default",
+  "moods": [
+    { "characteristic": "goal", "mood_description": "The prince leaves everything to find the end of suffering" },
+    { "characteristic": "stakes", "mood_description": "The cost of renunciation — wife, child, kingdom, and self" },
+    { "characteristic": "vulnerability", "mood_description": "The prince's doubt as teachers and austerities fail to answer his question" },
+    { "characteristic": "conflict", "mood_description": "Indulgence versus self-mortification, and the search for the middle way" },
+    { "characteristic": "tension", "mood_description": "The prince near death from his austerities" },
+    { "characteristic": "rationalize", "mood_description": "The prince believes extreme striving will bring truth; it brings only exhaustion" },
+    { "characteristic": "subversion", "mood_description": "The simple bowl of rice-milk becomes the turning point" },
+    { "characteristic": "catharsis", "mood_description": "The discovery of the middle way" },
+    { "characteristic": "foreshadowing", "mood_description": "The Bodhi tree awaits" },
+    { "characteristic": "irony", "mood_description": "The prince who had everything must lose everything to find the truth" }
+  ]
+}

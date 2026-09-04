@@ -1,0 +1,63 @@
+{
+  "level": "chapter",
+  "chapter_index": 2,
+  "chapter_name": "The Great Renunciation",
+  "chapter_title": "The Leaving",
+  "workshop_file": "chapters/2/chapter.md",
+  "subject": "The great renunciation and the middle way",
+  "era": "Ancient India (c. 5th–4th century BCE)",
+  "place": "From Kapilavastu to the forest and the Bodhi tree",
+  "figures": ["Siddhartha Gautama"],
+  "events": [
+    "The prince leaves his palace, wife, and child in the night",
+    "He studies with teachers and practices austerities",
+    "Near death, he accepts a bowl of rice-milk",
+    "He finds the middle way and sits beneath the Bodhi tree"
+  ],
+  "grounding_notes": [
+    "The leaving is not cruelty but the question made larger than everything else.",
+    "Neither indulgence nor self-mortification leads to awakening.",
+    "The bowl of rice-milk is the first step back to life.",
+    "The middle way is found only after both extremes are exhausted."
+  ],
+  "thematic_threads": ["The great renunciation", "The middle way"],
+  "sources": [".space/backlog/epic/buddha/epic.md"],
+  "state": "completed",
+  "mood": "default",
+  "correctness": {
+    "status": "verified",
+    "corrections": [],
+    "flagged_uncertainties": []
+  },
+  "stereotype": {
+    "form": "novel",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "theme": "The Uncluttered Soul",
+  "contemporary_mapping": "The modern burden of possessions and status — the freedom found in letting go.",
+  "syntax": {
+    "form": "novel",
+    "sample": "generic.md"
+  },
+  "override": {
+    "status": "passed_through",
+    "applied": []
+  },
+  "quality_review": {
+    "status": "passed"
+  },
+  "included_characters": [
+    { "character_id": "C001", "full_name": "Siddhartha Gautama", "role_in_chapter": "Protagonist — the prince who leaves everything to seek the truth" }
+  ],
+  "quality_parameters": {
+    "philosophical_depth": "high",
+    "metaphorical_richness": "high",
+    "accessibility": "high",
+    "resonance": "high",
+    "timelessness": "high"
+  },
+  "chapter_summary": "In the dead of night the prince rises and stands at the door of the chamber where his wife and newborn son sleep, and he does not wake them, for he knows that if he looked into their eyes he could not leave. He rides out with his charioteer, cuts off his hair, puts on the robes of a mendicant, and goes out as a seeker. He studies with the great teachers and practices severe austerities until he is near death, but neither answers his question. At last he accepts a bowl of rice-milk from a village girl, and in that simple act finds the middle way between indulgence and self-mortification. He sits beneath the Bodhi tree and resolves not to rise until he has found the truth.",
+  "segments": [1]
+}
