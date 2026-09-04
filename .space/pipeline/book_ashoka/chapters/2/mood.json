@@ -1,0 +1,13 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "conflict",
+      "mood_description": "Ashoka's imperial ambition confronts Kalinga's independence"
+    },
+    {
+      "characteristic": "stakes",
+      "mood_description": "The fate of Kalinga and Ashoka's soul are bound together"
+    }
+  ]
+}

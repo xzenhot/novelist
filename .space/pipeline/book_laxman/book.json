@@ -1,0 +1,45 @@
+{
+  "book_name": "laxman",
+  "book_long_title": "Laxman Sen: The Rise of the Last Great Sena",
+  "form": "novel",
+  "generic": "Historical Epic",
+  "era": "Bengal, c. 1150–1206 CE",
+  "language": "en",
+  "target_audience": "general public, students of history and literature",
+  "chapter_count": 7,
+  "created_at": "2026-09-04",
+  "user_name": "novelist",
+  "book_summary": "Laxman Sen is remembered by history as a weak king — the man who lost Bengal to Bakhtiyar Khalji. But before the fall, there was a rise. A prince of the Sena line, born to the dream of his father Ballala Sena, marched north to the heart of Aryavarta, planted the Sena banner on the walls of Kannauj, and returned to sit upon the throne of Gauda as the greatest patron of learning Bengal had ever known. He gathered at his court the poets Jayadeva, Halayudha, Dhoyi, Govardhana, Umapatidhara, and Sharan, and in that golden age the Gita Govinda was written. But while he gathered poets, a shadow was gathering in the west — Bakhtiyar Khalji, who fell upon Nabadwip by surprise in 1203–04 and ended the age. Laxman Sen fled east to Vikrampur, and died a king without a capital. Yet the Gita Govinda survived, and the name of the king who lost Bengal survived too — not as a conqueror, but as a patron. History remembers him as weak; the poets remember him as great. This is the story of the rise, and the shadow the rise cast.",
+  "gist": "A prince of the Sena line marches north to plant the Sena banner on the walls of Kannauj, returns to sit upon the throne of Gauda as Bengal's greatest patron of learning, and must face the shadow riding down from the mountains of the west.",
+  "epic_path": ".space/backlog/epic/laxman/epic.md",
+  "filters": [
+    { "order": 1, "name": "workshop", "folder": "filters/1_workshop/", "purpose": "Per-chapter workshop narratives — the frame (Workshop / Story / Discussion) that becomes the chapter." },
+    { "order": 2, "name": "research", "folder": "filters/2_research/", "purpose": "Per-chapter research — the subject, era, place, figures, and events the chapter is grounded in." },
+    { "order": 3, "name": "seeds", "folder": "filters/3_seeds/", "purpose": "Per-chapter character and quality seeds — who appears and what quality bar to meet." },
+    { "order": 4, "name": "correctness", "folder": "filters/4_correctness/", "purpose": "Fact-checking — verify every fact, term, and claim." },
+    { "order": 5, "name": "theme", "folder": "filters/5_theme/", "purpose": "Contemporary theme — map the timeless theme onto a present-day concern." },
+    { "order": 6, "name": "syntax", "folder": "filters/6_syntax/", "purpose": "Contemporary syntax — keep the elevated voice but modernize the sentence structure." },
+    { "order": 7, "name": "override", "folder": "filters/7_override/", "purpose": "Human-in-the-loop — the human's override transformation." },
+    { "order": 8, "name": "quality", "folder": "filters/8_quality/", "purpose": "Quality review — audit against the seed analysis's quality metrics." }
+  ],
+  "chapters": [
+    { "chapter_index": 1, "name": "The Seed", "chapter_title": "The Blood of the Moon", "chapter_summary": "The Sena line comes north out of the Karnata country, and Vijaya Sena sharpens the Sena blade against the soft Pala empire. Ballala Sena, the lawgiver, dreams of the north, and into that dream his son Lakshmana is born — with a prophecy that he will rise higher and fall further than any Sena." },
+    { "chapter_index": 2, "name": "The Forging", "chapter_title": "The Prince of Gauda", "chapter_summary": "The boy Laxman grows in the palace at Vikrampur, learning the Vedas, the sword, and statecraft — and learning to listen. The old king lays the dream before him: take Kannauj, plant the Sena banner in the north." },
+    { "chapter_index": 3, "name": "The Conquest", "chapter_title": "The March North", "chapter_summary": "The army of Bengal crosses the Ganga and marches north through Magadha and Mithila, past the ruins of Pataliputra and the holy city of Kashi, to the walls of Kannauj, where the Gahadavala king Jayachandra waits." },
+    { "chapter_index": 4, "name": "The Crown", "chapter_title": "The Battle for Kannauj", "chapter_summary": "The battle for Kannauj is long and terrible, and Laxman Sen fights in the thick of it. The Gahadavala line breaks, the city falls, and the Sena banner is planted on the highest tower. He raises victory pillars across the doab, then turns south toward home." },
+    { "chapter_index": 5, "name": "The Golden Age", "chapter_title": "The Court of Poets", "chapter_summary": "Ballala Sena dies before his son returns. Laxman Sen is crowned at Nabadwip, and turns from the sword to the pen, gathering the greatest poets of the age — Jayadeva, Halayudha, Dhoyi, Govardhana — and the Gita Govinda is written in his court." },
+    { "chapter_index": 6, "name": "The Shadow", "chapter_title": "The Fall of Nabadwip", "chapter_summary": "While Laxman Sen gathers poets, Bakhtiyar Khalji rides out of the west. In 1203–04 he falls upon Nabadwip by surprise, and the golden age ends in a single night of fire and blood. Laxman Sen flees east to Vikrampur." },
+    { "chapter_index": 7, "name": "The Echo", "chapter_title": "What Remains", "chapter_summary": "Laxman Sen dies around 1206, a king without a capital. But the Gita Govinda survives, and the name of the king who lost Bengal survives too — not as a conqueror, but as a patron. History remembers him as weak; the poets remember him as great." }
+  ],
+  "all_characters": [
+    { "character_id": "C001", "full_name": "Laxman Sen", "role": "Protagonist", "identity": "Prince, conqueror, king, and patron of the Sena dynasty", "psychological_depth": "Torn between the sword and the pen, haunted by the prophecy that he will rise higher and fall further than any Sena" },
+    { "character_id": "C002", "full_name": "Ballala Sena", "role": "Father", "identity": "The lawgiver who dreams of the north", "psychological_depth": "A scholar-king who spent his life writing laws and, at the end, wanted to write his name on the walls of Kannauj" },
+    { "character_id": "C003", "full_name": "Vijaya Sena", "role": "Grandfather", "identity": "The founder who sharpened the Sena blade", "psychological_depth": "A man of iron patience and sudden violence who understood that an empire is taken, not inherited" },
+    { "character_id": "C004", "full_name": "Jayadeva", "role": "Court Poet", "identity": "Author of the Gita Govinda", "psychological_depth": "The poet whose song of Krishna and Radha would outlive the empire that sheltered him" },
+    { "character_id": "C005", "full_name": "Jayachandra", "role": "Rival", "identity": "The Gahadavala king of Kannauj", "psychological_depth": "A warrior of the old school who believed the north belonged to the north" },
+    { "character_id": "C006", "full_name": "Bakhtiyar Khalji", "role": "The Shadow", "identity": "The Turkic general who ends the age", "psychological_depth": "A man of restless ambition and sudden violence, denied a command in the west and turned east" }
+  ],
+  "history": [
+    { "event": "scaffold", "date": "2026-09-04", "note": "Pipeline scaffolded from the epic .space/backlog/epic/laxman/epic.md" }
+  ]
+}

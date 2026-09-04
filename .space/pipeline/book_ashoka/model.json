@@ -1,0 +1,12 @@
+{
+  "book_name": "ashoka",
+  "book_long_title": "Ashoka: The Golden Bird and the King of Peace",
+  "form": "novel",
+  "language": "en",
+  "gist": "India is the golden bird, rich in culture, where Ashoka was a great king who developed the sentiments of peace.",
+  "epic_path": ".space/backlog/epic/ashoka/epic.md",
+  "signature": "gibran",
+  "reference": "aurilus.txt",
+  "theme_set": "generic.md",
+  "syntax": "generic.md"
+}

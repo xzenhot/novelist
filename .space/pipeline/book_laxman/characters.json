@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "created_at": "2026-09-04",
+  "book_name": "laxman",
+  "characters": [
+    { "character_id": "C001", "full_name": "Laxman Sen", "role": "Protagonist", "identity": "Prince, conqueror, king, and patron of the Sena dynasty", "psychological_depth": "Torn between the sword and the pen, haunted by the prophecy that he will rise higher and fall further than any Sena" },
+    { "character_id": "C002", "full_name": "Ballala Sena", "role": "Father", "identity": "The lawgiver who dreams of the north", "psychological_depth": "A scholar-king who spent his life writing laws and, at the end, wanted to write his name on the walls of Kannauj" },
+    { "character_id": "C003", "full_name": "Vijaya Sena", "role": "Grandfather", "identity": "The founder who sharpened the Sena blade", "psychological_depth": "A man of iron patience and sudden violence who understood that an empire is taken, not inherited" },
+    { "character_id": "C004", "full_name": "Jayadeva", "role": "Court Poet", "identity": "Author of the Gita Govinda", "psychological_depth": "The poet whose song of Krishna and Radha would outlive the empire that sheltered him" },
+    { "character_id": "C005", "full_name": "Jayachandra", "role": "Rival", "identity": "The Gahadavala king of Kannauj", "psychological_depth": "A warrior of the old school who believed the north belonged to the north" },
+    { "character_id": "C006", "full_name": "Bakhtiyar Khalji", "role": "The Shadow", "identity": "The Turkic general who ends the age", "psychological_depth": "A man of restless ambition and sudden violence, denied a command in the west and turned east" }
+  ],
+  "character_groups": [
+    { "group_name": "The Sena Line", "members": ["C001", "C002", "C003"] },
+    { "group_name": "The Court", "members": ["C004"] },
+    { "group_name": "The Rivals", "members": ["C005", "C006"] }
+  ],
+  "notes": "Character roster for 'laxman', derived from the epic .space/backlog/epic/laxman/epic.md."
+}

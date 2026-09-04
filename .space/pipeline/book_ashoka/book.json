@@ -1,0 +1,98 @@
+{
+  "book_name": "ashoka",
+  "book_long_title": "Ashoka: The Golden Bird and the King of Peace",
+  "form": "novel",
+  "generic": "Historical Epic",
+  "era": "India, c. 304-232 BCE",
+  "language": "en",
+  "target_audience": "general public, students of history and literature",
+  "chapter_count": 5,
+  "created_at": "2026-09-04",
+  "user_name": "novelist",
+  "book_summary": "India is imagined as the golden bird, rich with rivers, languages, faiths, cities, and memory. In that world the Maurya dynasty rises through Chandragupta, Chanakya, and Bindusara, until Ashoka, a prince of ambition and iron discipline, fights his way to the throne. As emperor, Ashoka seeks to complete the empire by conquering Kalinga, but the war's slaughter breaks the conqueror's certainty. Standing among the dead, he turns toward the Dhamma and begins to rule by compassion rather than conquest. He writes his sentiments of peace on pillars and rocks, cares for people and animals, honors many faiths, and sends the teaching beyond India. The Maurya empire eventually fades, but Ashoka's edicts, the lion capital, and the wheel of Dhamma endure as the conscience of a civilization.",
+  "gist": "India is the golden bird, rich in culture, where Ashoka was a great king who developed the sentiments of peace.",
+  "epic_path": ".space/backlog/epic/ashoka/epic.md",
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "name": "The Golden Bird",
+      "chapter_title": "The Land of a Thousand Tongues",
+      "chapter_summary": "India is introduced as the golden bird, a land of rivers, cities, faiths, and languages, and the Maurya house rises through Chandragupta, Chanakya, and Bindusara before Ashoka emerges as a prince in Ujjain."
+    },
+    {
+      "chapter_index": 2,
+      "name": "The Conqueror",
+      "chapter_title": "The Iron King",
+      "chapter_summary": "Ashoka becomes emperor after a hard succession and turns his eye to unconquered Kalinga, marching east with the full force of the Maurya army."
+    },
+    {
+      "chapter_index": 3,
+      "name": "The Awakening",
+      "chapter_title": "The Field of the Dead",
+      "chapter_summary": "On the battlefield of Kalinga, Ashoka sees the human cost of conquest and turns from the sword toward the Dhamma."
+    },
+    {
+      "chapter_index": 4,
+      "name": "The Golden Age",
+      "chapter_title": "The Edicts of Stone",
+      "chapter_summary": "Ashoka writes the sentiments of peace upon stone, builds works of welfare, honors all faiths, and sends the Dhamma beyond the empire."
+    },
+    {
+      "chapter_index": 5,
+      "name": "The Echo",
+      "chapter_title": "What Remains",
+      "chapter_summary": "Ashoka grows old and the empire weakens, but the pillars, the wheel, and the moral memory of his reign outlast the Mauryas."
+    }
+  ],
+  "all_characters": [
+    {
+      "character_id": "C001",
+      "full_name": "Ashoka",
+      "role": "Protagonist",
+      "identity": "Maurya prince, emperor, conqueror of Kalinga, and teacher of peace",
+      "psychological_depth": "A man of iron ambition transformed by remorse into a ruler seeking moral conquest"
+    },
+    {
+      "character_id": "C002",
+      "full_name": "Chandragupta Maurya",
+      "role": "Grandfather",
+      "identity": "Founder of the Maurya empire",
+      "psychological_depth": "A conqueror who seized empire and later renounced it"
+    },
+    {
+      "character_id": "C003",
+      "full_name": "Bindusara",
+      "role": "Father",
+      "identity": "Maurya king and father of Ashoka",
+      "psychological_depth": "A hard ruler whose court bred rivalry among many sons"
+    },
+    {
+      "character_id": "C004",
+      "full_name": "Chanakya",
+      "role": "Statesman",
+      "identity": "Strategist associated with the Arthashastra and the founding of Maurya power",
+      "psychological_depth": "The cold mind of statecraft behind the empire's rise"
+    },
+    {
+      "character_id": "C005",
+      "full_name": "Devi",
+      "role": "Wife",
+      "identity": "Merchant's daughter of Vidisha and early Buddhist influence on Ashoka",
+      "psychological_depth": "A voice of compassion planted before Ashoka is ready to hear it"
+    },
+    {
+      "character_id": "C006",
+      "full_name": "Mahinda",
+      "role": "Son",
+      "identity": "Missionary who carries the Dhamma to Sri Lanka",
+      "psychological_depth": "The child who becomes the living extension of Ashoka's transformation"
+    }
+  ],
+  "history": [
+    {
+      "event": "scaffold",
+      "date": "2026-09-04",
+      "note": "Pipeline scaffolded from the epic .space/backlog/epic/ashoka/epic.md"
+    }
+  ]
+}

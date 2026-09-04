@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "created_at": "2026-09-04",
+  "book_name": "ashoka",
+  "characters": [
+    {
+      "character_id": "C001",
+      "full_name": "Ashoka",
+      "role": "Protagonist",
+      "identity": "Maurya prince, emperor, conqueror of Kalinga, and teacher of peace",
+      "psychological_depth": "A man of iron ambition transformed by remorse into a ruler seeking moral conquest"
+    },
+    {
+      "character_id": "C002",
+      "full_name": "Chandragupta Maurya",
+      "role": "Grandfather",
+      "identity": "Founder of the Maurya empire",
+      "psychological_depth": "A conqueror who seized empire and later renounced it"
+    },
+    {
+      "character_id": "C003",
+      "full_name": "Bindusara",
+      "role": "Father",
+      "identity": "Maurya king and father of Ashoka",
+      "psychological_depth": "A hard ruler whose court bred rivalry among many sons"
+    },
+    {
+      "character_id": "C004",
+      "full_name": "Chanakya",
+      "role": "Statesman",
+      "identity": "Strategist associated with the Arthashastra and the founding of Maurya power",
+      "psychological_depth": "The cold mind of statecraft behind the empire's rise"
+    },
+    {
+      "character_id": "C005",
+      "full_name": "Devi",
+      "role": "Wife",
+      "identity": "Merchant's daughter of Vidisha and early Buddhist influence on Ashoka",
+      "psychological_depth": "A voice of compassion planted before Ashoka is ready to hear it"
+    },
+    {
+      "character_id": "C006",
+      "full_name": "Mahinda",
+      "role": "Son",
+      "identity": "Missionary who carries the Dhamma to Sri Lanka",
+      "psychological_depth": "The child who becomes the living extension of Ashoka's transformation"
+    }
+  ],
+  "character_groups": [
+    {
+      "group_name": "The Maurya House",
+      "members": ["C001", "C002", "C003", "C004"]
+    },
+    {
+      "group_name": "The Dhamma Line",
+      "members": ["C001", "C005", "C006"]
+    }
+  ],
+  "notes": "Character roster for 'ashoka', derived from the epic .space/backlog/epic/ashoka/epic.md."
+}
