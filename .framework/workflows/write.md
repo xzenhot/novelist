@@ -10,12 +10,11 @@ tools: ["read", "write"]
 
 ```text
 Usage: /write <bookname> [<gist>] [--form novel|poetry]   # scaffold a new book pipeline
-       /write <bookname> <chapter>                        # write a specific chapter
-       /write <bookname> filter <filter>                  # run a single filter
-       /write <bookname> filter *                         # run all filters in order
+       /write <bookname> chapter <chapter>|<n>|all|continue  # write a chapter (or all/remaining)
+       /write <bookname> filter <filter>|*|all            # run a filter (or all)
        /write <bookname> form <formname>                  # set/change the book's form
-       /write <bookname> all                              # write all chapters in order
-       /write <bookname> continue                         # resume from where you left off
+       /write <bookname> config [<key> [<value>]]         # get or set the book's model config
+       /write <bookname> config show                      # show the book's model config
        /write -h | --help                                 # show this help
        /write -o | --options                              # list available books and chapters
 
@@ -33,30 +32,29 @@ Commands:
              from the pipeline's `form` field (book.json or config.json); the
              --form flag only overrides it at scaffold time.
 
-  write      /write <bookname> <chapter>
-             Writes one chapter. For a novel, reads the workshop narrative and
-             rewrites Section 2 (the story) in the selected style. For poetry,
-             reads bookseed.txt and generates a Question/Oration/Benediction
-             chapter. Writes the finished chapter to
+  write      /write <bookname> chapter <chapter>|<n>|all|continue
+             Writes one chapter (or all, or the remaining). For a novel, reads the
+             workshop narrative and rewrites Section 2 (the story) in the selected
+             style. For poetry, reads bookseed.txt and generates a
+             Question/Oration/Benediction chapter. Writes the finished chapter to
              source/books/book_<bookname>/chapters/<chapter>.md.
              <chapter> is one of: Introduction, 1..N, Conclusion (novel), or a
-             topic/term from bookseed.txt (poetry).
+             topic/term from bookseed.txt (poetry). <n> is a chapter number
+             (1..N) — equivalent to writing that numbered chapter. The keyword
+             `all` writes every chapter in order. The keyword `continue` writes
+             the remaining chapters — it resumes from the first chapter not yet
+             present in source/books/book_<bookname>/chapters/.
 
-  filter     /write <bookname> filter <filter>
-             Runs a single filter on the existing pipeline. <filter> is one of the
-             form's filter chain (see "The Filter Command"). Each filter is backed
-             by a role agent in .framework/agents/<filter>/agent.md (novel) or a
-             skill in .framework/skills/<filter>/SKILL.md (poetry), and owns a
-             folder in .space/pipeline/book_<bookname>/filters/<N>_<filter>/. The
-             filter command reads the pipeline data and produces/updates that
-             filter's output. It never scaffolds — it requires the pipeline to exist.
-
-  filter-all /write <bookname> filter * | all
-             Runs every filter in order on the existing pipeline, following the
-             form's filter chain. Equivalent to invoking `filter <filter>` for each
-             filter in sequence. Each filter reads the pipeline data and the output
-             of the filters before it, and writes its own output to its folder. It
-             never scaffolds — it requires the pipeline to exist.
+  filter     /write <bookname> filter <filter>|*|all
+             Runs a single filter (or all) on the existing pipeline. <filter> is
+             one of the form's filter chain (see "The Filter Command"). Each filter
+             is backed by a role agent in .framework/agents/<filter>/agent.md
+             (novel) or a skill in .framework/skills/<filter>/SKILL.md (poetry), and
+             owns a folder in .space/pipeline/book_<bookname>/filters/<N>_<filter>/.
+             The filter command reads the pipeline data and produces/updates that
+             filter's output. The wildcard `*` (or the keyword `all`) runs every
+             filter in order, following the form's filter chain. It never scaffolds
+             — it requires the pipeline to exist.
 
   form       /write <bookname> form <formname>
              Sets or changes the book's form. <formname> is one of: novel, poetry.
@@ -65,17 +63,14 @@ Commands:
              structure, word target, and stereotype templates accordingly. It does
              not scaffold — it requires the pipeline to exist.
 
-  all        /write <bookname> all
-             Writes every chapter in order. For a novel: Introduction -> 1 -> 2 ->
-             ... -> N -> Conclusion. For poetry: every topic in bookseed.txt, in
-             order. Each story section may be written in numbered batches until it
-             reaches the target length. After all chapters are written, assembles
-             the consolidated book.md at the book root (see "Assembling the Book").
-
-  continue   /write <bookname> continue
-             Resumes from the first chapter not yet present in
-             source/books/book_<bookname>/. Never restarts from the beginning
-             unless explicitly asked.
+  config     /write <bookname> config [<key> [<value>]]
+             Gets or sets the book's model configuration — the stereotype
+             selections (signature, reference, theme set, syntax sample) and other
+             model fields recorded in the chapter models. With no arguments, prints
+             the current configuration. With a <key>, prints that key's value. With
+             a <key> and <value>, sets that key. The keyword `show` prints the full
+             current configuration. It does not scaffold — it requires the pipeline
+             to exist.
 
   options    /write -o | --options
              Lists available book pipelines in .space/pipeline/ and their
@@ -90,12 +85,20 @@ Arguments:
                the story's subject, theme, and scope. Used to create the epic
                (novel) or seed config.json (poetry), and to derive the book title.
                If omitted, infer a gist from the book name.
-  <chapter>    The chapter to write. One of: Introduction, 1..N, Conclusion
-               (novel), or a topic/term from bookseed.txt (poetry).
+  <chapter>    The chapter to write (after the `chapter` subcommand). One of:
+               Introduction, 1..N, Conclusion (novel), or a topic/term from
+               bookseed.txt (poetry). A bare number <n> (1..N) is also accepted
+               and means "write chapter <n>". The keyword `all` writes every
+               chapter in order. The keyword `continue` writes the remaining
+               chapters (resumes from the first missing chapter).
   <filter>     The filter to run (after the `filter` subcommand). One of the
                form's filter chain. Use `*` or `all` to run every filter in order.
   <formname>   The form to set (after the `form` subcommand). One of: novel,
                poetry.
+  <key>        Optional. The config key to get or set (after the `config`
+               subcommand). E.g. `signature`, `reference`, `theme_set`, `syntax`.
+  <value>      Optional. The value to set for <key> (after the `config`
+               subcommand). Omit to get the current value.
   --form       Optional. `novel` or `poetry`. Overrides the form at scaffold time;
                otherwise the form is read from the pipeline's `form` field.
 ```
@@ -134,16 +137,18 @@ The `form` field drives:
 - **`filter *` and `filter all` run every filter in order.** The literal `*` (or the keyword `all`) after `filter` is a wildcard meaning "run all filters in sequence", following the form's filter chain. It is not a filter name; it expands to the full ordered chain.
 - **The `filter` subcommand is unambiguous.** The literal keyword `filter` is a subcommand, not a chapter name or gist. It is always followed by a filter name. This removes any collision with `write` (chapter), `all`, `continue`, or `scaffold` (gist).
 - **The `form` subcommand is unambiguous.** The literal keyword `form` is a subcommand, not a chapter name or gist. It is always followed by a form name (`novel` or `poetry`). It sets or changes the book's form on an existing pipeline; it never scaffolds.
+- **The `chapter` subcommand is unambiguous.** The literal keyword `chapter` is a subcommand, not a chapter name or gist. It is always followed by a chapter name (`Introduction`, `1..N`, `Conclusion`), a bare chapter number (`1..N`), the keyword `all` (write every chapter in order), or the keyword `continue` (write the remaining chapters). This removes any collision with `filter`, `form`, `all`, `continue`, or `scaffold`.
+- **The `config` subcommand is unambiguous.** The literal keyword `config` is a subcommand, not a chapter name or gist. It is optionally followed by a `<key>` and `<value>`. It gets or sets the book's model configuration; it never scaffolds.
 - Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`, then run `.framework/skills/research/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists and its per-chapter research is produced.
 - **The epic is the single source of truth for a novel's story.** Every chapter's actual narrative is drawn from the epic, never invented from the gist. The gist is only an indicative one-line summary.
 - **`config.json` + `bookseed.txt` are the source of truth for poetry.** `config.json` holds *how* to write (language, register, quality, themes, reference, index); `bookseed.txt` holds *what* to write (one topic per line).
 - **The gist is a single sentence.** It must be exactly one sentence. It is used to create the book title (`book_long_title`).
 - **The book summary is a paragraph.** It is a set of 5–10 sentences outlining the complete story. It is derived from the epic (novel) and stored as `book_summary`.
 - **When the epic changes, re-summarize the gist.** The gist is always derived from the epic; after any edit to the epic, regenerate the gist and update `book.json`.
-- Always inspect `source/books/book_<bookname>/` before writing, so you know which chapters already exist. The `continue` command starts at the first missing chapter.
+- Always inspect `source/books/book_<bookname>/chapters/` before writing, so you know which chapters already exist. The `chapter continue` command starts at the first missing chapter.
 - Before writing any chapter, read the corresponding seed/JSON file from `.space/pipeline/book_<bookname>/filters/`, including `included_characters` and `quality_parameters` (novel) or the topic and category (poetry).
-- In `all` mode, preserve the form's order: `Introduction -> 1 -> 2 -> ... -> N -> Conclusion` (novel), or `bookseed.txt` order (poetry).
-- If a specific `<chapter>` is requested, write only that chapter even if earlier chapters are incomplete.
+- In `chapter all` mode, preserve the form's order: `Introduction -> 1 -> 2 -> ... -> N -> Conclusion` (novel), or `bookseed.txt` order (poetry).
+- If a specific `<chapter>` (or `<n>`) is requested, write only that chapter even if earlier chapters are incomplete.
 
 ## Pipeline Structure
 
@@ -249,6 +254,25 @@ chapter plan → research → workshop → chapters
    - **Stereotype templates** — `stereotypes/novel/` or `stereotypes/poetry/`.
    - **Source of truth** — `epic.md` (novel) or `config.json` + `bookseed.txt` (poetry).
 5. Report the change and its consequences. It never scaffolds — it requires the pipeline to exist.
+
+## The Config Command
+
+`/write <bookname> config [<key> [<value>]]` gets or sets the book's model configuration — the stereotype selections and other model fields recorded in the chapter models.
+
+1. Confirm `.space/pipeline/book_<bookname>/` exists. If not, stop and report that the book must be scaffolded first.
+2. Read the chapter models at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` to discover the current configuration.
+3. With **no arguments** (or the keyword `show`), print the current configuration (the `stereotype` object — `form`, `signature`, `reference`, `theme_set` — and the `syntax` object).
+4. With a **`<key>`**, print that key's current value.
+5. With a **`<key>` and `<value>`**, set that key to the value across the chapter models (e.g. `config signature tolstoy` sets the signature; `config theme_set generic.md` sets the theme set).
+6. Report the change. It never scaffolds — it requires the pipeline to exist.
+
+The configurable keys are the stereotype selections and syntax sample:
+
+- `form` — `novel` or `poetry`
+- `signature` — the voice (e.g. `gibran`, `tolstoy`)
+- `reference` — the source text (e.g. `aurilus.txt`)
+- `theme_set` — the philosophical lens (e.g. `generic.md`)
+- `syntax` — the syntax sample (e.g. `generic.md`)
 
 ## The Filter Command
 

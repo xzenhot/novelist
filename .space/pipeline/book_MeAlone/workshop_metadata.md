@@ -3,8 +3,8 @@
 ## Workshop Team
 | Role | Character | Description |
 |------|-----------|-------------|
-| Narrator | TBD | A guide leading the workshop through the story of the self |
-| Participant | TBD | A modern participant questioning the story |
+| Narrator | Maya | A guide leading the workshop through the story of the self |
+| Participant | Arjun | A modern participant questioning the story |
 
 ## Narrated-Story Figures
 | Figure | Role | Era |
