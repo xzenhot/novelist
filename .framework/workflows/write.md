@@ -28,9 +28,9 @@ Commands:
              creates an empty source/books/book_<bookname>/ destination.
              <gist> is the seed premise. For a novel, the command creates the epic
              at .space/backlog/epic/<bookname>/epic.md from the gist (if absent).
-             For poetry, it seeds config.json and bookseed.txt. The form is read
-             from the pipeline's `form` field (book.json or config.json); the
-             --form flag only overrides it at scaffold time.
+             For poetry, it seeds model.json and bookseed.txt. The form is read
+             from the pipeline's `form` field (model.json); the --form flag only
+             overrides it at scaffold time.
 
   write      /write <bookname> chapter <chapter>|<n>|all|continue
              Writes one chapter (or all, or the remaining). For a novel, reads the
@@ -58,8 +58,8 @@ Commands:
 
   form       /write <bookname> form <formname>
              Sets or changes the book's form. <formname> is one of: novel, poetry.
-             Updates the pipeline's `form` field (book.json for novel, config.json
-             for poetry). Changing the form re-selects the filter chain, chapter
+             Updates the pipeline's `form` field (model.json). Changing the form
+             re-selects the filter chain, chapter
              structure, word target, and stereotype templates accordingly. It does
              not scaffold — it requires the pipeline to exist.
 
@@ -83,7 +83,7 @@ Arguments:
   <bookname>   The book's name; the pipeline is .space/pipeline/book_<bookname>/.
   <gist>       Optional. The book's core premise: a single sentence summarizing
                the story's subject, theme, and scope. Used to create the epic
-               (novel) or seed config.json (poetry), and to derive the book title.
+               (novel) or seed model.json (poetry), and to derive the book title.
                If omitted, infer a gist from the book name.
   <chapter>    The chapter to write (after the `chapter` subcommand). One of:
                Introduction, 1..N, Conclusion (novel), or a topic/term from
@@ -108,14 +108,14 @@ Arguments:
 A book is either a **novel** (prose) or **poetry** (verse). The form is declared once, at scaffold time, in the pipeline's `form` field, and read everywhere else.
 
 ```json
-// book.json (novel)  OR  config.json (poetry)
+// model.json (both forms)
 "form": "novel"   // or "poetry"
 ```
 
 | Signal | Novel | Poetry |
 |---|---|---|
 | **`form` field** | `"novel"` | `"poetry"` |
-| **Source of truth** | `epic.md` (epic-driven) | `config.json` + `bookseed.txt` |
+| **Source of truth** | `epic.md` (epic-driven) | `model.json` + `bookseed.txt` |
 | **Chapter structure** | Workshop / Story / Discussion | Question / Oration / Benediction |
 | **Segments per chapter** | many (`segments/1`, `segments/2`, …) | exactly one (`segments/1`) |
 | **`mood.json`** | present per chapter | absent (no moods) |
@@ -141,10 +141,10 @@ The `form` field drives:
 - **The `config` subcommand is unambiguous.** The literal keyword `config` is a subcommand, not a chapter name or gist. It is optionally followed by a `<key>` and `<value>`. It gets or sets the book's model configuration; it never scaffolds.
 - Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`, then run `.framework/skills/research/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists and its per-chapter research is produced.
 - **The epic is the single source of truth for a novel's story.** Every chapter's actual narrative is drawn from the epic, never invented from the gist. The gist is only an indicative one-line summary.
-- **`config.json` + `bookseed.txt` are the source of truth for poetry.** `config.json` holds *how* to write (language, register, quality, themes, reference, index); `bookseed.txt` holds *what* to write (one topic per line).
+- **`model.json` + `bookseed.txt` are the source of truth for poetry.** `model.json` holds *how* to write (language, register, quality, themes, reference, index); `bookseed.txt` holds *what* to write (one topic per line).
 - **The gist is a single sentence.** It must be exactly one sentence. It is used to create the book title (`book_long_title`).
 - **The book summary is a paragraph.** It is a set of 5–10 sentences outlining the complete story. It is derived from the epic (novel) and stored as `book_summary`.
-- **When the epic changes, re-summarize the gist.** The gist is always derived from the epic; after any edit to the epic, regenerate the gist and update `book.json`.
+- **When the epic changes, re-summarize the gist.** The gist is always derived from the epic; after any edit to the epic, regenerate the gist and update `model.json`.
 - Always inspect `source/books/book_<bookname>/chapters/` before writing, so you know which chapters already exist. The `chapter continue` command starts at the first missing chapter.
 - Before writing any chapter, read the corresponding seed/JSON file from `.space/pipeline/book_<bookname>/filters/`, including `included_characters` and `quality_parameters` (novel) or the topic and category (poetry).
 - In `chapter all` mode, preserve the form's order: `Introduction -> 1 -> 2 -> ... -> N -> Conclusion` (novel), or `bookseed.txt` order (poetry).
@@ -183,12 +183,12 @@ For `/write <bookname> [<gist>] [--form novel|poetry]`:
 
 ### Novel
 
-1. Update `.space/pipeline/book_<bookname>/book.json` with the `gist` attribute, the embedded `epic_path` (`.space/backlog/epic/<bookname>/epic.md`), and `"form": "novel"`. Use the gist to set `book_long_title`, and derive `book_summary` as a 5–10 sentence paragraph outlining the complete story.
+1. Update `.space/pipeline/book_<bookname>/model.json` with the `gist` attribute, the embedded `epic_path` (`.space/backlog/epic/<bookname>/epic.md`), and `"form": "novel"`. Use the gist to set `book_long_title`, and derive `book_summary` as a 5–10 sentence paragraph outlining the complete story.
 
 ### Poetry
 
 1. Ensure `source/books/book_<bookname>/chapters/` exists for finished poetry chapter files.
-2. Create or update `.space/pipeline/book_<bookname>/config.json` with `"form": "poetry"`, title, language, register, quality, themes, reference, index, sacred vocabulary, and translation guide.
+2. Create or update `.space/pipeline/book_<bookname>/model.json` with `"form": "poetry"`, title, language, register, quality, themes, reference, index, sacred vocabulary, and translation guide.
 3. Copy or create `.space/pipeline/book_<bookname>/bookseed.txt` as the human-editable list of chapter topics.
 4. Copy or create `.space/pipeline/book_<bookname>/override.md` as the optional transformation layer.
 5. Create `.space/pipeline/book_<bookname>/metadata_code<number>.json` before writing text; never overwrite an existing metadata file.
@@ -228,14 +228,14 @@ When creating an epic, always write this metadata block. When the epic changes, 
 ### Role of the epic vs. the gist
 
 - **Epic** — the full, developed story: premise, historical grounding, books/chapters, scenes, characters, and thematic threads. Every chapter's actual narrative is drawn from here.
-- **Gist** — a single sentence summarizing the epic's subject, theme, and scope. It is **indicative only**: it seeds `book.json` (`gist`, `book_long_title`) but never supplies story content.
+- **Gist** — a single sentence summarizing the epic's subject, theme, and scope. It is **indicative only**: it seeds `model.json` (`gist`, `book_long_title`) but never supplies story content.
 - **Book summary** — a paragraph of 5–10 sentences outlining the complete story, derived from the epic and stored as `book_summary`.
 
 ### How the epic flows into the pipeline
 
 ```
 gist → create epic (if absent)
-epic → summarize → gist (indicative, saved to book.json)
+epic → summarize → gist (indicative, saved to model.json)
 epic → layout → chapter plan (chapters, titles, summaries, characters)
 chapter plan → research → workshop → chapters
 ```
@@ -245,15 +245,20 @@ chapter plan → research → workshop → chapters
 `/write <bookname> form <formname>` sets or changes the book's form on an existing pipeline. `<formname>` is one of `novel` or `poetry`.
 
 1. Confirm `.space/pipeline/book_<bookname>/` exists. If not, stop and report that the book must be scaffolded first.
-2. Read the current `form` field from the pipeline (`book.json` for novel, `config.json` for poetry).
+2. Read the current `form` field from the pipeline (`model.json`).
 3. If `<formname>` matches the current form, report that no change is needed.
 4. If `<formname>` differs, update the pipeline's `form` field to the new value, and re-select the form's behavior:
    - **Filter chain** — 8 filters (novel) or 6 filters (poetry).
    - **Chapter structure** — Workshop/Story/Discussion (novel) or Question/Oration/Benediction (poetry).
    - **Word target** — 5,500+ words (novel) or 500–800 words (poetry).
    - **Stereotype templates** — `stereotypes/novel/` or `stereotypes/poetry/`.
-   - **Source of truth** — `epic.md` (novel) or `config.json` + `bookseed.txt` (poetry).
-5. Report the change and its consequences. It never scaffolds — it requires the pipeline to exist.
+   - **Source of truth** — `epic.md` (novel) or `model.json` + `bookseed.txt` (poetry).
+5. Re-select the **theme**, **syntax**, **override**, and **quality** filters for the new form:
+   - **Theme** — re-read the stereotype templates from `stereotypes/<form>/themes/` and re-assign each chapter's theme from the new form's theme set.
+   - **Syntax** — re-read the syntax sample from `stereotypes/<form>/syntax/` and update each chapter's `syntax` object.
+   - **Override** — regenerate the context-aware `filter.md` (novel) or `override.md` (poetry) from the new form's chapter models.
+   - **Quality** — re-audit each chapter against the new form's quality parameters.
+6. Report the change and its consequences. It never scaffolds — it requires the pipeline to exist.
 
 ## The Config Command
 
@@ -310,7 +315,7 @@ The filter chain depends on the form:
 
 1. Confirm `.space/pipeline/book_<bookname>/` exists. If not, stop and report that the book must be scaffolded first.
 2. Read the filter's role agent (novel) or skill (poetry) — except `override`, which is driven by the human-editable `filter.md` (novel) or `override.md` (poetry).
-3. Read the pipeline data the filter needs (book.json/config.json, characters.json/bookseed.txt, the epic, and any upstream filter output).
+3. Read the pipeline data the filter needs (model.json, characters.json/bookseed.txt, the epic, and any upstream filter output).
 4. Run the filter, writing its output to `.space/pipeline/book_<bookname>/filters/<N>_<filter>/` (novel) or `filters/<filter>/` (poetry).
 
 ### Running all filters (`filter *` or `filter all`)
@@ -327,7 +332,7 @@ The filter chain depends on the form:
 The filter command is **read/write on existing pipeline data only**. It never:
 
 - creates the pipeline folder tree,
-- seeds `book.json`, `characters.json`, `config.json`, `bookseed.txt`, `masterprompt.md`, or `workshop_metadata.md`,
+- seeds `model.json`, `characters.json`, `bookseed.txt`, `masterprompt.md`, or `workshop_metadata.md`,
 - creates or repairs `chapters/<n>/segments/<x>/`,
 - runs the layout skill or the research skill's scaffold step.
 
@@ -360,7 +365,7 @@ Your task: preserve all three sections; keep Section 1 and Section 3 unchanged; 
 
 ### Poetry
 
-Each chapter is a single Question → Oration → Benediction unit, generated from a topic in `bookseed.txt`, grounded in the quality/theme/reference from `config.json`, and rendered in the selected poetic voice.
+Each chapter is a single Question → Oration → Benediction unit, generated from a topic in `bookseed.txt`, grounded in the quality/theme/reference from `model.json`, and rendered in the selected poetic voice.
 
 ## File Mapping
 
@@ -491,14 +496,14 @@ After writing, count the words. If the Story section is too short, expand it thr
 ## Workspace References
 
 - **Epic (novel source of truth):** `.space/backlog/epic/<bookname>/epic.md`
-- **Config (poetry source of truth):** `.space/pipeline/book_<bookname>/config.json`
+- **Book (poetry source of truth):** `.space/pipeline/book_<bookname>/model.json`
 - **Index (poetry topics):** `.space/pipeline/book_<bookname>/bookseed.txt`
-- **Gist (indicative summary):** `.space/pipeline/book_<bookname>/book.json` → `gist`
-- **Epic path (embedded):** `.space/pipeline/book_<bookname>/book.json` → `epic_path`
+- **Gist (indicative summary):** `.space/pipeline/book_<bookname>/model.json` → `gist`
+- **Epic path (embedded):** `.space/pipeline/book_<bookname>/model.json` → `epic_path`
 - **Workshop narratives (novel source):** `.space/pipeline/book_<bookname>/filters/workshop/`
 - **Chapter seeds (novel characters and quality):** `.space/pipeline/book_<bookname>/filters/seeds/`
 - **Per-chapter research:** `.space/pipeline/book_<bookname>/filters/research/<n>.json`
 - **Finished chapters (destination):** `source/books/book_<bookname>/chapters/`
 - **Consolidated book (destination):** `source/books/book_<bookname>/book.md`
 - **Character list (novel):** `.space/pipeline/book_<bookname>/characters.json`
-- **Book structure (novel):** `.space/pipeline/book_<bookname>/book.json`
+- **Book structure (novel):** `.space/pipeline/book_<bookname>/model.json`

@@ -15,7 +15,7 @@ The engine is defined in a single file, `.framework/workflows/write.md`, and bra
 | `.framework/workflows/write.md` | **The writing engine.** Defines the command system, scaffolding, filter command, stereotype selection, and writing rules. Subject-agnostic — never changes between books. |
 | `.space/pipeline/book_<bookname>/` | **The book pipeline.** Holds the book's inputs (epic or config, characters, filters, chapters). |
 | `.space/backlog/epic/<bookname>/epic.md` | **The epic (novel only).** The single source of truth for a novel's story. |
-| `.space/pipeline/book_<bookname>/config.json` | **The config (poetry only).** The source of truth for a poetry book — language, register, quality, themes, reference, index. |
+| `.space/pipeline/book_<bookname>/model.json` | **The book model.** The source of truth for a poetry book — language, register, quality, themes, reference, index. |
 | `.space/pipeline/book_<bookname>/bookseed.txt` | **The index (poetry only).** The list of topics/terms, one per line. Each becomes one chapter. |
 | `.framework/templates/stereotypes/<form>/` | **The stereotype templates.** Signatures, references, themes, and syntax samples for each form. |
 | `source/books/book_<bookname>/` | **The finished book.** Chapters in `chapters/`, consolidated `book.md` at the root. |
@@ -29,14 +29,14 @@ To write a *new* book, you scaffold a new pipeline under `.space/pipeline/` and 
 A book is either a **novel** (prose) or **poetry** (verse). The form is declared once, at scaffold time, in the pipeline's `form` field, and read everywhere else.
 
 ```json
-// book.json (novel)  OR  config.json (poetry)
+// model.json (both forms)
 "form": "novel"   // or "poetry"
 ```
 
 | Signal | Novel | Poetry |
 |---|---|---|
 | **`form` field** | `"novel"` | `"poetry"` |
-| **Source of truth** | `epic.md` (epic-driven) | `config.json` + `bookseed.txt` |
+| **Source of truth** | `epic.md` (epic-driven) | `model.json` + `bookseed.txt` |
 | **Chapter structure** | Workshop / Story / Discussion | Question / Oration / Benediction |
 | **Segments per chapter** | many | exactly one |
 | **`mood.json`** | present per chapter | absent |
