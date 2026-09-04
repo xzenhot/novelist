@@ -1,0 +1,100 @@
+{
+  "chapter_index": 0,
+  "chapter_name": "Introduction",
+  "state": "completed",
+  "chapter_title": "The Promise",
+  "subject": "The threshold of marriage and the first promise",
+  "era": "Contemporary - the inner life of a marriage",
+  "place": "A family room, then the symbolic first room of the home",
+  "figures": [
+    "wife",
+    "husband",
+    "elders"
+  ],
+  "events": [
+    "A young woman enters marriage as a question and a promise, sensing that a home begins before it has walls.",
+    "The promise moves from words into daily practice."
+  ],
+  "grounding_notes": [
+    "Grounded in the wife epic, especially the promise, hearth, memory, storms, and return motifs.",
+    "No external factual claims are required beyond ordinary contemporary domestic life."
+  ],
+  "sources": [
+    ".space/backlog/epic/wife/epic.md",
+    ".space/pipeline/book_wife/book.json",
+    ".space/pipeline/book_wife/characters.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "wife",
+      "full_name": "The Wife",
+      "role_in_chapter": "central consciousness of the chapter"
+    },
+    {
+      "character_id": "husband",
+      "full_name": "The Husband",
+      "role_in_chapter": "partner and mirror of the wife's changing life"
+    },
+    {
+      "character_id": "elders",
+      "full_name": "The Elders",
+      "role_in_chapter": "guardians of custom and generational witness"
+    }
+  ],
+  "quality_parameters": {
+    "philosophical_depth": "Show love as daily practice, not sentiment.",
+    "metaphorical_richness": "Develop hearth, thread, vessel, breath, and room imagery coherently.",
+    "human_accessibility": "Keep the emotional stakes recognizable to adult readers without sermonizing.",
+    "civilizational_relevance": "Treat domestic care as a foundation of family memory and culture.",
+    "literary_quality": "Use elevated but readable prose, precise sensory detail, and rhythmic closure.",
+    "ethical_framework": "Honor sacrifice without romanticizing erasure or suffering."
+  },
+  "chapter_summary": "A young woman enters marriage as a question and a promise, sensing that a home begins before it has walls. The chapter should move through visible domestic details rather than abstraction: hands at work, rooms changing with time, silence at the table, and the hearth as the recurring image of love practiced daily. Its conflict is not spectacle but endurance, the question of whether care can remain free when it is repeated without applause. It turns when the wife understands that her quiet labor is not disappearance but the shaping force of the household. It hands the reader forward by showing how one act of love becomes the ground for the next season of family life.",
+  "mood": {
+    "template": "default",
+    "moods": [
+      {
+        "characteristic": "goal",
+        "mood_description": "The introduction to the life of the wife."
+      }
+    ]
+  },
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "theme": "The Beloved Necessity",
+  "theme_essence": "The chosen yoke of love becomes a crown when accepted freely.",
+  "contemporary_mapping": "Modern readers meet the anxiety of commitment, arranged expectations, and the fear of losing the self inside partnership.",
+  "syntax": {
+    "form": "novel",
+    "sample": "generic.md",
+    "readability_bar": "elevated modern prose with clear clause movement"
+  },
+  "workshop_file": ".space/pipeline/book_wife/chapters/Introduction/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_wife/chapters/Introduction/chapter.md",
+  "correctness": {
+    "status": "passed_with_literary_grounding",
+    "corrections": [],
+    "flagged_uncertainties": [
+      "The narrative is archetypal and contemporary; no specific dates, legal customs, or regional marriage practices are asserted."
+    ]
+  },
+  "override": {
+    "status": "passed_through",
+    "applied": []
+  },
+  "quality_review": {
+    "status": "passed",
+    "notes": [
+      "Seed, theme, syntax, and correctness filters completed.",
+      "No human override or quality directive was present, so the chapter passed with audit notes only."
+    ]
+  }
+}

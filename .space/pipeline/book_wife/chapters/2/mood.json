@@ -1,0 +1,9 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "The children's arrival and early years."
+    }
+  ]
+}

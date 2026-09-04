@@ -1,0 +1,9 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "The final reflection on the home."
+    }
+  ]
+}

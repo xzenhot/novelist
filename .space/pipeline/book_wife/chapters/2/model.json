@@ -1,0 +1,100 @@
+{
+  "chapter_index": 2,
+  "chapter_name": "The Children",
+  "state": "completed",
+  "chapter_title": "The Children",
+  "subject": "Motherhood, memory, and family identity",
+  "era": "Contemporary - the child-rearing years",
+  "place": "Bedrooms at night, school mornings, sickbeds, family table",
+  "figures": [
+    "wife",
+    "husband",
+    "children"
+  ],
+  "events": [
+    "Children arrive and the wife becomes the keeper of first steps, fevers, birthdays, quarrels, and tenderness.",
+    "The woven home is tested by hardship."
+  ],
+  "grounding_notes": [
+    "Grounded in the wife epic, especially the promise, hearth, memory, storms, and return motifs.",
+    "No external factual claims are required beyond ordinary contemporary domestic life."
+  ],
+  "sources": [
+    ".space/backlog/epic/wife/epic.md",
+    ".space/pipeline/book_wife/book.json",
+    ".space/pipeline/book_wife/characters.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "wife",
+      "full_name": "The Wife",
+      "role_in_chapter": "central consciousness of the chapter"
+    },
+    {
+      "character_id": "husband",
+      "full_name": "The Husband",
+      "role_in_chapter": "partner and mirror of the wife's changing life"
+    },
+    {
+      "character_id": "children",
+      "full_name": "The Children",
+      "role_in_chapter": "family memory and return of the wife's love"
+    }
+  ],
+  "quality_parameters": {
+    "philosophical_depth": "Show love as daily practice, not sentiment.",
+    "metaphorical_richness": "Develop hearth, thread, vessel, breath, and room imagery coherently.",
+    "human_accessibility": "Keep the emotional stakes recognizable to adult readers without sermonizing.",
+    "civilizational_relevance": "Treat domestic care as a foundation of family memory and culture.",
+    "literary_quality": "Use elevated but readable prose, precise sensory detail, and rhythmic closure.",
+    "ethical_framework": "Honor sacrifice without romanticizing erasure or suffering."
+  },
+  "chapter_summary": "Children arrive and the wife becomes the keeper of first steps, fevers, birthdays, quarrels, and tenderness. The chapter should move through visible domestic details rather than abstraction: hands at work, rooms changing with time, silence at the table, and the hearth as the recurring image of love practiced daily. Its conflict is not spectacle but endurance, the question of whether care can remain free when it is repeated without applause. It turns when the wife understands that her quiet labor is not disappearance but the shaping force of the household. It hands the reader forward by showing how one act of love becomes the ground for the next season of family life.",
+  "mood": {
+    "template": "default",
+    "moods": [
+      {
+        "characteristic": "goal",
+        "mood_description": "The children's arrival and early years."
+      }
+    ]
+  },
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "theme": "The Woven Whole",
+  "theme_essence": "Each life is a thread; the mother sees the tapestry before anyone else can name it.",
+  "contemporary_mapping": "The chapter speaks to the invisible mental load and memory work that holds families together.",
+  "syntax": {
+    "form": "novel",
+    "sample": "generic.md",
+    "readability_bar": "elevated modern prose with clear clause movement"
+  },
+  "workshop_file": ".space/pipeline/book_wife/chapters/2/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_wife/chapters/2/chapter.md",
+  "correctness": {
+    "status": "passed_with_literary_grounding",
+    "corrections": [],
+    "flagged_uncertainties": [
+      "The narrative is archetypal and contemporary; no specific dates, legal customs, or regional marriage practices are asserted."
+    ]
+  },
+  "override": {
+    "status": "passed_through",
+    "applied": []
+  },
+  "quality_review": {
+    "status": "passed",
+    "notes": [
+      "Seed, theme, syntax, and correctness filters completed.",
+      "No human override or quality directive was present, so the chapter passed with audit notes only."
+    ]
+  }
+}

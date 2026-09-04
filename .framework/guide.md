@@ -30,8 +30,10 @@ To write a new book, scaffold a new pipeline under `.space/pipeline/` and write 
 
 ```text
 Usage:
-       /write <bookname> gist [<gist>]                                      # create backlog epic only
+       /write epic | --epic | create | init <bookname>                      # create backlog epic (auto-guess gist)
+       /write <bookname> gist [<gist>]                                      # create/update backlog epic only
        /write <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
+       /write <bookname>                                                    # smart: create epic if missing, then scaffold
        /write <bookname> chapter <chapter>|<n>|all|continue                 # write chapters
        /write <bookname> filter <filter>|*|all                              # run filters
        /write <bookname> form <formname>                                    # set/change form
@@ -43,8 +45,10 @@ Usage:
 
 | Command | What it does |
 |---------|--------------|
-| `gist [<gist>]` | Creates or updates only `.space/backlog/epic/<bookname>/epic.md`. It does **not** scaffold a pipeline. |
-| `scaffold <gist> count|chapter-count <number>` | Creates or repairs the canonical v1 segment-based pipeline using the layout skill, then runs research. |
+| `epic` / `--epic` / `create` / `init` | Creates `.space/backlog/epic/<bookname>/epic.md` with auto-generated gist. Novel: full epic with metadata. Poetry: minimal placeholder. Does **not** scaffold a pipeline. |
+| `gist [<gist>]` | Creates or updates `.space/backlog/epic/<bookname>/epic.md` and develops it into a rich, detailed narrative foundation. If gist omitted, infers from book name. Does **not** scaffold a pipeline. |
+| `scaffold <gist> count|chapter-count <number>` | Creates or repairs the canonical v1 segment-based pipeline using the layout skill, then runs research. Gist required, single sentence. |
+| `<bookname>` (bare) | **Smart command:** if backlog epic doesn't exist, creates it (auto-guess gist); if it exists, scaffolds it into a full pipeline. One-step workflow for both epic creation and scaffolding. |
 | `chapter <chapter>\|<n>\|all\|continue` | Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters. |
 | `filter <filter>\|*\|all` | Runs a single filter, or all filters in order, on an existing pipeline. |
 | `form <formname>` | Sets or changes the pipeline form (`novel` or `poetry`). |
@@ -57,8 +61,10 @@ Usage:
 
 ## Command Rules
 
-- Use `gist` for early backlog work only. It creates or updates the epic and never creates `.space/pipeline/book_<bookname>/`.
-- Use `scaffold` to create the full pipeline. The gist is required and must be a single sentence.
+- **One-step workflow:** The bare `/write <bookname>` command is the simplest path: it creates the backlog epic if missing, then scaffolds it. Use `/write epic` or `/write gist` separately only if you want to develop the epic before scaffolding.
+- Use `epic`, `--epic`, `create`, or `init` for quick backlog epic creation with auto-generated gist.
+- Use `gist` for early backlog work when you want to develop a rich, detailed epic. It creates or updates the epic and never creates `.space/pipeline/book_<bookname>/`.
+- Use `scaffold` to create the full pipeline with explicit gist and chapter count. The gist is required and must be a single sentence.
 - `scaffold` requires `count` or `chapter-count` followed by the main chapter count. If no count is provided by the user, the workflow default is 5.
 - Once a pipeline exists, subsequent commands work from pipeline data. Do not re-scaffold from scratch unless explicitly asked.
 - `filter` never scaffolds. If the pipeline does not exist, report that the book must be scaffolded first.
@@ -106,6 +112,21 @@ Mandatory path invariant:
 
 ## Scaffolding Flow
 
+### The bare bookname command (smart workflow)
+
+For `/write <bookname>`:
+
+1. Check whether `.space/backlog/epic/<bookname>/epic.md` exists.
+2. **If epic doesn't exist:** Create it automatically with auto-generated gist.
+3. **If epic exists:** Read its metadata (gist, chapter count, form).
+4. Scaffold the full pipeline using the layout skill with the epic as source of truth.
+5. Run the research skill before writing any chapter.
+6. Ready for chapter writing.
+
+This is the simplest, most convenient command — it handles both epic creation and scaffolding in one step.
+
+### The scaffold command (explicit workflow)
+
 For `/write <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]`:
 
 1. Check whether `.space/pipeline/book_<bookname>/` exists.
@@ -121,14 +142,32 @@ For `/write <bookname> scaffold <gist> count|chapter-count <number> [--form nove
 
 ---
 
+## The Epic Command
+
+For `/write epic | --epic | create | init <bookname>`:
+
+1. Create `.space/backlog/epic/<bookname>/epic.md` with auto-generated gist from the book name.
+2. For a novel, create the full epic with metadata block (title, book name, epic path, timestamps, author, machine, language, genre, era, chapter count, gist).
+3. For poetry, create a minimal epic placeholder.
+4. Do not create `.space/pipeline/book_<bookname>/`, do not run layout, and do not run research.
+5. If the epic already exists, reports that it exists and offers to update it.
+
+All four aliases (`epic`, `--epic`, `create`, `init`) are equivalent and create the backlog epic.
+
 ## The Gist Command
 
 For `/write <bookname> gist [<gist>]`:
 
-1. Create or update `.space/backlog/epic/<bookname>/epic.md`.
+1. Create or update `.space/backlog/epic/<bookname>/epic.md` and develop it into a well-groomed, detailed narrative foundation.
 2. Infer a one-sentence gist from the book name if none is supplied.
-3. For a novel, create or update the epic from the gist.
-4. For poetry, create or update a minimal epic placeholder.
+3. **Novel:** Develop a rich, well-groomed epic that includes:
+   - A compelling premise and historical grounding
+   - Detailed character descriptions, motivations, and arcs
+   - Thematic threads that weave through the narrative
+   - Chapter-by-chapter outline with key scenes and turning points
+   - World-building details (settings, era, cultural context)
+   - Emotional and philosophical depth
+4. **Poetry:** Create a thoughtful epic with thematic grounding, topical structure, and reference to poetic voice/tradition.
 5. Do not create `.space/pipeline/book_<bookname>/`, do not run layout, and do not run research.
 
 Every novel epic should include a metadata block near the top with title, book name, epic path, timestamps, authoring engine, language, genre, era, chapter count, and gist. When the epic changes, keep the metadata block current and regenerate the pipeline gist from the epic.

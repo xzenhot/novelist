@@ -1,0 +1,31 @@
+{
+  "chapter": "4",
+  "chapter_index": 4,
+  "subject": "The quiet after children leave and the marriage changes shape",
+  "era": "Contemporary - the emptying house",
+  "place": "A house with unused rooms, stored toys, folded saris, old cups",
+  "figures": [
+    "wife",
+    "husband",
+    "children"
+  ],
+  "events": [
+    "The wife faces the ache of being needed less and begins to see the self beneath years of service.",
+    "The present opens into return."
+  ],
+  "grounding_notes": [
+    "Refined to Experienced level: image-rich, emotionally coherent, and grounded in the wife epic.",
+    "The domestic setting is universal/contemporary rather than tied to a single historical event."
+  ],
+  "thematic_threads": [
+    "love as practice",
+    "memory as identity",
+    "quiet strength",
+    "sacrifice and return",
+    "home as shelter"
+  ],
+  "sources": [
+    ".space/backlog/epic/wife/epic.md",
+    ".space/pipeline/book_wife/book.json"
+  ]
+}

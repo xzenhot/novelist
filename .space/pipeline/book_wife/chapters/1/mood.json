@@ -1,0 +1,9 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "Building the home."
+    }
+  ]
+}

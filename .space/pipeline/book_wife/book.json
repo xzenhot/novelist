@@ -1,0 +1,78 @@
+{
+  "book_name": "wife",
+  "book_long_title": "Wife: The Keeper of the Hearth, the Quiet Strength of a Life",
+  "generic": "Literary Fiction",
+  "era": "Contemporary — the inner life of a marriage",
+  "language": "en",
+  "target_audience": "General adult readers",
+  "chapter_count": 5,
+  "created_at": "2026-09-04T00:00:00Z",
+  "user_name": "novelist",
+  "book_summary": "A wife is not a role but a life — a woman who, in the quiet of a shared home, becomes the keeper of its hearth, the memory of its days, and the unseen strength that holds a family together through joy and grief, through plenty and want. This epic tells the story of that life: a woman who marries, who builds a home, who raises children, who weathers the storms of a long marriage, and who, in the end, discovers that the love she gave away was never lost — that it returned to her, multiplied, in the faces of those she held. It is the story of the quiet strength of a wife, and of the love that is the true architecture of every home.",
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "name": "The Promise",
+      "chapter_title": "The Promise",
+      "chapter_summary": "A young woman speaks the words that bind her life to another's, and a home begins to grow from a single promise."
+    },
+    {
+      "chapter_index": 2,
+      "name": "The Building of the Home",
+      "chapter_title": "The Building of the Home",
+      "chapter_summary": "She learns the small rituals that hold a life together, and discovers that a home is not a place but a practice."
+    },
+    {
+      "chapter_index": 3,
+      "name": "The Children",
+      "chapter_title": "The Children",
+      "chapter_summary": "The children come, and with them a new kind of love — and she becomes the memory of the family."
+    },
+    {
+      "chapter_index": 4,
+      "name": "The Storms",
+      "chapter_title": "The Storms",
+      "chapter_summary": "The years bring sickness, want, and quarrel, and she finds a quiet strength she had not known she possessed."
+    },
+    {
+      "chapter_index": 5,
+      "name": "The Return",
+      "chapter_title": "The Return",
+      "chapter_summary": "In the end, she sees that the love she gave away returned to her, multiplied, in the faces of those she held."
+    }
+  ],
+  "all_characters": [
+    {
+      "character_id": "wife",
+      "full_name": "The Wife",
+      "role": "Protagonist",
+      "identity": "A woman who builds a home and becomes its quiet strength, the keeper of its memory and its love.",
+      "psychological_depth": "Patient, enduring, quietly strong; the memory and heart of the family."
+    },
+    {
+      "character_id": "husband",
+      "full_name": "The Husband",
+      "role": "Partner",
+      "identity": "The man she marries, who grows old beside her, learning through the years what her love has meant.",
+      "psychological_depth": "Steady, sometimes distant, slowly awakened to the depth of her love."
+    },
+    {
+      "character_id": "children",
+      "full_name": "The Children",
+      "role": "Family",
+      "identity": "The sons and daughters who grow in her care and carry her memory into the world.",
+      "psychological_depth": "Shaped by her love, carrying her memory forward."
+    },
+    {
+      "character_id": "elders",
+      "full_name": "The Elders",
+      "role": "Community",
+      "identity": "The parents and relatives who arrange the marriage and pass down the traditions of the home.",
+      "psychological_depth": "Guardians of tradition, the bridge between generations."
+    }
+  ],
+  "history": [
+    "2026-09-04T00:00:00Z — Epic created from gist via /write wife (bare command).",
+    "2026-09-04T00:00:00Z — Pipeline scaffolded from epic."
+  ]
+}

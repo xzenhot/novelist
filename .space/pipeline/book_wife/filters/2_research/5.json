@@ -1,0 +1,31 @@
+{
+  "chapter": "5",
+  "chapter_index": 5,
+  "subject": "Love returned through grown children and old companionship",
+  "era": "Contemporary - later marriage",
+  "place": "The old home during a family gathering",
+  "figures": [
+    "wife",
+    "husband",
+    "children"
+  ],
+  "events": [
+    "The wife sees that nothing given in love has vanished; it has returned in faces, gestures, and remembered tenderness.",
+    "The final hearth remains, quieter but more luminous."
+  ],
+  "grounding_notes": [
+    "Refined to Experienced level: image-rich, emotionally coherent, and grounded in the wife epic.",
+    "The domestic setting is universal/contemporary rather than tied to a single historical event."
+  ],
+  "thematic_threads": [
+    "love as practice",
+    "memory as identity",
+    "quiet strength",
+    "sacrifice and return",
+    "home as shelter"
+  ],
+  "sources": [
+    ".space/backlog/epic/wife/epic.md",
+    ".space/pipeline/book_wife/book.json"
+  ]
+}

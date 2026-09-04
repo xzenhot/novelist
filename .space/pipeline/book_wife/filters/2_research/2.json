@@ -1,0 +1,31 @@
+{
+  "chapter": "2",
+  "chapter_index": 2,
+  "subject": "Motherhood, memory, and family identity",
+  "era": "Contemporary - the child-rearing years",
+  "place": "Bedrooms at night, school mornings, sickbeds, family table",
+  "figures": [
+    "wife",
+    "husband",
+    "children"
+  ],
+  "events": [
+    "Children arrive and the wife becomes the keeper of first steps, fevers, birthdays, quarrels, and tenderness.",
+    "The woven home is tested by hardship."
+  ],
+  "grounding_notes": [
+    "Refined to Experienced level: image-rich, emotionally coherent, and grounded in the wife epic.",
+    "The domestic setting is universal/contemporary rather than tied to a single historical event."
+  ],
+  "thematic_threads": [
+    "love as practice",
+    "memory as identity",
+    "quiet strength",
+    "sacrifice and return",
+    "home as shelter"
+  ],
+  "sources": [
+    ".space/backlog/epic/wife/epic.md",
+    ".space/pipeline/book_wife/book.json"
+  ]
+}

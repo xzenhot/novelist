@@ -1,0 +1,9 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "The transition to later years."
+    }
+  ]
+}

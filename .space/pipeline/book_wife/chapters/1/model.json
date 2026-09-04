@@ -1,0 +1,94 @@
+{
+  "chapter_index": 1,
+  "chapter_name": "The Building of the Home",
+  "state": "completed",
+  "chapter_title": "The Building of the Home",
+  "subject": "Domestic rituals as the architecture of love",
+  "era": "Contemporary - the early years of marriage",
+  "place": "A small shared room, kitchen, doorway, evening lamp",
+  "figures": [
+    "wife",
+    "husband"
+  ],
+  "events": [
+    "The wife learns that home is made through repeated acts: tea, food, listening, welcome, and repair.",
+    "The home becomes ready to receive children."
+  ],
+  "grounding_notes": [
+    "Grounded in the wife epic, especially the promise, hearth, memory, storms, and return motifs.",
+    "No external factual claims are required beyond ordinary contemporary domestic life."
+  ],
+  "sources": [
+    ".space/backlog/epic/wife/epic.md",
+    ".space/pipeline/book_wife/book.json",
+    ".space/pipeline/book_wife/characters.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "wife",
+      "full_name": "The Wife",
+      "role_in_chapter": "central consciousness of the chapter"
+    },
+    {
+      "character_id": "husband",
+      "full_name": "The Husband",
+      "role_in_chapter": "partner and mirror of the wife's changing life"
+    }
+  ],
+  "quality_parameters": {
+    "philosophical_depth": "Show love as daily practice, not sentiment.",
+    "metaphorical_richness": "Develop hearth, thread, vessel, breath, and room imagery coherently.",
+    "human_accessibility": "Keep the emotional stakes recognizable to adult readers without sermonizing.",
+    "civilizational_relevance": "Treat domestic care as a foundation of family memory and culture.",
+    "literary_quality": "Use elevated but readable prose, precise sensory detail, and rhythmic closure.",
+    "ethical_framework": "Honor sacrifice without romanticizing erasure or suffering."
+  },
+  "chapter_summary": "The wife learns that home is made through repeated acts: tea, food, listening, welcome, and repair. The chapter should move through visible domestic details rather than abstraction: hands at work, rooms changing with time, silence at the table, and the hearth as the recurring image of love practiced daily. Its conflict is not spectacle but endurance, the question of whether care can remain free when it is repeated without applause. It turns when the wife understands that her quiet labor is not disappearance but the shaping force of the household. It hands the reader forward by showing how one act of love becomes the ground for the next season of family life.",
+  "mood": {
+    "template": "default",
+    "moods": [
+      {
+        "characteristic": "goal",
+        "mood_description": "Building the home."
+      }
+    ]
+  },
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "theme": "The Royal Service",
+  "theme_essence": "Service is not servitude when it is conscious love; it is invisible nobility.",
+  "contemporary_mapping": "The chapter answers a present-day suspicion that care work is small by revealing it as civilizational labor.",
+  "syntax": {
+    "form": "novel",
+    "sample": "generic.md",
+    "readability_bar": "elevated modern prose with clear clause movement"
+  },
+  "workshop_file": ".space/pipeline/book_wife/chapters/1/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_wife/chapters/1/chapter.md",
+  "correctness": {
+    "status": "passed_with_literary_grounding",
+    "corrections": [],
+    "flagged_uncertainties": [
+      "The narrative is archetypal and contemporary; no specific dates, legal customs, or regional marriage practices are asserted."
+    ]
+  },
+  "override": {
+    "status": "passed_through",
+    "applied": []
+  },
+  "quality_review": {
+    "status": "passed",
+    "notes": [
+      "Seed, theme, syntax, and correctness filters completed.",
+      "No human override or quality directive was present, so the chapter passed with audit notes only."
+    ]
+  }
+}

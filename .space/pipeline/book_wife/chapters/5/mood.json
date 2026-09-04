@@ -1,0 +1,9 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "The realization of a life's love."
+    }
+  ]
+}
