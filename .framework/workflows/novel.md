@@ -11,6 +11,7 @@ tools: ["read", "write"]
 ```text
 Usage: /novel <bookname> [<gist>]          # scaffold a new book pipeline from a gist
        /novel <bookname> <chapter>         # write a specific chapter
+       /novel <bookname> filter <filter>   # run a single filter agent
        /novel <bookname> all               # write all chapters in order
        /novel <bookname> continue          # resume from where you left off
        /novel -h | --help                  # show this help
@@ -40,6 +41,15 @@ Commands:
              the finished chapter to source/books/book_<bookname>/<chapter>.md.
              <chapter> is one of: Introduction, 1..N, Conclusion.
 
+  filter     /novel <bookname> filter <filter>
+             Runs a single filter agent on the existing pipeline. <filter> is
+             one of: workshop, research, seeds, correctness, theme, syntax,
+             override, quality. Each filter is backed by a role agent in
+             .framework/agents/<filter>/agent.md and owns a folder in
+             .space/pipeline/book_<bookname>/filters/<N>_<filter>/. The filter
+             command reads the pipeline data and produces/updates that filter's
+             output. It never scaffolds — it requires the pipeline to exist.
+
   all        /novel <bookname> all
              Writes every chapter in order: Introduction -> 1 -> 2 -> ... -> N
              -> Conclusion. Each story section may be written in numbered
@@ -64,12 +74,17 @@ Arguments:
                at .space/backlog/epic/<bookname>/epic.md, and to derive the
                book title. If omitted, infer a gist from the book name.
   <chapter>    The chapter to write. One of: Introduction, 1..N, Conclusion.
+  <filter>     The filter agent to run (after the `filter` subcommand). One of:
+               workshop, research, seeds, correctness, theme, syntax, override,
+               quality.
 ```
 
 ## Command Rules
 
 - **Check the pipeline first.** `/novel <bookname> [<gist>]` checks whether `.space/pipeline/book_<bookname>/` already exists. If it does not exist, create it (scaffold). If it exists, work with the existing pipeline data.
 - **After the pipeline exists, always work from the pipeline data.** Once `.space/pipeline/book_<bookname>/` is created, every subsequent `/novel` command reads and writes the pipeline data (book.json, characters.json, filters, chapters) — never re-scaffold from scratch.
+- **The filter command never scaffolds.** `/novel <bookname> filter <filter>` requires the pipeline to already exist. It runs a single filter agent on the existing pipeline data; it does not create folders, seed planning artifacts, or run layout. If the pipeline does not exist, report that the book must be scaffolded first.
+- **The `filter` subcommand is unambiguous.** The literal keyword `filter` is a subcommand, not a chapter name or gist. It is always followed by a filter name. This removes any collision with `write` (chapter), `all`, `continue`, or `scaffold` (gist).
 - Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`, then run `.framework/skills/research/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists and its per-chapter research is produced.
 - **The epic is the single source of truth for the story.** Every chapter's actual narrative is drawn from the epic, never invented from the gist. The gist is only an indicative one-line summary.
 - **The gist is a single sentence.** It must be exactly one sentence. It is used to create the book title (`book_long_title`).
@@ -80,6 +95,43 @@ Arguments:
 - Before writing any chapter, read the corresponding JSON file from `.space/pipeline/book_<bookname>/filters/seeds/`, including `included_characters` and `quality_parameters`.
 - In `all` mode, preserve this order: `Introduction` -> `1` -> `2` -> ... -> `N` -> `Conclusion`.
 - If a specific `<chapter>` is requested, write only that chapter even if earlier chapters are incomplete.
+
+## The Filter Command
+
+`/novel <bookname> filter <filter>` runs a single filter agent on an existing pipeline. It is the per-filter entry point that complements the full `all` chain.
+
+### The filter agents
+
+Each filter is backed by a role agent in `.framework/agents/<filter>/agent.md` and owns a folder in the pipeline:
+
+| Filter | Agent | Folder | Produces |
+|--------|-------|--------|----------|
+| workshop | `.framework/agents/workshop/agent.md` | `filters/1_workshop/` | The three-section frame (Workshop / Story / Discussion) |
+| research | `.framework/agents/research/agent.md` | `filters/2_research/` | The refined chapter at the target mastery level |
+| seeds | `.framework/agents/seeds/agent.md` | `filters/3_seeds/` | `included_characters` and `quality_parameters` |
+| correctness | `.framework/agents/correctness/agent.md` | `filters/4_correctness/` | Fact-check results |
+| theme | `.framework/agents/theme/agent.md` | `filters/5_theme/` | Thematic lens and contemporary mapping |
+| syntax | `.framework/agents/syntax/agent.md` | `filters/6_syntax/` | Modernized sentence structure |
+| override | `.framework/agents/override/agent.md` | `filters/7_override/` | The human's override transformation |
+| quality | `.framework/agents/quality/agent.md` | `filters/8_quality/` | Quality audit result |
+
+### Running a filter
+
+1. Confirm `.space/pipeline/book_<bookname>/` exists. If not, stop and report that the book must be scaffolded first.
+2. Read the filter's role agent in `.framework/agents/<filter>/agent.md`.
+3. Read the pipeline data the filter needs (book.json, characters.json, the epic, and any upstream filter output).
+4. Run the filter, writing its output to `.space/pipeline/book_<bookname>/filters/<N>_<filter>/`.
+
+### No collision with layout
+
+The filter command is **read/write on existing pipeline data only**. It never:
+
+- creates the pipeline folder tree,
+- seeds `book.json`, `characters.json`, `masterprompt.md`, or `workshop_metadata.md`,
+- creates or repairs `chapters/<n>/segments/<x>/`,
+- runs the layout skill or the research skill's scaffold step.
+
+Layout (scaffold) and filters are separate concerns: layout builds the skeleton; filters fill it with content. The filter command only does the latter.
 
 ## Pipeline Structure
 

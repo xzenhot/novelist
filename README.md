@@ -131,7 +131,7 @@ Transforms a list of topics/terms into philosophical poetic prose chapters. Weav
 
 - Engine: `.framework/workflows/poetry.md`
 - Reframer: `.framework/workflows/reframe.md`
-- Inputs: `.framework/templates/novel/` (qualities, themes, references)
+- Inputs: `.framework/templates/stereotypes/poetry/` (qualities, themes, references, signatures)
 - Template: `.framework/templates/stereotypes/poetry/default/`
 - Outputs: `source/book_<name>/`
 

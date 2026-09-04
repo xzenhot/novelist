@@ -35,7 +35,7 @@ Me is the self — not the name, not the face, not the story the world tells abo
 
 This epic is not grounded in a place or a time but in a tradition — the ancient and universal tradition of self-inquiry that runs through the **Upanishads** of India, the **Buddha's** teaching of the middle way, the **Stoics'** discipline of the inner citadel, and the **mystics** of every faith who turned from the world to find the self within.
 
-The central question — **"Who am I?"** — is the oldest question of the human heart. The sages of the Upanishads answered it with the great saying **"Tat tvam asi"** — *Thou art That* — the realization that the self within is not separate from the whole. The Buddha taught that the self is not a fixed thing but a flowing, and that freedom lies in seeing through the illusion of the separate self. The Stoics taught that the inner citadel — the ruling faculty of the mind — is the one thing no tyrant can touch.
+The central question — **"Who am I?"** — is the oldest question of the human heart. The sages of the Upanishads answered it with the great saying **"Tat tvam asi"** — *Thou art That* — the realization that the self within is not separate from the whole. The Buddha taught that there is no fixed, permanent self — that all things are in constant flux — and that freedom lies in seeing through the illusion of a separate, enduring self. The Stoics taught that the inner citadel — the ruling faculty of the mind — is the one thing no tyrant can touch.
 
 This epic draws on all of these, and on the simple, universal truth that the self is not found by seeking outward, but by turning inward — that the realization comes from within.
 
