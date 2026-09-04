@@ -50,7 +50,7 @@ Layout creates the folder tree, required state files for each structural level, 
 |   `-- 8_quality/
 `-- chapters/
     `-- 1/
-        |-- moods/
+        |-- mood.json
         `-- segments/
             `-- 1/
                 |-- writer/
@@ -58,7 +58,7 @@ Layout creates the folder tree, required state files for each structural level, 
                 `-- translator/
 ```
 
-> **Note on `moods/`:** the `moods/` folder applies only to **segment-based story/novel writing** (the frame-story novel workflow). Poetry does not use moods — a poetry chapter has only `segments/`, no `moods/`. When scaffolding a poetry book, omit the `moods/` folder.
+> **Note on `mood.json`:** each chapter carries a single `mood.json` — a copy of one mood selected from `.framework/templates/moods/` (e.g. `default.json`, `introduction.json`, `win.json`). Do not scaffold a `moods/` folder with the full set of mood templates; select one mood and copy it as `mood.json`. Poetry does not use moods — a poetry chapter has only `segments/`, no `mood.json`.
 
 ## Path Invariant
 
@@ -150,7 +150,7 @@ Use this order and meaning when reasoning about file names:
 4. Exclude `Template*.json`, `TemplatePrompt*.txt`, and `TemplateSystemPromptText.txt`; include or create the level state JSON file.
 5. Create the required book-level state file: `model.json`.
 6. Create the required root planning artifacts: `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, and `filters/`.
-7. Create `.space/pipeline/book_<bookname>/chapters/1/` by copying the canonical `moods/` folder shape, excluding `Template*.json`, `TemplatePrompt*.txt`, and `TemplateSystemPromptText.txt`.
+7. Create `.space/pipeline/book_<bookname>/chapters/1/` and, for each chapter, create a single `mood.json` — a copy of one mood selected from `.framework/templates/moods/` (do not copy the whole `moods/` folder).
 8. Confirm `.space/pipeline/book_<bookname>/chapters/1/segments/1/` exists after copying.
 9. Confirm `writer/`, `editor/`, and `translator/` exist under the canonical segment folder.
 10. Create chapter-level state files in each `<n>/` and segment-level state files in each `<x>/`.

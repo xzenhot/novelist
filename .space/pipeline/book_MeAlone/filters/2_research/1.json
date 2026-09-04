@@ -1,0 +1,21 @@
+{
+  "chapter_index": 1,
+  "chapter_name": "The Noise",
+  "subject": "The world of many voices and the hollow center",
+  "era": "Timeless — the modern inner life",
+  "place": "The city, the screens, the inner hollow",
+  "figures": ["The Seeker", "The World"],
+  "events": [
+    "The person lives in a world of many voices",
+    "The person builds a self out of appearances and achievements",
+    "The hollow at the center and the question Who am I?"
+  ],
+  "grounding_notes": [
+    "The world's voices say you are not enough, you must become more, you must be seen.",
+    "The self built from the world's voices is a costume, not a self.",
+    "The hollow is not a lack of things but a lack of self.",
+    "The question Who am I? is the oldest question of the human heart."
+  ],
+  "thematic_threads": ["The noise and the silence", "The question"],
+  "sources": [".space/backlog/epic/MeAlone/epic.md"]
+}

@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "created_at": "2026-09-04",
+  "book_name": "MeAlone",
+  "characters": [
+    {
+      "character_id": "C001",
+      "full_name": "The Seeker",
+      "role": "Protagonist",
+      "identity": "A person lost in the noise of the world who turns inward to find the self",
+      "psychological_depth": "Haunted by the question Who am I?, torn between the world's many voices and the still self within"
+    },
+    {
+      "character_id": "C002",
+      "full_name": "The World",
+      "role": "Antagonist / The Noise",
+      "identity": "The many voices, the talking glass, the endless feed, the hollow center",
+      "psychological_depth": "The clamor that drowns the self, the costume that covers the hollow"
+    },
+    {
+      "character_id": "C003",
+      "full_name": "The Self",
+      "role": "The Realization",
+      "identity": "The quiet center, the self that watches and knows and is",
+      "psychological_depth": "Whole, silent, and free — the truth that was never lost, only forgotten"
+    },
+    {
+      "character_id": "C004",
+      "full_name": "The Sages",
+      "role": "Teachers",
+      "identity": "The teachers of the Upanishads, the Buddha, and the Stoics",
+      "psychological_depth": "The voices of the ancient tradition of self-inquiry that point the way inward"
+    }
+  ],
+  "character_groups": [
+    {
+      "group_name": "The Inner Journey",
+      "members": ["C001", "C003"]
+    },
+    {
+      "group_name": "The Outer World",
+      "members": ["C002"]
+    },
+    {
+      "group_name": "The Tradition",
+      "members": ["C004"]
+    }
+  ],
+  "notes": "Character roster for 'MeAlone', derived from the epic .space/backlog/epic/MeAlone/epic.md."
+}

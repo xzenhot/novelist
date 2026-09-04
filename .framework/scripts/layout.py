@@ -122,6 +122,8 @@ def scaffold(book_name: str, chapter_count: int, gist: str) -> None:
         "created_at": now,
         "user_name": "novelist",
         "book_summary": gist if gist else "Provide a one-line summary of the book.",
+        "gist": gist if gist else "Provide a one-line summary of the book.",
+        "epic_path": f".space/backlog/epic/{book_name}/epic.md",
         "filters": [
             {"order": i + 1, "name": name, "folder": f"filters/{folder}/", "purpose": purpose}
             for i, (folder, name, purpose) in enumerate(FILTERS)
@@ -202,13 +204,18 @@ A modern workshop where characters gather to hear a story.
 
     # --- 3. Chapters and segments ------------------------------------------
     template_moods = TEMPLATE / "moods"
+    # Select one mood to copy as each chapter's mood.json (default: default.json)
+    selected_mood = template_moods / "default.json"
+    if not selected_mood.is_file():
+        selected_mood = next(template_moods.glob("*.json"), None)
 
     for i in range(1, chapter_count + 1):
         chapter_dir = book_dir / "chapters" / str(i)
         chapter_dir.mkdir(parents=True, exist_ok=True)
 
-        # Copy moods/ from the canonical template
-        copy_template_dir(template_moods, chapter_dir / "moods")
+        # Copy a single selected mood as mood.json (not the whole moods/ folder)
+        if selected_mood is not None and selected_mood.is_file():
+            shutil.copy2(selected_mood, chapter_dir / "mood.json")
 
         # Chapter-level state files
         new_state_files(chapter_dir, {"level": "chapter", "chapter_index": i})

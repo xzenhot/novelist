@@ -95,6 +95,8 @@ $bookJson = [ordered]@{
     created_at       = $now
     user_name        = "novelist"
     book_summary     = if ($Gist) { $Gist } else { "Provide a one-line summary of the book." }
+    gist             = if ($Gist) { $Gist } else { "Provide a one-line summary of the book." }
+    epic_path        = ".space\backlog\epic\$BookName\epic.md"
     chapters         = $chapters
     all_characters   = @()
     history          = @(@{ timestamp = "$now`T00:00:00Z"; action = "Initial scaffold created"; details = "Book pipeline structure established with $ChapterCount chapters" })
@@ -172,13 +174,20 @@ foreach ($filterName in @("1_workshop", "2_research", "3_seeds", "4_correctness"
 
 # --- 3. Chapters and segments ----------------------------------------------
 $templateMoods = Join-Path $Template "moods"
+# Select one mood to copy as each chapter's mood.json (default: default.json)
+$selectedMood = Join-Path $templateMoods "default.json"
+if (-not (Test-Path $selectedMood)) {
+    $selectedMood = Get-ChildItem -Path $templateMoods -Filter "*.json" | Select-Object -First 1 -ExpandProperty FullName
+}
 
 for ($i = 1; $i -le $ChapterCount; $i++) {
     $chapterDir = Join-Path $BookDir "chapters\$i"
     New-Item -ItemType Directory -Force -Path $chapterDir | Out-Null
 
-    # Copy moods/ from the canonical template
-    Copy-TemplateDir $templateMoods (Join-Path $chapterDir "moods")
+    # Copy a single selected mood as mood.json (not the whole moods/ folder)
+    if ($selectedMood -and (Test-Path $selectedMood)) {
+        Copy-Item -Path $selectedMood -Destination (Join-Path $chapterDir "mood.json") -Force
+    }
 
     # Chapter-level state files
     New-StateFiles $chapterDir @{ level = "chapter"; chapter_index = $i }

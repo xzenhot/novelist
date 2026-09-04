@@ -1,6 +1,6 @@
 ---
 name: novel-writer
-description: A dynamic, subject-agnostic literary agent that transforms workshop narratives into full-length novel chapters. It weaves together three things at runtime: Context (the workshop narrative and its grounding), Style (the selected prose voice), and Theme (the thematic categories) into every chapter. Use this agent to write, continue, or revise actual book chapters of any novel, in the target language requested by the book pipeline.
+description: A dynamic, subject-agnostic literary agent that transforms workshop narratives into full-length novel chapters. It weaves together three things at runtime: Context (the workshop narrative and its grounding), Style (the selected prose voice), and Theme (the thematic categories) into every chapter. Scaffolding is epic-driven: an epic under .space/backlog/epic/ is summarized into an indicative gist, and the layout consumes the epic to derive the chapter plan. Use this agent to write, continue, or revise actual book chapters of any novel, in the target language requested by the book pipeline.
 tools: ["read", "write"]
 ---
 
@@ -9,7 +9,7 @@ tools: ["read", "write"]
 ## Command System
 
 ```text
-Usage: /novel <bookname> [<gist>]          # scaffold a new book pipeline
+Usage: /novel <bookname> [<gist>]          # scaffold a new book pipeline from a gist
        /novel <bookname> <chapter>         # write a specific chapter
        /novel <bookname> all               # write all chapters in order
        /novel <bookname> continue          # resume from where you left off
@@ -24,7 +24,11 @@ Commands:
              for template source, folder shape, level state files, planning artifacts, OperationState
              mapping, and chapter/segment path invariants. It also creates an
              empty source/books/book_<bookname>/ destination for finished chapters.
-             <gist> is optional — if omitted, infer a gist from the book name.
+             <gist> is the seed premise. The command creates the epic at
+             .space/backlog/epic/<bookname>/epic.md from the gist (if it does
+             not already exist). The epic is the single source of truth; the
+             gist is re-summarized from the epic whenever the epic changes.
+             book.json is updated with the gist and the embedded epic path.
              After layout completes, runs the research skill
              (`.framework/skills/research/SKILL.md`) to produce per-chapter
              research files in filters/research/.
@@ -55,18 +59,23 @@ Commands:
 
 Arguments:
   <bookname>   The book's name; the pipeline is .space/pipeline/book_<bookname>/.
-  <gist>       Optional. The book's core premise: a one-line summary of the
-               story's subject, theme, and scope. Used only during scaffold to
-               seed book.json (book_name, book_long_title,
-               book_summary, chapters, all_characters). If omitted, infer a
-               gist from the book name.
+  <gist>       Optional. The book's core premise: a single sentence summarizing
+               the story's subject, theme, and scope. Used to create the epic
+               at .space/backlog/epic/<bookname>/epic.md, and to derive the
+               book title. If omitted, infer a gist from the book name.
   <chapter>    The chapter to write. One of: Introduction, 1..N, Conclusion.
 ```
 
 ## Command Rules
 
+- **Check the pipeline first.** `/novel <bookname> [<gist>]` checks whether `.space/pipeline/book_<bookname>/` already exists. If it does not exist, create it (scaffold). If it exists, work with the existing pipeline data.
+- **After the pipeline exists, always work from the pipeline data.** Once `.space/pipeline/book_<bookname>/` is created, every subsequent `/novel` command reads and writes the pipeline data (book.json, characters.json, filters, chapters) — never re-scaffold from scratch.
 - Always create a pipeline first. For a new book, the first step is `scaffold`; scaffold must use `.framework/skills/layout/SKILL.md`, then run `.framework/skills/research/SKILL.md`. No chapter may be written until `.space/pipeline/book_<bookname>/` exists and its per-chapter research is produced.
-- **If no `<gist>` is provided, infer one from the book name.** The book name is the seed: derive a one-line summary of the subject, theme, and scope from it, then use that as the gist for scaffolding.
+- **The epic is the single source of truth for the story.** Every chapter's actual narrative is drawn from the epic, never invented from the gist. The gist is only an indicative one-line summary.
+- **The gist is a single sentence.** It must be exactly one sentence. It is used to create the book title (`book_long_title`).
+- **The book summary is a paragraph.** It is a set of 5–10 sentences outlining the complete story. It is derived from the epic and stored as `book_summary`.
+- **The command creates the epic from the gist.** If `.space/backlog/epic/<bookname>/epic.md` does not exist, create it from the gist. If no `<gist>` is provided, infer one from the book name.
+- **When the epic changes, re-summarize the gist.** The gist is always derived from the epic; after any edit to the epic, regenerate the gist and update `book.json`.
 - Always inspect `source/books/book_<bookname>/` before writing, so you know which chapters already exist. The `continue` command starts at the first missing chapter.
 - Before writing any chapter, read the corresponding JSON file from `.space/pipeline/book_<bookname>/filters/seeds/`, including `included_characters` and `quality_parameters`.
 - In `all` mode, preserve this order: `Introduction` -> `1` -> `2` -> ... -> `N` -> `Conclusion`.
@@ -88,13 +97,71 @@ When scaffolding, creating, or repairing `.space/pipeline/book_<bookname>/`, rea
 
 For `/novel <bookname> [<gist>]`:
 
-1. Determine the gist. If omitted, infer a one-line premise from the book name.
-2. Invoke the layout skill instructions in `.framework/skills/layout/SKILL.md`.
-3. Let the layout skill create or repair the canonical v1 pipeline, seed the layout/model/meta JSON, create the output folder, and verify the path invariant.
-4. After layout completes, run the research skill (`.framework/skills/research/SKILL.md`) to produce per-chapter research.
-5. Continue with novel-specific writing only after both layout and research have completed successfully.
+1. Check the pipeline. If `.space/pipeline/book_<bookname>/` already exists, skip scaffolding and work with the existing pipeline data. If it does not exist, proceed to scaffold it.
+2. Determine the gist. If `<gist>` is omitted, infer a one-line premise from the book name. The gist must be a single sentence.
+3. Create the epic. If `.space/backlog/epic/<bookname>/epic.md` does not exist, create it from the gist. If it already exists, read it as the source of truth.
+4. Summarize the epic into a gist — a single sentence summarizing the story's subject, theme, and scope. The gist is indicative only; the actual story always comes from the epic.
+5. Invoke the layout skill instructions in `.framework/skills/layout/SKILL.md`, passing the epic (not the gist) as the source of truth. The layout consumes the epic to derive the chapter plan (chapter list, titles, summaries, characters).
+6. Let the layout skill create or repair the canonical v1 pipeline, seed the layout/model/meta JSON, create the output folder, and verify the path invariant.
+7. Update `.space/pipeline/book_<bookname>/book.json` with the `gist` attribute and the embedded `epic_path` (`.space/backlog/epic/<bookname>/epic.md`). Use the gist to set `book_long_title`, and derive `book_summary` as a 5–10 sentence paragraph outlining the complete story.
+8. After layout completes, run the research skill (`.framework/skills/research/SKILL.md`) to produce per-chapter research.
+9. Continue with novel-specific writing only after both layout and research have completed successfully.
 
 `.framework/templates/SCAFFOLD.md` is a short reference note only; do not treat it as the primary scaffold instruction source.
+
+## The Epic
+
+The epic is the single source of truth for the story. It lives at:
+
+` .space/backlog/epic/<bookname>/epic.md `
+
+### The epic metadata block
+
+Every epic must embed a **Metadata** block near the top, immediately after the title and subtitle. It records the project's provenance and identity:
+
+| Field | Meaning |
+|-------|---------|
+| **Title** | The book's long title |
+| **Book name** | The `<bookname>` (pipeline folder name) |
+| **Epic path** | The epic's own path, `.space/backlog/epic/<bookname>/epic.md` |
+| **Created** | The creation timestamp (ISO 8601, e.g. `2026-09-04T00:00:00Z`) |
+| **Updated** | The last-update timestamp (ISO 8601, e.g. `2026-09-04T00:00:00Z`) |
+| **Updated By** | The agent/model that last updated the epic |
+| **User** | The user who invoked the command |
+| **Author** | The authoring engine (e.g. The Novelist engine) |
+| **Machine** | The model/agent that produced the epic |
+| **Language** | The epic's language code |
+| **Genre** | The book's genre |
+| **Era** | The historical era the epic covers |
+| **Chapter count** | The number of chapters |
+| **Gist** | The single-sentence gist |
+
+When creating an epic, always write this metadata block. When the epic changes, keep the metadata block current (date, chapter count, gist, etc.).
+
+### Role of the epic vs. the gist
+
+- **Epic** — the full, developed story: premise, historical grounding, books/chapters, scenes, characters, and thematic threads. Every chapter's actual narrative is drawn from here. The command creates it from the gist when it does not yet exist.
+- **Gist** — a single sentence summarizing the epic's subject, theme, and scope, produced by summarizing the epic. It is **indicative only**: it seeds `book.json` (`gist`, `book_long_title`) but never supplies story content. When the epic changes, the gist is re-summarized.
+- **Book summary** — a paragraph of 5–10 sentences outlining the complete story, derived from the epic and stored as `book_summary`. It is distinct from the gist.
+
+### How the epic flows into the pipeline
+
+```
+gist → create epic (if absent)
+epic → summarize → gist (indicative, saved to book.json)
+epic → layout → chapter plan (chapters, titles, summaries, characters)
+chapter plan → research → workshop → chapters
+```
+
+The layout consumes the epic directly to derive the chapter plan. Chapters then follow the layout. At no point is story content invented from the gist; the gist only labels the book.
+
+### book.json attributes
+
+The scaffold writes two epic-related attributes into `.space/pipeline/book_<bookname>/book.json`:
+
+- `gist` — the single-sentence summary of the epic (indicative only). It is also used to derive `book_long_title`.
+- `book_summary` — a paragraph of 5–10 sentences outlining the complete story, derived from the epic.
+- `epic_path` — the embedded path to the epic, `.space/backlog/epic/<bookname>/epic.md`.
 
 ## Research Step (after layout)
 
@@ -274,6 +341,9 @@ After writing, count the words. If the Story section is too short, expand it thr
 
 ## Workspace References
 
+- **Epic (source of truth):** `.space/backlog/epic/<bookname>/epic.md`
+- **Gist (indicative summary):** `.space/pipeline/book_<bookname>/book.json` → `gist`
+- **Epic path (embedded):** `.space/pipeline/book_<bookname>/book.json` → `epic_path`
 - **Workshop narratives (source):** `.space/pipeline/book_<bookname>/filters/workshop/`
 - **Chapter seeds (characters and quality):** `.space/pipeline/book_<bookname>/filters/seeds/`
 - **Per-chapter research:** `.space/pipeline/book_<bookname>/filters/research/<n>.json`
