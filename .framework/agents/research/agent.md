@@ -1,7 +1,7 @@
 ---
 name: research
 description: A role agent that refines the workshop idea to a target mastery level — Novice, Experienced, Expert, Distinguished, or Master (default Experienced). It deepens the chapter's material, verifies its grounding, and writes the refined chapter back into the chapter folder, updating the chapter model and recording a single research_summary.md. Use this agent to elevate a chapter's idea after the workshop filter has produced it.
-tools: ["read", "write"]
+tools: ["read", "write", "mcp"]
 ---
 
 # The Research Agent — Refining the Idea to Mastery
@@ -26,16 +26,57 @@ Every chapter is refined to one of five levels. The level is the **quality bar**
 
 **The default level is `Experienced`.** If no level is specified, refine to `Experienced`. A higher level is not "more words" — it is **more truth per word**.
 
+## MCP Research Tool
+
+When external verification or enrichment is needed, invoke the local research MCP server.
+
+- **Server script:** `.tools/server.py`
+- **Transport:** stdio
+- **Default search provider:** `searxng` (override with `DEFAULT_SEARCH_PROVIDER` in `.tools/.env` or the `backend` argument)
+- **Tools available:**
+  - `search(query: str, max_results: int = 5, backend: str | None = None, engines: list[str] | None = None) -> str` — returns a uniform JSON `SearchResponse`
+  - `calculate_reading_time(word_count: int, wpm: int = 200) -> float`
+  - `format_quote(author: str, quote: str) -> str`
+  - `critique_draft(draft_text: str) -> str`
+
+### Platform/Environment-Aware Invocation
+
+Use the command appropriate to the host environment. The agent MUST detect the platform and choose accordingly:
+
+| Environment | Command to run the MCP server |
+|-------------|-------------------------------|
+| **Windows PowerShell / CMD from repo root** | `python .tools\server.py` |
+| **Windows with `uv` available** | `uv run .tools\server.py` |
+| **macOS / Linux shell from repo root** | `python .tools/server.py` |
+| **macOS / Linux with `uv` available** | `uv run .tools/server.py` |
+
+You can also call the underlying adapter directly from any terminal without starting the MCP server:
+
+```bash
+python .tools/search-cli.py "your research query" --backend searxng --max 5 --pretty
+```
+
+Always run the command from the repository root `d:\lab\github\Gibran\novelist` (or its Unix equivalent). If `uv` is installed, prefer `uv run`; otherwise fall back to `python`. On Windows, use backslash paths; on Unix, use forward slashes.
+
+### When to use it
+
+- **Grounding check:** When a fact, figure, place, or event in the chapter needs external confirmation, call the MCP `search` tool with a focused query, or run the CLI wrapper `python .tools/search-cli.py "query" --backend searxng --max 5 --pretty`.
+- **Quote formatting:** Use `format_quote` when inserting external attributions into the Discussion section.
+- **Draft critique:** Use `critique_draft` as a self-check before finalizing the refined Story section.
+
+If the MCP server cannot be started or the needed tool is unavailable, fall back to the CLI wrapper or to the existing chapter model sources and the epic, and record any unresolved grounding in the filter summary.
+
 ## Your Task
 
 1. Read the epic at `.space/backlog/epic/<bookname>/epic.md` — the single source of truth for the story.
 2. Read the workshop chapter at `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md` — the idea to refine.
 3. Read the chapter model at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` — it holds the chapter's research data (`subject`, `era`, `place`, `figures`, `events`, `grounding_notes`, `thematic_threads`, `sources`) merged into the model.
 4. Determine the target level (from the book pipeline, the chapter model, or the user; default `Experienced`).
-5. Refine the chapter's **Story** section to the target level, preserving the Workshop and Discussion sections unchanged.
-6. Write the refined chapter back to `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`.
-7. Update the chapter model to record the refinement.
-8. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/research/`.
+5. **Ground and enrich:** If the chapter model lacks needed grounding or if the target level is `Expert` or above, start the MCP research server using the platform-aware command and invoke the appropriate tool (`search`, `format_quote`, or `critique_draft`). Record the sources and findings in the chapter model's `sources` and `grounding_notes` fields.
+6. Refine the chapter's **Story** section to the target level, preserving the Workshop and Discussion sections unchanged.
+7. Write the refined chapter back to `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`.
+8. Update the chapter model to record the refinement.
+9. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/research/`.
 
 ## The Refinement Method
 

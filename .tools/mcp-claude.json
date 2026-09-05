@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "novelist-search": {
+      "command": "python",
+      "args": [
+        "d:\\lab\\github\\Gibran\\novelist\\.tools\\server.py"
+      ]
+    }
+  }
+}
