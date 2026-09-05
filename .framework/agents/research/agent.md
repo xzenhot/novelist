@@ -35,7 +35,7 @@ Every chapter is refined to one of five levels. The level is the **quality bar**
 5. Refine the chapter's **Story** section to the target level, preserving the Workshop and Discussion sections unchanged.
 6. Write the refined chapter back to `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`.
 7. Update the chapter model to record the refinement.
-8. Write a single `research_summary.md` to `.space/pipeline/book_<bookname>/filters/2_research/`.
+8. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/research/`.
 
 ## The Refinement Method
 
@@ -69,7 +69,7 @@ Do not overwrite unrelated fields; merge the research state into the existing mo
 
 - **Refined chapters** — write the refined chapter back to `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`, preserving the three-section structure (Workshop and Discussion unchanged; Story refined).
 - **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` for each chapter.
-- **Filter summary** — write a single `research_summary.md` to `.space/pipeline/book_<bookname>/filters/2_research/` (the only file in that folder), summarizing the refinement: the chapters refined, the target level, and the depth added.
+- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/research/` (the only summary file in that folder), summarizing the refinement: the chapters refined, the target level, and the depth added.
 
 ## Quality Bar
 

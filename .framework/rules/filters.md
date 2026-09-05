@@ -6,34 +6,110 @@ This rule applies to **all workflows** (poetry, novel, reframe, guide). Every bo
 
 A filter is a gate that answers one question about the material and transforms it accordingly. Material is not complete until it has passed every filter in the chain.
 
-## The Filter Chain
+## Filter Chain Registry
+
+Every pipeline keeps its filter order in a registry file at:
+
+```text
+.space/pipeline/book_<bookname>/filters/filters.json
+```
+
+The registry maps numbers to filter names, so the order is explicit and easy to remember without mixing numbers into folder names. The default chain is:
 
 ```
 workshop → research → seeds → correctness → theme → syntax → override → quality
 ```
 
-The exact filters depend on the workflow, but the principle is universal: **each filter owns a folder in the book's pipeline, and each filter reads from and writes to its own folder.**
+```json
+{
+  "chain": [
+    { "order": 1, "name": "workshop",   "folder": "workshop",    "role_file": "workshop/workshop.md" },
+    { "order": 2, "name": "research",   "folder": "research",    "role_file": "research/research.md" },
+    { "order": 3, "name": "seeds",      "folder": "seeds",       "role_file": "seeds/seeds.md" },
+    { "order": 4, "name": "correctness","folder": "correctness", "role_file": "correctness/correctness.md" },
+    { "order": 5, "name": "theme",      "folder": "theme",       "role_file": "theme/theme.md" },
+    { "order": 6, "name": "syntax",     "folder": "syntax",      "role_file": "syntax/syntax.md" },
+    { "order": 7, "name": "override",   "folder": "override",    "role_file": "override/override.md" },
+    { "order": 8, "name": "quality",    "folder": "quality",     "role_file": "quality/quality.md" }
+  ]
+}
+```
+
+## Filter Folder Layout
+
+Each filter folder contains exactly these files:
+
+```text
+filters/
+|-- workshop/
+|   |-- workshop.md        # role definition: purpose, inputs, outputs, rules, hand-off
+|   |-- filter.md         # command / human-in-the-loop instructions for this run
+|   |-- filter-summary.md # summary of what this filter produced across chapters
+|   `-- content-output.md # consolidated content output from this filter
+|-- research/
+|   |-- research.md
+|   |-- filter.md
+|   |-- filter-summary.md
+|   `-- content-output.md
+...
+```
+
+| File | Purpose |
+|------|---------|
+| `<filter>.md` | **Role definition** — purpose, inputs, outputs, rules, and hand-off notes for this filter. |
+| `filter.md` | **Run command file** — human instructions or runtime command for this filter pass (especially used by `override`). |
+| `filter-summary.md` | **Filter-wide summary** — what was checked, produced, corrected, or decided across all chapters. |
+| `content-output.md` | **Consolidated output** — the combined content emitted by this filter (e.g., concatenated workshop narratives, merged research notes). |
+
+The exact filters depend on the workflow, but the principle is universal: **each filter owns a named folder in the book's pipeline, and each filter reads from and writes to its own folder.**
 
 ## Filter → Folder Mapping
 
 Every filter is backed by a folder in `.space/pipeline/book_<bookname>/filters/`. The folder is the filter's scratch space — the place where it records what it did, so the pipeline is auditable per filter.
 
-Filter folders are **ordered and prefixed** with a number, so the chain order is visible in the filesystem:
+Filter folders are **bare filter names** (no number prefix). The chain order is kept in the registry file, not encoded in folder names. Inside each named folder live three standard files plus the filter-specific role file:
 
-| # | Filter | Folder | Purpose |
-|---|--------|--------|---------|
-| 1 | **Workshop** | `filters/1_workshop/` | Per-chapter workshop narratives — the frame (Workshop / Story / Discussion) that becomes the chapter. |
-| 2 | **Research** | `filters/2_research/` | Per-chapter research — the subject, era, place, figures, and events the chapter is grounded in. |
-| 3 | **Seeds** | `filters/3_seeds/` | Per-chapter character and quality seeds — who appears and what quality bar to meet. |
-| 4 | **Correctness** | `filters/4_correctness/` | Fact-checking — verify every fact, term, and claim. |
-| 5 | **Theme** | `filters/5_theme/` | Contemporary theme — map the timeless theme onto a present-day concern. |
-| 6 | **Syntax** | `filters/6_syntax/` | Contemporary syntax — keep the prophetic voice but modernize the sentence structure. |
-| 7 | **Override** | `filters/7_override/` | Human-in-the-loop — the human's `override.md` transformation. |
-| 8 | **Quality** | `filters/8_quality/` | Quality review — audit against the seed analysis's quality metrics. |
+```text
+filters/
+|-- workshop/
+|   |-- workshop.md        # role definition
+|   |-- filter.md         # run command / human-in-the-loop file
+|   |-- filter-summary.md # summary across chapters
+|   `-- content-output.md # consolidated output
+|-- research/
+|   |-- research.md
+|   |-- filter.md
+|   |-- filter-summary.md
+|   `-- content-output.md
+...
+```
 
-All filters live under `filters/`, named `N_<name>` so the order is explicit. The novel workflow uses the first three (workshop, research, seeds); the poetry workflow uses the full set. A workflow uses the filters relevant to it, and each filter owns its folder under `filters/`.
+| # | Filter | Folder | Role File | Purpose |
+|---|--------|--------|-----------|---------|
+| 1 | **Workshop** | `filters/workshop/` | `workshop/workshop.md` | Per-chapter workshop narratives — the frame (Workshop / Story / Discussion) that becomes the chapter. |
+| 2 | **Research** | `filters/research/` | `research/research.md` | Per-chapter research — the subject, era, place, figures, and events the chapter is grounded in. |
+| 3 | **Seeds** | `filters/seeds/` | `seeds/seeds.md` | Per-chapter character and quality seeds — who appears and what quality bar to meet. |
+| 4 | **Correctness** | `filters/correctness/` | `correctness/correctness.md` | Fact-checking — verify every fact, term, and claim. |
+| 5 | **Theme** | `filters/theme/` | `theme/theme.md` | Contemporary theme — map the timeless theme onto a present-day concern. |
+| 6 | **Syntax** | `filters/syntax/` | `syntax/syntax.md` | Contemporary syntax — keep the prophetic voice but modernize the sentence structure. |
+| 7 | **Override** | `filters/override/` | `override/override.md` | Human-in-the-loop — the human's `filter.md` transformation. |
+| 8 | **Quality** | `filters/quality/` | `quality/quality.md` | Quality review — audit against the seed analysis's quality metrics. |
 
-> **Note:** the `filters/N_<name>/` folders are scaffolded by layout as the filters' scratch space. The content inside them (seeds, research notes, workshop narratives) is produced by the later workflow steps that run each filter.
+> **Note:** the `filters/<name>/` folders are scaffolded by layout as the filters' scratch space. The content inside them (seeds, research notes, workshop narratives, filter summaries, consolidated outputs) is produced by the later workflow steps that run each filter.
+
+## Filter Role File
+
+Each filter folder contains a markdown file named after the filter it represents (e.g., `workshop.md` inside `workshop/`). This file is the filter's **role definition** and should contain:
+
+1. **Purpose** — what question the filter answers.
+2. **Inputs** — which upstream files and folders the filter reads.
+3. **Outputs** — what the filter writes into its own folder.
+4. **Rules** — constraints, quality bars, and transformation instructions.
+5. **Hand-off** — how the next filter should consume this filter's output.
+
+Scaffolding a pipeline creates the folder and three standard files (`filter.md`, `filter-summary.md`, `content-output.md`) plus an empty role file. The role file is filled by the filter's agent or skill when the filter runs.
+
+> **Convention:** folder names are **bare filter names**. The registry (`filters.json`) records the order; file names inside identify the filter and the standard file type.
 
 ## Universal Filter Principles
 
@@ -41,7 +117,7 @@ All filters live under `filters/`, named `N_<name>` so the order is explicit. Th
 2. **Filters run in order.** The chain is fixed: workshop → research → seeds → correctness → theme → syntax → override → quality (or the workflow's subset).
 3. **A filter is a gate.** Material is not complete until it passes every filter.
 4. **Filters are auditable.** Each filter records its work in its folder, so the pipeline can be traced per filter.
-5. **The human-in-the-loop is a filter, not a skill.** The human's `override.md` is applied as a filter, driven directly by the human-editable file — no skill is created for it.
+5. **The human-in-the-loop is a filter, not a skill.** The human's `filter.md` inside the `override/` folder is applied as a filter, driven directly by the human-editable file — no skill is created for it.
 
 ## Applying the Filters
 

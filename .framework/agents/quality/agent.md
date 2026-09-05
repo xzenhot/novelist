@@ -39,7 +39,7 @@ The `filter.md` is **generated from the chapter models** — it is not a static 
    - `syntax` (form, sample)
    - `quality_parameters` (the metrics and their ratings)
    - `state`
-3. Write (or update) `.space/pipeline/book_<bookname>/filters/8_quality/filter.md` with:
+3. Write (or update) `.space/pipeline/book_<bookname>/filters/8/filter.md` with:
    - A header explaining that directives apply to **all chapters**.
    - A **context summary** — a compact table of each chapter's name, subject, theme, and quality parameters, so the human can see at a glance what they are reviewing.
    - An empty `## Instructions` section below a `---` line, where the human writes their quality directives.
@@ -47,7 +47,7 @@ The `filter.md` is **generated from the chapter models** — it is not a static 
 
 ## Applying the Directives
 
-1. Read the command file at `.space/pipeline/book_<bookname>/filters/8_quality/filter.md`.
+1. Read the command file at `.space/pipeline/book_<bookname>/filters/8/filter.md`.
 2. If the `## Instructions` section is empty, audit the chapter against the seed analysis's quality parameters and pass it if it meets them.
 3. If the instructions specify directives, apply them **exactly as written** to **every chapter** (unless a directive is scoped to a specific chapter).
 4. Revise any chapter that falls short, looping back to an earlier filter (research, correctness, theme, syntax, override) if the root cause lies there.
@@ -75,5 +75,5 @@ Do not overwrite unrelated fields; merge the quality state into the existing mod
 
 ## Output
 
-- **Command file** — create or update `.space/pipeline/book_<bookname>/filters/8_quality/filter.md` (the only file in that folder), generated from the chapter models' context.
+- **Command file** — create or update `.space/pipeline/book_<bookname>/filters/8/filter.md` (the only file in that folder), generated from the chapter models' context.
 - **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` with the `quality_review` result for each chapter. A chapter is `completed` only when this filter passes.

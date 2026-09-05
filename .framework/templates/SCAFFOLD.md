@@ -1,6 +1,6 @@
 # Scaffold Reference
 
-The authoritative scaffold rules live in `.framework/skills/layout/SKILL.md`.
+The authoritative scaffold rules live in `.framework/skills/layout-novel/SKILL.md` for novels and `.framework/skills/layout-poetry/SKILL.md` for poetry. `.framework/agent.md` selects the correct one by form.
 
 This file is only a short reference note.
 
@@ -15,3 +15,4 @@ This file is only a short reference note.
 - Do not scaffold `Template*.json`, `TemplatePrompt*.txt`, or `TemplateSystemPromptText.txt` into a book pipeline.
 - Include `model.json` at book, chapter, and segment levels; it is a level state file, not a template file.
 - Create root planning artifacts: `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, and `filters/`.
+

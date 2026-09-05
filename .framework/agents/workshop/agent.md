@@ -21,11 +21,11 @@ Every workshop file you produce has three sections:
 ## Your Task
 
 1. Read the epic at `.space/backlog/epic/<bookname>/epic.md` — it is the single source of truth for the story.
-2. Read the per-chapter research at `.space/pipeline/book_<bookname>/filters/2_research/<n>.json`.
-3. Read the chapter seed at `.space/pipeline/book_<bookname>/filters/3_seeds/<n>.json` for `included_characters` and `quality_parameters`.
+2. Read the per-chapter research at `.space/pipeline/book_<bookname>/filters/research/research.json` (per-chapter records if the workflow creates them).
+3. Read the chapter seed at `.space/pipeline/book_<bookname>/filters/seeds/seeds.json` for `included_characters` and `quality_parameters`.
 4. For each chapter, write the workshop narrative (the three-section frame) into the chapter folder at `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`.
 5. Update the chapter model at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` to record the workshop state.
-6. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/1_workshop/` summarizing the whole workshop run.
+6. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/workshop/` summarizing the whole workshop run.
 
 ## The Frame
 
@@ -59,4 +59,4 @@ Do not overwrite unrelated fields; merge the workshop state into the existing mo
 
 - **Chapter narratives** — write one `chapter.md` per chapter to `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`, preserving the three-section structure.
 - **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` for each chapter.
-- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/1_workshop/` (the only file in that folder), summarizing the workshop run: the chapters produced, the frame characters, and the narrative handoffs.
+- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/1/` (the only file in that folder), summarizing the workshop run: the chapters produced, the frame characters, and the narrative handoffs.

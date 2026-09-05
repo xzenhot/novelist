@@ -13,7 +13,8 @@ The authoritative engine lives in `.framework/workflows/write.md`. This guide is
 | File | Role |
 |------|------|
 | `.framework/workflows/write.md` | **The writing engine.** Defines commands, scaffolding, filter execution, form selection, config, and writing rules. |
-| `.framework/skills/layout/SKILL.md` | **The layout authority.** Owns scaffold shape, templates, level state files, planning artifacts, OperationState mapping, and chapter/segment path invariants. |
+| `.framework/skills/layout-novel/SKILL.md` | **The novel layout authority.** Owns novel scaffold shape, `book.json`, characters, moods, workshop metadata, filters, and chapter/segment path invariants. |
+| `.framework/skills/layout-poetry/SKILL.md` | **The poetry layout authority.** Owns poetry scaffold shape, `model.json`, `bookseed.txt`, progress, override, filters, and one-segment chapter layout. |
 | `.framework/skills/research/SKILL.md` | **The scaffold research step.** Runs after layout before chapters are written. |
 | `.space/backlog/epic/<bookname>/epic.md` | **The backlog epic.** The single source of truth for a novel's story. Can be created independently with `gist`. |
 | `.space/pipeline/book_<bookname>/` | **The book pipeline.** Holds model data, characters, filters, chapter plans, segments, and progress state. |
@@ -30,30 +31,30 @@ To write a new book, scaffold a new pipeline under `.space/pipeline/` and write 
 
 ```text
 Usage:
-       /write epic | --epic | create | init <bookname>                      # create backlog epic (auto-guess gist)
        /write <bookname> gist [<gist>]                                      # create/update backlog epic only
        /write <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
-       /write <bookname>                                                    # smart: create epic if missing, then scaffold
+       /write <bookname>                                                    # create backlog epic if missing
        /write <bookname> chapter <chapter>|<n>|all|continue                 # write chapters
        /write <bookname> filter <filter>|*|all                              # run filters
        /write <bookname> form <formname>                                    # set/change form
        /write <bookname> config [<key> [<value>]]                           # get/set model config
        /write <bookname> config show                                        # show model config
+       /write <bookname> add <chapter-count> filter <filter>|*|all           # add chapters and run filter(s)
        /write -h | --help                                                   # show help
        /write -o | --options                                                # list books and chapters
 ```
 
 | Command | What it does |
 |---------|--------------|
-| `epic` / `--epic` / `create` / `init` | Creates `.space/backlog/epic/<bookname>/epic.md` with auto-generated gist. Novel: full epic with metadata. Poetry: minimal placeholder. Does **not** scaffold a pipeline. |
 | `gist [<gist>]` | Creates or updates `.space/backlog/epic/<bookname>/epic.md` and develops it into a rich, detailed narrative foundation. If gist omitted, infers from book name. Does **not** scaffold a pipeline. |
-| `scaffold <gist> count|chapter-count <number>` | Creates or repairs the canonical v1 segment-based pipeline using the layout skill, then runs research. Gist required, single sentence. |
-| `<bookname>` (bare) | **Smart command:** if backlog epic doesn't exist, creates it (auto-guess gist); if it exists, scaffolds it into a full pipeline. One-step workflow for both epic creation and scaffolding. |
+| `scaffold <gist> count|chapter-count <number>` | Creates or repairs the canonical v1 segment-based pipeline using the form-specific layout skill, then runs research. Gist required, single sentence. |
+| `<bookname>` (bare) | Creates `.space/backlog/epic/<bookname>/epic.md` if it does not exist, auto-generating the gist from the book name. If the epic already exists, reports that it exists. Does not scaffold a pipeline. |
 | `chapter <chapter>\|<n>\|all\|continue` | Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters. |
 | `filter <filter>\|*\|all` | Runs a single filter, or all filters in order, on an existing pipeline. |
 | `form <formname>` | Sets or changes the pipeline form (`novel` or `poetry`). |
 | `config [<key> [<value>]]` | Gets or sets stereotype/model config such as `signature`, `reference`, `theme_set`, or `syntax`. |
 | `config show` | Prints the current model configuration. |
+| `add <chapter-count> filter <filter>\|*\|all` | Adds more main chapters to an existing book pipeline, then runs the requested filter or full filter chain for the newly added chapters. |
 | `options` | Lists available book pipelines and destinations. |
 | `help` | Shows command usage. |
 
@@ -61,8 +62,7 @@ Usage:
 
 ## Command Rules
 
-- **One-step workflow:** The bare `/write <bookname>` command is the simplest path: it creates the backlog epic if missing, then scaffolds it. Use `/write epic` or `/write gist` separately only if you want to develop the epic before scaffolding.
-- Use `epic`, `--epic`, `create`, or `init` for quick backlog epic creation with auto-generated gist.
+- **Bare bookname creates backlog epic.** The bare `/write <bookname>` command checks `.space/backlog/epic/<bookname>/epic.md`; if it is missing, create it with an auto-generated gist. It does not scaffold a pipeline.
 - Use `gist` for early backlog work when you want to develop a rich, detailed epic. It creates or updates the epic and never creates `.space/pipeline/book_<bookname>/`.
 - Use `scaffold` to create the full pipeline with explicit gist and chapter count. The gist is required and must be a single sentence.
 - `scaffold` requires `count` or `chapter-count` followed by the main chapter count. If no count is provided by the user, the workflow default is 5.
@@ -98,7 +98,7 @@ A book is either a **novel** (prose) or **poetry** (verse). The form is stored i
 
 ## Pipeline Layout
 
-Pipeline structure is owned by `.framework/skills/layout/SKILL.md`. When scaffolding, creating, or repairing `.space/pipeline/book_<bookname>/`, read and follow the layout skill.
+Pipeline structure is owned by `.framework/agent.md`, which selects `.framework/skills/layout-novel/SKILL.md` for novels and `.framework/skills/layout-poetry/SKILL.md` for poetry. When scaffolding, creating, or repairing `.space/pipeline/book_<bookname>/`, read and follow the selected form-specific layout skill.
 
 Mandatory path invariant:
 
@@ -119,7 +119,7 @@ For `/write <bookname>`:
 1. Check whether `.space/backlog/epic/<bookname>/epic.md` exists.
 2. **If epic doesn't exist:** Create it automatically with auto-generated gist.
 3. **If epic exists:** Read its metadata (gist, chapter count, form).
-4. Scaffold the full pipeline using the layout skill with the epic as source of truth.
+4. Scaffold the full pipeline using the form-specific layout skill with the epic or topic list as source of truth.
 5. Run the research skill before writing any chapter.
 6. Ready for chapter writing.
 
@@ -136,23 +136,11 @@ For `/write <bookname> scaffold <gist> count|chapter-count <number> [--form nove
 5. Determine the chapter count; default to 5 if the user supplied no count.
 6. For a novel, create or read `.space/backlog/epic/<bookname>/epic.md`.
 7. Summarize the epic into an indicative single-sentence gist and a 5-10 sentence `book_summary`.
-8. Run the layout skill to create or repair the canonical pipeline.
+8. Run the selected form-specific layout skill to create or repair the canonical pipeline.
 9. Apply form-specific initialization in `model.json` and related files.
 10. Run the research skill before writing any chapter.
 
 ---
-
-## The Epic Command
-
-For `/write epic | --epic | create | init <bookname>`:
-
-1. Create `.space/backlog/epic/<bookname>/epic.md` with auto-generated gist from the book name.
-2. For a novel, create the full epic with metadata block (title, book name, epic path, timestamps, author, machine, language, genre, era, chapter count, gist).
-3. For poetry, create a minimal epic placeholder.
-4. Do not create `.space/pipeline/book_<bookname>/`, do not run layout, and do not run research.
-5. If the epic already exists, reports that it exists and offers to update it.
-
-All four aliases (`epic`, `--epic`, `create`, `init`) are equivalent and create the backlog epic.
 
 ## The Gist Command
 
@@ -174,6 +162,17 @@ Every novel epic should include a metadata block near the top with title, book n
 
 ---
 
+## The Add Command
+
+`/write <bookname> add <chapter-count> filter <filter>|*|all` extends an existing book pipeline with more main chapters, then runs the requested filter target for those new chapters.
+
+1. Stop if `.space/pipeline/book_<bookname>/` does not exist; use `scaffold` first.
+2. Treat `<chapter-count>` as the number of additional main chapters to append, not the new total.
+3. Update the backlog epic, book plan, and `chapter_count` fields to the new total.
+4. Create only the new chapter folders and form-appropriate state files under `.space/pipeline/book_<bookname>/chapters/<n>/`.
+5. Run the requested filter target only for the newly added chapters.
+
+---
 ## Filter Chains
 
 The filter chain depends on the form.
@@ -184,16 +183,16 @@ The filter chain depends on the form.
 workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> quality
 ```
 
-| Filter | Agent | Folder |
-|--------|-------|--------|
-| workshop | `.framework/agents/workshop/agent.md` | `filters/1_workshop/` |
-| research | `.framework/agents/research/agent.md` | `filters/2_research/` |
-| seeds | `.framework/agents/seeds/agent.md` | `filters/3_seeds/` |
-| correctness | `.framework/agents/correctness/agent.md` | `filters/4_correctness/` |
-| theme | `.framework/agents/theme/agent.md` | `filters/5_theme/` |
-| syntax | `.framework/agents/syntax/agent.md` | `filters/6_syntax/` |
-| override | `.framework/agents/override/agent.md` | `filters/7_override/` |
-| quality | `.framework/agents/quality/agent.md` | `filters/8_quality/` |
+| Filter | Agent | Folder | Role file |
+|--------|-------|--------|-----------|
+| workshop | `.framework/agents/workshop/agent.md` | `filters/workshop/` | `workshop/workshop.md` |
+| research | `.framework/agents/research/agent.md` | `filters/research/` | `research/research.md` |
+| seeds | `.framework/agents/seeds/agent.md` | `filters/seeds/` | `seeds/seeds.md` |
+| correctness | `.framework/agents/correctness/agent.md` | `filters/correctness/` | `correctness/correctness.md` |
+| theme | `.framework/agents/theme/agent.md` | `filters/theme/` | `theme/theme.md` |
+| syntax | `.framework/agents/syntax/agent.md` | `filters/syntax/` | `syntax/syntax.md` |
+| override | `.framework/agents/override/agent.md` | `filters/override/` | `override/override.md` |
+| quality | `.framework/agents/quality/agent.md` | `filters/quality/` | `quality/quality.md` |
 
 **Poetry (6 filters):**
 
@@ -201,14 +200,14 @@ workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> q
 research -> correctness -> theme -> syntax -> override -> quality
 ```
 
-| Filter | Skill | Folder |
-|--------|-------|--------|
-| research | `.framework/skills/research/SKILL.md` | `filters/research/` |
-| correctness | `.framework/skills/correctness/SKILL.md` | `filters/correctness/` |
-| theme | `.framework/skills/theme/SKILL.md` | `filters/theme/` |
-| syntax | `.framework/skills/syntax/SKILL.md` | `filters/syntax/` |
-| override | human-editable `override.md` | `filters/override/` |
-| quality | `.framework/skills/quality/SKILL.md` | `filters/quality/` |
+| Filter | Skill | Folder | Role file |
+|--------|-------|--------|-----------|
+| research | `.framework/skills/research/SKILL.md` | `filters/research/` | `research/research.md` |
+| correctness | `.framework/skills/correctness/SKILL.md` | `filters/correctness/` | `correctness/correctness.md` |
+| theme | `.framework/skills/theme/SKILL.md` | `filters/theme/` | `theme/theme.md` |
+| syntax | `.framework/skills/syntax/SKILL.md` | `filters/syntax/` | `syntax/syntax.md` |
+| override | human-editable `filter.md` | `filters/override/` | `override/override.md` |
+| quality | `.framework/skills/quality/SKILL.md` | `filters/quality/` | `quality/quality.md` |
 
 Each filter reads the pipeline data and any upstream filter output it needs, then writes to its own folder. Run the full chain strictly in order.
 

@@ -32,7 +32,7 @@ A seed is the first filter in the chain. It runs *before* research and workshop,
 5. Read the chapter's mood at `.space/pipeline/book_<bookname>/chapters/<n>/mood.json` — the mood shapes the seed text.
 6. **Lay out the segments** — create the segment folders and state files the chapter needs.
 7. **Write the seed** — update the chapter model with `included_characters`, `quality_parameters`, and a rich `chapter_summary` that serves as the seed text, shaped by the mood.
-8. Write a single `seeds_summary.md` to `.space/pipeline/book_<bookname>/filters/3_seeds/`.
+8. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/seeds/`.
 
 ## Laying Out the Segments
 
@@ -115,4 +115,4 @@ Do not overwrite unrelated fields; merge the seed state into the existing model.
 
 - **Segment layout** — create the segment folders and `model.json` state files under `chapters/<n>/segments/<x>/`.
 - **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` with `included_characters`, `quality_parameters`, `chapter_summary`, and `segments`.
-- **Filter summary** — write a single `seeds_summary.md` to `.space/pipeline/book_<bookname>/filters/3_seeds/` (the only file in that folder), summarizing the layout and the seed text written.
+- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/seeds/` (the only summary file in that folder), summarizing the layout and the seed text written.

@@ -33,7 +33,7 @@ Do not impose a fixed domain. Read the chapter's context and check the claims th
 3. Determine the correctness bar from the chapter's `subject` and `era` — is it historical, geographical, biological, philosophical, or a blend?
 4. Verify every fact, term, and claim against the epic and the chapter's `sources`.
 5. Update the chapter model to record the verification result.
-6. Write a single `correctness_summary.md` to `.space/pipeline/book_<bookname>/filters/4_correctness/`.
+6. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/correctness/`.
 
 ## Method
 
@@ -64,4 +64,4 @@ Do not overwrite unrelated fields; merge the correctness state into the existing
 ## Output
 
 - **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` with the `correctness` result.
-- **Filter summary** — write a single `correctness_summary.md` to `.space/pipeline/book_<bookname>/filters/4_correctness/` (the only file in that folder), summarizing the verification: the chapters checked, the corrections made, and the uncertainties flagged.
+- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/correctness/` (the only summary file in that folder), summarizing the verification: the chapters checked, the corrections made, and the uncertainties flagged.

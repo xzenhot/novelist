@@ -50,4 +50,4 @@ Read the `registry.md` to discover available syntax samples, then read the chose
 
 ## Output
 
-Record the result in `.space/pipeline/book_<bookname>/filters/6_syntax/<n>.json`, and record the syntax sample selection in the chapter's model file `.space/pipeline/book_<bookname>/chapters/<n>/model.json` (a `syntax` object with the `form` and `sample` fields).
+Record the result in `.space/pipeline/book_<bookname>/filters/syntax/syntax.json` (per-chapter records if the workflow creates them), and record the syntax sample selection in the chapter's model file `.space/pipeline/book_<bookname>/chapters/<n>/model.json` (a `syntax` object with the `form` and `sample` fields).
