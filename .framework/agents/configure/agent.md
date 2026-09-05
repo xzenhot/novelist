@@ -42,9 +42,10 @@ If `preset.md` already exists, do not fall back to a default and do not overwrit
    - The backlog epic `.space/backlog/epic/<bookname>/epic.md` metadata or content.
    - Default to `novel` if none of the above resolve the form.
 2. **Ensure the backlog preset exists.** If `.space/backlog/epic/<bookname>/preset.md` is missing, create it by copying the form-specific default template selected above. If it already exists, leave it unchanged unless the caller supplied a new preset.
-3. **If the caller supplied a preset,** overwrite `.space/backlog/epic/<bookname>/preset.md` with the supplied content. The content may be a file path, a named preset template, or inline Markdown. If a path under `.framework/templates/presets/` is referenced, copy it.
-4. **Parse the ordered sequence.** Read the preset and extract the numbered agent/filter list from the `Use following agents/filters` or `Use following filters` block. Preserve the numeric order exactly. Return only the leading token (e.g. `workshop`) and keep the explanatory statement as preset text.
-5. **Do not scaffold anything.** The configure agent must not create `.space/pipeline/book_<bookname>/`, must not create `filters/` directories, and must not run any agent or filter.
+3. **Create a backlog override file for the human custom filter.** In the same backlog epic folder, ensure an `override.md` file exists at `.space/backlog/epic/<bookname>/override.md`. If it is missing, create it with a short explanatory header so the human knows it is a custom transformation layer. Do **not** overwrite an existing `override.md` if it already contains human edits. This file is a backlog-level operation only; it does not create or modify any pipeline file.
+4. **If the caller supplied a preset,** overwrite `.space/backlog/epic/<bookname>/preset.md` with the supplied content. The content may be a file path, a named preset template, or inline Markdown. If a path under `.framework/templates/presets/` is referenced, copy it.
+5. **Parse the ordered sequence.** Read the preset and extract the numbered agent/filter list from the `Use following agents/filters` or `Use following filters` block. Preserve the numeric order exactly. Return only the leading token (e.g. `workshop`) and keep the explanatory statement as preset text.
+6. **Do not scaffold anything.** The configure agent must not create `.space/pipeline/book_<bookname>/`, must not create `filters/` directories, and must not run any agent or filter.
 
 ## Output Contract
 
@@ -60,8 +61,6 @@ seeds
 correctness
 theme
 syntax
-override
-quality
 ```
 
 The caller uses this list. Do not sort, deduplicate, or reorder it. If the pipeline does not yet exist, append the standard note telling the user to run `scaffold` next.
@@ -72,6 +71,7 @@ The caller uses this list. Do not sort, deduplicate, or reorder it. If the pipel
 - Do **not** create or modify any file under `.space/pipeline/book_<bookname>/`.
 - Do **not** execute filters or agents.
 - Preserve any human edits in an existing `preset.md` exactly as written.
+- Preserve any human edits in an existing backlog `override.md` exactly as written; create it only if missing.
 - The preset file is Markdown only; do not add scripts, front-matter YAML, or wrapper files.
 - If the pipeline exists, it is acceptable to report its presence, but still do not create or delete filter directories; that belongs to `scaffold`.
 

@@ -17,7 +17,7 @@ You are the bridge between the machine's output and the human's intent.
 
 ## What the Override Is
 
-The override is a **human-editable command file** — `.space/pipeline/book_<bookname>/filters/7/filter.md` — where the human records the transformations they want applied. It is a filter, not a skill: it is driven directly by the human's file, with no separate skill created for it.
+The override is a **human-editable command file** — `.space/pipeline/book_<bookname>/filters/override/filter.md` — where the human records the transformations they want applied. It is a filter, not a skill: it is driven directly by the human's file, with no separate skill created for it.
 
 ## Generating the filter.md (Runtime, Context-Aware)
 
@@ -31,7 +31,7 @@ The `filter.md` is **generated from the chapter models** — it is not a static 
    - `stereotype` (form, signature, reference, theme_set)
    - `syntax` (form, sample)
    - `state`
-3. Write (or update) `.space/pipeline/book_<bookname>/filters/7/filter.md` with:
+3. Write (or update) `.space/pipeline/book_<bookname>/filters/override/filter.md` with:
    - A header explaining that instructions apply to **all chapters**.
    - A **context summary** — a compact table of each chapter's name, subject, theme, and stereotype, so the human can see at a glance what they are overriding.
    - An empty `## Instructions` section below a `---` line, where the human writes their transformations.
@@ -39,7 +39,7 @@ The `filter.md` is **generated from the chapter models** — it is not a static 
 
 ## Applying the Instructions
 
-1. Read the command file at `.space/pipeline/book_<bookname>/filters/7/filter.md`.
+1. Read the command file at `.space/pipeline/book_<bookname>/filters/override/filter.md`.
 2. If the `## Instructions` section is empty, pass every chapter through unchanged.
 3. If the instructions specify transformations, apply them **exactly as written** to **every chapter** (unless an instruction is scoped to a specific chapter).
 4. Record what was applied in each chapter's model.
@@ -62,5 +62,5 @@ Do not overwrite unrelated fields; merge the override state into the existing mo
 
 ## Output
 
-- **Command file** — create or update `.space/pipeline/book_<bookname>/filters/7/filter.md` (the only file in that folder), generated from the chapter models' context.
+- **Command file** — create or update `.space/pipeline/book_<bookname>/filters/override/filter.md` (the only file in that folder), generated from the chapter models' context.
 - **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` with the `override` result for each chapter.

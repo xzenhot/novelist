@@ -268,6 +268,14 @@ For each named filter folder, scaffold only:
 
 Leave runtime content empty unless the active workflow explicitly runs that filter.
 
+**Override command file (novel customization):** the `override` filter is the one structural exception. Its exact seeding content is **dynamically derived at scaffold time** from the novel stereotype index at `.framework/templates/stereotypes/novel/readme.md` — do not treat this paragraph as the fixed recipe. Before you create the override files, read that readme and let it govern the shape:
+
+1. **Read `.framework/templates/stereotypes/novel/readme.md`** — the master index of the novel stereotype folder. It tells you the canonical contents and conventions: the `qualities/` (seed analyses), `references/` (source texts), `signatures/` (prose voices), `syntax/`, and `themes/` sub-indexes. Use the readme's published conventions as the source of truth for how a novel pipeline's override layer is structured.
+2. **Seed the pipeline override command file from the readme's declared structure.** The human-facing command file for a novel pipeline is `.space/pipeline/book_<bookname>/filters/override/filter.md` — recreate it with the agent-driven role content (see step 3) and leave the `## Instructions` section empty for the human below the `---` line.
+3. **Derive the role content from `.framework/agents/override/agent.md`**, customized to the novel form per the readme conventions: identity "novel pipeline", applies to every chapter (Workshop/Story/Discussion), command file at `.space/pipeline/book_<bookname>/filters/override/filter.md`, model updates on `.space/pipeline/book_<bookname>/chapters/<n>/model.json`, instruction scope "every chapter" (`Introduction`, `1..N`, `Conclusion`).
+4. **Align with whatever the readme's sub-indexes declare** (the prose voice/signature set, reference texts, syntax samples, and theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
+5. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
+
 **Important:** Only create filter folders and registry entries for filters named in the selected preset. Do not create folders for default filters that the preset omits. The order must match the preset exactly.
 
 ## Source Destination

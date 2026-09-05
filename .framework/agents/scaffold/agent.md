@@ -29,6 +29,21 @@ Then retry the scaffold command.
 6. Record the chosen form in the pipeline root `model.json` during scaffolding.
 7. Create or update `.space/pipeline/book_<bookname>/filters/filters.json` from the preset's ordered agent/filter list. The preset is the sole source for this registry.
 8. Do not run any filter agent or skill during scaffold. Create only structure and empty filter folders; leave all runtime outputs empty.
+9. **Seed the override command file.** If the preset's filter chain includes `override`, recreate `.space/pipeline/book_<bookname>/filters/override/filter.md` with the form-customized content derived from `.framework/agents/override/agent.md` (see *Override Command File Seeding*). This is structural scaffold output for the human to edit, not a runtime filter result.
+
+## Override Command File Seeding
+
+The `override` human-in-the-loop filter needs a ready-made command file, not an empty placeholder. After the layout skill has built the pipeline:
+
+1. If `override` is not in the preset's filter chain, skip this step — no registry entry, no override folder, no `filter.md`.
+2. Read `.framework/agents/override/agent.md` — its content is the base for `filter.md`.
+3. Recreate `.space/pipeline/book_<bookname>/filters/override/filter.md` by reproducing the override agent's content with these form-specific customizations:
+   - **Identity and units.** Novel: the "novel pipeline", applying to every **chapter** (Workshop/Story/Discussion). Poetry: the "poetry pipeline", applying to every **poem** (Question/Oration/Benediction).
+   - **Command file path.** Novel: `.space/pipeline/book_<bookname>/filters/override/filter.md`. Poetry: the pipeline-root `.space/pipeline/book_<bookname>/override.md` is the human-facing command file, while `filters/override/filter.md` holds the agent-driven role content for the filter folder.
+   - **Model updates.** Novel: `.space/pipeline/book_<bookname>/chapters/<n>/model.json`. Poetry: the poem chapter models under `chapters/<n>/`.
+   - **Instruction scope.** Novel: every chapter (`Introduction`, `1..N`, `Conclusion`). Poetry: every poem.
+4. Keep the trailing `## Instructions` section empty (below the `---` line) so the human has a blank editing surface.
+5. Never overwrite human instructions that already exist below the `---` line; refresh only the role/context portion above it.
 
 ## Source Of Truth
 
