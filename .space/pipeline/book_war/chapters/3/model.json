@@ -1,0 +1,57 @@
+{
+  "theme": "the illusion of control in complex geopolitical systems",
+  "grounding_notes": "Follow the epic chapter outline and the preset's filter chain.",
+  "stereotype": "gibran",
+  "era": "Near future",
+  "place": "Strait of Hormuz and adjacent theaters",
+  "chapter_summary": "The USS Truxtun shepherds minesweepers into the strait under the shadow of Iranian coastal missile batteries while speedboat swarms probe the perimeter like hornets; Sharifi, ordered to deny the channel without a formal war, watches his own side's factions outrun his caution, and Miller's SEALs are placed on ready-alert for the first time. The seed must dramatize the imbalance between a billion-dollar destroyer and a handful of cheap, fast threats, and the rule-change that happens when the weak refuse to fight on the strong terms.",
+  "state": "seeds",
+  "research_file": "chapters/3/chapter.md",
+  "mood": "thriller",
+  "chapter_name": "3",
+  "figures": [
+    "Commander Sarah Lin",
+    "Captain Reza Sharifi"
+  ],
+  "subject": "Iran deploys mines, speedboat swarms, and coastal anti-ship missiles. The USS Truxtun protects minesweepers entering the strait under constant threat.",
+  "included_characters": [
+    {
+      "character_id": "sarah_lin",
+      "full_name": "Commander Sarah Lin",
+      "role_in_chapter": "Executive Officer of the USS Truxtun"
+    },
+    {
+      "character_id": "reza_sharifi",
+      "full_name": "Captain Reza Sharifi",
+      "role_in_chapter": "IRGCN officer"
+    },
+    {
+      "character_id": "master_chief_miller",
+      "full_name": "Master Chief Miller",
+      "role_in_chapter": "SEAL team leader"
+    }
+  ],
+  "chapter_index": 3,
+  "syntax": "modern literary thriller",
+  "level": "chapter",
+  "quality_parameters": {
+    "register": "geopolitical thriller",
+    "tone": "tense, grounded, cinematic",
+    "language": "English",
+    "target_word_count": 4500,
+    "philosophical_depth": "explore the illusion of control and the distance between decision-makers and sufferers",
+    "metaphorical_richness": "use sea, gate, fire, and machine imagery consistently",
+    "accessibility": "clear to adult thriller readers without military background",
+    "resonance": "human cost of systemic violence",
+    "timelessness": "echo classical questions of responsibility and mercy"
+  },
+  "events": [],
+  "sources": [
+    ".space/backlog/epic/war/epic.md"
+  ],
+  "chapter_title": "Asymmetric Shadows",
+  "segments": [
+    1
+  ],
+  "mastery_level": "Experienced"
+}

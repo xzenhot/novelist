@@ -1,0 +1,76 @@
+{
+  "characters": [
+    {
+      "character_id": "ashok",
+      "full_name": "Ashok Maurya",
+      "role": "protagonist",
+      "identity": "Third son of Bindusara, governor, emperor, late convert to the Buddha's dharma",
+      "psychological_depth": "Brilliant, impatient, scarred by violence and remorse; a man of violent habits trying to become gentle.",
+      "arcs": [
+        "Ambition through exile and frontier warfare",
+        "Bloody seizure of the throne",
+        "Atrocity at Kalinga and inner collapse",
+        "Conversion to dharma and ethical empire-building",
+        "Clemency in old age and the final edict"
+      ]
+    },
+    {
+      "character_id": "devi",
+      "full_name": "Devi / Vidisha-Mahadevi",
+      "role": "ally and witness",
+      "identity": "Merchant's daughter from Vidisha, Ashok's first queen, pragmatic Buddhist sympathizer",
+      "psychological_depth": "Literate in trade and Buddhist circles; sees Ashok's wounds before he does; eventually leaves the court.",
+      "arcs": [
+        "First meeting with Ashok near a stupa",
+        "Speaks plainly about Kalinga",
+        "Leaves the capital for Vidisha"
+      ]
+    },
+    {
+      "character_id": "tishyaraksha",
+      "full_name": "Tishyaraksha",
+      "role": "antagonist",
+      "identity": "Younger queen, skilled in poisons and palace intrigue",
+      "psychological_depth": "Ambitious, observant; represents the old logic of power and fears Ashok's gentleness will destroy the empire.",
+      "arcs": [
+        "Watches Ashok's conversion with alarm",
+        "Calculates against troop reductions and loss of Brahmin privilege",
+        "Final failed conspiracy using poison and forged documents"
+      ]
+    },
+    {
+      "character_id": "upagupta",
+      "full_name": "Upagupta",
+      "role": "teacher",
+      "identity": "Buddhist monk and Ashok's dharma teacher",
+      "psychological_depth": "Moderate, worldly compassion; refuses to become the emperor's puppet and challenges him to govern by dharma.",
+      "arcs": [
+        "Teaches Ashok the Metta Sutta while soldiers drill outside",
+        "Challenges the emperor to apply dharma to governance"
+      ]
+    },
+    {
+      "character_id": "radhagupta",
+      "full_name": "Radhagupta",
+      "role": "kingmaker and foil",
+      "identity": "Minister who engineers Ashok's ascent to the throne",
+      "psychological_depth": "Coldly practical; believes order justifies any violence and becomes the voice of realpolitik.",
+      "arcs": [
+        "Engineers the coup that brings Ashok to power",
+        "Resists troop reductions and dharma governance"
+      ]
+    },
+    {
+      "character_id": "susima",
+      "full_name": "Yuvraj Susima",
+      "role": "rival",
+      "identity": "Ashok's elder half-brother and rival for the throne",
+      "psychological_depth": "Handsome, favored by court Brahmins, indecisive in crisis; his death clears the path for Ashok.",
+      "arcs": [
+        "Court Brahmin faction backs him for succession",
+        "Blocks Ashok's return to Pataliputra",
+        "Dies in the coup"
+      ]
+    }
+  ]
+}

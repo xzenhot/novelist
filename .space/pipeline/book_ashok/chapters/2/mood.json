@@ -1,0 +1,45 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "Seize Pataliputra and the throne before Susima consolidates"
+    },
+    {
+      "characteristic": "stakes",
+      "mood_description": "Life or death for Ashok and his rivals"
+    },
+    {
+      "characteristic": "vulnerability",
+      "mood_description": "The crown won by murder weighs before it is worn"
+    },
+    {
+      "characteristic": "conflict",
+      "mood_description": "Ashok and Radhagupta against Susima's Brahmin faction"
+    },
+    {
+      "characteristic": "tension",
+      "mood_description": "Rain as footsteps; the palace after massacre"
+    },
+    {
+      "characteristic": "rationalize",
+      "mood_description": "Order justifies violence; the throne demands blood"
+    },
+    {
+      "characteristic": "subversion",
+      "mood_description": "The crowned man cannot sleep"
+    },
+    {
+      "characteristic": "catharsis",
+      "mood_description": "Victory empties rather than fills"
+    },
+    {
+      "characteristic": "foreshadowing",
+      "mood_description": "This is the night that Kalinga will later answer"
+    },
+    {
+      "characteristic": "irony",
+      "mood_description": "He gains an empire and loses the silence of his own mind"
+    }
+  ]
+}

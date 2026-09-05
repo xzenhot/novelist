@@ -1,0 +1,45 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "Ashok seeks to prove himself despite court contempt"
+    },
+    {
+      "characteristic": "stakes",
+      "mood_description": "The succession and his very identity are at stake"
+    },
+    {
+      "characteristic": "vulnerability",
+      "mood_description": "Loneliness beneath ambition; the wound of the unchosen son"
+    },
+    {
+      "characteristic": "conflict",
+      "mood_description": "Court Brahmin faction versus Ashok's provincial loyalty"
+    },
+    {
+      "characteristic": "tension",
+      "mood_description": "The quiet before the succession struggle begins"
+    },
+    {
+      "characteristic": "rationalize",
+      "mood_description": "Ashok believes merit will overcome birth; the court believes blood is everything"
+    },
+    {
+      "characteristic": "subversion",
+      "mood_description": "Devi speaks of the Buddha as a physician of sorrow"
+    },
+    {
+      "characteristic": "catharsis",
+      "mood_description": "A first glimpse that power may not be worth its price"
+    },
+    {
+      "characteristic": "foreshadowing",
+      "mood_description": "The provinces and the frontier will shape the emperor to come"
+    },
+    {
+      "characteristic": "irony",
+      "mood_description": "The mocked son will become the most remembered king"
+    }
+  ]
+}

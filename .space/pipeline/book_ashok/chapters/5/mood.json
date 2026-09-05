@@ -1,0 +1,45 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "Finish the final edict and secure the succession of dharma"
+    },
+    {
+      "characteristic": "stakes",
+      "mood_description": "The legacy of an empire and the soul of an old man"
+    },
+    {
+      "characteristic": "vulnerability",
+      "mood_description": "Half-blind, surrounded, still dictating from memory"
+    },
+    {
+      "characteristic": "conflict",
+      "mood_description": "Tishyaraksha's conspiracy versus Ashok's clemency"
+    },
+    {
+      "characteristic": "tension",
+      "mood_description": "Poison and forged documents; will gentleness survive?"
+    },
+    {
+      "characteristic": "rationalize",
+      "mood_description": "The old logic says execute the traitor; the new says forgive"
+    },
+    {
+      "characteristic": "subversion",
+      "mood_description": "He does not kill her; he writes an edict on clemency"
+    },
+    {
+      "characteristic": "catharsis",
+      "mood_description": "The final chisel stroke is also a final vow"
+    },
+    {
+      "characteristic": "foreshadowing",
+      "mood_description": "The stone will outlast the dynasty"
+    },
+    {
+      "characteristic": "irony",
+      "mood_description": "The man who once measured men by the thousand now calls them all his children"
+    }
+  ]
+}

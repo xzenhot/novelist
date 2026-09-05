@@ -1,0 +1,42 @@
+{
+  "chapter_index": 18,
+  "chapter_name": "18",
+  "state": "pending",
+  "chapter_title": "The Last Campaign",
+  "subject": "The Last Campaign",
+  "era": "ancient India, 3rd century BCE",
+  "place": "Pataliputra / Mauryan Empire",
+  "figures": [
+    "Ashok"
+  ],
+  "events": [
+    "The Last Campaign"
+  ],
+  "grounding_notes": "Based on the Ashok Maurya epic.",
+  "sources": [
+    ".space/backlog/epic/ashok/epic.md"
+  ],
+  "included_characters": [
+    "ashok"
+  ],
+  "quality_parameters": {
+    "voice": "gibran",
+    "target_word_count": 4500,
+    "mood": "default"
+  },
+  "chapter_summary": "The Last Campaign",
+  "mood": "default",
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "signature": "gibran",
+    "reference": "aurilus",
+    "theme_set": "generic",
+    "syntax": "gibran"
+  },
+  "theme": "renunciation",
+  "syntax": "gibran",
+  "workshop_file": "filters/workshop/18.md",
+  "research_file": "filters/research/18.md"
+}

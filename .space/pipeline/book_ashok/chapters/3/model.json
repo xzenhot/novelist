@@ -1,0 +1,49 @@
+{
+  "chapter_index": 3,
+  "chapter_name": "3",
+  "state": "pending",
+  "chapter_title": "Kalinga",
+  "subject": "The brutal conquest of Kalinga and Ashok's moral collapse.",
+  "era": "ancient India, 3rd century BCE",
+  "place": "Kalinga, the east coast",
+  "figures": [
+    "Ashok",
+    "Devi",
+    "Buddhist nun"
+  ],
+  "events": [
+    "Invasion by land and river",
+    "Battle with elephants and chariots",
+    "Civilian slaughter",
+    "Ashok among the wounded",
+    "The nun's question"
+  ],
+  "grounding_notes": "Historical Kalinga war; Ashok's own inscriptions record over 100,000 killed or deported. The river turning red is the central image.",
+  "sources": [
+    ".space/backlog/epic/ashok/epic.md"
+  ],
+  "included_characters": [
+    "ashok",
+    "devi"
+  ],
+  "quality_parameters": {
+    "voice": "gibran",
+    "target_word_count": 4500,
+    "mood": "default"
+  },
+  "chapter_summary": "Ashok leads the conquest of Kalinga and wins everything, but the river of blood breaks something in him. A Buddhist nun asks what he will do with the peace he has bought.",
+  "mood": "default",
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "signature": "gibran",
+    "reference": "aurilus",
+    "theme_set": "generic",
+    "syntax": "gibran"
+  },
+  "theme": "The Only Present",
+  "syntax": "gibran",
+  "workshop_file": "filters/workshop/3.md",
+  "research_file": "filters/research/3.md"
+}

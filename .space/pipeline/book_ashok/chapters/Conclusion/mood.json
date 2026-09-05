@@ -1,0 +1,41 @@
+{
+  "template": "conclusion",
+  "moods": [
+    {
+      "characteristic": "resolution_of_conflict",
+      "mood_description": "The emperor's inner war resolves in clemency and stone"
+    },
+    {
+      "characteristic": "character_arc_completion",
+      "mood_description": "From sword to dharma: the arc is complete"
+    },
+    {
+      "characteristic": "thematic_reinforcement",
+      "mood_description": "Repetition and reinforcement of compassion as public ethics"
+    },
+    {
+      "characteristic": "loose_ends_tied",
+      "mood_description": "The frame returns to the hill and the final chisel stroke"
+    },
+    {
+      "characteristic": "sense_of_closure",
+      "mood_description": "The edict stands; the reader is left with the echo"
+    },
+    {
+      "characteristic": "final_reflection",
+      "mood_description": "Can an empire founded in blood be re-founded in regret?"
+    },
+    {
+      "characteristic": "future_implication",
+      "mood_description": "The sound of the chisel echoes into the present"
+    },
+    {
+      "characteristic": "lingering_thought",
+      "mood_description": "Whether regret, repeated often enough, becomes a kind of love"
+    },
+    {
+      "characteristic": "impactful_final_statement",
+      "mood_description": "All men are my children"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "template": "default",
+  "moods": [
+    {
+      "characteristic": "goal",
+      "mood_description": "Conquer Kalinga and prove the throne legitimate through glory"
+    },
+    {
+      "characteristic": "stakes",
+      "mood_description": "The empire's eastern coast and Ashok's pride"
+    },
+    {
+      "characteristic": "vulnerability",
+      "mood_description": "The victor breaks while the defeated still breathe"
+    },
+    {
+      "characteristic": "conflict",
+      "mood_description": "Military glory versus the humanity of the conquered"
+    },
+    {
+      "characteristic": "tension",
+      "mood_description": "The river turns red; the silence after battle"
+    },
+    {
+      "characteristic": "rationalize",
+      "mood_description": "Empire requires submission; order requires fear"
+    },
+    {
+      "characteristic": "subversion",
+      "mood_description": "A nun asks what he will do with the peace he has bought"
+    },
+    {
+      "characteristic": "catharsis",
+      "mood_description": "The conqueror first tastes remorse"
+    },
+    {
+      "characteristic": "foreshadowing",
+      "mood_description": "The river will return in dreams and edicts"
+    },
+    {
+      "characteristic": "irony",
+      "mood_description": "He wins the kingdom and loses the man he was"
+    }
+  ]
+}

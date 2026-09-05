@@ -1,0 +1,67 @@
+{
+  "level": "chapter",
+  "chapter_index": "Introduction",
+  "chapter_name": "Introduction",
+  "state": "seeds",
+  "chapter_title": "The Drums Before the Rain",
+  "subject": "Introduction to the simmering tensions in the Strait of Hormuz and the looming threat of war",
+  "era": "Near future",
+  "place": "Strait of Hormuz, Bandar Abbas, USS Truxtun",
+  "figures": [
+    "Commander Sarah Lin",
+    "Captain Reza Sharifi"
+  ],
+  "events": [
+    "Mysterious tanker explosion",
+    "Shipping lane blocked",
+    "Naval forces converge"
+  ],
+  "grounding_notes": "Establish the geopolitical chokepoint and introduce the two military POVs who will anchor the naval conflict.",
+  "sources": [
+    ".space/backlog/epic/war/epic.md"
+  ],
+  "included_characters": [
+    {
+      "character_id": "sarah_lin",
+      "full_name": "Commander Sarah Lin",
+      "role_in_chapter": "Executive Officer of the USS Truxtun"
+    },
+    {
+      "character_id": "reza_sharifi",
+      "full_name": "Captain Reza Sharifi",
+      "role_in_chapter": "IRGCN officer"
+    },
+    {
+      "character_id": "marcus_vance",
+      "full_name": "Marcus Vance",
+      "role_in_chapter": "U.S. National Security Advisor"
+    },
+    {
+      "character_id": "maya_thorne",
+      "full_name": "Dr. Maya Thorne",
+      "role_in_chapter": "Energy economist"
+    }
+  ],
+  "quality_parameters": {
+    "register": "geopolitical thriller",
+    "tone": "tense, grounded, cinematic",
+    "language": "English",
+    "target_word_count": 4500,
+    "philosophical_depth": "explore the illusion of control and the distance between decision-makers and sufferers",
+    "metaphorical_richness": "use sea, gate, fire, and machine imagery consistently",
+    "accessibility": "clear to adult thriller readers without military background",
+    "resonance": "human cost of systemic violence",
+    "timelessness": "echo classical questions of responsibility and mercy"
+  },
+  "chapter_summary": "The world wakes to news that the Panama-flagged tanker has exploded across the strait; Sarah Lin watches the CIC fill with real-time catastrophe while Reza Sharifi stands on Qeshm Island and sees the same smoke from the other shore, and in Washington and London the first cost is measured in futures rather than blood. The seed scene must open on the fragile morning calm, introduce the two commanders as professionals trained to hesitate, then break that calm with the blast and the first warning shots, ending with the understanding that no single decision started the fire but every next one may spread it.",
+  "mood": "introduction",
+  "segments": [
+    1
+  ],
+  "stereotype": "gibran",
+  "theme": "the illusion of control in complex geopolitical systems",
+  "syntax": "modern literary thriller",
+  "workshop_file": "chapters/Introduction/chapter.md",
+  "research_file": "chapters/Introduction/chapter.md",
+  "mastery_level": "Experienced"
+}

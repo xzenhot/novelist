@@ -1,0 +1,52 @@
+{
+  "theme": "survival, professionalism, and small acts of mercy amid systemic violence",
+  "grounding_notes": "Follow the epic chapter outline and the preset's filter chain.",
+  "stereotype": "gibran",
+  "era": "Near future",
+  "place": "Strait of Hormuz and adjacent theaters",
+  "chapter_summary": "Operation Open Gate launches from the deck of the USS Nimitz; Lieutenant Commander Viper Morales leads a four-ship SEAD strike against Iranian radar and anti-ship missile sites, until a newer-generation SAM locks onto his wingman Rachel Okafor and he watches her eject over the Iranian coast at sunrise. The seed must capture the cathedral violence of the carrier launch, the surgical language of targeting, and the private arithmetic of command that begins the instant the parachute beacon appears.",
+  "state": "seeds",
+  "research_file": "chapters/6/chapter.md",
+  "mood": "thriller",
+  "chapter_name": "6",
+  "figures": [
+    "Lieutenant Commander Viper Morales",
+    "Commander Sarah Lin"
+  ],
+  "subject": "Washington authorizes Operation Open Gate. Morales leads SEAD missions over the Iranian coast until his wingman is shot down.",
+  "included_characters": [
+    {
+      "character_id": "viper_morales",
+      "full_name": "Lieutenant Commander Viper Morales",
+      "role_in_chapter": "F/A-18E Super Hornet pilot"
+    },
+    {
+      "character_id": "sarah_lin",
+      "full_name": "Commander Sarah Lin",
+      "role_in_chapter": "Executive Officer of the USS Truxtun"
+    }
+  ],
+  "chapter_index": 6,
+  "syntax": "modern literary thriller",
+  "level": "chapter",
+  "quality_parameters": {
+    "register": "geopolitical thriller",
+    "tone": "tense, grounded, cinematic",
+    "language": "English",
+    "target_word_count": 4500,
+    "philosophical_depth": "explore the illusion of control and the distance between decision-makers and sufferers",
+    "metaphorical_richness": "use sea, gate, fire, and machine imagery consistently",
+    "accessibility": "clear to adult thriller readers without military background",
+    "resonance": "human cost of systemic violence",
+    "timelessness": "echo classical questions of responsibility and mercy"
+  },
+  "events": [],
+  "sources": [
+    ".space/backlog/epic/war/epic.md"
+  ],
+  "chapter_title": "Escalation Dominance",
+  "segments": [
+    1
+  ],
+  "mastery_level": "Experienced"
+}

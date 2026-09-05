@@ -1,0 +1,64 @@
+{
+  "filters": [
+    {
+      "order": 1,
+      "name": "research",
+      "folder": "filters/research",
+      "role_file": "research/research.md",
+      "summary_file": "research/filter-summary.md",
+      "output_file": "research/content-output.md",
+      "description": "Gather and organize the subject, context, source notes, and usable images for the poem.",
+      "agent": "research"
+    },
+    {
+      "order": 2,
+      "name": "correctness",
+      "folder": "filters/correctness",
+      "role_file": "correctness/correctness.md",
+      "summary_file": "correctness/filter-summary.md",
+      "output_file": "correctness/content-output.md",
+      "description": "Verify factual, attributional, religious, philosophical, and cultural claims before poetic rendering.",
+      "agent": "correctness"
+    },
+    {
+      "order": 3,
+      "name": "theme",
+      "folder": "filters/theme",
+      "role_file": "theme/theme.md",
+      "summary_file": "theme/filter-summary.md",
+      "output_file": "theme/content-output.md",
+      "description": "Assign the poem's philosophical lens, contemporary mapping, and form-consistent poetic stereotype selection.",
+      "agent": "theme"
+    },
+    {
+      "order": 4,
+      "name": "syntax",
+      "folder": "filters/syntax",
+      "role_file": "syntax/syntax.md",
+      "summary_file": "syntax/filter-summary.md",
+      "output_file": "syntax/content-output.md",
+      "description": "Apply the selected poetic syntax guidance so the language remains current while preserving elevated cadence.",
+      "agent": "syntax"
+    },
+    {
+      "order": 5,
+      "name": "override",
+      "folder": "filters/override",
+      "role_file": "override/override.md",
+      "summary_file": "override/filter-summary.md",
+      "output_file": "override/content-output.md",
+      "description": "Apply any human transformation instructions from the override layer, or pass through unchanged when empty.",
+      "agent": "override"
+    },
+    {
+      "order": 6,
+      "name": "quality",
+      "folder": "filters/quality",
+      "role_file": "quality/quality.md",
+      "summary_file": "quality/filter-summary.md",
+      "output_file": "quality/content-output.md",
+      "description": "Audit the poem against the preset, topic, theme, voice, correctness result, and final quality bar.",
+      "agent": "quality"
+    }
+  ]
+}

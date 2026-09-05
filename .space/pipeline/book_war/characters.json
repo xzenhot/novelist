@@ -1,0 +1,13 @@
+{
+  "characters": [
+    { "character_id": "sarah_lin", "full_name": "Commander Sarah Lin", "role": "Executive Officer of the USS Truxtun", "identity": "American naval officer", "psychological_depth": "Calm under pressure; carries the weight of holding the line when the strait becomes a battlefield.", "notes": "Primary naval POV for coalition side." },
+    { "character_id": "reza_sharifi", "full_name": "Captain Reza Sharifi", "role": "IRGCN officer", "identity": "Iranian naval captain", "psychological_depth": "Aging pragmatist who understands the cost of escalation better than his superiors.", "notes": "Primary naval POV for Iranian side." },
+    { "character_id": "maya_thorne", "full_name": "Dr. Maya Thorne", "role": "Energy economist", "identity": "London-based analyst", "psychological_depth": "Her models predict catastrophe; she struggles to make leaders listen before markets crash.", "notes": "Global/economic POV." },
+    { "character_id": "marcus_vance", "full_name": "Marcus Vance", "role": "U.S. National Security Advisor", "identity": "American policy maker", "psychological_depth": "Balances deterrence and diplomacy while hawks press for retaliation.", "notes": "Washington policy POV." },
+    { "character_id": "viper_morales", "full_name": "Lieutenant Commander Viper Morales", "role": "F/A-18E Super Hornet pilot", "identity": "American aviator", "psychological_depth": "Flies SEAD missions knowing each sortie may be his last.", "notes": "Air-combat POV." },
+    { "character_id": "master_chief_miller", "full_name": "Master Chief Miller", "role": "SEAL team leader", "identity": "American special operator", "psychological_depth": "Leads a high-risk rescue because leaving a pilot behind is not an option.", "notes": "Special-operations POV." },
+    { "character_id": "amir", "full_name": "Amir", "role": "Iranian cyber-warfare technician", "identity": "Disillusioned engineer", "psychological_depth": "Discovers his own code may have started the war and must decide what to do about it.", "notes": "Cyber-warfare POV." },
+    { "character_id": "zahra", "full_name": "Zahra", "role": "Nurse", "identity": "Bandar Abbas hospital worker", "psychological_depth": "Works double shifts as her city collapses; her endurance becomes a quiet moral counterweight to the conflict.", "notes": "Civilian/home-front POV." },
+    { "character_id": "thomas_vance", "full_name": "Captain Thomas Vance", "role": "Civilian master of the Orion Pride", "identity": "Merchant mariner", "psychological_depth": "Trapped between navies, responsible for a panicking crew and dwindling supplies.", "notes": "Civilian maritime POV." }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "title": "The Narrow Gate",
+  "language": "English",
+  "source_terms": ".space/backlog/epic/war/epic.md",
+  "context": "geopolitical thriller set during a modern war over the Strait of Hormuz",
+  "total_chapters": 12,
+  "completed_chapters": 12,
+  "current_chapter": "Conclusion",
+  "chapters": [
+    { "chapter_number": "Introduction", "topic": "The Drums Before the Rain", "category": "introduction", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/Introduction/", "completed_date": "2026-08-23" },
+    { "chapter_number": 1, "topic": "The Spark in Dhow Lane", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/1/", "completed_date": "2026-08-23" },
+    { "chapter_number": 2, "topic": "Shockwaves in Markets and Capitals", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/2/", "completed_date": "2026-08-23" },
+    { "chapter_number": 3, "topic": "Asymmetric Shadows", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/3/", "completed_date": "2026-08-23" },
+    { "chapter_number": 4, "topic": "The Ghost in the Machine", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/4/", "completed_date": "2026-08-23" },
+    { "chapter_number": 5, "topic": "The Strait Closes", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/5/", "completed_date": "2026-08-23" },
+    { "chapter_number": 6, "topic": "Escalation Dominance", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/6/", "completed_date": "2026-08-23" },
+    { "chapter_number": 7, "topic": "Behind Enemy Lines", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/7/", "completed_date": "2026-08-23" },
+    { "chapter_number": 8, "topic": "The Human Cost on the Home Front", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/8/", "completed_date": "2026-08-23" },
+    { "chapter_number": 9, "topic": "The Decisive Battle of the Chokepoint", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/9/", "completed_date": "2026-08-23" },
+    { "chapter_number": 10, "topic": "Dawn Over an Empty Sea", "category": "main", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/10/", "completed_date": "2026-08-23" },
+    { "chapter_number": "Conclusion", "topic": "The Narrow Gate", "category": "conclusion", "status": "completed", "file_path": ".space/pipeline/book_war/chapters/Conclusion/", "completed_date": "2026-08-23" }
+  ]
+}

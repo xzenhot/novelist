@@ -1,0 +1,51 @@
+{
+  "chapter_index": 1,
+  "chapter_name": "1",
+  "state": "pending",
+  "chapter_title": "The Unchosen Son",
+  "subject": "Ashok's youth in Pataliputra, his posting to Ujjain, and meeting Devi.",
+  "era": "ancient India, 3rd century BCE",
+  "place": "Pataliputra, Ujjain, Sanchi",
+  "figures": [
+    "Ashok",
+    "Susima",
+    "Devi",
+    "Radhagupta"
+  ],
+  "events": [
+    "Court mockery for commoner mother",
+    "Frontier warfare in Ujjain",
+    "Meeting Devi near a stupa",
+    "News of Bindusara's illness"
+  ],
+  "grounding_notes": "The Mauryan court, the stigma of Ashok's mother, the proving ground of the provinces, and the first encounter with Buddhist circles.",
+  "sources": [
+    ".space/backlog/epic/ashok/epic.md"
+  ],
+  "included_characters": [
+    "ashok",
+    "devi",
+    "susima",
+    "radhagupta"
+  ],
+  "quality_parameters": {
+    "voice": "gibran",
+    "target_word_count": 4500,
+    "mood": "default"
+  },
+  "chapter_summary": "In Pataliputra, the third son Ashok is mocked and sidelined. Sent as viceroy to Ujjain, he proves himself in frontier warfare and meets Devi, who speaks of the Buddha as a physician of sorrow.",
+  "mood": "default",
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "signature": "gibran",
+    "reference": "aurilus",
+    "theme_set": "generic",
+    "syntax": "gibran"
+  },
+  "theme": "The One Blood",
+  "syntax": "gibran",
+  "workshop_file": "filters/workshop/1.md",
+  "research_file": "filters/research/1.md"
+}

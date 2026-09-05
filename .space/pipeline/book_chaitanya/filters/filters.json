@@ -1,0 +1,60 @@
+{
+  "filters": [
+    {
+      "name": "workshop",
+      "folder": "filters/workshop",
+      "role_file": "workshop/workshop.md",
+      "summary_file": "workshop/filter-summary.md",
+      "output_file": "workshop/content-output.md"
+    },
+    {
+      "name": "research",
+      "folder": "filters/research",
+      "role_file": "research/research.md",
+      "summary_file": "research/filter-summary.md",
+      "output_file": "research/content-output.md"
+    },
+    {
+      "name": "seeds",
+      "folder": "filters/seeds",
+      "role_file": "seeds/seeds.md",
+      "summary_file": "seeds/filter-summary.md",
+      "output_file": "seeds/content-output.md"
+    },
+    {
+      "name": "correctness",
+      "folder": "filters/correctness",
+      "role_file": "correctness/correctness.md",
+      "summary_file": "correctness/filter-summary.md",
+      "output_file": "correctness/content-output.md"
+    },
+    {
+      "name": "theme",
+      "folder": "filters/theme",
+      "role_file": "theme/theme.md",
+      "summary_file": "theme/filter-summary.md",
+      "output_file": "theme/content-output.md"
+    },
+    {
+      "name": "syntax",
+      "folder": "filters/syntax",
+      "role_file": "syntax/syntax.md",
+      "summary_file": "syntax/filter-summary.md",
+      "output_file": "syntax/content-output.md"
+    },
+    {
+      "name": "override",
+      "folder": "filters/override",
+      "role_file": "override/override.md",
+      "summary_file": "override/filter-summary.md",
+      "output_file": "override/content-output.md"
+    },
+    {
+      "name": "quality",
+      "folder": "filters/quality",
+      "role_file": "quality/quality.md",
+      "summary_file": "quality/filter-summary.md",
+      "output_file": "quality/content-output.md"
+    }
+  ]
+}

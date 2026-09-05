@@ -1,0 +1,42 @@
+{
+  "chapter_index": 7,
+  "chapter_name": "7",
+  "state": "pending",
+  "chapter_title": "The Monk at the Gate",
+  "subject": "The Monk at the Gate",
+  "era": "ancient India, 3rd century BCE",
+  "place": "Pataliputra / Mauryan Empire",
+  "figures": [
+    "Ashok"
+  ],
+  "events": [
+    "The Monk at the Gate"
+  ],
+  "grounding_notes": "Based on the Ashok Maurya epic.",
+  "sources": [
+    ".space/backlog/epic/ashok/epic.md"
+  ],
+  "included_characters": [
+    "ashok"
+  ],
+  "quality_parameters": {
+    "voice": "gibran",
+    "target_word_count": 4500,
+    "mood": "default"
+  },
+  "chapter_summary": "The Monk at the Gate",
+  "mood": "default",
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "signature": "gibran",
+    "reference": "aurilus",
+    "theme_set": "generic",
+    "syntax": "gibran"
+  },
+  "theme": "encounter",
+  "syntax": "gibran",
+  "workshop_file": "filters/workshop/7.md",
+  "research_file": "filters/research/7.md"
+}

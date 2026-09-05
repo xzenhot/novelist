@@ -1,0 +1,54 @@
+{
+  "chapter_index": 4,
+  "chapter_name": "4",
+  "state": "pending",
+  "chapter_title": "The Converted Emperor",
+  "subject": "Ashok's conversion to Buddhism and his struggle to govern by dharma.",
+  "era": "ancient India, 3rd century BCE",
+  "place": "Pataliputra, Vidisha, the empire",
+  "figures": [
+    "Ashok",
+    "Upagupta",
+    "Tishyaraksha",
+    "Devi",
+    "Radhagupta"
+  ],
+  "events": [
+    "Formal embrace of Buddhism",
+    "Resistance from court and military",
+    "Dharma policies",
+    "Devi leaves for Vidisha",
+    "First rock and pillar edicts"
+  ],
+  "grounding_notes": "Ashok's dharma governance: banning animal slaughter, planting medicinal herbs, digging wells, sending missionaries, inscribing edicts.",
+  "sources": [
+    ".space/backlog/epic/ashok/epic.md"
+  ],
+  "included_characters": [
+    "ashok",
+    "upagupta",
+    "tishyaraksha",
+    "devi",
+    "radhagupta"
+  ],
+  "quality_parameters": {
+    "voice": "gibran",
+    "target_word_count": 4500,
+    "mood": "default"
+  },
+  "chapter_summary": "Ashok embraces Buddhism and struggles to govern by dharma against court, military, and Brahmin resistance. Devi leaves for Vidisha; Ashok begins inscribing rock and pillar edicts.",
+  "mood": "default",
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "signature": "gibran",
+    "reference": "aurilus",
+    "theme_set": "generic",
+    "syntax": "gibran"
+  },
+  "theme": "The Beloved Necessity",
+  "syntax": "gibran",
+  "workshop_file": "filters/workshop/4.md",
+  "research_file": "filters/research/4.md"
+}

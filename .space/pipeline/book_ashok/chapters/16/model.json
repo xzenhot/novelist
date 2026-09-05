@@ -1,0 +1,42 @@
+{
+  "chapter_index": 16,
+  "chapter_name": "16",
+  "state": "pending",
+  "chapter_title": "The Quarrel at the Sangha",
+  "subject": "The Quarrel at the Sangha",
+  "era": "ancient India, 3rd century BCE",
+  "place": "Pataliputra / Mauryan Empire",
+  "figures": [
+    "Ashok"
+  ],
+  "events": [
+    "The Quarrel at the Sangha"
+  ],
+  "grounding_notes": "Based on the Ashok Maurya epic.",
+  "sources": [
+    ".space/backlog/epic/ashok/epic.md"
+  ],
+  "included_characters": [
+    "ashok"
+  ],
+  "quality_parameters": {
+    "voice": "gibran",
+    "target_word_count": 4500,
+    "mood": "default"
+  },
+  "chapter_summary": "The Quarrel at the Sangha",
+  "mood": "default",
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "signature": "gibran",
+    "reference": "aurilus",
+    "theme_set": "generic",
+    "syntax": "gibran"
+  },
+  "theme": "schism",
+  "syntax": "gibran",
+  "workshop_file": "filters/workshop/16.md",
+  "research_file": "filters/research/16.md"
+}

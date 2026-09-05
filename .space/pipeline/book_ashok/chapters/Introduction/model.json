@@ -1,0 +1,46 @@
+{
+  "chapter_index": "Introduction",
+  "chapter_name": "Introduction",
+  "state": "pending",
+  "chapter_title": "The Edict-Maker",
+  "subject": "Frame opening: an aging Ashok dictates a new edict on a Deccan hill, and memory begins.",
+  "era": "ancient India, 3rd century BCE",
+  "place": "A hill in the Deccan",
+  "figures": [
+    "Ashok",
+    "The Scribe",
+    "The Guard"
+  ],
+  "events": [
+    "Journey to the hill",
+    "Dictating the edict",
+    "Flashbacks to boyhood and first blood"
+  ],
+  "grounding_notes": "The frame establishes the novel as memory carved into stone. The hill and the chisel are recurring symbols.",
+  "sources": [
+    ".space/backlog/epic/ashok/epic.md"
+  ],
+  "included_characters": [
+    "ashok"
+  ],
+  "quality_parameters": {
+    "voice": "gibran",
+    "target_word_count": 4500,
+    "mood": "introduction"
+  },
+  "chapter_summary": "An aging Ashok travels to a Deccan hill to carve a new edict, dictating from memory. The frame opens in memory-time, with flashbacks to boyhood, exile, and first blood.",
+  "mood": "introduction",
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "signature": "gibran",
+    "reference": "aurilus",
+    "theme_set": "generic",
+    "syntax": "gibran"
+  },
+  "theme": "The Inner Citadel",
+  "syntax": "gibran",
+  "workshop_file": "filters/workshop/Introduction.md",
+  "research_file": "filters/research/Introduction.md"
+}

@@ -1,0 +1,52 @@
+{
+  "theme": "how cyber and economic warfare blur the line between soldier and civilian",
+  "grounding_notes": "Follow the epic chapter outline and the preset's filter chain.",
+  "stereotype": "gibran",
+  "era": "Near future",
+  "place": "Strait of Hormuz and adjacent theaters",
+  "chapter_summary": "Amir, working in a basement operations centre in Tehran, traces the NARROW GATE module and realizes his own code has become the second link in a worm that maps dependencies, finds chokepoints, and triggers failures; he confides fragments to Zahra during a blackout-shift at the hospital, where she is already treating blast casualties. The seed must make the cyber weapon intimate—a mistake or betrayal written by human hands—and let the civilian cost press against Amir's conscience before he has decided whether to expose it.",
+  "state": "seeds",
+  "research_file": "chapters/4/chapter.md",
+  "mood": "thriller",
+  "chapter_name": "4",
+  "figures": [
+    "Amir",
+    "Marcus Vance"
+  ],
+  "subject": "Amir, a disillusioned Iranian cyber-warfare technician, realizes the algorithm he helped write may have triggered the tanker incident. Cyber warfare cripples power grids and military networks.",
+  "included_characters": [
+    {
+      "character_id": "amir",
+      "full_name": "Amir",
+      "role_in_chapter": "Iranian cyber-warfare technician"
+    },
+    {
+      "character_id": "zahra",
+      "full_name": "Zahra",
+      "role_in_chapter": "Nurse"
+    }
+  ],
+  "chapter_index": 4,
+  "syntax": "modern literary thriller",
+  "level": "chapter",
+  "quality_parameters": {
+    "register": "geopolitical thriller",
+    "tone": "tense, grounded, cinematic",
+    "language": "English",
+    "target_word_count": 4500,
+    "philosophical_depth": "explore the illusion of control and the distance between decision-makers and sufferers",
+    "metaphorical_richness": "use sea, gate, fire, and machine imagery consistently",
+    "accessibility": "clear to adult thriller readers without military background",
+    "resonance": "human cost of systemic violence",
+    "timelessness": "echo classical questions of responsibility and mercy"
+  },
+  "events": [],
+  "sources": [
+    ".space/backlog/epic/war/epic.md"
+  ],
+  "chapter_title": "The Ghost in the Machine",
+  "segments": [
+    1
+  ],
+  "mastery_level": "Experienced"
+}
