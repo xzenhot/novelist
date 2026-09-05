@@ -151,7 +151,7 @@ Filter-stage roles are implemented by agents under:
 Known filter agents:
 
 ```text
-correctness, layout, override, poet, quality, reframe, research,
+correctness, scaffold, override, poet, quality, reframe, research,
 seeds, syntax, theme, workshop
 ```
 
@@ -173,13 +173,13 @@ The agent may then read and apply the corresponding skill:
 
 If a required agent is missing, create `.framework/agents/<agent-name>/agent.md` first, then use that agent to invoke the skill. Do not bypass this rule for layout, research, filters, writing, editing, translation, or validation.
 
-Layout work is always mediated by:
+Scaffold/layout work is always mediated by:
 
 ```text
-.framework/agents/layout/agent.md
+.framework/agents/scaffold/agent.md
 ```
 
-The layout agent dispatches to:
+The scaffold agent dispatches to:
 
 ```text
 .framework/skills/layout-novel/SKILL.md
@@ -202,7 +202,7 @@ Primary orchestration spec for `/write`.
 
 ```text
 .framework/agents/correctness/agent.md
-.framework/agents/layout/agent.md
+.framework/agents/scaffold/agent.md
 .framework/agents/override/agent.md
 .framework/agents/poet/agent.md
 .framework/agents/quality/agent.md
@@ -254,7 +254,7 @@ Read skill files only from inside the responsible agent flow.
 .framework/templates/subjects/
 ```
 
-Use templates as source material; do not copy whole template trees into pipelines unless a layout agent explicitly requires it.
+Use templates as source material; do not copy whole template trees into pipelines unless a scaffold agent explicitly requires it.
 
 ## Data And Output Path Map
 
@@ -379,3 +379,5 @@ For every `/write` request:
 8. Run the required filters and validations.
 9. Promote final text to `source/books/` only after validation passes.
 10. Report what changed, what was validated, and what remains pending.
+
+

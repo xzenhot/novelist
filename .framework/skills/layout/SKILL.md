@@ -10,6 +10,10 @@ This skill is a compatibility shim. The top-level writer agent should orchestrat
 - Novel: `.framework/skills/layout-novel/SKILL.md`
 - Poetry: `.framework/skills/layout-poetry/SKILL.md`
 
+## Source Of Truth
+
+This dispatcher must route to the form-specific skill and stop there. Do not inspect existing book pipelines such as `.space/pipeline/book_wife/` to infer scaffold conventions.
+
 ## Dispatch Rule
 
 1. Determine the book form from the `/write` command, `--form`, existing pipeline `model.json`, or the backlog epic/config.
@@ -19,3 +23,4 @@ This skill is a compatibility shim. The top-level writer agent should orchestrat
 5. Record the chosen form in the pipeline root `model.json` during scaffolding.
 
 Do not implement scaffold details here. This file exists only so older references to `.framework/skills/layout/SKILL.md` still route to the form-specific layout skills.
+

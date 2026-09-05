@@ -1,168 +1,134 @@
 ---
 name: layout-novel
-description: "Use when scaffolding the structural skeleton of a novel pipeline. USE FOR: creating .space/pipeline/book_<bookname>/ from the canonical v1 segment-based template, seeding book planning JSON, defining chapters, characters, chapter folders, segment folders, and the empty output destination. DO NOT USE FOR: writing chapter prose, editing finished book text, or creating runtime activity outputs."
+description: "Use when scaffolding or repairing the structural skeleton of a novel pipeline. Creates .space/pipeline/book_<bookname>/, root planning JSON/Markdown, named filter folders, chapter folders, segment folders, and the empty source/books destination. Does not write finished prose or runtime filter results."
 ---
 
 # Layout Novel - Pipeline Scaffold
 
-You are the structural architect for a novel. Your task is to create the mandatory pipeline skeleton that exists before writing, editing, translation, or runtime activity begins.
+You are the structural architect for a novel pipeline. Create only the scaffold and planning artifacts needed before workshop, research, writing, editing, translation, filtering, and final assembly begin.
 
-The current canonical scaffold is **v1** and is copied from:
+A scaffolded novel lives at:
 
-` .framework/templates/novel/ `
+```text
+.space/pipeline/book_<bookname>/
+```
 
-A scaffolded book lives at:
+Finished content later lives at:
 
-` .space/pipeline/book_<bookname>/ `
+```text
+source/books/book_<bookname>/
+```
 
-Finished content lives at:
+## Source Of Truth
 
-` source/books/book_<bookname>/ `
+Use this skill together with `.framework/workflows/write.md`. Do not inspect existing book pipelines such as `.space/pipeline/book_wife/` to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
 
-## Core Model
+If this skill conflicts with `.framework/workflows/write.md`, prefer the workflow for command semantics and filter-chain naming, then update this skill. Do not resolve conflicts by sampling another book pipeline.
 
-The v1 novel pipeline is segment-based:
+For novel story content, use the backlog epic:
 
-`book -> chapters -> <n> -> segments -> <x> -> writer/editor/translator`
+```text
+.space/backlog/epic/<bookname>/epic.md
+```
 
-Each segment passes through three agents:
-
-`writer -> editor -> translator`
-
-Layout creates the folder tree, required state files for each structural level, and root-level planning artifacts used by research, character, workshop, and chapter-writing steps. Runtime content files are produced later by workflow execution.
+The epic is the narrative source of truth. The scaffold may summarize and structure it, but must not invent a different story.
 
 ## Canonical Folder Shape
 
 ```text
 .space/pipeline/book_<bookname>/
+|-- model.json
 |-- book.json
 |-- characters.json
 |-- masterprompt.md
 |-- workshop_metadata.md
+|-- progress.json
 |-- filters/
-|   |-- 1/
-|   |-- 2/
-|   |-- 3/
-|   |-- 4/
-|   |-- 5/
-|   |-- 6/
-|   |-- 7/
-|   `-- 8/
+|   |-- filters.json
+|   |-- workshop/
+|   |   |-- workshop.md
+|   |   |-- filter.md
+|   |   |-- filter-summary.md
+|   |   `-- content-output.md
+|   |-- research/
+|   |-- seeds/
+|   |-- correctness/
+|   |-- theme/
+|   |-- syntax/
+|   |-- override/
+|   `-- quality/
 `-- chapters/
-    `-- 1/
-        |-- mood.json
-        `-- segments/
-            `-- 1/
-                |-- writer/
-                |-- editor/
-                `-- translator/
+    |-- Introduction/
+    |   |-- model.json
+    |   |-- mood.json
+    |   |-- chapter.md
+    |   `-- segments/
+    |       `-- 1/
+    |           |-- model.json
+    |           |-- writer/
+    |           |-- editor/
+    |           `-- translator/
+    |-- 1/
+    |-- ...
+    `-- Conclusion/
 ```
 
-> **Note on `mood.json`:** each chapter carries a single `mood.json` — a copy of one mood selected from `.framework/templates/moods/` (e.g. `default.json`, `introduction.json`, `win.json`). Do not scaffold a `moods/` folder with the full set of mood templates; select one mood and copy it as `mood.json`. Poetry does not use moods — a poetry chapter has only `segments/`, no `mood.json`.
+Every filter folder uses the same four-file shape as `workshop/`, with the role file named after the folder, for example `research/research.md`.
 
 ## Path Invariant
 
 This is mandatory.
 
-- Never create chapter number folders directly under `book_<bookname>/`; they must live under `chapters/`.
-- Never create segment number folders directly under `book_<bookname>/` or under a root-level chapter folder; they must live under `chapters/<n>/segments/`.
-- The only valid chapter path is `book_<bookname>/chapters/<n>/`.
-- The only valid segment path is `book_<bookname>/chapters/<n>/segments/<x>/`.
-- The only valid writer/editor/translator paths are under `book_<bookname>/chapters/<n>/segments/<x>/`.
-- If an older scaffold contains `book_<bookname>/chapter_<n>/`, treat it as a misplaced legacy duplicate. If it contains `chapters/chapter_<n>/` or `segments/segment_<x>/`, rename those level folders to numeric names after confirming there is no collision.
+- Chapter folders live only under `.space/pipeline/book_<bookname>/chapters/`.
+- Segment folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/`.
+- Writer, editor, and translator folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/`.
+- Do not create root-level chapter folders under `.space/pipeline/book_<bookname>/`.
+- Do not create `chapter_<n>` or `segment_<n>` folders in new scaffolds; use `1`, `2`, etc.
+- If repairing legacy folders, rename only after confirming there is no collision and no user-authored content will be overwritten.
 
-## Scaffolded Files
+## Chapter Set
 
-Do not scaffold `Template*.json`, `TemplatePrompt*.txt`, or `TemplateSystemPromptText.txt` files. Template files belong to the reusable template source or runtime prompt generation, not to a book pipeline scaffold.
+For novels, scaffold this order:
 
-A book pipeline scaffold is driven by the root planning artifacts below.
+```text
+Introduction -> 1..N -> Conclusion
+```
 
-## Level State Files
+`N` is the requested main `chapter_count`; default to 5 when the command gives no count.
 
-This JSON file is scaffolded at each structural level and is not a `Template*.json` file:
+Each chapter gets exactly one initial segment, `segments/1/`. Later workflows may add more segments if explicitly required.
 
-- `model.json` - the model/state returned upward from the level after work is produced or summarized.
+Each chapter gets one `mood.json` selected from `.framework/templates/moods/`:
 
-Create this file at the book root, every chapter folder, and every segment folder. At the book level it maintains book state; at the chapter level it maintains chapter state; at the segment level it maintains segment state. Do not place level state files directly under `writer/`, `editor/`, or `translator/` unless a later agent workflow explicitly owns that agent-level state.
+- `Introduction`: use `introduction.json`
+- `Conclusion`: use `conclusion.json`
+- Numbered chapters: use an appropriate mood for the chapter arc, or `default.json` when no stronger choice is justified
 
-## Root Planning Artifacts
+Do not copy a mood-template directory into the pipeline.
 
-These root-level planning artifacts are also required for a complete novel pipeline. They are scaffold artifacts, not optional generated clutter:
+## Root Files
 
-- `book.json` - the book structure, chapter list, chapter summaries, character references, and quality attributes.
-- `characters.json` - the character roster extracted from or aligned with the book layout.
-- `masterprompt.md` - the book-specific master prompt: identity, central premise, frame, style mandate, section structure, and references.
-- `workshop_metadata.md` - workshop team, narrated-story figures, schedule, and grounding notes.
-- `filters/` - one folder per pipeline filter, ordered and numbered (`1/`, `2/`, `3/`, `4/`, `5/`, `6/`, `7/`, `8/`). Each folder contains a namesake role file (`workshop.md`, `research.md`, etc.) and serves as the scratch space where that filter records its working artifacts.
+Create these at the pipeline root.
 
-Create these for every novel scaffold. Seed them from the provided gist and book identity; do not hard-code language, genre, characters, or chapter count.
+### `model.json`
 
-The content inside the `filters/` folders (seeds, research notes, workshop narratives) is **runtime content**, produced by the later workflow steps that run each filter — not by layout. Layout creates only the empty filter folders.
+Minimum fields:
 
+- `form`: `novel`
+- `gist`
+- `epic_path`
+- `book_long_title`
+- `book_summary`
+- `language`
+- `genre`
+- `era`
+- `chapter_count`
+- `stereotype`
+- `syntax`
 
-## Runtime Files
+### `book.json`
 
-Do not create runtime files during layout unless a later workflow step explicitly produces them:
-
-- `Exception.txt`
-- `ActualPromptAgentText.txt`
-- `HumanInTheLoopPromptText.txt`
-- `ModelDictionaryJson.json`
-- `ReceivedAgentResponseText.txt`
-- `ExtractedAgentResponseJson.json`
-- `RunningContentSummaryText.txt`
-- `TranslatedContentText.txt`
-- `ReviwedContentText.txt`
-- `FinalContentText.txt`
-- `_history/`
-
-## OperationState Map
-
-Use this order and meaning when reasoning about file names:
-
-| Value | State | File |
-| ---: | --- | --- |
-| 4 | `Exception` | `Exception.txt` |
-| 20 | `TemplateSystemPromptText` | `TemplateSystemPromptText.txt` |
-| 22 | `TemplateModelJson` | `TemplateModelJson.json` |
-| 23 | `TemplateLayOutShapeJson` | `TemplateLayOutShapeJson.json` |
-| 24 | `TemplatePromptInitialText` | `TemplatePromptInitialText.txt` |
-| 25 | `TemplatePromptNextText` | `TemplatePromptNextText.txt` |
-| 26 | `TemplatePromptSummaryText` | `TemplatePromptSummaryText.txt` |
-| 27 | `TemplatePromptTranslateText` | `TemplatePromptTranslateText.txt` |
-| 30 | `ActualPromptAgentText` | `ActualPromptAgentText.txt` |
-| 31 | `HumanInTheLoopPromptText` | `HumanInTheLoopPromptText.txt` |
-| 32 | `ModelDictionaryJson` | `ModelDictionaryJson.json` |
-| 50 | `ReceivedAgentResponseText` | `ReceivedAgentResponseText.txt` |
-| 60 | `ExtractedAgentResponseJson` | `ExtractedAgentResponseJson.json` |
-| 82 | `RunningContentSummaryText` | `RunningContentSummaryText.txt` |
-| 83 | `TranslatedContentText` | `TranslatedContentText.txt` |
-| 84 | `ReviwedContentText` | `ReviwedContentText.txt` |
-| 90 | `ReturningModelJson` | `model.json` |
-| 100 | `FinalContentText` | `FinalContentText.txt` |
-| 101 | `TemplatePromptSingleSegmentText` | `TemplatePromptSingleSegmentText.txt` |
-
-## Scaffolding Steps
-
-1. Determine `<bookname>` and `<gist>`. If no gist is supplied, infer a one-line premise from the book name.
-2. Read `.framework/templates/novel/` as the canonical template (moods live in `templates/novel/moods/`).
-3. Create `.space/pipeline/book_<bookname>/`.
-4. Exclude `Template*.json`, `TemplatePrompt*.txt`, and `TemplateSystemPromptText.txt`; include or create the level state JSON file.
-5. Create the required book-level state file: `model.json`.
-6. Create the required root planning artifacts: `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, and `filters/`.
-7. Create `.space/pipeline/book_<bookname>/chapters/1/` and, for each chapter, create a single `mood.json` — a copy of one mood selected from `.framework/templates/moods/` (do not copy the whole `moods/` folder).
-8. Confirm `.space/pipeline/book_<bookname>/chapters/1/segments/1/` exists after copying.
-9. Confirm `writer/`, `editor/`, and `translator/` exist under the canonical segment folder.
-10. Create chapter-level state files in each `<n>/` and segment-level state files in each `<x>/`.
-11. Seed `book.json` with the book identity, long title, genre, era, language, target audience, chapter count, summary, chapter list, character list, and history.
-12. Seed `characters.json` from the layout character roster.
-13. Seed `masterprompt.md` and `workshop_metadata.md` from the book identity, premise, chapter plan, style/register, and character/frame roles.
-14. Create `source/books/book_<bookname>/` as the destination for finished content.
-15. Verify the path invariant, required state files, and required planning artifacts before reporting completion.
-
-## Book JSON Responsibilities
-
-At minimum, the book-level `book.json` should contain:
+Minimum fields:
 
 - `book_name`
 - `book_long_title`
@@ -178,22 +144,150 @@ At minimum, the book-level `book.json` should contain:
 - `all_characters`
 - `history`
 
-The `chapters` array should use `chapter_index`, `name`, `chapter_title`, and `chapter_summary`.
+Each `chapters` item must include:
 
-The `all_characters` array should use `character_id`, `full_name`, `role`, `identity`, and either `psychological_depth` or another clearly named depth field. Prefer `full_name`; older UJANGARH templates used `friendly_name`, but v1 uses `full_name`.
+- `chapter_index`
+- `name`
+- `chapter_title`
+- `chapter_summary`
 
-## Rules
+Each `all_characters` item must include:
 
-- Every book pipeline lives under `.space/pipeline/`; never scaffold at the workspace root.
-- Use the hardcoded v1 canonical template unless the user explicitly changes the template version.
-- The default `chapter_count` is 5 unless the user specifies another count.
-- The layout plus level state files and root planning artifacts are the source of truth for book structure before writing begins.
-- Do not overwrite existing book-specific content without first inspecting it.
-- Do not delete misplaced legacy folders unless the user approves or the current task explicitly asks for cleanup and the canonical replacement exists.
+- `character_id`
+- `full_name`
+- `role`
+- `identity`
+- `psychological_depth` or another clearly named depth field
 
-## Pipeline Chain
+### `characters.json`
 
-```text
-layout -> book architect -> chapter architect -> segment writer -> editor -> translator -> final book output
+Use the same character roster as `book.json`, expanded only when useful for later chapter planning.
+
+### `masterprompt.md`
+
+Record the book identity, premise, epic source path, form, language, style mandate, chapter structure, and central conflict.
+
+### `workshop_metadata.md`
+
+Record the workshop frame, recurring workshop roles, narrated-story figures, schedule/sequence notes, and grounding notes.
+
+### `progress.json`
+
+Track Introduction, every numbered chapter, and Conclusion.
+
+Minimum fields:
+
+- `title`
+- `language`
+- `source_terms`
+- `context`
+- `total_chapters`
+- `completed_chapters`
+- `current_chapter`
+- `chapters`
+
+Each progress chapter must include:
+
+- `chapter_number`
+- `topic`
+- `category`
+- `status`
+- `file_path`
+- `completed_date`
+
+For a new scaffold, set all statuses to `pending`, `completed_chapters` to `0`, and `completed_date` to `null`.
+
+## Chapter And Segment State
+
+Create `model.json` in every chapter folder and every segment folder.
+
+Chapter-level `model.json` should include the chapter identity and initial planning data:
+
+- `chapter_index`
+- `chapter_name`
+- `state`
+- `chapter_title`
+- `subject`
+- `era`
+- `place`
+- `figures`
+- `events`
+- `grounding_notes`
+- `sources`
+- `included_characters`
+- `quality_parameters`
+- `chapter_summary`
+- `mood`
+- `segments`
+- `stereotype`
+- `theme`
+- `syntax`
+- `workshop_file`
+- `research_file`
+
+Segment-level `model.json` minimum shape:
+
+```json
+{
+  "level": "segment",
+  "state": "returning",
+  "chapter_index": 1,
+  "segment_index": 1
+}
 ```
 
+## Filter Registry
+
+Before creating the filter registry, read `.space/backlog/epic/<bookname>/preset.md`. If it does not exist, invoke the configure agent (`.framework/agents/configure/agent.md`) to create it from the form-specific default template. The configure agent will also create/confirm the preset file.
+
+Use the ordered filter/agent list declared in the resulting preset as the canonical filter chain. If for any reason the preset cannot be read or created, fall back to the default novel chain:
+
+```text
+workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> quality
+```
+
+Create `.space/pipeline/book_<bookname>/filters/filters.json` with the selected chain in order.
+
+Each registry entry must include:
+
+- `order`
+- `name`
+- `folder`
+- `role_file`
+- `summary_file`
+- `output_file`
+- `description`
+- `agent`
+
+For each named filter folder, scaffold only:
+
+- `<filter>.md`
+- `filter.md`
+- `filter-summary.md`
+- `content-output.md`
+
+Leave runtime content empty unless the active workflow explicitly runs that filter.
+
+**Important:** Only create filter folders and registry entries for filters named in the selected preset. Do not create folders for default filters that the preset omits. The order must match the preset exactly.
+
+## Source Destination
+
+Create:
+
+```text
+source/books/book_<bookname>/chapters/
+```
+
+Do not write finished chapters or `book.md` during layout.
+
+## Verification
+
+Before reporting completion, verify:
+
+- Root files exist: `model.json`, `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `progress.json`.
+- `filters/filters.json` exists and names the filters selected from `preset.md` (or all eight default novel filters if no preset exists) in the exact order declared.
+- Every filter folder selected from the preset has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
+- Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, and `segments/1/model.json`.
+- Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
+- No chapter or segment folders were created outside the canonical paths.
+- `source/books/book_<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.

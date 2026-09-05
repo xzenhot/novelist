@@ -1,29 +1,32 @@
 ---
 name: layout-poetry
-description: "Use when scaffolding the structural skeleton of a poetry pipeline. USE FOR: creating .space/pipeline/book_<bookname>/ for poetry, seeding model.json, bookseed.txt, progress.json, override.md, metadata code files, one segment per topic, poetry filter folders, and the empty output destination. DO NOT USE FOR: writing poem chapters, editing finished book text, or creating runtime filter outputs."
+description: "Use when scaffolding or repairing the structural skeleton of a poetry pipeline. Creates .space/pipeline/book_<bookname>/, model.json, bookseed.txt, progress.json, override.md, metadata_code files, named poetry filter folders, one segment per topic, and the empty source/books destination. Does not write poem chapters or runtime filter results."
 ---
 
 # Layout Poetry - Pipeline Scaffold
 
-You are the structural architect for a poetry book. Your task is to create the mandatory poetry pipeline skeleton that exists before research, filtering, writing, revision, or final assembly begins.
+You are the structural architect for a poetry pipeline. Create only the scaffold and planning artifacts needed before research, filtering, writing, revision, and final assembly begin.
 
 A scaffolded poetry book lives at:
 
-` .space/pipeline/book_<bookname>/ `
+```text
+.space/pipeline/book_<bookname>/
+```
 
-Finished content lives at:
+Finished content later lives at:
 
-` source/books/book_<bookname>/ `
+```text
+source/books/book_<bookname>/
+```
 
-## Core Model
+## Source Of Truth
 
-The poetry pipeline is topic-based and segment-based:
+Use this skill together with `.framework/workflows/write.md`. Do not inspect existing book pipelines to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
 
-`book -> bookseed topics -> chapters -> <n> -> segments -> 1 -> writer/editor/translator`
+Poetry uses these root files as source of truth:
 
-Each topic from `bookseed.txt` becomes one poetry chapter. Poetry chapters have exactly one segment: `segments/1`. Poetry does not use `mood.json`.
-
-Layout creates the folder tree, required state files, root configuration, progress tracking, and human-editable override file. Runtime filter outputs and finished poem chapters are produced later by workflow execution.
+- `model.json` for how to write: form, language, register, quality, themes, reference, index, vocabulary, and translation guide.
+- `bookseed.txt` for what to write: one topic per line.
 
 ## Canonical Folder Shape
 
@@ -35,7 +38,12 @@ Layout creates the folder tree, required state files, root configuration, progre
 |-- override.md
 |-- metadata_code1.json
 |-- filters/
+|   |-- filters.json
 |   |-- research/
+|   |   |-- research.md
+|   |   |-- filter.md
+|   |   |-- filter-summary.md
+|   |   `-- content-output.md
 |   |-- correctness/
 |   |-- theme/
 |   |-- syntax/
@@ -43,53 +51,100 @@ Layout creates the folder tree, required state files, root configuration, progre
 |   `-- quality/
 `-- chapters/
     `-- 1/
+        |-- model.json
         `-- segments/
             `-- 1/
+                |-- model.json
                 |-- writer/
                 |-- editor/
                 `-- translator/
 ```
 
+Every filter folder uses the same four-file shape as `research/`, with the role file named after the folder.
+
 ## Path Invariant
 
 This is mandatory.
 
-- Never create chapter number folders directly under `book_<bookname>/`; they must live under `chapters/`.
-- Never create segment number folders directly under `book_<bookname>/` or under a root-level chapter folder; they must live under `chapters/<n>/segments/`.
-- The only valid chapter path is `book_<bookname>/chapters/<n>/`.
-- The only valid segment path is `book_<bookname>/chapters/<n>/segments/1/`.
-- Poetry chapters always have exactly one segment.
-- Do not create `mood.json` for poetry chapters.
+- Chapter folders live only under `.space/pipeline/book_<bookname>/chapters/`.
+- Segment folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/`.
+- Poetry chapters always have exactly one segment: `segments/1/`.
+- Writer, editor, and translator folders live only under `segments/1/`.
+- Do not create `mood.json` for poetry.
+- Do not create `book.json`, `characters.json`, `masterprompt.md`, or `workshop_metadata.md` for poetry unless the user explicitly asks for a hybrid project.
 
-## Scaffolded Files
+## Topic And Chapter Set
 
-Do not scaffold `Template*.json`, `TemplatePrompt*.txt`, or `TemplateSystemPromptText.txt` files. Template files belong to reusable template source or runtime prompt generation, not to a book pipeline scaffold.
+Each non-empty line in `bookseed.txt` becomes one poetry chapter.
 
-A poetry scaffold is driven by these root artifacts:
+If the user supplies topics, preserve their text exactly except for trimming surrounding whitespace. If no topic list is supplied, derive a concise ordered topic list from the gist or book name and the requested chapter count.
 
-- `model.json` - form, title, language, register, quality, themes, reference, index, sacred vocabulary, translation guide, and book metadata.
-- `bookseed.txt` - human-editable topic list; one topic per line.
-- `progress.json` - writing progress for every topic/chapter.
-- `override.md` - optional human transformation layer.
-- `metadata_code<number>.json` - metadata/code artifact for runtime generation; never overwrite an existing metadata file.
-- `filters/` - one folder per poetry filter: `research`, `correctness`, `theme`, `syntax`, `override`, `quality`.
-- `chapters/` - one numeric folder per topic, each with `segments/1/` and agent subfolders.
+The default `chapter_count` is 5 unless the user specifies another count.
 
-## Template Sources
+## Root Files
 
-Use `.framework/templates/stereotypes/poetry/default/` as the default poetry template source when no book-specific template is supplied.
+Create these at the pipeline root.
 
-Default seed files:
+### `model.json`
 
-- `config.json` -> seed `model.json`, then update it with the actual book name, title, form, chapter count, source paths, and user-provided gist/config.
-- `bookseed.txt` -> seed topics if the user has not supplied a topic list.
-- `progress.json` -> seed progress shape, then reset all generated chapters to `pending`.
-- `override.md` -> seed the human-editable override file.
-- `ai_studio_code1.json` -> seed the first available `metadata_code<number>.json` if no metadata code file exists.
+Minimum fields:
 
-## Level State Files
+- `form`: `poetry`
+- `book_name`
+- `book_long_title`
+- `language`
+- `register`
+- `quality`
+- `themes`
+- `reference`
+- `index`
+- `sacred_vocabulary`
+- `translation_guide`
+- `chapter_count`
+- `source_terms`
+- `created_at`
 
-Create `model.json` at each chapter folder and each segment folder.
+### `bookseed.txt`
+
+One topic per line, in the exact writing order.
+
+### `progress.json`
+
+Track one entry per topic.
+
+Minimum fields:
+
+- `title`
+- `language`
+- `source_terms`
+- `context`
+- `total_chapters`
+- `completed_chapters`
+- `current_chapter`
+- `chapters`
+
+Each progress chapter must include:
+
+- `chapter_number`
+- `topic`
+- `category`
+- `status`
+- `file_path`
+- `completed_date`
+
+For a new scaffold, set all statuses to `pending`, `completed_chapters` to `0`, `current_chapter` to `1`, and `completed_date` to `null`.
+
+### `override.md`
+
+Create as the human-editable transformation layer. Leave it empty unless the user supplies override text.
+
+### `metadata_code<number>.json`
+
+Create the first available `metadata_code<number>.json`. Never overwrite an existing metadata file.
+
+## Chapter And Segment State
+
+Create `model.json` in every chapter folder and every segment folder.
 
 Chapter-level `model.json` minimum shape:
 
@@ -99,7 +154,8 @@ Chapter-level `model.json` minimum shape:
   "state": "scaffolded",
   "chapter_index": 1,
   "chapter_name": "Topic",
-  "topic": "Topic"
+  "topic": "Topic",
+  "segments": [1]
 }
 ```
 
@@ -114,57 +170,54 @@ Segment-level `model.json` minimum shape:
 }
 ```
 
-## Progress JSON Responsibilities
+## Filter Registry
 
-`progress.json` tracks the writing state of each topic in `bookseed.txt`.
-
-At minimum, it should contain:
-
-- `title`
-- `language`
-- `source_terms`
-- `context`
-- `total_chapters`
-- `completed_chapters`
-- `current_chapter`
-- `chapters`
-
-Each `chapters` item should contain:
-
-- `chapter_number`
-- `topic`
-- `category`
-- `status`
-- `file_path`
-- `completed_date`
-
-For new scaffolds, set every topic `status` to `pending`, `completed_date` to `null`, `completed_chapters` to `0`, and `current_chapter` to `1`.
-
-## Scaffolding Steps
-
-1. Determine `<bookname>`, form (`poetry`), language, register, title, and chapter count.
-2. Read or create the topic list. If the user supplied topics, write them to `bookseed.txt`; otherwise seed from the default poetry template and trim to the requested chapter count.
-3. Create `.space/pipeline/book_<bookname>/`.
-4. Create root `model.json` with `"form": "poetry"`, title, language, register, quality, themes, reference, index, sacred vocabulary, translation guide, and `chapter_count`.
-5. Create `bookseed.txt`, `progress.json`, `override.md`, and the first available `metadata_code<number>.json` without overwriting existing metadata files.
-6. Create poetry filter folders: `filters/research/`, `filters/correctness/`, `filters/theme/`, `filters/syntax/`, `filters/override/`, and `filters/quality/`.
-7. For each topic, create `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/` with `writer/`, `editor/`, and `translator/` subfolders.
-8. Create chapter-level and segment-level `model.json` files.
-9. Create `source/books/book_<bookname>/chapters/` as the destination for finished poetry chapters.
-10. Verify the path invariant, one-segment rule, required state files, root artifacts, and progress tracking before reporting completion.
-
-## Rules
-
-- Every poetry pipeline lives under `.space/pipeline/`; never scaffold at the workspace root.
-- Poetry uses `model.json` + `bookseed.txt` as source of truth.
-- Poetry does not use `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, or `mood.json` unless the user explicitly asks for a hybrid project.
-- Poetry filter folders are named, not numbered.
-- The default `chapter_count` is 5 unless the user specifies another count.
-- Do not overwrite existing book-specific content without first inspecting it.
-- Do not delete misplaced legacy folders unless the user approves or the current task explicitly asks for cleanup and the canonical replacement exists.
-
-## Pipeline Chain
+Create `.space/pipeline/book_<bookname>/filters/filters.json` with this poetry chain in order:
 
 ```text
-layout-poetry -> research -> correctness -> theme -> syntax -> override -> quality -> poet/writer -> final book output
+research -> correctness -> theme -> syntax -> override -> quality
 ```
+
+Each registry entry must include:
+
+- `order`
+- `name`
+- `folder`
+- `role_file`
+- `summary_file`
+- `output_file`
+- `description`
+- `agent`
+
+For each named filter folder, scaffold only:
+
+- `<filter>.md`
+- `filter.md`
+- `filter-summary.md`
+- `content-output.md`
+
+Leave runtime content empty unless the active workflow explicitly runs that filter.
+
+## Source Destination
+
+Create:
+
+```text
+source/books/book_<bookname>/chapters/
+```
+
+Do not write poem chapters or `book.md` during layout.
+
+## Verification
+
+Before reporting completion, verify:
+
+- Root files exist: `model.json`, `bookseed.txt`, `progress.json`, `override.md`, and one `metadata_code<number>.json`.
+- `filters/filters.json` exists and names all six poetry filters in order.
+- Every filter folder has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
+- Every topic has one numeric chapter folder.
+- Every chapter has `model.json` and `segments/1/model.json`.
+- Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
+- No `mood.json` files exist in poetry chapter folders.
+- No chapter or segment folders were created outside the canonical paths.
+- `source/books/book_<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.
