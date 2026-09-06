@@ -1,0 +1,16 @@
+{
+  "form": "poetry",
+  "book_name": "aravalli",
+  "book_long_title": "The Oldest Mountains",
+  "language": "en",
+  "register": "contemplative, elevated, earthbound, intimate",
+  "quality": "philosophical depth, metaphorical richness, human accessibility, civilizational resonance, rhythmic cadence",
+  "themes": ["water as inheritance", "ownership versus stewardship", "the oldest things are the most vulnerable", "what the land gives versus what the ledger records", "the returning child and the emptying hill"],
+  "reference": "modern ecological lyric poetry in the prophetic register",
+  "index": "the ridge: from dry well through ledger and quarry to the temple spring and the late monsoon",
+  "sacred_vocabulary": ["paani", "jharna", "kuan", "ridge", "well", "monsoon", "ledger", "spring", "stone", "rain"],
+  "translation_guide": "Render the five themes and sacred vocabulary into the target language. Keep metaphors embodied and local to the ridge; avoid abstraction without image; preserve each poem's cadence and prophetic closure.",
+  "chapter_count": 10,
+  "source_terms": "bookseed.txt",
+  "created_at": "2026-09-05T00:00:00Z"
+}

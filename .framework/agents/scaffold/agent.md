@@ -10,12 +10,12 @@ You are the scaffold orchestration agent. Your job is to mediate all scaffold/la
 
 ## Preset Gate
 
-Before any scaffolding work, verify that `.space/backlog/epic/<bookname>/preset.md` exists and has been created or validated by the configure agent. The workflow caller is required to pass this preset path. If the preset is missing, stop and return:
+Before any scaffolding work, verify that `.space/backlog/epic/<bookname>/preset.md` exists and has been created or validated by the init agent. The workflow caller is required to pass this preset path. If the preset is missing, stop and return:
 
 ```text
 ERROR: Backlog preset is missing for '<bookname>'.
-You must run the configure agent first:
-  /write <bookname> configure [<preset>]
+You must run the init agent first:
+  /write <bookname> init [<preset>]
 Then retry the scaffold command.
 ```
 
@@ -39,7 +39,7 @@ The `override` human-in-the-loop filter needs a ready-made command file, not an 
 2. Read `.framework/agents/override/agent.md` — its content is the base for `filter.md`.
 3. Recreate `.space/pipeline/book_<bookname>/filters/override/filter.md` by reproducing the override agent's content with these form-specific customizations:
    - **Identity and units.** Novel: the "novel pipeline", applying to every **chapter** (Workshop/Story/Discussion). Poetry: the "poetry pipeline", applying to every **poem** (Question/Oration/Benediction).
-   - **Command file path.** Novel: `.space/pipeline/book_<bookname>/filters/override/filter.md`. Poetry: the pipeline-root `.space/pipeline/book_<bookname>/override.md` is the human-facing command file, while `filters/override/filter.md` holds the agent-driven role content for the filter folder.
+   - **Command file path.** All forms: `.space/pipeline/book_<bookname>/filters/override/filter.md`. There is no pipeline-root `override.md` in any form; the backlog `.space/backlog/epic/<bookname>/override.md` is only a planning copy.
    - **Model updates.** Novel: `.space/pipeline/book_<bookname>/chapters/<n>/model.json`. Poetry: the poem chapter models under `chapters/<n>/`.
    - **Instruction scope.** Novel: every chapter (`Introduction`, `1..N`, `Conclusion`). Poetry: every poem.
 4. Keep the trailing `## Instructions` section empty (below the `---` line) so the human has a blank editing surface.

@@ -2,7 +2,7 @@
 
 The `/write` workflow is strictly divided into **backlog commands** and **pipeline commands**. This boundary must never be crossed.
 
-## Backlog commands (1–4)
+## Backlog commands (1–3)
 
 These commands operate only inside the backlog folder:
 
@@ -20,18 +20,17 @@ The backlog commands are:
 | # | Command | Responsibility |
 |---|---|---|
 | 1 | `/write <bookname>` | Create backlog epic if missing |
-| 2 | `/write <bookname> gist [<gist>]` | Create or update backlog epic |
-| 3 | `/write <bookname> refresh` | Regenerate backlog epic from existing epic |
-| 4 | `/write <bookname> configure [<preset>] [form]` | Select preset and derive filter chain in backlog |
+| 2 | `/write <bookname> gist [<gist>]` | Create, update, or rewrite backlog epic |
+| 3 | `/write <bookname> init [<preset>] [form]` | Select preset and derive filter chain in backlog |
 
 ### Invariants
 
 - A backlog command must **never** create, read, or modify any file under `.space/pipeline/book_<bookname>/`.
 - A backlog command must **never** create, read, or modify any file under `source/books/book_<bookname>/`.
 - If a pipeline already exists, backlog commands must leave it untouched.
-- If `configure` produces a filter chain, it must write the result to `.space/backlog/epic/<bookname>/preset.md`, not to `.space/pipeline/book_<bookname>/filters/filters.json`.
+- If `init` produces a filter chain, it must write the result to `.space/backlog/epic/<bookname>/preset.md`, not to `.space/pipeline/book_<bookname>/filters/filters.json`.
 
-## Pipeline commands (5–11)
+## Pipeline commands (4–10)
 
 These commands operate only on the pipeline and the final output folder:
 
@@ -44,13 +43,13 @@ The pipeline commands are:
 
 | # | Command | Responsibility |
 |---|---|---|
-| 5 | `/write <bookname> scaffold count|chapter-count <n> [--form novel|poetry]` | Build pipeline structure only |
-| 6 | `/write <bookname> <agentname> <chapter>|<n>|all|continue` | Run a registered agent on pipeline chapters |
-| 7 | `/write <bookname> filter <filter>|*|all` | Run one or all filters inside the pipeline |
-| 8 | `/write <bookname> form <novel|poetry>` | Change pipeline form |
-| 9 | `/write <bookname> config [<key> [<value>]]` | Inspect or modify pipeline configuration |
-| 10 | `/write <bookname> add <chapter-count> filter <filter>|*|all` | Add chapters and run filters on them |
-| 11 | `/write <bookname> chapter <chapter>|<n>|all|continue` | Write finished reader-facing chapters |
+| 4 | `/write <bookname> scaffold count|chapter-count <n> [--form novel|poetry]` | Build pipeline structure only |
+| 5 | `/write <bookname> <agentname> <chapter>|<n>|all|continue` | Run a registered agent on pipeline chapters |
+| 6 | `/write <bookname> filter <filter>|*|all` | Run one or all filters inside the pipeline |
+| 7 | `/write <bookname> form <novel|poetry>` | Change pipeline form |
+| 8 | `/write <bookname> config [<key> [<value>]]` | Inspect or modify pipeline configuration |
+| 9 | `/write <bookname> add <chapter-count> filter <filter>|*|all` | Add chapters and run filters on them |
+| 10 | `/write <bookname> chapter <chapter>|<n>|all|continue` | Write finished reader-facing chapters |
 
 ### Invariants
 
@@ -60,7 +59,7 @@ The pipeline commands are:
 
 ## Sequence rules
 
-1. `configure` must complete before `scaffold`.
+1. `init` must complete before `scaffold`.
 2. `scaffold` must complete before any agent, filter, form change, chapter command, or add command.
 3. `filter all` or equivalent upstream filters should complete before `chapter` commands.
 4. `chapter all` or `chapter continue` should complete before final promotion to `source/books/book_<bookname>/book.md`.
@@ -85,4 +84,4 @@ If a required prior phase is missing:
 <phase> required first. Run: /write <bookname> <required-command>
 ```
 
-where `<phase>` is one of `configure`, `scaffold`, `filters`.
+where `<phase>` is one of `init`, `scaffold`, `filters`.

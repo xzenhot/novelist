@@ -21,7 +21,7 @@ source/books/book_<bookname>/
 
 ## Source Of Truth
 
-Use this skill together with `.framework/workflows/write.md`. Do not inspect existing book pipelines such as `.space/pipeline/book_wife/` to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
+Use this skill together with `.framework/workflows/write.md`. Do not inspect existing book pipelines such as `.space/pipeline/book_<bookname>/` to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
 
 If this skill conflicts with `.framework/workflows/write.md`, prefer the workflow for command semantics and filter-chain naming, then update this skill. Do not resolve conflicts by sampling another book pipeline.
 
@@ -238,7 +238,7 @@ Segment-level `model.json` minimum shape:
 
 ## Filter Registry
 
-Before creating the filter registry, read `.space/backlog/epic/<bookname>/preset.md`. If it does not exist, invoke the configure agent (`.framework/agents/configure/agent.md`) to create it from the form-specific default template. The configure agent will also create/confirm the preset file.
+Before creating the filter registry, read `.space/backlog/epic/<bookname>/preset.md`. If it does not exist, invoke the init agent (`.framework/agents/init/agent.md`) to create it from the form-specific default template. The init agent will also create/confirm the preset file.
 
 Use the ordered filter/agent list declared in the resulting preset as the canonical filter chain. If for any reason the preset cannot be read or created, fall back to the default novel chain:
 

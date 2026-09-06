@@ -41,7 +41,7 @@ A ready-made poetry pipeline template (the "seed book") used as the source shape
 | [`config.json`](default/config.json) | Book configuration: title, language, register, quality/themes/reference paths, index, sacred vocabulary, translation guide |
 | [`writer.md`](default/writer.md) | Book-specific instance of the writer agent wiring the seed inputs together |
 | [`bookseed.txt`](default/bookseed.txt) | The topic index: one term per line (each term becomes one chapter) |
-| [`override.md`](default/override.md) | Human-in-the-loop transformation layer (voice, dialect, cultural texture) |
+| [`override.md`](default/override.md) | Seed-book sample of an override transformation layer — note: in an actual pipeline the operative override command file is `filters/override/filter.md`, **not** a pipeline-root file |
 | [`progress.json`](default/progress.json) | Progress tracking shape (one entry per topic) |
 | [`ai_studio_code1.json`](default/ai_studio_code1.json) | Optional AI-studio seed code: topic, category, idea, opening/closing story |
 | [`chapters/`](default/chapters/) | 5 sample finished chapters: `Chapter_001_Gravity.md` … `Chapter_005_Equilibrium.md` |

@@ -12,14 +12,13 @@ After finishing the requested work, append a concise **Next Steps** section to t
 
 ## Next-Step Mapping by Command
 
-Use this table to choose the recommended follow-up command. Remember the boundary: backlog commands (1–4) never touch the pipeline, and pipeline commands (5–11) never touch the backlog.
+Use this table to choose the recommended follow-up command. Remember the boundary: backlog commands (1–3) never touch the pipeline, and pipeline commands (4–10) never touch the backlog.
 
 | Completed command | State after completion | Recommended next step | Optional follow-ups |
 |---|---|---|---|
-| `/write <bookname>` (bare) | Backlog epic exists; no pipeline | `/write <bookname> configure [preset]` | `/write <bookname> scaffold <gist> count <n>` (after configure) |
-| `/write <bookname> gist [<gist>]` | Backlog epic created or updated; no pipeline | `/write <bookname> configure [preset]` | `/write <bookname> scaffold <gist> count <n>` (after configure) |
-| `/write <bookname> refresh` | Backlog epic rewritten from the existing epic | `/write <bookname> configure [preset]` | `/write <bookname> scaffold <gist> count <n>` (after configure) |
-| `/write <bookname> configure [<preset>]` | Preset selected; filter chain configured; pipeline may or may not exist | If pipeline exists: `/write <bookname> filter all`<br>If pipeline missing: `/write <bookname> scaffold <gist> count <n>` | `/write <bookname> chapter all` (if pipeline exists and chapters are ready) |
+| `/write <bookname>` (bare) | Backlog epic exists; no pipeline | `/write <bookname> init [preset]` | `/write <bookname> scaffold <gist> count <n>` (after init) |
+| `/write <bookname> gist [<gist>]` | Backlog epic created, updated, or rewritten; no pipeline | `/write <bookname> init [preset]` | `/write <bookname> scaffold <gist> count <n>` (after init) |
+| `/write <bookname> init [<preset>]` | Preset selected; filter chain configured; pipeline may or may not exist | If pipeline exists: `/write <bookname> filter all`<br>If pipeline missing: `/write <bookname> scaffold <gist> count <n>` | `/write <bookname> chapter all` (if pipeline exists and chapters are ready) |
 | `/write <bookname> scaffold <gist> count <n>` | Pipeline and chapter structure exist; research not yet run | `/write <bookname> filter all` | `/write <bookname> chapter all` |
 | `/write <bookname> chapter <target>` | One or more chapters written to `source/books/` or pending | If chapters remain: `/write <bookname> chapter continue`<br>If all chapters complete: `/write <bookname> filter quality` or final assembly | `/write <bookname> filter <next-filter>` |
 | `/write <bookname> chapter all` | All canonical chapters attempted | `/write <bookname> filter all` | `/write <bookname> filter quality` |

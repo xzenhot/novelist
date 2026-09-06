@@ -35,7 +35,6 @@ Poetry uses these root files as source of truth:
 |-- model.json
 |-- bookseed.txt
 |-- progress.json
-|-- override.md
 |-- metadata_code1.json
 |-- filters/
 |   |-- filters.json
@@ -134,9 +133,9 @@ Each progress chapter must include:
 
 For a new scaffold, set all statuses to `pending`, `completed_chapters` to `0`, `current_chapter` to `1`, and `completed_date` to `null`.
 
-### `override.md`
+### `filters/override/filter.md` — the override command file
 
-Create as the human-editable transformation layer. Leave it empty unless the user supplies override text.
+The poetry override, like the novel override, is **a filter-file command layer**, not a pipeline-root file. Do **not** create a pipeline-root `override.md`. The `override` filter lives in `filters/override/` and its command file `filters/override/filter.md` is seeded at scaffold from `.framework/agents/override/agent.md` (dynamically customized for the poetry form and the pipeline's actual context), with an empty `## Instructions` section for the human.
 
 ### `metadata_code<number>.json`
 
@@ -198,13 +197,14 @@ For each named filter folder, scaffold only:
 
 Leave runtime content empty unless the active workflow explicitly runs that filter.
 
-**Override command file (poetry customization):** the `override` filter is the one structural exception. Its exact seeding content is **dynamically derived at scaffold time** from the poetry stereotype index at `.framework/templates/stereotypes/poetry/readme.md` — do not treat this paragraph as the fixed recipe. Before you create the override files, read that readme and let it govern the shape:
+**Override command file (poetry customization):** the `override` filter is the one structural exception. Its exact seeding content is **dynamically derived at scaffold time** from `.framework/agents/override/agent.md` plus the poetry stereotype index at `.framework/templates/stereotypes/poetry/readme.md` — do not treat this paragraph as the fixed recipe. Before you create the override file, read both and let them govern the shape:
 
-1. **Read `.framework/templates/stereotypes/poetry/readme.md`** — the master index of the poetry stereotype folder. It tells you the canonical contents and conventions: the `default/` seed book (with its `override.md` human-in-the-loop transformation layer, `bookseed.txt` topic index, and `writer.md` inputs), plus the `signatures/`, `references/`, `syntax/`, and `themes/` sub-indexes. Use the readme's published conventions as the source of truth for how a poetry pipeline's override layer is structured.
-2. **Seed the pipeline override command file from the readme's `default/` shape.** The human-facing transformation layer for a poetry pipeline is the pipeline-root `.space/pipeline/book_<bookname>/override.md`, modeled on the seed book's `default/override.md` — create it empty for the human unless the user supplies override text.
-3. **Derive the filter-folder role content from `.framework/agents/override/agent.md`**, customized to the poetry form per the readme conventions: identity "poetry pipeline", applies to every poem (Question/Oration/Benediction), `filters/override/filter.md` holds the agent-driven role content, and model updates land on the poem chapter models under `chapters/<n>/`.
-4. **Align with whatever the readme's sub-indexes declare** (the singer/signature set, reference texts, syntax samples, and theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
-5. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
+1. **Read `.framework/agents/override/agent.md`** — the base content for the command file: the override command file is `.space/pipeline/book_<bookname>/filters/override/filter.md`, and it is generated/refreshed from the chapter (or poem) models' context so the human instructions are grounded in what the poems actually contain.
+2. **Read `.framework/templates/stereotypes/poetry/readme.md`** — the master index of the poetry stereotype folder, for the identity wording and conventions of the poetry form.
+3. **Seed `.space/pipeline/book_<bookname>/filters/override/filter.md`**, customized for poetry: identity "poetry pipeline", applies to every **poem** (Question/Oration/Benediction), model updates on the poem chapter models under `chapters/<n>/`, instruction scope "every poem" (each topic in `bookseed.txt`).
+4. **Do not create a pipeline-root `override.md`.** All forms share the single override command file at `filters/override/filter.md`.
+5. Align with whatever the readme's sub-indexes declare (singer/signature set, reference texts, syntax samples, theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
+6. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
 
 ## Source Destination
 
@@ -220,7 +220,8 @@ Do not write poem chapters or `book.md` during layout.
 
 Before reporting completion, verify:
 
-- Root files exist: `model.json`, `bookseed.txt`, `progress.json`, `override.md`, and one `metadata_code<number>.json`.
+- Root files exist: `model.json`, `bookseed.txt`, `progress.json`, and one `metadata_code<number>.json`.
+- `filters/override/filter.md` exists — the override command file (no pipeline-root `override.md`).
 - `filters/filters.json` exists and names all six poetry filters in order.
 - Every filter folder has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
 - Every topic has one numeric chapter folder.
@@ -229,3 +230,4 @@ Before reporting completion, verify:
 - No `mood.json` files exist in poetry chapter folders.
 - No chapter or segment folders were created outside the canonical paths.
 - `source/books/book_<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.
+

@@ -1,0 +1,17 @@
+{
+  "form": "poetry",
+  "book_name": "agniveena",
+  "book_long_title": "Agnibeena: The Fiery Lyre",
+  "language": "bn",
+  "register": "fiery, rhythmic, incantatory, rebellious",
+  "quality": "aurilus",
+  "themes": "generic",
+  "reference": "aurilus",
+  "signature": "nazrul",
+  "index": "agniveena",
+  "sacred_vocabulary": ["bidrohi", "agnibeena", "pralayollas", "dharmo", "shakti", "azadi"],
+  "translation_guide": "Render recurring terms in Bengali; preserve the incantatory cadence and exclamatory energy of the Rebel Poet.",
+  "chapter_count": 12,
+  "source_terms": ["Pralayollas", "Bidrohi", "Raktambor-Dharini Ma", "Agamani", "Dhumketu", "Kamal Pasha", "Anwar", "Ranobheri", "Shat-il-Arab", "Kheyaparer Tarani", "Qurbani", "Muharram"],
+  "created_at": "2026-09-06T00:00:00Z"
+}

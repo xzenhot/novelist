@@ -34,6 +34,7 @@ Usage:
        /write <bookname> gist [<gist>]                                      # create/update backlog epic only
        /write <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
        /write <bookname>                                                    # create backlog epic if missing
+       /write <bookname> init [<preset>] [form]                             # select preset and filter sequence (backlog only)
        /write <bookname> chapter <chapter>|<n>|all|continue                 # write chapters
        /write <bookname> filter <filter>|*|all                              # run filters
        /write <bookname> form <formname>                                    # set/change form
@@ -49,6 +50,7 @@ Usage:
 | `gist [<gist>]` | Creates or updates `.space/backlog/epic/<bookname>/epic.md` and develops it into a rich, detailed narrative foundation. If gist omitted, infers from book name. Does **not** scaffold a pipeline. |
 | `scaffold <gist> count|chapter-count <number>` | Creates or repairs the canonical v1 segment-based pipeline using the form-specific layout skill, then runs research. Gist required, single sentence. |
 | `<bookname>` (bare) | Creates `.space/backlog/epic/<bookname>/epic.md` if it does not exist, auto-generating the gist from the book name. If the epic already exists, reports that it exists. Does not scaffold a pipeline. |
+| `init [<preset>] [form]` | Selects or creates `.space/backlog/epic/<bookname>/preset.md` and derives the ordered filter chain. Must run before `scaffold`. |
 | `chapter <chapter>\|<n>\|all\|continue` | Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters. |
 | `filter <filter>\|*\|all` | Runs a single filter, or all filters in order, on an existing pipeline. |
 | `form <formname>` | Sets or changes the pipeline form (`novel` or `poetry`). |

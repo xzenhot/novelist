@@ -1,0 +1,23 @@
+{
+  "title": "Agnibeena: The Fiery Lyre",
+  "language": "bn",
+  "source_terms": ["Pralayollas", "Bidrohi", "Raktambor-Dharini Ma", "Agamani", "Dhumketu", "Kamal Pasha", "Anwar", "Ranobheri", "Shat-il-Arab", "Kheyaparer Tarani", "Qurbani", "Muharram"],
+  "context": "Agnibeena (The Fiery Lyre), Kazi Nazrul Islam's first poetry collection (1922), twelve poems of anti-colonial revolt and secular humanism.",
+  "total_chapters": 12,
+  "completed_chapters": 0,
+  "current_chapter": 1,
+  "chapters": [
+    { "chapter_number": 1, "topic": "Pralayollas", "category": "rebellion", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_001_Pralayollas.md", "completed_date": null },
+    { "chapter_number": 2, "topic": "Bidrohi", "category": "rebellion", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_002_Bidrohi.md", "completed_date": null },
+    { "chapter_number": 3, "topic": "Raktambor-Dharini Ma", "category": "motherland", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_003_Raktambor-Dharini_Ma.md", "completed_date": null },
+    { "chapter_number": 4, "topic": "Agamani", "category": "devotion", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_004_Agamani.md", "completed_date": null },
+    { "chapter_number": 5, "topic": "Dhumketu", "category": "rebellion", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_005_Dhumketu.md", "completed_date": null },
+    { "chapter_number": 6, "topic": "Kamal Pasha", "category": "internationalism", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_006_Kamal_Pasha.md", "completed_date": null },
+    { "chapter_number": 7, "topic": "Anwar", "category": "internationalism", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_007_Anwar.md", "completed_date": null },
+    { "chapter_number": 8, "topic": "Ranobheri", "category": "rebellion", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_008_Ranobheri.md", "completed_date": null },
+    { "chapter_number": 9, "topic": "Shat-il-Arab", "category": "internationalism", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_009_Shat-il-Arab.md", "completed_date": null },
+    { "chapter_number": 10, "topic": "Kheyaparer Tarani", "category": "devotion", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_010_Kheyaparer_Tarani.md", "completed_date": null },
+    { "chapter_number": 11, "topic": "Qurbani", "category": "sacrifice", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_011_Qurbani.md", "completed_date": null },
+    { "chapter_number": 12, "topic": "Muharram", "category": "sacrifice", "status": "pending", "file_path": "source/books/book_agniveena/chapters/Chapter_012_Muharram.md", "completed_date": null }
+  ]
+}

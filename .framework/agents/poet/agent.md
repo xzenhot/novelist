@@ -80,7 +80,7 @@ Look in the chapter folder for any existing `chapter_v*.md` files:
 - If the `## Instructions` section (below the `---` line) is empty, rewrite the chapter normally — no override applies.
 - If it holds instructions (bullets or paragraphs), treat **each one as binding** and apply it as the final layer to the new `chapter_v<n>.md`.
 - The human's word is final: apply instructions exactly; do not reinterpret, soften, or skip them.
-- Poetry note: per the poetry scaffold convention the human-facing command file is the pipeline-root `.space/pipeline/book_<bookname>/override.md`; if it exists and holds instructions, treat those as additional binding instructions too.
+- The command file path is the same for both forms: `.space/pipeline/book_<bookname>/filters/override/filter.md`. There is **no** pipeline-root `override.md` in any form.
 
 ## Language
 
@@ -99,7 +99,7 @@ Do not add extra metadata, comments, or explanation outside the chapter text.
 
 - Do not scaffold pipelines.
 - Do not run filters.
-- Do not consult the backlog `.space/backlog/epic/<bookname>/override.md`; apply only the pipeline override command file `.space/pipeline/book_<bookname>/filters/override/filter.md` (plus the pipeline-root `override.md` in poetry).
+- Do not consult the backlog `.space/backlog/epic/<bookname>/override.md`; apply only the pipeline override command file `.space/pipeline/book_<bookname>/filters/override/filter.md`.
 - Do not write to `source/books/` — this agent produces chapter versions inside the pipeline only.
 - Do not update `progress.json` — progress tracking is the writer workflow's responsibility.
 - Do not merge versions or decide which version is final.

@@ -1,0 +1,21 @@
+{
+  "title": "The Oldest Mountains",
+  "language": "en",
+  "source_terms": "bookseed.txt",
+  "context": "philosophical_poem.md + writer.md",
+  "total_chapters": 10,
+  "completed_chapters": 0,
+  "current_chapter": 1,
+  "chapters": [
+    { "chapter_number": 1, "topic": "The Dry Well", "category": "Water as inheritance", "status": "pending", "file_path": "chapters\\Chapter_001_The_Dry_Well.md", "completed_date": null },
+    { "chapter_number": 2, "topic": "The Ledger", "category": "Ownership versus stewardship", "status": "pending", "file_path": "chapters\\Chapter_002_The_Ledger.md", "completed_date": null },
+    { "chapter_number": 3, "topic": "The Tailings Pond", "category": "The oldest things are the most vulnerable", "status": "pending", "file_path": "chapters\\Chapter_003_The_Tailings_Pond.md", "completed_date": null },
+    { "chapter_number": 4, "topic": "The Offer", "category": "What the land gives versus what the ledger records", "status": "pending", "file_path": "chapters\\Chapter_004_The_Offer.md", "completed_date": null },
+    { "chapter_number": 5, "topic": "The School Register", "category": "The returning child and the emptying hill", "status": "pending", "file_path": "chapters\\Chapter_005_The_School_Register.md", "completed_date": null },
+    { "chapter_number": 6, "topic": "The Migrant's Fever", "category": "Water as inheritance", "status": "pending", "file_path": "chapters\\Chapter_006_The_Migrants_Fever.md", "completed_date": null },
+    { "chapter_number": 7, "topic": "The Spring", "category": "Ownership versus stewardship", "status": "pending", "file_path": "chapters\\Chapter_007_The_Spring.md", "completed_date": null },
+    { "chapter_number": 8, "topic": "The Hearing", "category": "The oldest things are the most vulnerable", "status": "pending", "file_path": "chapters\\Chapter_008_The_Hearing.md", "completed_date": null },
+    { "chapter_number": 9, "topic": "The Rain That Came Late", "category": "What the land gives versus what the ledger records", "status": "pending", "file_path": "chapters\\Chapter_009_The_Rain_That_Came_Late.md", "completed_date": null },
+    { "chapter_number": 10, "topic": "The Receipt", "category": "The returning child and the emptying hill", "status": "pending", "file_path": "chapters\\Chapter_010_The_Receipt.md", "completed_date": null }
+  ]
+}
