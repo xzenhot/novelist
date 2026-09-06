@@ -52,7 +52,7 @@ The pipeline commands are:
 | 7 | `/write <bookname> form <novel|poetry>` | Change pipeline form |
 | 8 | `/write <bookname> config [<key> [<value>]]` | Inspect or modify pipeline configuration |
 | 9 | `/write <bookname> add <chapter-count> filter <filter>|*|all` | Add chapters and run filters on them |
-| 10 | `/write <bookname> chapter <chapter>|<n>|all|continue` | Write finished reader-facing chapters |
+| 10 | `/write <bookname> chapter|story|content <chapter>|<n>|all|continue` | Write finished reader-facing chapters |
 
 ### Invariants
 

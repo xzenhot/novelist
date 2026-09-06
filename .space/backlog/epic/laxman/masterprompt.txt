@@ -1,0 +1,5 @@
+Write `laxman` as a Bengali historical epic novel. Use `.space/backlog/epic/laxman/gist.md`, `.space/backlog/epic/laxman/epic.md`, and `.space/backlog/epic/laxman/book.json` as the backlog source of truth.
+
+Primary shape: modern Delhi jatra/workshop frame -> Bishwarup Biswas narrates one historical chapter -> light post-reading discussion. Main historical arc: Ballal Sen as king, young Lakshman Sen as prince, Bengal's political/economic/literary/religious world, and a historically cautious fictional campaign toward Kanauj culminating around the Ganga.
+
+Language: Bengali. Style: serious, lyrical, riverine, historically alert, dialogue-rich, and stage-aware. Do not scaffold, filter, or promote chapters until the workflow command requests those phases.

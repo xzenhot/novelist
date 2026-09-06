@@ -244,8 +244,8 @@
        /write &lt;bookname&gt; scaffold &lt;gist&gt; count|chapter-count &lt;number&gt; [--form novel|poetry]
                                                                             # 4. scaffold the pipeline (requires init)
        /write &lt;bookname&gt; &lt;agentname&gt; &lt;chapter&gt;|&lt;n&gt;|all|continue             # 5. run any registered agent on chapters
-       /write &lt;bookname&gt; poet                                               # run the poet agent (poetry only)
-       /write &lt;bookname&gt; chapter &lt;chapter&gt;|&lt;n&gt;|all|continue                 # 6. write chapters
+       /write &lt;bookname&gt; poet|poetry|poem                                   # run the poet agent (poetry only)
+       /write &lt;bookname&gt; chapter|story|content &lt;chapter&gt;|&lt;n&gt;|all|continue   # 6. write chapters
        /write &lt;bookname&gt; filter &lt;filter&gt;|*|all                              # 7. run filters
        /write &lt;bookname&gt; form &lt;formname&gt;                                    # 8. set/change form
        /write &lt;bookname&gt; config [&lt;key&gt; [&lt;value&gt;]]                           # 9. get/set model config (bare = show config)
@@ -261,8 +261,8 @@
         <tr><td><code>init [&lt;gist&gt;] [&lt;preset&gt;] [form] [refresh]</code></td><td>Fully configures the backlog epic folder — <code>gist.md</code>, <code>epic.md</code>, <code>book.json</code>, <code>override.md</code>, <code>masterprompt.txt</code> — and derives the ordered filter chain plus the chapter-layout plan. Fills only gaps unless <code>refresh</code> re-grooms every artifact. Must run before <code>scaffold</code>.</td></tr>
         <tr><td><code>scaffold &lt;gist&gt; count|chapter-count &lt;number&gt;</code></td><td>Creates or repairs <code>.space/pipeline/book_&lt;bookname&gt;/</code> through the scaffold agent (prelayout → layout skill → postlayout), gated by the existence of <code>book.json</code>. Never creates or modifies <code>epic.md</code>.</td></tr>
         <tr><td><code>&lt;agentname&gt; &lt;chapter&gt;|&lt;n&gt;|all|continue</code></td><td>Runs any registered agent (<code>.framework/agents/&lt;agentname&gt;/agent.md</code>) against selected chapters in an existing pipeline. Does not promote output to <code>source/books/</code>.</td></tr>
-        <tr><td><code>poet</code></td><td>Invokes the poet agent to produce a single finished poem from the human-authored override file (poetry pipelines only).</td></tr>
-        <tr><td><code>chapter &lt;chapter&gt;|&lt;n&gt;|all|continue</code></td><td>Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters, routed through the chapter agent.</td></tr>
+        <tr><td><code>poet</code> (aliases: <code>poetry</code>, <code>poem</code>)</td><td>Invokes the poet agent to produce a single finished poem from the human-authored override file (poetry pipelines only).</td></tr>
+        <tr><td><code>chapter &lt;chapter&gt;|&lt;n&gt;|all|continue</code> (aliases: <code>story</code>, <code>content</code>)</td><td>Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters, routed through the chapter agent.</td></tr>
         <tr><td><code>filter &lt;filter&gt;|*|all</code></td><td>Runs a single filter, or all filters in order, on an existing pipeline.</td></tr>
         <tr><td><code>form &lt;formname&gt;</code></td><td>Sets or changes the pipeline form (<code>novel</code> or <code>poetry</code>).</td></tr>
         <tr><td><code>config [&lt;key&gt; [&lt;value&gt;]]</code></td><td>Gets or sets stereotype/model config such as <code>signature</code>, <code>reference</code>, <code>theme_set</code>, or <code>syntax</code>. Bare <code>config</code> prints the current configuration.</td></tr>
@@ -429,6 +429,11 @@
       </tbody>
     </table>
     <p>Each filter reads the pipeline data and any upstream filter output it needs, then writes to its own folder. Run the full chain strictly in order.</p>
+    <p>After each filter runs against a chapter, the workflow:</p>
+    <ol>
+      <li><strong>Archives the previous draft</strong> — if the filter rewrites <code>.space/pipeline/book_&lt;bookname&gt;/chapters/&lt;n&gt;/chapter.md</code>, the prior version is copied to <code>.space/pipeline/book_&lt;bookname&gt;/chapters/&lt;n&gt;/history/</code> (created if missing) with a timestamped/versioned name. The live <code>chapter.md</code> always holds the current state.</li>
+      <li><strong>Updates the chapter state</strong> — <code>.space/pipeline/book_&lt;bookname&gt;/chapters/&lt;n&gt;/model.json</code> is updated: <code>state</code> is set to the filter that just ran, and a <code>filter_history</code> array entry records <code>{ filter, ran_at, output_file }</code>. All other fields are preserved (merge, never overwrite).</li>
+    </ol>
 
     <h2 id="stereotypes">Stereotype Selection</h2>
     <p>Every chapter is rendered in a form-specific stereotype:</p>

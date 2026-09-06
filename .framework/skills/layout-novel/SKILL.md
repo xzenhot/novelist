@@ -82,6 +82,7 @@ workshop -> research -> seeds -> correctness -> theme -> syntax
     |   |-- model.json
     |   |-- mood.json
     |   |-- chapter.md
+    |   |-- history/
     |   `-- segments/
     |       `-- 1/
     |           |-- model.json
@@ -102,6 +103,7 @@ This is mandatory.
 - Chapter folders live only under `.space/pipeline/book_<bookname>/chapters/`.
 - Segment folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/`.
 - Writer, editor, and translator folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/`.
+- Each chapter has a `history/` folder (`.space/pipeline/book_<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
 - Do not create root-level chapter folders under `.space/pipeline/book_<bookname>/`.
 - Do not create `chapter_<n>` or `segment_<n>` folders in new scaffolds; use `1`, `2`, etc.
 - If repairing legacy folders, rename only after confirming there is no collision and no user-authored content will be overwritten.
@@ -316,7 +318,7 @@ Before reporting completion, verify:
 - Root files exist: `model.json`, `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `progress.json`.
 - `filters/filters.json` exists and names the filters selected from `book.json`'s `filter_chain` (or the default novel preset chain if no book plan exists) in the exact order declared.
 - Every filter folder selected from the book plan has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
-- Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, and `segments/1/model.json`.
+- Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, a `history/` folder, and `segments/1/model.json`.
 - Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
 - No chapter or segment folders were created outside the canonical paths.
 - `source/books/book_<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.

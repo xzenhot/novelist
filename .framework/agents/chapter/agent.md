@@ -30,7 +30,7 @@ This agent works on **one chapter at a time** in an existing pipeline:
 /write <bookname> chapter <chapter>|<n>|all|continue
 ```
 
-The writer workflow routes the `chapter` command to this agent, once per target chapter, in order.
+The `chapter` command has the aliases `story` and `content`; all three route to this agent. The writer workflow routes the command to this agent, once per target chapter, in order.
 
 Examples:
 
@@ -38,6 +38,8 @@ Examples:
 /write war chapter 1
 /write war chapter all
 /write self chapter continue
+/write war story all
+/write war content 3
 ```
 
 ## What to Read (in order)
@@ -105,19 +107,21 @@ Write the finished chapter to `source/books/book_<bookname>/chapters/<n>.md`, us
 
 If the destination file already exists and is newer than the pipeline inputs (a human-edited, promoted chapter), do not overwrite it — report that it is newer and leave it. Otherwise overwrite with the new version.
 
+**Keep a working copy in the segment writer folder.** After writing the finished chapter, also save a copy of the chapter draft to the chapter's segment writer folder `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/` (e.g. `chapter.md` or `chapter_v<n>.md`), so the pipeline retains the writer-stage draft alongside the promoted reader-facing output. If a writer copy already exists, archive it to the chapter's `history/` folder before overwriting.
+
 Do not add extra metadata, comments, or explanation outside the chapter text.
 
 ## What Not to Do
 
 - Do not scaffold pipelines or create segments.
 - Do not run filters or filter agents — their outputs are your inputs.
-- Do not write pipeline-internal version files (`chapter_v*.md`); write directly to `source/books/book_<bookname>/chapters/<n>.md`.
+- Do not write pipeline-internal version files (`chapter_v*.md`) in the chapter root; the writer-stage copy belongs in `segments/1/writer/`, and the promoted output goes to `source/books/book_<bookname>/chapters/<n>.md`.
 - Do not update `progress.json` — progress tracking is the writer workflow's responsibility.
 - Do not modify `book.json`, `model.json`, `characters.json`, `progress.json`, or the epic.
 - Do not consult the backlog `.space/backlog/epic/<bookname>/override.md`; the pipeline override command file `.space/pipeline/book_<bookname>/filters/override/filter.md` is the only override this agent applies.
 
 ## Summary of Duties
 
-You are the Chapter Agent: the writer that produces the content of a chapter. Read the frame, read the chapter model, read the epic (or bookseed) and the pipeline override command file `.space/pipeline/book_<bookname>/filters/override/filter.md`, write the Story (or Oration) in full in the configured voice and language, apply the override instructions as the final layer, and write the result to `source/books/book_<bookname>/chapters/<n>.md`. The workflow updates progress and assembles the book afterwards.
+You are the Chapter Agent: the writer that produces the content of a chapter. Read the frame, read the chapter model, read the epic (or bookseed) and the pipeline override command file `.space/pipeline/book_<bookname>/filters/override/filter.md`, write the Story (or Oration) in full in the configured voice and language, apply the override instructions as the final layer, write the result to `source/books/book_<bookname>/chapters/<n>.md`, and keep a writer-stage copy in `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/`. The workflow updates progress and assembles the book afterwards.
 
 

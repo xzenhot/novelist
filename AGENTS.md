@@ -32,7 +32,7 @@ Supported command families are defined by `.framework/workflows/write.md`. At mi
 /write <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
 /write <bookname> add <chapter-count> filter <filter>|*|all
 /write <bookname> filter <filter>|*|all
-/write <bookname> chapter <chapter>|<n>|all|continue
+/write <bookname> chapter|story|content <chapter>|<n>|all|continue
 /write <bookname> form <novel|poetry>
 /write <bookname> config [<key> [<value>]]
 /write -o | --options

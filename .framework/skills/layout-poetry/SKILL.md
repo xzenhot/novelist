@@ -76,6 +76,7 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
 `-- chapters/
     `-- 1/
         |-- model.json
+        |-- history/
         `-- segments/
             `-- 1/
                 |-- model.json
@@ -94,6 +95,7 @@ This is mandatory.
 - Segment folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/`.
 - Poetry chapters always have exactly one segment: `segments/1/`.
 - Writer, editor, and translator folders live only under `segments/1/`.
+- Each chapter has a `history/` folder (`.space/pipeline/book_<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
 - Do not create `mood.json` for poetry.
 - Do not create `book.json`, `characters.json`, `masterprompt.md`, or `workshop_metadata.md` for poetry unless the user explicitly asks for a hybrid project.
 
@@ -249,7 +251,7 @@ Before reporting completion, verify:
 - `filters/filters.json` exists and names all seven poetry filters in order.
 - Every filter folder has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
 - Every topic has one numeric chapter folder.
-- Every chapter has `model.json` and `segments/1/model.json`.
+- Every chapter has `model.json`, a `history/` folder, and `segments/1/model.json`.
 - Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
 - No `mood.json` files exist in poetry chapter folders.
 - No chapter or segment folders were created outside the canonical paths.

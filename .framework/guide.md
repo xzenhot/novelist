@@ -38,8 +38,8 @@ Usage:
        /write <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
                                                                             # 4. scaffold the pipeline (requires init)
        /write <bookname> <agentname> <chapter>|<n>|all|continue             # 5. run any registered agent on chapters
-       /write <bookname> poet                                               # run the poet agent (poetry only)
-       /write <bookname> chapter <chapter>|<n>|all|continue                 # 6. write chapters
+       /write <bookname> poet|poetry|poem                                   # run the poet agent (poetry only)
+       /write <bookname> chapter|story|content <chapter>|<n>|all|continue   # 6. write chapters
        /write <bookname> filter <filter>|*|all                              # 7. run filters
        /write <bookname> form <formname>                                    # 8. set/change form
        /write <bookname> config [<key> [<value>]]                           # 9. get/set model config (bare = show config)
@@ -242,6 +242,11 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
 | quality | `.framework/agents/quality/agent.md` | `filters/quality/` | `quality/quality.md` |
 
 Each filter reads the pipeline data and any upstream filter output it needs, then writes to its own folder. Run the full chain strictly in order.
+
+After each filter runs against a chapter, the workflow:
+
+1. **Archives the previous draft** — if the filter rewrites `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`, the prior version is copied to `.space/pipeline/book_<bookname>/chapters/<n>/history/` (created if missing) with a timestamped/versioned name. The live `chapter.md` always holds the current state.
+2. **Updates the chapter state** — `.space/pipeline/book_<bookname>/chapters/<n>/model.json` is updated: `state` is set to the filter that just ran, and a `filter_history` array entry records `{ filter, ran_at, output_file }`. All other fields are preserved (merge, never overwrite).
 
 ---
 
