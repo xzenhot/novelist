@@ -34,6 +34,15 @@ A seed is the first filter in the chain. It runs *before* research and workshop,
 7. **Write the seed** — update the chapter model with `included_characters`, `quality_parameters`, and a rich `chapter_summary` that serves as the seed text, shaped by the mood.
 8. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/seeds/`.
 
+## Chapter Layout Contract
+
+The scaffold agent's `## Chapter Layout` section governs seed-stage metadata.
+
+- `chapters/<n>/model.json` is the chapter's authoritative runtime metadata file and is where the seed state is merged.
+- `chapters/<n>/mood.json` remains the continuity and readability guide for the seed and later writing.
+- `chapters/<n>/chapter.md` remains the live chapter draft file; the seeds agent updates metadata and segment structure, not alternate root chapter files.
+- `segments/<x>/writer/`, `segments/<x>/editor/`, and `segments/<x>/translator/` are created as structural outputs with their reserved roles intact.
+
 ## Laying Out the Segments
 
 Each chapter is divided into **segments** — the units the writer, editor, and translator work on. The canonical segment is `segments/1`, but a chapter may need more.

@@ -1,0 +1,23 @@
+{
+  "chapter_index": 10,
+  "chapter_name": "10",
+  "state": "scaffolded",
+  "chapter_title": "কলিঙ্গ ও কামরূপের স্মৃতি",
+  "subject": "Old victories sharpen Lakshman's sense of consequence",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["কলিঙ্গ অভিযান", "কামরূপ", "ত্রিপুরা ও পূর্ব সীমান্ত"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "প্রবীণ যোদ্ধারা কলিঙ্গ, কামরূপ ও ত্রিপুরার অভিযানের কথা বলে। তরুণ লক্ষ্মণের শৌর্য কিংবদন্তিতে উঠলেও তিনি বুঝতে থাকেন প্রতিটি জয় নতুন সীমান্ত তৈরি করে।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

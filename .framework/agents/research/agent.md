@@ -78,6 +78,16 @@ If the MCP server cannot be started or the needed tool is unavailable, fall back
 8. Update the chapter model to record the refinement.
 9. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/research/`.
 
+## Chapter Layout Contract
+
+The scaffold agent's `## Chapter Layout` section governs research-stage refinement.
+
+- `chapters/<n>/chapter.md` remains the live working draft that research refines in place.
+- `chapters/<n>/model.json` remains the authoritative runtime metadata file for research additions.
+- Before rewriting `chapter.md`, archive the prior draft to `chapters/<n>/history/`.
+- Do not place refined drafts in the chapter root under alternate names; writer-stage copies belong later in `segments/<x>/writer/`.
+- Keep editorial notes in `segments/<x>/editor/` and translations in `segments/<x>/translator/` only.
+
 ## The Refinement Method
 
 Refinement is not rewriting from scratch. It is **elevating what is already there**. For each chapter:

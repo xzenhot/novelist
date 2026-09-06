@@ -1,0 +1,23 @@
+{
+  "chapter_index": 16,
+  "chapter_name": "16",
+  "state": "scaffolded",
+  "chapter_title": "দোয়াবের ধুলো",
+  "subject": "Bengal's army meets an unfamiliar north Indian world",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["গঙ্গা-যমুনা দোয়াব", "উত্তর ভারতীয় সামরিক সংস্কৃতি", "প্রান্তিক সৈনিক"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "দোয়াবের উর্বর ভূমিতে সেন বাহিনী অপরিচিত শক্তির মুখোমুখি হয়। ভাষা, খাদ্য, যুদ্ধরীতি ও রাজনীতির পার্থক্য বাংলার সৈন্যদের ভিতর ভয় ও কৌতূহল জাগায়।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

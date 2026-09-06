@@ -265,6 +265,21 @@ For **poetry**, scaffold `progress.json` at the book pipeline root. The file tra
 
 For **novels**, also scaffold `progress.json` at the book pipeline root. Use the same template shape, but populate it with the novel's canonical chapter order: `Introduction`, `1..N`, `Conclusion`. Set all chapters to `status: "pending"` and `completed_date: null` until written. Update the file after each chapter is written (mark status `completed` and set `completed_date` to the current ISO 8601 timestamp). Before `chapter continue` or `chapter all`, read `progress.json` to determine which chapters remain.
 
+### Chapter layout contract
+
+The scaffold agent's `## Chapter Layout` section is the downstream contract for all filters, chapter-writing agents, poet agents, and any skills they invoke.
+
+- `chapters/<n>/chapter.md` is the live working draft for the chapter. Scaffold seeds it with the bare minimum chapter content and every filter that rewrites the chapter updates this file in place.
+- `chapters/<n>/model.json` is the runtime state for the chapter. Filters, chapter agents, poet agents, and supporting skills must merge their metadata here rather than inventing parallel state files.
+- `chapters/<n>/mood.json` describes how the chapter is shaped across segments and must remain the continuity/readability guide for downstream writing.
+- `chapters/<n>/history/` stores superseded copies of `chapter.md` or writer-stage drafts before an agent overwrites them.
+- `chapters/<n>/segments/<x>/model.json` is the runtime state for that segment.
+- `chapters/<n>/segments/<x>/writer/` stores the writer-stage copy of the current chapter or segment draft.
+- `chapters/<n>/segments/<x>/editor/` stores editor comments, assessments, and quality notes.
+- `chapters/<n>/segments/<x>/translator/` stores translated outputs of the latest chapter or segment draft, named by language such as `en.md`, `hn.md`, or `bn.md`.
+
+No downstream step may create alternate chapter-version files in the chapter root unless the scaffold agent's contract is updated to allow them. The chapter root holds the live `chapter.md`; versioned or translated derivatives belong in `history/`, `writer/`, `editor/`, or `translator/`.
+
 ## The Epic (Novel only)
 
 The epic is the single source of truth for a novel's story, at `.space/backlog/epic/<bookname>/epic.md`.
@@ -359,6 +374,8 @@ Running a filter (`/write <bookname> filter <filter>`):
 7. **Update the chapter state after each filter.** After a filter runs against a chapter, update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` to record the new state: set `state` to the filter name that just ran (e.g. `"workshop"`, `"research"`, `"theme"`, `"syntax"`, `"quality"`), and add or update a `filter_history` array entry recording `{ filter, ran_at, output_file }` so the chapter's progression through the chain is auditable. Preserve all other fields; merge, never overwrite.
 8. **Responsibility boundary:** `filter` is read/write on existing pipeline data only. It must never create folders, run layout, or perform scaffold steps.
 
+Filters must also obey the chapter layout contract: keep `chapter.md` as the live draft, write only commentary to `segments/<x>/editor/`, write only translations to `segments/<x>/translator/`, and archive any replaced draft into `history/` before changing the live file or a writer-stage copy.
+
 ### The human-in-the-loop override filter
 
 `override` is a **custom filter created by the human**. It is present in both the novel and poetry chains. The workflow does not generate its instructions; instead, it looks for a human-edited override document inside the pipeline and applies it as a transformation layer.
@@ -400,6 +417,8 @@ Responsibility: invoke the poet agent to produce a single finished poem from the
 5. Route the writing work through the poet agent at `.framework/agents/poet/agent.md`. The agent may invoke `.framework/skills/poeticprose/SKILL.md` or another skill as needed.
 6. Write the resulting poem to `source/books/book_<bookname>/poem.md` (or `poems/override.md` if the pipeline already has a poems output folder). Do not overwrite an existing human-edited poem unless the user asks.
 7. Report the poem topic, word count, and output path.
+
+The poet agent and any skill it invokes must obey the chapter layout contract: `chapter.md` remains the live working draft, writer-stage revisions live under `segments/1/writer/`, any replaced writer draft is archived to `history/`, and translations belong only under `segments/1/translator/`.
 ## The Chapter Command
 
 For `/write <bookname> chapter <chapter>|<n>|all|continue` (aliases: `story`, `content`):
@@ -415,6 +434,8 @@ Responsibility: turn pipeline filter outputs into finished reader-facing chapter
 7. **Keep a working copy in the segment writer folder.** After writing the finished chapter, also save a copy of the chapter draft to the chapter's segment writer folder `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/` (e.g. `chapter.md` or `chapter_v<n>.md`), so the pipeline retains the writer-stage draft alongside the promoted reader-facing output. Do not overwrite an existing writer copy without first archiving it to the chapter's `history/` folder.
 8. Update `progress.json` after each completed chapter.
 9. Do not run filter agents during this phase; their outputs are inputs here.
+
+The chapter agent and any skill it invokes must treat `chapters/<n>/model.json` as the authoritative runtime metadata file, `chapter.md` as the live working draft, `history/` as the archive for replaced drafts, and `segments/1/writer/` as the home of the writer-stage copy.
 
 ## Writing the Chapters
 

@@ -1,0 +1,41 @@
+{
+  "chapter_index": 0,
+  "chapter_name": "Introduction",
+  "state": "scaffolded",
+  "chapter_title": "দিল্লির ময়দানে আলো",
+  "subject": "Delhi jatra frame and the turn toward Lakshman Sen",
+  "era": "modern Delhi frame with late twelfth-century Bengal as narrated material",
+  "place": ["Delhi"],
+  "figures": ["মোহিত কাঞ্জিলাল", "বিশ্বরূপ বিশ্বাস", "লক্ষ্মণ সেন"],
+  "events": ["Pragati Opera concludes its Ramayana run", "The troupe turns toward a Bengali historical hero"],
+  "grounding_notes": ["দিল্লির বাঙালি সমাজ", "বাংলা যাত্রাপালা", "আধুনিক ওয়ার্কশপ ফ্রেম"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": ["mohit_kanjilal", "bishwarup_biswas", "laxman_sen"],
+  "quality_parameters": {
+    "historical_caution": true,
+    "register": "elevated but readable Bengali",
+    "workshop_frame": true,
+    "river_attention": true
+  },
+  "chapter_summary": "দিল্লির ময়দানে প্রগতি অপেরার রামায়ণ-যাত্রা শেষ হয় তুমুল হাততালিতে। বিশ্বরূপ বিশ্বাসের লক্ষ্মণ চরিত্র দর্শকের মনে এমন দাগ কাটে যে মোহিত কাঞ্জিলাল বাংলার নিজস্ব নায়ক নিয়ে নতুন পালার পরিকল্পনা করেন।",
+  "mood": "introduction",
+  "segments": [1],
+  "stereotype": {
+    "form": "novel",
+    "signature": "bankim",
+    "reference": "languages_sample.txt",
+    "quality": "aurilus",
+    "theme_set": "generic"
+  },
+  "theme": {
+    "name": null,
+    "essence": null,
+    "contemporary_mapping": null
+  },
+  "syntax": {
+    "form": "novel",
+    "sample": "generic"
+  },
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

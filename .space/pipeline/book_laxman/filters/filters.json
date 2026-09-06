@@ -1,0 +1,90 @@
+[
+  {
+    "order": 1,
+    "name": "workshop",
+    "folder": "workshop",
+    "role_file": "workshop.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Create the Workshop, Story, and Discussion frame for each chapter from the epic and chapter plan.",
+    "agent": "workshop",
+    "autorun": true
+  },
+  {
+    "order": 2,
+    "name": "research",
+    "folder": "research",
+    "role_file": "research.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Deepen and verify era, place, figures, events, and source grounding for each chapter.",
+    "agent": "research",
+    "autorun": true
+  },
+  {
+    "order": 3,
+    "name": "seeds",
+    "folder": "seeds",
+    "role_file": "seeds.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Curate chapter seed structure, included characters, and quality parameters.",
+    "agent": "seeds",
+    "autorun": true
+  },
+  {
+    "order": 4,
+    "name": "correctness",
+    "folder": "correctness",
+    "role_file": "correctness.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Check factual claims, names, dates, terms, and uncertainty markers.",
+    "agent": "correctness",
+    "autorun": true
+  },
+  {
+    "order": 5,
+    "name": "theme",
+    "folder": "theme",
+    "role_file": "theme.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Assign the theme spine, theme essence, and stereotype selection for each chapter.",
+    "agent": "theme",
+    "autorun": true
+  },
+  {
+    "order": 6,
+    "name": "syntax",
+    "folder": "syntax",
+    "role_file": "syntax.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Apply syntax guidance so the prose stays elevated, readable, and form-consistent.",
+    "agent": "syntax",
+    "autorun": true
+  },
+  {
+    "order": 7,
+    "name": "override",
+    "folder": "override",
+    "role_file": "override.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Apply human-authored override instructions across every chapter model and draft.",
+    "agent": "override",
+    "autorun": true
+  },
+  {
+    "order": 8,
+    "name": "quality",
+    "folder": "quality",
+    "role_file": "quality.md",
+    "summary_file": "filter-summary.md",
+    "output_file": "content-output.md",
+    "description": "Run the final quality gate before finished chapters are assembled or promoted.",
+    "agent": "quality",
+    "autorun": true
+  }
+]

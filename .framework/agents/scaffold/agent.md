@@ -84,3 +84,25 @@ If a scaffold/layout-related skill is needed, this agent invokes it. If a future
 
 
 
+## Chapter Layout
+
+This section is the binding downstream contract for scaffolded chapter state. Filters, chapter-writing agents, poet agents, and any skills they invoke must treat these paths and responsibilities as normative unless this agent is updated.
+
+│   chapter.md  - It contains the initial chapter content. Basic , bare minimum content of the chapter 
+│   model.json  - It contains the runtime state of the chapter. Contains meta data of the chapter. 
+│   mood.json   - How the content would be written in segments. This ensures the continuity and reasability
+│
+├───history     - It contains backed up version of chapter.md , maintains a history when modified by filters
+└───segments
+    └───1
+        │   model.json - It contains the runtime state of the segment . Contains meta data of the chapter. 
+        │
+        ├───editor - Any Editor comments are kept here. It shows the content quality score.
+        ├───translator - It contains translated version of latest chapter.md ( if translated ). The name like: en.md, hn.md, bn.md etc
+        └───writer - It contains final copy of chapter.md
+
+      - `chapter.md` stays the live working draft in the chapter root.
+      - `history/` stores superseded drafts before anything overwrites the live draft or writer-stage copy.
+      - `writer/` stores the writer-stage output for the current segment or chapter.
+      - `editor/` stores commentary and quality feedback only.
+      - `translator/` stores translated derivatives only.

@@ -1,0 +1,23 @@
+{
+  "chapter_index": 12,
+  "chapter_name": "12",
+  "state": "scaffolded",
+  "chapter_title": "কনৌজের দূত",
+  "subject": "Kanauj enters as insult, warning, and northern symbol",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["কনৌজ", "গাহড়বাল রাজবংশ", "মধ্যযুগীয় কূটনীতি"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "গাহড়বাল শক্তির প্রতিনিধি সভায় আসে, ভদ্রতার আড়ালে বিদ্রূপ ও হুমকি রেখে যায়। কনৌজ একটি শহর থেকে উত্তর ভারতের প্রতীকে পরিণত হয়।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

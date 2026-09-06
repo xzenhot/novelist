@@ -223,6 +223,16 @@ For a new scaffold, set all statuses to `pending`, `completed_chapters` to `0`, 
 
 Create `model.json` in every chapter folder and every segment folder.
 
+The scaffold agent's `## Chapter Layout` section is the runtime semantics for these files and folders:
+
+- `chapter.md` is the live chapter draft and starts with only the bare minimum content.
+- `model.json` is the authoritative runtime metadata file for the chapter.
+- `mood.json` guides continuity and readability across segments.
+- `history/` stores superseded copies of `chapter.md` or writer-stage drafts before overwrite.
+- `segments/<x>/writer/` stores writer-stage chapter copies.
+- `segments/<x>/editor/` stores editorial notes and quality feedback.
+- `segments/<x>/translator/` stores translated derivatives only.
+
 Chapter-level `model.json` should include the chapter identity and initial planning data:
 
 - `chapter_index`

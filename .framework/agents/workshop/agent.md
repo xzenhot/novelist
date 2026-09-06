@@ -28,6 +28,16 @@ Every workshop file you produce has three sections:
 6. Update the chapter model at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` to record the workshop state.
 7. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/workshop/` summarizing the whole workshop run.
 
+## Chapter Layout Contract
+
+The scaffold agent's `## Chapter Layout` section governs workshop output.
+
+- Write the bare minimum live draft to `chapters/<n>/chapter.md`.
+- Merge runtime metadata into `chapters/<n>/model.json`.
+- If you replace an existing `chapter.md`, archive the prior copy in `chapters/<n>/history/` first.
+- Do not place workshop drafts in `segments/<x>/writer/`; that folder is for writer-stage copies after chapter-writing or poet passes.
+- Do not use `segments/<x>/editor/` or `segments/<x>/translator/` for workshop output.
+
 ## Merging the Book Plan
 
 Before writing any chapter, merge the backlog book plan into the pipeline's working state so the pipeline carries the authoritative chapter layout and filter chain.

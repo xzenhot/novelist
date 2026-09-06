@@ -1,0 +1,23 @@
+{
+  "chapter_index": 3,
+  "chapter_name": "3",
+  "state": "scaffolded",
+  "chapter_title": "বল্লাল সেনের সভা",
+  "subject": "Court power, learning, and succession under Ballal Sen",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["বল্লাল সেন", "দানসাগর ও অদ্ভুতসাগর", "কৌলীন্য প্রথা"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "মূল কাহিনিতে বল্লাল সেন রাজসভার মধ্যে পাণ্ডিত্য, কৌলীন্য, করনীতি ও ক্ষমতার ভারসাম্য সামলান। তরুণ লক্ষ্মণ তার পিতার রাজনীতি দেখে শেখে গৌরবের সঙ্গে দায়ও জন্মায়।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

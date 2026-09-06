@@ -1,0 +1,38 @@
+{
+  "book_name": "laxman",
+  "form": "novel",
+  "gist": "বাংলার গৌরব, সেন যুগের রাজনীতি, দিল্লির বাঙালি যাত্রামঞ্চ, এবং যুবরাজ লক্ষ্মণ সেনের কনৌজ-অভিযানকে কেন্দ্র করে একটি বাংলা ঐতিহাসিক-কাল্পনিক উপন্যাস।",
+  "epic_path": ".space/backlog/epic/laxman/epic.md",
+  "book_long_title": "লক্ষ্মণ: গঙ্গার যুদ্ধে কনৌজ",
+  "book_summary": "দিল্লির প্রগতি অপেরার ওয়ার্কশপ-ফ্রেমে জন্ম নেওয়া এক বাংলা ঐতিহাসিক-কাল্পনিক উপন্যাস, যেখানে বল্লাল সেনের রাজসভা, তরুণ লক্ষ্মণ সেনের অভিষেক ও কনৌজমুখী গঙ্গা-অভিযান বাংলার গৌরব, রাজনীতি, অর্থনীতি, সাহিত্য, ধর্ম এবং বিজয়ের নৈতিক মূল্যের গল্প হয়ে ওঠে।",
+  "language": "Bengali",
+  "genre": "historical epic novel",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "chapter_count": 22,
+  "chapter_order": [
+    "Introduction", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "Conclusion"
+  ],
+  "filter_chain": [
+    "workshop",
+    "research",
+    "seeds",
+    "correctness",
+    "theme",
+    "syntax",
+    "override",
+    "quality"
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "bankim",
+    "quality": "aurilus",
+    "reference": "languages_sample.txt",
+    "theme_set": "generic"
+  },
+  "syntax": {
+    "form": "novel",
+    "sample": "generic"
+  },
+  "quality": "historically cautious, lyrical, stage-aware Bengali prose",
+  "current_phase": "scaffolded"
+}

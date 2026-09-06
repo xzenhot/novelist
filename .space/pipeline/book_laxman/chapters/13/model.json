@@ -1,0 +1,23 @@
+{
+  "chapter_index": 13,
+  "chapter_name": "13",
+  "state": "scaffolded",
+  "chapter_title": "প্রথম নদী পার",
+  "subject": "The campaign begins through ordinary eyes and moving bodies",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["নদী পারাপার", "সৈন্যসমাবেশ", "সাধারণ মানুষের দৃষ্টিকোণ"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "অভিযান শুরু হয়। নৌকা, হাতি, অশ্বারোহী, শূদ্র মাঝি, ব্রাহ্মণ পুরোহিত, সৈনিকের স্ত্রী ও শিশুর চোখে রাজযাত্রার গৌরব ভিন্ন ভিন্ন অর্থ নেয়।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

@@ -1,0 +1,23 @@
+{
+  "chapter_index": 6,
+  "chapter_name": "6",
+  "state": "scaffolded",
+  "chapter_title": "মগধের দিকে দূত",
+  "subject": "News from Magadha and Bihar complicates strategy",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["মগধ", "নালন্দা-পরবর্তী স্মৃতি", "বৌদ্ধ ও ব্রাহ্মণ্য সম্পর্ক"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "মগধ ও বিহারের পথে দূতেরা উত্তর ভারতের খবর আনে। নালন্দার ক্ষয়, বৌদ্ধ বিহারের নিঃসঙ্গতা, ব্রাহ্মণ্য শক্তির উত্থান ও বাণিজ্যপথের দখল লক্ষ্মণের রাজনীতিকে জটিল করে তোলে।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

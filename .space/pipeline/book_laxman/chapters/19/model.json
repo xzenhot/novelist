@@ -1,0 +1,23 @@
+{
+  "chapter_index": 19,
+  "chapter_name": "19",
+  "state": "scaffolded",
+  "chapter_title": "গঙ্গার যুদ্ধ",
+  "subject": "Victory and death move together with the river",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["নদীযুদ্ধ", "মধ্যযুগীয় ভারতীয় অস্ত্র", "গঙ্গার প্রতীক"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "নৌকা, কাদা, হাতি, তীর, ঢাক ও স্রোতের মধ্যে গঙ্গার যুদ্ধ ঘটে। বাংলার পতাকা এগোয়, কিন্তু নদী বিজয় ও মৃত্যু দুটোই একসঙ্গে বহন করে।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

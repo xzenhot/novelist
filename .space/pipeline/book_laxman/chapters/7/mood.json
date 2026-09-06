@@ -1,0 +1,15 @@
+{
+  "template": "default",
+  "moods": [
+    {"characteristic": "goal", "mood_description": "Advance the workshop frame and the historical movement of the chapter."},
+    {"characteristic": "stakes", "mood_description": "Show what Bengal, the troupe, or the expedition risks losing."},
+    {"characteristic": "vulnerability", "mood_description": "Expose the human cost beneath ambition, memory, or prestige."},
+    {"characteristic": "conflict", "mood_description": "Hold political, ethical, or interpersonal pressure in active tension."},
+    {"characteristic": "tension", "mood_description": "Keep decision, movement, or revelation under strain."},
+    {"characteristic": "rationalize", "mood_description": "Let at least one figure justify action through duty, glory, or survival."},
+    {"characteristic": "subversion", "mood_description": "Introduce a counter-voice that questions the obvious heroic reading."},
+    {"characteristic": "catharsis", "mood_description": "Allow an earned emotional release without resolving every contradiction."},
+    {"characteristic": "foreshadowing", "mood_description": "Hint at the next escalation in war, memory, or moral consequence."},
+    {"characteristic": "irony", "mood_description": "Keep victory, devotion, or performance shadowed by cost."}
+  ]
+}

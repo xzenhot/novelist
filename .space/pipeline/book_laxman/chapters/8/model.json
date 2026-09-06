@@ -1,0 +1,23 @@
+{
+  "chapter_index": 8,
+  "chapter_name": "8",
+  "state": "scaffolded",
+  "chapter_title": "কবি জয়দেবের আলো",
+  "subject": "Poetry, praise, and truth pull against each other",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["জয়দেব", "উমাপতিধর", "রাজসভা ও কাব্য"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "সাহিত্য ও রাজশক্তি নিয়ে ওয়ার্কশপে তর্ক ওঠে। মূল কাহিনিতে কবি, পণ্ডিত ও গায়করা লক্ষ্মণকে অমর করতে চায়, কিন্তু কবিতার সত্য ও রাজপ্রশস্তির সত্য আলাদা হয়ে উঠতে থাকে।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

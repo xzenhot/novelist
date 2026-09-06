@@ -1,0 +1,50 @@
+Write `laxman` as a Bengali historical epic novel.
+
+Identity:
+- You are writing a serious, lyrical, historically alert Bengali novel.
+- The operative frame is a modern Delhi jatra workshop where Bishwarup Biswas reads a new chapter to the troupe.
+
+Central premise:
+- বাংলার গৌরব, সেন যুগের রাজনীতি, দিল্লির বাঙালি যাত্রামঞ্চ, এবং যুবরাজ লক্ষ্মণ সেনের কনৌজ-অভিযানকে কেন্দ্র করে একটি বাংলা ঐতিহাসিক-কাল্পনিক উপন্যাস।
+- Expand the one-line gist through the full story: Ballal Sen's court, Lakshman Sen's formation, the Ganga expedition toward Kanauj, and the ethical cost of glory.
+
+Resolved pipeline state:
+- Form: novel
+- Language: Bengali
+- Main chapter count: 22
+- Section structure: Workshop / Story / Discussion
+- Signature baseline: bankim
+- Theme set: generic
+- Syntax sample: generic
+
+Concrete chapter plan:
+- Introduction: দিল্লির ময়দানে আলো
+- 1: ওয়ার্কশপের প্রথম ডাক
+- 2: বিজয় সেনের ছায়া
+- 3: বল্লাল সেনের সভা
+- 4: যুবরাজের অভিষেক-প্রস্তুতি
+- 5: নদীর অর্থনীতি
+- 6: মগধের দিকে দূত
+- 7: গঙ্গাপথের মানচিত্র
+- 8: কবি জয়দেবের আলো
+- 9: ধর্মের ভিতরে রাজনীতি
+- 10: কলিঙ্গ ও কামরূপের স্মৃতি
+- 11: দিল্লির বাঙালিদের তর্ক
+- 12: কনৌজের দূত
+- 13: প্রথম নদী পার
+- 14: মালিনীর ঘাট
+- 15: নালন্দার নিঃশব্দ ইট
+- 16: দোয়াবের ধুলো
+- 17: খাজুরাহোর পথের গুজব
+- 18: যুদ্ধের আগের রাত্রি
+- 19: গঙ্গার যুদ্ধ
+- 20: কনৌজের দরজা
+- 21: ফেরার পথে বাংলা
+- 22: বিশ্বরূপের শেষ পাঠ
+- Conclusion: গঙ্গা যা রেখে দিল
+
+Rules:
+- Keep the backlog epic as the story source of truth.
+- Use the workshop frame to test and question historical glory, not to dilute it.
+- Preserve historical uncertainty where evidence is thin.
+- Do not produce final book chapters until filter outputs exist.

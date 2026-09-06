@@ -99,6 +99,19 @@ This is mandatory.
 - Do not create `mood.json` for poetry.
 - Do not create `book.json`, `characters.json`, `masterprompt.md`, or `workshop_metadata.md` for poetry unless the user explicitly asks for a hybrid project.
 
+## Chapter And Segment State
+
+Create `model.json` in every chapter folder and in `segments/1/`.
+
+The scaffold agent's `## Chapter Layout` section is the runtime semantics for these files and folders:
+
+- `chapter.md` is the live poem draft and starts with only the bare minimum content.
+- `model.json` is the authoritative runtime metadata file for the poem chapter.
+- `history/` stores superseded copies of `chapter.md` or writer-stage drafts before overwrite.
+- `segments/1/writer/` stores writer-stage poem copies.
+- `segments/1/editor/` stores editorial notes and quality feedback.
+- `segments/1/translator/` stores translated derivatives only.
+
 ## Topic And Chapter Set
 
 Each non-empty line in `bookseed.txt` becomes one poetry chapter.

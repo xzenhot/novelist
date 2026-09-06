@@ -24,6 +24,17 @@ This agent works on **one chapter at a time** in an existing pipeline:
 
 `<n>` is the chapter identifier: `Introduction`, `1`, `2`, … `N`, `Conclusion` for novels; or any chapter folder name for poetry.
 
+## Chapter Layout Contract
+
+The scaffold agent's `## Chapter Layout` section is binding here.
+
+- `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md` is the live working draft you read from.
+- `.space/pipeline/book_<bookname>/chapters/<n>/model.json` is the authoritative runtime metadata file for chapter state.
+- `.space/pipeline/book_<bookname>/chapters/<n>/history/` stores any superseded live or writer-stage drafts before you overwrite them.
+- `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/` stores the writer-stage copy you leave behind after producing the reader-facing output.
+- `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/editor/` is reserved for editorial notes, not chapter drafts.
+- `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/translator/` is reserved for translated derivatives such as `en.md`, `hn.md`, or `bn.md`.
+
 ## Invocation
 
 ```text
@@ -107,7 +118,7 @@ Write the finished chapter to `source/books/book_<bookname>/chapters/<n>.md`, us
 
 If the destination file already exists and is newer than the pipeline inputs (a human-edited, promoted chapter), do not overwrite it — report that it is newer and leave it. Otherwise overwrite with the new version.
 
-**Keep a working copy in the segment writer folder.** After writing the finished chapter, also save a copy of the chapter draft to the chapter's segment writer folder `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/` (e.g. `chapter.md` or `chapter_v<n>.md`), so the pipeline retains the writer-stage draft alongside the promoted reader-facing output. If a writer copy already exists, archive it to the chapter's `history/` folder before overwriting.
+**Keep a working copy in the segment writer folder.** After writing the finished chapter, also save a copy of the chapter draft to the chapter's segment writer folder `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/` (normally `chapter.md`, or a versioned `chapter_v<n>.md` when the workflow needs a distinct retained revision), so the pipeline retains the writer-stage draft alongside the promoted reader-facing output. If a writer copy already exists, archive it to the chapter's `history/` folder before overwriting.
 
 Do not add extra metadata, comments, or explanation outside the chapter text.
 

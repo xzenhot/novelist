@@ -1,0 +1,23 @@
+{
+  "chapter_index": 17,
+  "chapter_name": "17",
+  "state": "scaffolded",
+  "chapter_title": "খাজুরাহোর পথের গুজব",
+  "subject": "The map thickens into rumor, alliance, and fracture",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["খাজুরাহো ও চন্দেল", "কর্ণাট সংযোগ", "আঞ্চলিক শক্তির রাজনীতি"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "চন্দেল, কর্ণাট, রাজপুত ও নানা আঞ্চলিক শক্তির সংবাদ শিবিরে ঘোরে। ওয়ার্কশপে অভিনেতারা বোঝে, ইতিহাস কখনও এক রাজা বনাম আরেক রাজা নয়, বরং অসংখ্য জোট ও ভাঙনের জাল।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}

@@ -1,0 +1,23 @@
+{
+  "chapter_index": 11,
+  "chapter_name": "11",
+  "state": "scaffolded",
+  "chapter_title": "দিল্লির বাঙালিদের তর্ক",
+  "subject": "The workshop debates pride, nationalism, and recovery",
+  "era": "late twelfth-century Bengal and the Gangetic north",
+  "place": [],
+  "figures": [],
+  "events": [],
+  "grounding_notes": ["প্রবাসী বাঙালি পরিচয়", "সাংস্কৃতিক আত্মবিশ্বাস", "নাট্যদলের আলোচনা"],
+  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
+  "included_characters": [],
+  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
+  "chapter_summary": "আধুনিক ওয়ার্কশপে দিল্লির বাঙালি শিল্পীরা প্রশ্ন তোলে, গৌরবের গল্প কি জাতীয়তাবাদ হবে, না আত্মসম্মানের পুনরুদ্ধার। এই তর্ক মূল কাহিনির রঙ পাল্টায়।",
+  "mood": "default",
+  "segments": [1],
+  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
+  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
+  "syntax": {"form": "novel", "sample": "generic"},
+  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
+  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+}
