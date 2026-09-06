@@ -52,7 +52,7 @@ Usage:
 |---------|--------------|
 | `<bookname>` (bare) | Creates `.space/backlog/epic/<bookname>/epic.md` if it does not exist, auto-generating the gist from the book name. If the epic already exists, reports that it exists. Does not scaffold a pipeline. |
 | `gist [<gist>] [form]` | Creates, updates, or rewrites `.space/backlog/epic/<bookname>/epic.md` (recording the seed in `gist.md`) and develops it into a rich, detailed narrative foundation. If gist omitted, infers from book name. If `[form]` supplied, changes the book's form. Does **not** scaffold a pipeline. |
-| `init [<gist>] [<preset>] [form] [refresh]` | Fully configures the backlog epic folder — `gist.md`, `epic.md`, `book.json`, `override.md`, `masterprompt.txt` — and derives the ordered filter chain (stored in `book.json`'s `filter_chain`) plus the chapter-layout plan. Fills only gaps unless `refresh` re-grooms every artifact. Must run before `scaffold`. |
+| `init [<gist>] [<preset>] [form] [refresh]` | Fully configures the backlog epic folder — `gist.md`, `epic.md`, `book.json`, `override.md`, `override.txt` — and derives the ordered filter chain (stored in `book.json`'s `filter_chain`) plus the chapter-layout plan. Fills only gaps unless `refresh` re-grooms every artifact. Must run before `scaffold`. |
 | `scaffold <gist> count\|chapter-count <number>` | Creates or repairs `.space/pipeline/book_<bookname>/` through the scaffold agent (prelayout -> layout skill -> postlayout), gated by the existence of `book.json`. Never creates or modifies `epic.md`. |
 | `<agentname> <chapter>\|<n>\|all\|continue` | Runs any registered agent (`.framework/agents/<agentname>/agent.md`) against selected chapters in an existing pipeline. Does not promote output to `source/books/`. |
 | `poet` | Invokes the poet agent to produce a single finished poem from the human-authored override file (poetry pipelines only). |
@@ -144,7 +144,7 @@ For `/write <bookname> scaffold <gist> count|chapter-count <number> [--form nove
 6. Invoke the scaffold agent (`.framework/agents/scaffold/agent.md`); never invoke layout skills directly. The scaffold agent runs the prelayout agent first (`.framework/agents/prelayout/agent.md`), then the form-specific layout skill.
 7. Build `filters/filters.json` from `book.json`'s authoritative `filter_chain` — never copy the layout skills' *Preset* sections directly.
 8. Apply form-specific initialization in `model.json` and related files; seed `filters/override/filter.md` whenever `override` appears in the chain.
-9. Run the postlayout agent (`.framework/agents/postlayout/agent.md`) to generate the dynamic pipeline master prompt from the backlog `masterprompt.txt`. A scaffold is not complete until postlayout has run.
+9. Run the postlayout agent (`.framework/agents/postlayout/agent.md`) to generate the dynamic pipeline master prompt from the backlog `override.txt`. A scaffold is not complete until postlayout has run.
 10. Do not run filters during scaffold — structure only. After scaffold, run `/write <bookname> filter <filter>|*|all` to populate filter outputs before writing any chapter.
 
 ---
@@ -181,7 +181,7 @@ The five backlog artifacts:
 | `epic.md` | The full narrative foundation — premise, setting, characters, themes, chapter outline. |
 | `book.json` | The chapter-layout plan and the authoritative `filter_chain`/`word_target` — the blueprint `scaffold` builds from. |
 | `override.md` | The human custom transformation layer (backlog planning copy). |
-| `masterprompt.txt` | The book's master prompt — identity, premise, form/language, style mandate, section structure. |
+| `override.txt` | The book's master prompt — identity, premise, form/language, style mandate, section structure. |
 
 Behavior:
 

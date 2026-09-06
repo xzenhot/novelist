@@ -46,7 +46,7 @@ Before writing any chapter, merge the backlog book plan into the pipeline's work
 2. **Merge into `model.json`** (`.space/pipeline/book_<bookname>/model.json`). Preserve existing fields and add or update the book-plan fields:
    - `gist` — the single-sentence gist.
    - `book_summary` — the 5–10 sentence summary.
-   - `word_target` — the target word count per chapter/poem.
+   - `word_target` — the default target word count per chapter/poem. It is a **chapter-instance property**: when merging, stamp it into every chapter instance — each `chapters[]` entry and each `chapters/<n>/model.json` gets its own `word_target` (per-chapter overrides take precedence over the book-level default).
    - `filter_chain` — the ordered filter/agent list.
    - `target_audience`, `generic`, `era` — identity fields from the book plan.
    - `chapters` — the full chapter-layout array from the book plan, copied verbatim (each entry carries `chapter_index`, `name`, `chapter_title`, `chapter_summary`, and `further_references`). This is the authoritative per-chapter layout the pipeline uses to write each chapter/poem.

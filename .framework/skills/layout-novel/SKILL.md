@@ -172,6 +172,7 @@ Each `chapters` item must include:
 - `name`
 - `chapter_title`
 - `chapter_summary`
+- `word_target` — the per-chapter target word count for this chapter instance (stamped from the book-level default unless overridden per chapter)
 
 Each `all_characters` item must include:
 

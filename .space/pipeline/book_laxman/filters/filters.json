@@ -52,7 +52,7 @@
     "output_file": "content-output.md",
     "description": "Assign the theme spine, theme essence, and stereotype selection for each chapter.",
     "agent": "theme",
-    "autorun": true
+    "autorun": false
   },
   {
     "order": 6,
@@ -63,7 +63,7 @@
     "output_file": "content-output.md",
     "description": "Apply syntax guidance so the prose stays elevated, readable, and form-consistent.",
     "agent": "syntax",
-    "autorun": true
+    "autorun": false
   },
   {
     "order": 7,
@@ -74,7 +74,7 @@
     "output_file": "content-output.md",
     "description": "Apply human-authored override instructions across every chapter model and draft.",
     "agent": "override",
-    "autorun": true
+    "autorun": false
   },
   {
     "order": 8,
@@ -85,6 +85,6 @@
     "output_file": "content-output.md",
     "description": "Run the final quality gate before finished chapters are assembled or promoted.",
     "agent": "quality",
-    "autorun": true
+    "autorun": false
   }
 ]

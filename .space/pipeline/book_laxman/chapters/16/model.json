@@ -1,23 +1,90 @@
 {
   "chapter_index": 16,
   "chapter_name": "16",
-  "state": "scaffolded",
+  "state": "seeds",
   "chapter_title": "দোয়াবের ধুলো",
   "subject": "Bengal's army meets an unfamiliar north Indian world",
   "era": "late twelfth-century Bengal and the Gangetic north",
   "place": [],
   "figures": [],
   "events": [],
-  "grounding_notes": ["গঙ্গা-যমুনা দোয়াব", "উত্তর ভারতীয় সামরিক সংস্কৃতি", "প্রান্তিক সৈনিক"],
-  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
-  "included_characters": [],
-  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
-  "chapter_summary": "দোয়াবের উর্বর ভূমিতে সেন বাহিনী অপরিচিত শক্তির মুখোমুখি হয়। ভাষা, খাদ্য, যুদ্ধরীতি ও রাজনীতির পার্থক্য বাংলার সৈন্যদের ভিতর ভয় ও কৌতূহল জাগায়।",
+  "grounding_notes": [
+    "গঙ্গা-যমুনা দোয়াব",
+    "উত্তর ভারতীয় সামরিক সংস্কৃতি",
+    "প্রান্তিক সৈনিক"
+  ],
+  "sources": [
+    ".space/backlog/epic/laxman/epic.md",
+    ".space/backlog/epic/laxman/book.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "laxman_sen",
+      "full_name": "লক্ষ্মণ সেন",
+      "role_in_chapter": "অচেনা ভূখণ্ডের সাংস্কৃতিক বাস্তবতার মুখে নতুন নম্রতা অর্জন করেন"
+    },
+    {
+      "character_id": "rudradev",
+      "full_name": "মহাসেনাপতি রুদ্রদেব",
+      "role_in_chapter": "অপরিচিত রণপরিসরে বাস্তব সতর্কতার প্রয়োজন স্পষ্ট রাখেন"
+    },
+    {
+      "character_id": "bishwarup_biswas",
+      "full_name": "বিশ্বরূপ বিশ্বাস",
+      "role_in_chapter": "ওয়ার্কশপে অপরিচিতির গন্ধকে মানসিক চাপের উৎস করে তোলেন"
+    }
+  ],
+  "quality_parameters": {
+    "historical_caution": true,
+    "register": "elevated but readable Bengali",
+    "workshop_frame": true,
+    "river_attention": true,
+    "philosophical_depth": "medium",
+    "metaphorical_richness": "controlled",
+    "accessibility": "high",
+    "resonance": "estrangement and humility",
+    "timelessness": "steady"
+  },
+  "chapter_summary": "দোয়াবের ভূমিতে এসে seed-টিকে এমনভাবে নির্মাণ করতে হবে, যাতে ভাষা, খাদ্য, যুদ্ধরীতি এবং মানুষের চোখের ভঙ্গি থেকেই অপরিচিতির চাপ অনুভূত হয়। লক্ষ্মণ ও তার সৈন্যরা বুঝবে যে জয়যাত্রা মানে শুধু অগ্রসর হওয়া নয়, অচেনা জগতকে ভুল না পড়ে শুনতে শেখাও। এই অধ্যায়ের মূল turn হলো অহংকার থেকে নম্রতায় সরে আসা। হ্যান্ডঅফটি যাবে খাজুরাহোর পথের গুজবে, যেখানে অনিশ্চয়তা এবার ভূরাজনীতির জালে রূপ নেবে।",
   "mood": "default",
-  "segments": [1],
-  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
-  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
-  "syntax": {"form": "novel", "sample": "generic"},
-  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
-  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "bankim",
+    "reference": "languages_sample.txt",
+    "quality": "aurilus",
+    "theme_set": "generic"
+  },
+  "theme": {
+    "name": null,
+    "essence": null,
+    "contemporary_mapping": null
+  },
+  "syntax": {
+    "form": "novel",
+    "sample": "generic"
+  },
+  "workshop_file": ".space/pipeline/book_laxman/chapters/16/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_laxman/chapters/16/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/16/chapter.md"
+    },
+    {
+      "filter": "research",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/16/chapter.md"
+    },
+    {
+      "filter": "seeds",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/16/model.json"
+    }
+  ],
+  "word_target": 5500
 }

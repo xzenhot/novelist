@@ -1,23 +1,90 @@
 {
   "chapter_index": 8,
   "chapter_name": "8",
-  "state": "scaffolded",
+  "state": "seeds",
   "chapter_title": "কবি জয়দেবের আলো",
   "subject": "Poetry, praise, and truth pull against each other",
   "era": "late twelfth-century Bengal and the Gangetic north",
   "place": [],
   "figures": [],
   "events": [],
-  "grounding_notes": ["জয়দেব", "উমাপতিধর", "রাজসভা ও কাব্য"],
-  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
-  "included_characters": [],
-  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
-  "chapter_summary": "সাহিত্য ও রাজশক্তি নিয়ে ওয়ার্কশপে তর্ক ওঠে। মূল কাহিনিতে কবি, পণ্ডিত ও গায়করা লক্ষ্মণকে অমর করতে চায়, কিন্তু কবিতার সত্য ও রাজপ্রশস্তির সত্য আলাদা হয়ে উঠতে থাকে।",
+  "grounding_notes": [
+    "জয়দেব",
+    "উমাপতিধর",
+    "রাজসভা ও কাব্য"
+  ],
+  "sources": [
+    ".space/backlog/epic/laxman/epic.md",
+    ".space/backlog/epic/laxman/book.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "laxman_sen",
+      "full_name": "লক্ষ্মণ সেন",
+      "role_in_chapter": "কাব্যের প্রশস্তির মধ্যে নিজেকে গৌরব না সত্য, কোন রূপে দেখবেন তা বুঝতে শুরু করেন"
+    },
+    {
+      "character_id": "jayadeva",
+      "full_name": "জয়দেব",
+      "role_in_chapter": "সরাসরি বা প্রতিধ্বনিতে কাব্যিক মহিমা ও তার দ্ব্যর্থতা বহন করেন"
+    },
+    {
+      "character_id": "bishwarup_biswas",
+      "full_name": "বিশ্বরূপ বিশ্বাস",
+      "role_in_chapter": "ওয়ার্কশপে সাহিত্য ও ক্ষমতার সম্পর্ককে প্রশ্নের মুখে তোলেন"
+    }
+  ],
+  "quality_parameters": {
+    "historical_caution": true,
+    "register": "elevated but readable Bengali",
+    "workshop_frame": true,
+    "river_attention": true,
+    "philosophical_depth": "medium",
+    "metaphorical_richness": "controlled",
+    "accessibility": "high",
+    "resonance": "art and authority",
+    "timelessness": "steady"
+  },
+  "chapter_summary": "ওয়ার্কশপে গান থামার পরে বিশ্বরূপ জয়দেবের আলো এনে দেখাবে, কাব্য কীভাবে রাজশক্তিকে অমরতার ভাষা দেয় অথচ একই সঙ্গে তাকে বিচারও করে। ঐতিহাসিক অংশে লক্ষ্মণ শুনবে গায়ক ও কবির কণ্ঠে নিজের সম্ভাব্য ভবিষ্যৎ, আর সেই প্রশস্তির ভিতরেই তার অস্বস্তি জন্ম নেবে। এই seed-এর মূল tension হলো অলংকার ও সত্যের দ্বন্দ্ব: শব্দ কি মানুষকে মহৎ করে, না শুধু মহত্ত্বের মুখোশ পরায়। হ্যান্ডঅফটি যাবে ধর্ম ও রাজনীতির ভিড়ে, যেখানে কাব্যের আলো কঠিন সামাজিক শক্তির মুখোমুখি হবে।",
   "mood": "default",
-  "segments": [1],
-  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
-  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
-  "syntax": {"form": "novel", "sample": "generic"},
-  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
-  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "bankim",
+    "reference": "languages_sample.txt",
+    "quality": "aurilus",
+    "theme_set": "generic"
+  },
+  "theme": {
+    "name": null,
+    "essence": null,
+    "contemporary_mapping": null
+  },
+  "syntax": {
+    "form": "novel",
+    "sample": "generic"
+  },
+  "workshop_file": ".space/pipeline/book_laxman/chapters/8/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_laxman/chapters/8/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/8/chapter.md"
+    },
+    {
+      "filter": "research",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/8/chapter.md"
+    },
+    {
+      "filter": "seeds",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/8/model.json"
+    }
+  ],
+  "word_target": 5500
 }

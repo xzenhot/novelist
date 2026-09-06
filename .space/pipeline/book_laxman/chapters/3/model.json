@@ -1,23 +1,90 @@
 {
   "chapter_index": 3,
   "chapter_name": "3",
-  "state": "scaffolded",
+  "state": "seeds",
   "chapter_title": "বল্লাল সেনের সভা",
   "subject": "Court power, learning, and succession under Ballal Sen",
   "era": "late twelfth-century Bengal and the Gangetic north",
   "place": [],
   "figures": [],
   "events": [],
-  "grounding_notes": ["বল্লাল সেন", "দানসাগর ও অদ্ভুতসাগর", "কৌলীন্য প্রথা"],
-  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
-  "included_characters": [],
-  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
-  "chapter_summary": "মূল কাহিনিতে বল্লাল সেন রাজসভার মধ্যে পাণ্ডিত্য, কৌলীন্য, করনীতি ও ক্ষমতার ভারসাম্য সামলান। তরুণ লক্ষ্মণ তার পিতার রাজনীতি দেখে শেখে গৌরবের সঙ্গে দায়ও জন্মায়।",
+  "grounding_notes": [
+    "বল্লাল সেন",
+    "দানসাগর ও অদ্ভুতসাগর",
+    "কৌলীন্য প্রথা"
+  ],
+  "sources": [
+    ".space/backlog/epic/laxman/epic.md",
+    ".space/backlog/epic/laxman/book.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "ballal_sen",
+      "full_name": "বল্লাল সেন",
+      "role_in_chapter": "রাজসভায় শাসন, কৌলীন্য ও বৈধতার ভার বহনকারী কেন্দ্রীয় শাসক"
+    },
+    {
+      "character_id": "laxman_sen",
+      "full_name": "লক্ষ্মণ সেন",
+      "role_in_chapter": "সভা পর্যবেক্ষণ করে ক্ষমতার একাকিত্ব ও দায় শিখতে থাকা যুবরাজ"
+    },
+    {
+      "character_id": "bishwarup_biswas",
+      "full_name": "বিশ্বরূপ বিশ্বাস",
+      "role_in_chapter": "ওয়ার্কশপে বল্লালের সভাকে প্রতিমা নয়, রাজনীতির ক্ষেত্র হিসেবে পড়তে বাধ্য করেন"
+    }
+  ],
+  "quality_parameters": {
+    "historical_caution": true,
+    "register": "elevated but readable Bengali",
+    "workshop_frame": true,
+    "river_attention": true,
+    "philosophical_depth": "medium",
+    "metaphorical_richness": "controlled",
+    "accessibility": "high",
+    "resonance": "power and solitude",
+    "timelessness": "steady"
+  },
+  "chapter_summary": "মঞ্চের আধবৃত্ত রাজসভার প্রতিরূপ হয়ে ওঠে এবং বিশ্বরূপ বল্লাল সেনকে এমন এক শাসক হিসেবে স্থাপন করে, যিনি শাস্ত্র, কৌলীন্য, রাজস্ব ও আনুগত্যের ভেতর দিয়ে সাম্রাজ্য ধরে রাখেন। ঐতিহাসিক অংশে লক্ষ্মণ সভার কিনারে দাঁড়িয়ে দেখে, ক্ষমতা শুধু মহিমা নয়, গভীর একাকিত্ব এবং কঠোর বিন্যাসের নামও। সংঘাতটি তাই বাহ্যিক নয়, শাসনের অভ্যন্তরে: কীভাবে বৈধতা রক্ষা করতে গিয়ে শাসক নিজেই কঠোরতার বন্দি হয়। হ্যান্ডঅফটি যায় যুবরাজের অভিষেক-প্রস্তুতিতে, যেখানে সেই কাঠামোর চাপ সরাসরি লক্ষ্মণের শরীরে নেমে আসবে।",
   "mood": "default",
-  "segments": [1],
-  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
-  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
-  "syntax": {"form": "novel", "sample": "generic"},
-  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
-  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "bankim",
+    "reference": "languages_sample.txt",
+    "quality": "aurilus",
+    "theme_set": "generic"
+  },
+  "theme": {
+    "name": null,
+    "essence": null,
+    "contemporary_mapping": null
+  },
+  "syntax": {
+    "form": "novel",
+    "sample": "generic"
+  },
+  "workshop_file": ".space/pipeline/book_laxman/chapters/3/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_laxman/chapters/3/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/3/chapter.md"
+    },
+    {
+      "filter": "research",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/3/chapter.md"
+    },
+    {
+      "filter": "seeds",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/3/model.json"
+    }
+  ],
+  "word_target": 5500
 }

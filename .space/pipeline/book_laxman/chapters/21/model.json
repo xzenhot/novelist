@@ -1,23 +1,90 @@
 {
   "chapter_index": 21,
   "chapter_name": "21",
-  "state": "scaffolded",
+  "state": "seeds",
   "chapter_title": "ফেরার পথে বাংলা",
   "subject": "The returning army carries grief, wealth, and questions",
   "era": "late twelfth-century Bengal and the Gangetic north",
   "place": [],
   "figures": [],
   "events": [],
-  "grounding_notes": ["অভিযানের প্রত্যাবর্তন", "যুদ্ধোত্তর সমাজ", "নাট্যরূপের নৈতিকতা"],
-  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
-  "included_characters": [],
-  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
-  "chapter_summary": "ফিরতি পথে সেনাবাহিনী বিজয়, শোক, বন্দি, সম্পদ ও গল্প নিয়ে পূর্বে ফেরে। ওয়ার্কশপে প্রশ্ন ওঠে, এই পালা শেষ হলে দর্শক গৌরব দেখবে, না দায়ও দেখবে।",
+  "grounding_notes": [
+    "অভিযানের প্রত্যাবর্তন",
+    "যুদ্ধোত্তর সমাজ",
+    "নাট্যরূপের নৈতিকতা"
+  ],
+  "sources": [
+    ".space/backlog/epic/laxman/epic.md",
+    ".space/backlog/epic/laxman/book.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "laxman_sen",
+      "full_name": "লক্ষ্মণ সেন",
+      "role_in_chapter": "বিজয়ের পর ব্যাখ্যা ও দায়ের ভার বহন করতে থাকা প্রত্যাবর্তনশীল যুবরাজ"
+    },
+    {
+      "character_id": "malini",
+      "full_name": "মালিনী",
+      "role_in_chapter": "আগের মানবিক ক্ষতির প্রতিধ্বনি হয়ে যাত্রার অর্থকে জটিল রাখেন"
+    },
+    {
+      "character_id": "bishwarup_biswas",
+      "full_name": "বিশ্বরূপ বিশ্বাস",
+      "role_in_chapter": "ওয়ার্কশপে ফিরে আসাকেও নৈতিক প্রশ্নে পরিণত করেন"
+    }
+  ],
+  "quality_parameters": {
+    "historical_caution": true,
+    "register": "elevated but readable Bengali",
+    "workshop_frame": true,
+    "river_attention": true,
+    "philosophical_depth": "medium",
+    "metaphorical_richness": "controlled",
+    "accessibility": "high",
+    "resonance": "return and reckoning",
+    "timelessness": "steady"
+  },
+  "chapter_summary": "ফিরতি যাত্রার seed-এ বাইরের বিজয়ী শোভাযাত্রা আর ভিতরের ক্লান্তি, বন্দি, লুণ্ঠিত সম্পদ, আহত শরীর ও ব্যাখ্যাতীত স্মৃতিকে পাশাপাশি রাখতে হবে। লক্ষ্মণ বুঝবে যে যুদ্ধশেষ মানে সমাপ্তি নয়; বরং শুরু হয় বিজয়ের অর্থ বহনের দায়। এই অধ্যায়ের irony হলো গৌরবের সঙ্গে শোকের একযোগে প্রত্যাবর্তন। হ্যান্ডঅফটি যাবে বিশ্বরূপের শেষ পাঠে, যেখানে ইতিহাসের এই ভার ভাষায় ও আত্মসমালোচনায় রূপ নেবে।",
   "mood": "default",
-  "segments": [1],
-  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
-  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
-  "syntax": {"form": "novel", "sample": "generic"},
-  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
-  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "bankim",
+    "reference": "languages_sample.txt",
+    "quality": "aurilus",
+    "theme_set": "generic"
+  },
+  "theme": {
+    "name": null,
+    "essence": null,
+    "contemporary_mapping": null
+  },
+  "syntax": {
+    "form": "novel",
+    "sample": "generic"
+  },
+  "workshop_file": ".space/pipeline/book_laxman/chapters/21/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_laxman/chapters/21/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/21/chapter.md"
+    },
+    {
+      "filter": "research",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/21/chapter.md"
+    },
+    {
+      "filter": "seeds",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/21/model.json"
+    }
+  ],
+  "word_target": 5500
 }

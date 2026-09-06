@@ -258,7 +258,7 @@
       <tbody>
         <tr><td><code>&lt;bookname&gt;</code> (bare)</td><td>Creates <code>.space/backlog/epic/&lt;bookname&gt;/epic.md</code> if it does not exist, auto-generating the gist from the book name. If the epic already exists, reports that it exists. Does not scaffold a pipeline.</td></tr>
         <tr><td><code>gist [&lt;gist&gt;] [form]</code></td><td>Creates, updates, or rewrites the epic (recording the seed in <code>gist.md</code>) and develops it into a rich narrative foundation. If gist omitted, infers from book name. If <code>[form]</code> supplied, changes the book's form. Does <strong>not</strong> scaffold a pipeline.</td></tr>
-        <tr><td><code>init [&lt;gist&gt;] [&lt;preset&gt;] [form] [refresh]</code></td><td>Fully configures the backlog epic folder — <code>gist.md</code>, <code>epic.md</code>, <code>book.json</code>, <code>override.md</code>, <code>masterprompt.txt</code> — and derives the ordered filter chain plus the chapter-layout plan. Fills only gaps unless <code>refresh</code> re-grooms every artifact. Must run before <code>scaffold</code>.</td></tr>
+        <tr><td><code>init [&lt;gist&gt;] [&lt;preset&gt;] [form] [refresh]</code></td><td>Fully configures the backlog epic folder — <code>gist.md</code>, <code>epic.md</code>, <code>book.json</code>, <code>override.md</code>, <code>override.txt</code> — and derives the ordered filter chain plus the chapter-layout plan. Fills only gaps unless <code>refresh</code> re-grooms every artifact. Must run before <code>scaffold</code>.</td></tr>
         <tr><td><code>scaffold &lt;gist&gt; count|chapter-count &lt;number&gt;</code></td><td>Creates or repairs <code>.space/pipeline/book_&lt;bookname&gt;/</code> through the scaffold agent (prelayout → layout skill → postlayout), gated by the existence of <code>book.json</code>. Never creates or modifies <code>epic.md</code>.</td></tr>
         <tr><td><code>&lt;agentname&gt; &lt;chapter&gt;|&lt;n&gt;|all|continue</code></td><td>Runs any registered agent (<code>.framework/agents/&lt;agentname&gt;/agent.md</code>) against selected chapters in an existing pipeline. Does not promote output to <code>source/books/</code>.</td></tr>
         <tr><td><code>poet</code> (aliases: <code>poetry</code>, <code>poem</code>)</td><td>Invokes the poet agent to produce a single finished poem from the human-authored override file (poetry pipelines only).</td></tr>
@@ -340,7 +340,7 @@
       <li>Invoke the scaffold agent (<code>.framework/agents/scaffold/agent.md</code>); never invoke layout skills directly. The scaffold agent runs the prelayout agent first (<code>.framework/agents/prelayout/agent.md</code>), then the form-specific layout skill.</li>
       <li>Build <code>filters/filters.json</code> from <code>book.json</code>'s authoritative <code>filter_chain</code> — never copy the layout skills' <em>Preset</em> sections directly.</li>
       <li>Apply form-specific initialization in <code>model.json</code> and related files; seed <code>filters/override/filter.md</code> whenever <code>override</code> appears in the chain.</li>
-      <li>Run the postlayout agent (<code>.framework/agents/postlayout/agent.md</code>) to generate the dynamic pipeline master prompt from the backlog <code>masterprompt.txt</code>. A scaffold is not complete until postlayout has run.</li>
+      <li>Run the postlayout agent (<code>.framework/agents/postlayout/agent.md</code>) to generate the dynamic pipeline master prompt from the backlog <code>override.txt</code>. A scaffold is not complete until postlayout has run.</li>
       <li>Do not run filters during scaffold — structure only. After scaffold, run <code>/write &lt;bookname&gt; filter &lt;filter&gt;|*|all</code> to populate filter outputs before writing any chapter.</li>
     </ol>
 
@@ -374,7 +374,7 @@
         <tr><td><code>epic.md</code></td><td>The full narrative foundation — premise, setting, characters, themes, chapter outline.</td></tr>
         <tr><td><code>book.json</code></td><td>The chapter-layout plan and the authoritative <code>filter_chain</code>/<code>word_target</code> — the blueprint <code>scaffold</code> builds from.</td></tr>
         <tr><td><code>override.md</code></td><td>The human custom transformation layer (backlog planning copy).</td></tr>
-        <tr><td><code>masterprompt.txt</code></td><td>The book's master prompt — identity, premise, form/language, style mandate, section structure.</td></tr>
+        <tr><td><code>override.txt</code></td><td>The book's master prompt — identity, premise, form/language, style mandate, section structure.</td></tr>
       </tbody>
     </table>
     <h3>Behavior</h3>

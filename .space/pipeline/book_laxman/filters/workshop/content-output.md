@@ -1,3 +1,9 @@
 # Workshop Output
 
-Pending.
+Workshop output has been written into the live chapter drafts:
+
+- `.space/pipeline/book_laxman/chapters/Introduction/chapter.md`
+- `.space/pipeline/book_laxman/chapters/1/chapter.md` through `.space/pipeline/book_laxman/chapters/22/chapter.md`
+- `.space/pipeline/book_laxman/chapters/Conclusion/chapter.md`
+
+Each chapter now contains the minimal working Workshop / Story / Discussion frame for the next filters.

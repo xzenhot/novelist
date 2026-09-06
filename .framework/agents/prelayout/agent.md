@@ -40,7 +40,7 @@ Resolve and hand off a **pre-layout plan** with these fields:
 2. **Chapter count** — from `book.json`'s `chapter_count`, or the length of its `chapters` array, or the default (5).
 3. **Topic/chapter list** — for poetry, the ordered topic list (from `book.json`'s `chapters` or the gist); for novels, the canonical chapter order (`Introduction`, `1..N`, `Conclusion`).
 4. **Filter chain** — the ordered `filter_chain` from `book.json`, as declared by the form's preset (`.framework/skills/layout-poetry/SKILL.md` for poetry, `.framework/skills/layout-novel/SKILL.md` for novel). This is the authoritative sequence the layout skill uses to build `filters/filters.json`.
-5. **Word target** — from `book.json`'s `word_target`, as declared by the preset.
+5. **Word target** — from `book.json`'s `word_target`, as declared by the preset. This is a **chapter-instance property**: the book-level value is only a default. Hand it to the layout skill as a per-chapter default that must be stamped into every chapter instance (each `chapters[]` item and each chapter's `model.json`), not kept as a book-level-only value.
 
 ## Rules
 

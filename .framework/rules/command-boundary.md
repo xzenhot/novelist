@@ -16,7 +16,7 @@ They are allowed to create, read, or modify only the backlog files:
 - `book.json`
 - `gist.md`
 - `override.md`
-- `masterprompt.txt`
+- `override.txt`
 
 The backlog commands are:
 

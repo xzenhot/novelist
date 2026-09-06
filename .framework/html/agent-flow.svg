@@ -51,7 +51,7 @@
   <rect x="360" y="150" width="200" height="90" class="box"/>
   <text x="460" y="178" text-anchor="middle" class="box-title">init agent</text>
   <text x="460" y="198" text-anchor="middle" class="box-agent">.framework/agents/init/</text>
-  <text x="460" y="218" text-anchor="middle" class="box-output">→ book.json, override.md, masterprompt.txt</text>
+  <text x="460" y="218" text-anchor="middle" class="box-output">→ book.json, override.md, override.txt</text>
 
   <!-- preset -->
   <rect x="640" y="150" width="240" height="90" class="box"/>

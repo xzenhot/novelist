@@ -1,23 +1,85 @@
 {
   "chapter_index": 1,
   "chapter_name": "1",
-  "state": "scaffolded",
+  "state": "seeds",
   "chapter_title": "ওয়ার্কশপের প্রথম ডাক",
   "subject": "Choosing a Bengali hero after the Ramayana production",
   "era": "late twelfth-century Bengal and the Gangetic north",
   "place": [],
   "figures": [],
   "events": [],
-  "grounding_notes": ["বাংলার ঐতিহাসিক নায়ক নির্বাচন", "সেন বংশ পরিচয়", "জাতীয় স্মৃতি ও নাট্যরূপ"],
-  "sources": [".space/backlog/epic/laxman/epic.md", ".space/backlog/epic/laxman/book.json"],
-  "included_characters": [],
-  "quality_parameters": {"historical_caution": true, "register": "elevated but readable Bengali", "workshop_frame": true, "river_attention": true},
-  "chapter_summary": "মোহিত শিল্পী ও কলাকুশলীদের ডেকে জিজ্ঞেস করেন, রামায়ণের পর কোন বাঙালি নায়ক মঞ্চে উঠতে পারে। সিরাজ, চৈতন্য, বিবেকানন্দ, রবীন্দ্রনাথের ভিড়ে বিশ্বরূপ সেন যুগের কথা তোলে।",
+  "grounding_notes": [
+    "বাংলার ঐতিহাসিক নায়ক নির্বাচন",
+    "সেন বংশ পরিচয়",
+    "জাতীয় স্মৃতি ও নাট্যরূপ"
+  ],
+  "sources": [
+    ".space/backlog/epic/laxman/epic.md",
+    ".space/backlog/epic/laxman/book.json"
+  ],
+  "included_characters": [
+    {
+      "character_id": "mohit_kanjilal",
+      "full_name": "মোহিত কাঞ্জিলাল",
+      "role_in_chapter": "তর্কের পরিসর তৈরি করে সম্ভাব্য বাংলা নায়ক বাছাইয়ের চাপ কেন্দ্রে আনেন"
+    },
+    {
+      "character_id": "bishwarup_biswas",
+      "full_name": "বিশ্বরূপ বিশ্বাস",
+      "role_in_chapter": "সেন যুগকে প্রস্তাব করে কাহিনির প্রধান ঐতিহাসিক দরজা খুলে দেন"
+    }
+  ],
+  "quality_parameters": {
+    "historical_caution": true,
+    "register": "elevated but readable Bengali",
+    "workshop_frame": true,
+    "river_attention": true,
+    "philosophical_depth": "medium",
+    "metaphorical_richness": "controlled",
+    "accessibility": "high",
+    "resonance": "identity and memory",
+    "timelessness": "emerging"
+  },
+  "chapter_summary": "দিল্লির ওয়ার্কশপ-মঞ্চে মোহিত শিল্পী ও কলাকুশলীদের ডেকে রামায়ণের পরবর্তী পালার জন্য এমন এক বাঙালি নায়কের খোঁজ তোলেন, যিনি প্রবাসী দর্শকের আত্মপরিচয়কে নাড়া দিতে পারেন। একের পর এক পরিচিত নাম উঠে এলেও বিশ্বরূপ টের পায়, দল আসলে শুধু জনপ্রিয় চরিত্র খুঁজছে না, খুঁজছে এমন এক ইতিহাস যা নতুন করে ব্যাখ্যা করতে হবে। সে তখন সেন যুগের কথা তোলে, যেখানে নদী, রাজসভা, কৌলীন্য, কবিতা এবং সামরিক উচ্চাশা একসঙ্গে বাঁধা। অধ্যায়টি শেষ হয় এই ইঙ্গিতে যে নায়ক-বাছাইয়ের বিতর্ক থেকেই উপন্যাসের নৈতিক স্বর জন্ম নেবে, এবং পরের ধাপে বিজয় সেনের উত্তরাধিকার সেই অনুসন্ধানকে গভীর করবে।",
   "mood": "default",
-  "segments": [1],
-  "stereotype": {"form": "novel", "signature": "bankim", "reference": "languages_sample.txt", "quality": "aurilus", "theme_set": "generic"},
-  "theme": {"name": null, "essence": null, "contemporary_mapping": null},
-  "syntax": {"form": "novel", "sample": "generic"},
-  "workshop_file": ".space/pipeline/book_laxman/filters/workshop/content-output.md",
-  "research_file": ".space/pipeline/book_laxman/filters/research/content-output.md"
+  "segments": [
+    1
+  ],
+  "stereotype": {
+    "form": "novel",
+    "signature": "bankim",
+    "reference": "languages_sample.txt",
+    "quality": "aurilus",
+    "theme_set": "generic"
+  },
+  "theme": {
+    "name": null,
+    "essence": null,
+    "contemporary_mapping": null
+  },
+  "syntax": {
+    "form": "novel",
+    "sample": "generic"
+  },
+  "workshop_file": ".space/pipeline/book_laxman/chapters/1/chapter.md",
+  "mastery_level": "Experienced",
+  "research_file": ".space/pipeline/book_laxman/chapters/1/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/1/chapter.md"
+    },
+    {
+      "filter": "research",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/1/chapter.md"
+    },
+    {
+      "filter": "seeds",
+      "ran_at": "2026-09-06T00:00:00Z",
+      "output_file": ".space/pipeline/book_laxman/chapters/1/model.json"
+    }
+  ],
+  "word_target": 5500
 }
