@@ -39,6 +39,7 @@ Before writing any chapter, merge the backlog book plan into the pipeline's work
    - `word_target` — the target word count per chapter/poem.
    - `filter_chain` — the ordered filter/agent list.
    - `target_audience`, `generic`, `era` — identity fields from the book plan.
+   - `chapters` — the full chapter-layout array from the book plan, copied verbatim (each entry carries `chapter_index`, `name`, `chapter_title`, `chapter_summary`, and `further_references`). This is the authoritative per-chapter layout the pipeline uses to write each chapter/poem.
 3. **Merge into `progress.json`** (`.space/pipeline/book_<bookname>/progress.json`). Preserve existing fields and reconcile the chapter list against the book plan's `chapters` array:
    - For each chapter in the book plan, ensure a matching progress entry exists with `chapter_number`, `topic` (from `chapter_title`), `category`, `status`, `file_path`, and `completed_date`.
    - Set `total_chapters` to the book plan's `chapter_count`.

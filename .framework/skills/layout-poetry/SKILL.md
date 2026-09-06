@@ -1,6 +1,6 @@
 ---
 name: layout-poetry
-description: "Use when scaffolding or repairing the structural skeleton of a poetry pipeline. Creates .space/pipeline/book_<bookname>/, model.json, bookseed.txt, progress.json, override.md, metadata_code files, named poetry filter folders, one segment per topic, and the empty source/books destination. Does not write poem chapters or runtime filter results."
+description: "Use when scaffolding or repairing the structural skeleton of a poetry pipeline. Creates .space/pipeline/book_<bookname>/, model.json, bookseed.txt, progress.json, override.md, named poetry filter folders, one segment per topic, and the empty source/books destination. Does not write poem chapters or runtime filter results."
 ---
 
 # Layout Poetry - Pipeline Scaffold
@@ -35,7 +35,6 @@ Poetry uses these root files as source of truth:
 |-- model.json
 |-- bookseed.txt
 |-- progress.json
-|-- metadata_code1.json
 |-- filters/
 |   |-- filters.json
 |   |-- research/
@@ -137,10 +136,6 @@ For a new scaffold, set all statuses to `pending`, `completed_chapters` to `0`, 
 
 The poetry override, like the novel override, is **a filter-file command layer**, not a pipeline-root file. Do **not** create a pipeline-root `override.md`. The `override` filter lives in `filters/override/` and its command file `filters/override/filter.md` is seeded at scaffold from `.framework/agents/override/agent.md` (dynamically customized for the poetry form and the pipeline's actual context), with an empty `## Instructions` section for the human.
 
-### `metadata_code<number>.json`
-
-Create the first available `metadata_code<number>.json`. Never overwrite an existing metadata file.
-
 ## Chapter And Segment State
 
 Create `model.json` in every chapter folder and every segment folder.
@@ -222,7 +217,7 @@ Do not write poem chapters or `book.md` during layout.
 
 Before reporting completion, verify:
 
-- Root files exist: `model.json`, `bookseed.txt`, `progress.json`, and one `metadata_code<number>.json`.
+- Root files exist: `model.json`, `bookseed.txt`, and `progress.json`.
 - `filters/override/filter.md` exists — the override command file (no pipeline-root `override.md`).
 - `filters/filters.json` exists and names all six poetry filters in order.
 - Every filter folder has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.

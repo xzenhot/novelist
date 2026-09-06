@@ -155,6 +155,18 @@ correctness, scaffold, override, poet, quality, reframe, research,
 seeds, syntax, theme, workshop
 ```
 
+Known post-scaffold agents:
+
+```text
+postlayout
+```
+
+Known pre-scaffold agents:
+
+```text
+prelayout
+```
+
 ## Agent-First Skill Invocation
 
 Workflows must never execute skills directly.
@@ -203,6 +215,8 @@ Primary orchestration spec for `/write`.
 ```text
 .framework/agents/correctness/agent.md
 .framework/agents/scaffold/agent.md
+.framework/agents/prelayout/agent.md
+.framework/agents/postlayout/agent.md
 .framework/agents/override/agent.md
 .framework/agents/poet/agent.md
 .framework/agents/quality/agent.md

@@ -17,9 +17,8 @@ You are a revision editor. Your task is to **improve, tighten, audit, or transfo
 ## Method
 
 1. **Read the context** — `config.json`, `progress.json`, the chapter file, `book.md`, and the applicable quality/theme/reference files.
-2. **Record the plan** — create the next `metadata_code<number>.json` with `run_type: revision` or `audit`, noting the request, findings, and intended transformation.
-3. **Revise** — edit the individual chapter file and the matching section in `book.md` so they do not diverge.
-4. **Preserve** — chapter number, topic, category, and completed status unless a structural change is requested.
+2. **Revise** — edit the individual chapter file and the matching section in `book.md` so they do not diverge.
+3. **Preserve** — chapter number, topic, category, and completed status unless a structural change is requested.
 
 ## Revision Quality Checks
 

@@ -264,7 +264,6 @@ To develop the ideas:
 3. **Build a metaphor plan** — for each idea, choose the nature/body/architectural metaphors that will carry it (e.g. "the silent witness" → the still lake, the unlit lamp, the root beneath the soil).
 4. **Select sacred vocabulary** — pick the `sacred_vocabulary` and `translation_guide` entries that resonate with the ideas.
 5. **Define the frame** — from the developed ideas, name the target voice, perspective, register, and structure.
-6. **Record the developed context** — write this developed context into the metadata file (`metadata_code<number>.json`) as the `reframe_plan` before touching the chapter text.
 
 Only after the ideas are developed into this fuller context do you reframe the chapter text.
 
@@ -272,12 +271,11 @@ Only after the ideas are developed into this fuller context do you reframe the c
 
 1. **Read the existing chapter** — the full text from `chapters\Chapter_XXX_[term].md` (or the `<chapter_name>` given).
 2. **Read the context** — `config.json`, the quality/theme/reference files, and `override.md` (if present).
-3. **Read the metadata** — the latest `metadata_code*.json` to understand how the chapter was originally planned.
-4. **Read the ideas** — the human's reframing ideas (if provided alongside the `<chapter_name>`).
-5. **Develop the ideas into context** — unpack, connect, and build a metaphor plan and frame (see above).
-6. **Identify the frame** — what voice, perspective, register, and structure the existing text uses, and the target frame from the developed ideas.
-7. **Apply the transformation** — reshape the text into the new frame, preserving the philosophical core.
-8. **Write the reframed chapter** — write to a new incremented file (see below); do not overwrite the original.
+3. **Read the ideas** — the human's reframing ideas (if provided alongside the `<chapter_name>`).
+4. **Develop the ideas into context** — unpack, connect, and build a metaphor plan and frame (see above).
+5. **Identify the frame** — what voice, perspective, register, and structure the existing text uses, and the target frame from the developed ideas.
+6. **Apply the transformation** — reshape the text into the new frame, preserving the philosophical core.
+7. **Write the reframed chapter** — write to a new incremented file (see below); do not overwrite the original.
 
 ### The `override.md` file (the transformation layer)
 
@@ -317,14 +315,11 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
    - Note the four sections: Prompt Transformation, Local Preferences, Local Dialects, Slug/Location/Era
    - If empty or absent, skip the transformation pass
 
-4. **Read the metadata** (optional):
-   - Read the latest `metadata_code*.json` to understand the original plan (category, metaphor plan, sacred vocabulary)
-
-5. **Identify the frame**:
+4. **Identify the frame**:
    - Note the existing voice, perspective, register, and structure
    - Determine the target frame from the human's request and `override.md`
 
-6. **Reframe the chapter** (transform Context + Style + Theme):
+5. **Reframe the chapter** (transform Context + Style + Theme):
    - Reshape the existing text into the new frame **in the language specified by `config.json`'s `language` field**
    - Preserve the philosophical core (subject, theme, wisdom) while changing the frame
    - Apply the fixed Style (cadence, sacred vocabulary, structural formula)
@@ -332,29 +327,25 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
    - Ground the philosophy in the Context's themes and the assigned Theme category
    - Ensure 500-800 word count
 
-7. **Apply the Override** (transformation pass, if `override.md` is filled):
+6. **Apply the Override** (transformation pass, if `override.md` is filled):
    - **Prompt Transformation** → reshape the voice/structure as instructed
    - **Local Preferences** → adjust style to the human's taste
    - **Local Dialects** → weave in dialect words and forms
    - **Slug / Location / Era** → anchor the text in place and time
    - Apply in that order; skip any empty section
 
-8. **Save the reframed chapter to an incremented file**:
+7. **Save the reframed chapter to an incremented file**:
    - Write the reframed text to a **new** file named `<chapter_name><number_incremented>.md` — do NOT overwrite the original chapter file
    - The `<number_incremented>` is the next version number for that chapter (e.g. `Chapter_003_Neutron.md` → `Chapter_003_Neutron2.md` → `Chapter_003_Neutron3.md`, …)
    - Check the `chapters\` folder for existing versions of the chapter and increment the highest number by one
    - Start the file with the heading `# Chapter XXX: [term]` (or target-language equivalent)
 
-9. **Update the book** (optional):
+8. **Update the book** (optional):
    - If the human asks, update the corresponding chapter section in `source\book_<bookname>\book.md` to point to the new version
    - Otherwise leave `book.md` untouched — the incremented file is a new variant, not a replacement
    - Do not change the title, introduction, or other chapters
 
-10. **Record the reframing**:
-    - Create the next `metadata_code<number>.json` with `"run_type": "reframe"`, recording the original chapter, the ideas, the developed context (`reframe_plan`), the target frame, the transformation applied, and the output file name
-    - Do not change `progress.json` status — reframing does not advance the book's completion
-
-11. **Report completion**:
+9. **Report completion**:
     - Inform the user which chapter was reframed and how
     - Show progress (e.g., "Chapter 3 of 199 reframed")
     - Ask if they want to continue to the next chapter

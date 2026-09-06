@@ -23,6 +23,8 @@ You receive two optional positional parameters:
 1. **`<bookname>`** — the logical book name (e.g. `wife`, `chaitanya`). If omitted, use the currently active/focused book as determined by the caller.
 2. **`<form>`** — the desired form: `novel` or `poetry`. If omitted, default to `novel`. This parameter is used only when the form cannot be determined from an existing pipeline or backlog epic.
 
+You may also receive a **`refresh`** keyword. When present, re-groom and regenerate all five backlog artifacts from the existing material, reconciling them to the resolved form (see *Refresh Mode* below).
+
 Init does not inspect or modify the pipeline. The form parameter exists solely to choose the correct default preset when no pipeline exists yet.
 
 ## The Five Backlog Artifacts
@@ -108,6 +110,20 @@ The book's master prompt. A plain-text prompt that captures the book's identity 
 5. **If the caller supplied a preset,** merge its filter chain into `.space/backlog/epic/<bookname>/book.json` as the `filter_chain` field regardless of the gist state.
 6. **Parse the ordered sequence.** Read the `filter_chain` field from `book.json` and extract the ordered agent/filter list. Preserve the numeric order exactly. Return only the leading token (e.g. `workshop`).
 7. **Do not scaffold anything.** The init agent must not create `.space/pipeline/book_<bookname>/`, must not create `filters/` directories, and must not run any agent or filter.
+
+## Refresh Mode
+
+When the caller supplies the `refresh` keyword, do not merely fill gaps — re-groom and regenerate all five backlog artifacts from the existing material, reconciling them to the resolved form. This is used when the backlog has drifted out of consistency (e.g. a poetry book whose `epic.md` still reads as a novel).
+
+1. **Resolve the form first** (caller `<form>` → pipeline `model.json` → epic metadata → default `novel`).
+2. **Re-groom each artifact to the form:**
+   - `gist.md` — keep the one-line gist; re-derive the expansion so it names the correct form (a poem sequence for poetry, a novel for novels).
+   - `epic.md` — re-groom into a form-consistent foundation. For poetry, drop the novel-only character roster and Introduction/Chapter/Conclusion outline in favor of a topical structure; for novels, keep the character arcs and chapter outline. Preserve the original `Created` timestamp; update `Updated` and `Updated By`.
+   - `book.json` — re-derive the `chapters` array, `filter_chain`, `word_target`, and `all_characters` (novels) / drop it (poetry) to match the form.
+   - `override.md` — preserve any human-authored `## Instructions`; refresh only the header/context above them.
+   - `masterprompt.txt` — re-derive identity, premise, form/language, style mandate, and section structure to match the form.
+3. **Never touch the pipeline or `source/books/`.** Refresh operates only inside `.space/backlog/epic/<bookname>/`.
+4. **Report the delta.** State what was re-groomed and what was preserved, so the caller can see the change.
 
 ## Output Contract
 
