@@ -84,8 +84,8 @@ Responsibility: create, update, or rewrite the backlog epic with a detailed narr
 7. The epic should be polished, coherent, and inspiring — a solid foundation for the full pipeline.
 8. **When the epic already exists, re-groom it.** Read the existing epic and extract what is salvageable: the title, book name, language, genre, era, chapter count, and any coherent premise, character, theme, or chapter outline material. Regenerate it into a well-groomed, consistent foundation that remains true to the existing material — do not invent a new story, but reorder, clarify, and deepen what is already present. Update the `Updated` timestamp and `Updated By` field; keep the original `Created` timestamp unchanged.
 9. **Change the form when `<form>` is supplied.** If `<form>` differs from the book's current form, change it and update `.space/backlog/epic/<bookname>/book.json`:
-   - Set the `filter_chain` to the form's chain (8 filters for `novel`, 6 for `poetry`).
-   - Set `word_target` to the form's target (4500+ for `novel`, 500 for `poetry`).
+   - Set the `filter_chain` to the form's preset chain (see the init agent's *Presets* section: `layout-poetry/SKILL.md` for poetry, `layout-novel/SKILL.md` for novel).
+   - Set `word_target` to the form's preset target (500 for poetry, 4500 for novel).
    - Re-derive the `chapters` array for the new form (`Introduction`, `1..N`, `Conclusion` for novels; `1..N` topics for poetry).
    - Re-derive `all_characters` (novels) or drop it (poetry).
    - If `book.json` does not exist yet, create it (delegating to the init agent's book-plan derivation).
@@ -123,13 +123,13 @@ Responsibility: fully configure the backlog epic folder — the gist, epic, chap
 - `<form>` — optional form selector: `novel` or `poetry`. Defaults to `novel`. Used to set or change the book's form.
 - `refresh` — optional keyword. When present, re-groom and regenerate the backlog artifacts (`gist.md`, `epic.md`, `book.json`, `override.md`, `masterprompt.txt`) from the existing material, reconciling them to the book's resolved form. Unlike a normal init (which fills only gaps), `refresh` re-derives every artifact so the backlog is internally consistent — e.g. a poetry book whose `epic.md` still reads as a novel is re-groomed into a poetry-consistent foundation. It never touches the pipeline or `source/books/`.
 
-1. If `<preset>` is provided, merge its filter chain into `.space/backlog/epic/<bookname>/book.json` as the `filter_chain` field. The content may be a file path, a named preset template, or inline Markdown. If a path under `.framework/templates/presets/` is referenced, read its filter sequence.
-2. If `<preset>` is omitted, invoke the init agent (`.framework/agents/init/agent.md`) to select or create the form-specific default filter chain. The form is resolved from the explicit `<form>` argument, existing pipeline, backlog epic, or default `novel`.
+1. If `<preset>` is provided, merge its filter chain into `.space/backlog/epic/<bookname>/book.json` as the `filter_chain` field. The content may be a file path, a named preset template, or inline Markdown. If a file path is referenced, read its filter sequence.
+2. If `<preset>` is omitted, invoke the init agent (`.framework/agents/init/agent.md`) to select or create the form-specific default filter chain. The form is resolved from the explicit `<form>` argument, backlog epic, or default `novel`. Init never reads the pipeline; the pipeline `model.json` is read only by the postlayout agent after scaffold.
 3. The init agent creates or validates the full backlog configuration — `gist.md`, `epic.md`, `book.json`, `override.md`, and `masterprompt.txt` — and returns the ordered filter/agent sequence. It does not create or modify any file under `.space/pipeline/book_<bookname>/`.
 4. Do not execute filters during init; only prepare the filter chain and the chapter-layout plan.
 5. **Change the form when `<form>` is supplied.** If `<form>` differs from the book's current form, change it and update `.space/backlog/epic/<bookname>/book.json`:
-   - Set the `filter_chain` to the form's chain (8 filters for `novel`, 6 for `poetry`).
-   - Set `word_target` to the form's target (4500+ for `novel`, 500 for `poetry`).
+   - Set the `filter_chain` to the form's preset chain (see the init agent's *Presets* section: `layout-poetry/SKILL.md` for poetry, `layout-novel/SKILL.md` for novel).
+   - Set `word_target` to the form's preset target (500 for poetry, 4500 for novel).
    - Re-derive the `chapters` array for the new form (`Introduction`, `1..N`, `Conclusion` for novels; `1..N` topics for poetry).
    - Re-derive `all_characters` (novels) or drop it (poetry).
 6. **Refresh when `refresh` is supplied.** Re-groom every backlog artifact from the existing material, reconciling them to the resolved form:
@@ -201,7 +201,7 @@ The form is declared once, at scaffold time, in the pipeline's `form` field (`mo
 | **Chapter structure** | Workshop / Story / Discussion | Question / Oration / Benediction |
 | **Segments per chapter** | many (`segments/1`, `segments/2`, …) | exactly one (`segments/1`) |
 | **`mood.json`** | present per chapter | absent (no moods) |
-| **Filter chain** | 8 filters | 6 filters |
+| **Filter chain** | preset-defined (`layout-novel/SKILL.md`) | preset-defined (`layout-poetry/SKILL.md`) |
 | **Word target** | 5,500+ words | 500–800 words |
 | **Stereotype templates** | `stereotypes/novel/` | `stereotypes/poetry/` |
 
@@ -234,7 +234,7 @@ Responsibility: build the pipeline structure from the backlog book plan and form
 5. Stop if the backlog epic is missing for a novel; do not create or rewrite it. The actual story always comes from the existing epic.
 6. Invoke the scaffold agent at `.framework/agents/scaffold/agent.md`; do not invoke layout skills directly. Pass the epic (novel) or the gist/topic list (poetry), the chapter count, and **the path to the backlog book plan** `.space/backlog/epic/<bookname>/book.json`.
 7. The scaffold agent MUST invoke the prelayout agent (`.framework/agents/prelayout/agent.md`) as its first step, before any layout work, to resolve the form, validate the book plan, and produce the pre-layout plan. The layout skill runs only after the prelayout agent returns.
-8. The scaffold agent must read the book plan from `.space/backlog/epic/<bookname>/book.json` and use its declared `filter_chain` sequence to build `.space/pipeline/book_<bookname>/filters/filters.json`. It must **not** copy `.framework/templates/presets/` directly; the backlog book plan is the authoritative source for the filter chain.
+8. The scaffold agent must read the book plan from `.space/backlog/epic/<bookname>/book.json` and use its declared `filter_chain` sequence to build `.space/pipeline/book_<bookname>/filters/filters.json`. It must **not** copy the layout skills' *Preset* sections directly; the backlog book plan is the authoritative source for the filter chain.
 9. Apply form-specific initialization (below).
 10. **Seed the override command file.** The scaffold agent recreates `.space/pipeline/book_<bookname>/filters/override/filter.md` with form-customized content derived from `.framework/agents/override/agent.md` whenever `override` appears in the book plan's `filter_chain`.
 11. **Generate the dynamic master prompt.** After layout, the scaffold agent MUST invoke the postlayout agent (`.framework/agents/postlayout/agent.md`) to derive the pipeline's dynamic master prompt from the backlog idea (`.space/backlog/epic/<bookname>/masterprompt.txt`) and the resolved pipeline state, writing it to `.space/pipeline/book_<bookname>/masterprompt.txt`. This is a mandatory final step — a scaffold is not complete until the postlayout agent has run.
@@ -319,7 +319,7 @@ Responsibility: run one preparatory filter, or the entire chain, inside an exist
 
 The filter chain depends on the form. Each filter owns a folder in the pipeline's `filters/` and consumes the output of the filters before it — run them strictly in order, never skipping or reordering.
 
-**Novel (8 filters)** — backed by role agents in `.framework/agents/<filter>/agent.md`, bare named folders:
+**Novel (preset: `layout-novel/SKILL.md`)** — backed by role agents in `.framework/agents/<filter>/agent.md`, bare named folders:
 
 | # | Filter | Folder | Role file | Produces |
 |---|---|---|---|---|
@@ -329,13 +329,12 @@ The filter chain depends on the form. Each filter owns a folder in the pipeline'
 | 4 | correctness | `filters/correctness/` | `correctness/correctness.md` | Fact-check results |
 | 5 | theme | `filters/theme/` | `theme/theme.md` | Thematic lens and contemporary mapping |
 | 6 | syntax | `filters/syntax/` | `syntax/syntax.md` | Modernized sentence structure |
-| 7 | override | `filters/override/` | `filters/override/filter.md` | Custom human-authored transformation |
-| 8 | quality | `filters/quality/` | `quality/quality.md` | Quality audit result |
 
-**Poetry (6 filters)** — backed by filter agents in `.framework/agents/<filter>/agent.md`; those agents may invoke `.framework/skills/<filter>/SKILL.md` internally when needed. The workflow never executes skills directly. Bare named folders:
+**Poetry (preset: `layout-poetry/SKILL.md`)** — backed by filter agents in `.framework/agents/<filter>/agent.md`; those agents may invoke `.framework/skills/<filter>/SKILL.md` internally when needed. The workflow never executes skills directly. Bare named folders:
 
 | Filter | Folder | Role file | Produces |
 |---|---|---|---|
+| workshop | `filters/workshop/` | `workshop/workshop.md` | The three-section poem frame (Question / Oration / Benediction) |
 | research | `filters/research/` | `research/research.md` | Research subject |
 | correctness | `filters/correctness/` | `correctness/correctness.md` | Correctness of information |
 | theme | `filters/theme/` | `theme/theme.md` | Contemporary theme |
@@ -346,10 +345,10 @@ The filter chain depends on the form. Each filter owns a folder in the pipeline'
 Running a filter (`/write <bookname> filter <filter>`):
 
 1. Stop if the pipeline does not exist. If the pipeline is missing, the user must run `scaffold` first.
-2. Read the filter registry at `.space/pipeline/book_<bookname>/filters/filters.json` to resolve the filter name to its folder (`folder`), role file (`role_file`), summary file (`summary_file`), and output file (`output_file`).
+2. Read the filter registry at `.space/pipeline/book_<bookname>/filters/filters.json` to resolve the filter name to its folder (`folder`), role file (`role_file`), summary file (`summary_file`), and output file (`output_file`). Each entry also carries an `autorun` flag (`true`/`false`).
 3. Read the filter's agent at `.framework/agents/<filter>/agent.md` for both novel and poetry. If the filter needs a skill and no agent exists, create the missing agent first; the agent may then invoke the skill.
 4. Read the pipeline data the filter needs (`model.json`, `characters.json`/`bookseed.txt`, the epic, upstream filter output).
-5. Run it, writing output to its folder. Write a per-filter summary to `filter-summary.md` and consolidated output to `content-output.md`. `filter *` / `filter all` runs the whole chain in order.
+5. Run it, writing output to its folder. Write a per-filter summary to `filter-summary.md` and consolidated output to `content-output.md`. `filter *` / `filter all` runs the whole chain in order, but **skips any filter whose `autorun` flag is `false`** — only `autorun: true` filters execute. A single named filter (`/write <bookname> filter <filter>`) runs that filter explicitly regardless of its `autorun` flag.
 6. **Responsibility boundary:** `filter` is read/write on existing pipeline data only. It must never create folders, run layout, or perform scaffold steps.
 
 ### The human-in-the-loop override filter

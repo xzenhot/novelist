@@ -49,6 +49,7 @@ Write a **dynamic master prompt** to `.space/pipeline/book_<bookname>/masterprom
 
 - **Dynamic, not copied.** Do not copy the backlog `masterprompt.txt` verbatim. Re-derive it: keep the identity and mandate, but enrich it with the pipeline's resolved form, language, register, signature, and the concrete topic/chapter list.
 - **Backlog is the idea; pipeline is the reality.** The backlog file is the seed. The pipeline `model.json` and `bookseed.txt`/`book.json` are the resolved truth. When they differ, the pipeline wins.
+- **Form resolution lives here.** The pipeline `model.json` is the authoritative source for the resolved `form`. Init no longer reads the pipeline; this agent is the sole place that resolves the form from pipeline state.
 - **Plain text only.** The output is a `.txt` file. No front-matter YAML, no scripts, no wrapper files.
 - **Do not overwrite a human-edited file.** If `.space/pipeline/book_<bookname>/masterprompt.txt` already exists and contains human edits, do not overwrite it; report that it exists and leave it. Otherwise regenerate it.
 - **Do not scaffold, filter, or write chapters.** This agent only produces the master prompt. It must not create folders, run filters, or touch `source/books/`.

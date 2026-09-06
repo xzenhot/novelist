@@ -1,0 +1,57 @@
+﻿{
+    "level":  "chapter",
+    "state":  "written",
+    "chapter_index":  54,
+    "topic":  "The Poet\u0027s Inner Vrindavan",
+    "chapter_summary":  "Vrindavan becomes an inward field of disciplined love. The poem moves from geography to conscience without losing earthly detail.",
+    "category":  "philosophical devotional love poetry",
+    "subject":  "Dolly, New Delhi, Radha, Yamuna, pitcher, devotional love, ethical praise",
+    "era":  "contemporary New Delhi with mythic Braj resonance",
+    "place":  "New Delhi and the remembered Yamuna/Braj landscape",
+    "figures":  [
+                    "Dolly",
+                    "the poet",
+                    "Radha as devotional image"
+                ],
+    "events":  [
+                   "contemplation",
+                   "ethical praise",
+                   "inner transformation"
+               ],
+    "segments":  [
+                     1
+                 ],
+    "chapter_title":  "The Poet\u0027s Inner Vrindavan",
+    "chapter_name":  "54",
+    "workshop_file":  ".space/pipeline/book_dolly/chapters/54/chapter.md",
+    "theme":  "The Only Present",
+    "contemporary_mapping":  "one glimpse held without clinging",
+    "metaphor_family":  "breath, step, lamp, current",
+    "stereotype":  {
+                       "form":  "poetry",
+                       "signature":  "rabindrasangeet",
+                       "reference":  "gosai_dictionary.txt",
+                       "theme_set":  "generic.md",
+                       "syntax_sample":  "gosai_bangla.md"
+                   },
+    "quality_review":  {
+                           "status":  "passed",
+                           "notes":  [
+                                         "Question / Oration / Benediction frame present.",
+                                         "Theme assigned: The Only Present.",
+                                         "Stereotype assigned: rabindrasangeet / gosai_dictionary.txt / generic.md.",
+                                         "Quality checked against devotional ethics: Dolly remains human, free, and not reduced to mythology.",
+                                         "Research, correctness, syntax, and override were skipped because they are disabled in filters.json; this quality pass accepts the currently enabled chain state.",
+                                         "No human quality directives present; structural and thematic audit only."
+                                     ],
+                           "reviewed_at":  "2026-09-06",
+                           "scope":  "pipeline frames before reader-facing chapter writing"
+                       },
+    "reader_facing_file":  "source/books/book_dolly/chapters/Chapter_054_The_Poet_s_Inner_Vrindavan.md",
+    "chapter_write":  {
+                          "status":  "written",
+                          "written_at":  "2026-09-06",
+                          "oration_word_count":  920,
+                          "override_applied":  false
+                      }
+}

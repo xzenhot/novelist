@@ -39,13 +39,13 @@ Resolve and hand off a **pre-layout plan** with these fields:
 1. **Form** — `novel` or `poetry`, resolved from `--form` → existing pipeline `model.json` → backlog epic metadata → inference (narrative premise → novel; topic/term list → poetry).
 2. **Chapter count** — from `book.json`'s `chapter_count`, or the length of its `chapters` array, or the default (5).
 3. **Topic/chapter list** — for poetry, the ordered topic list (from `book.json`'s `chapters` or the gist); for novels, the canonical chapter order (`Introduction`, `1..N`, `Conclusion`).
-4. **Filter chain** — the ordered `filter_chain` from `book.json` (8 filters for novel, 6 for poetry). This is the authoritative sequence the layout skill uses to build `filters/filters.json`.
-5. **Word target** — from `book.json`'s `word_target` (4500+ novel, 500 poetry).
+4. **Filter chain** — the ordered `filter_chain` from `book.json`, as declared by the form's preset (`.framework/skills/layout-poetry/SKILL.md` for poetry, `.framework/skills/layout-novel/SKILL.md` for novel). This is the authoritative sequence the layout skill uses to build `filters/filters.json`.
+5. **Word target** — from `book.json`'s `word_target`, as declared by the preset.
 
 ## Rules
 
-- **Validate before layout.** Confirm the book plan is internally consistent: the `filter_chain` matches the form (8 vs 6), the `chapters` array matches the form's structure, and `word_target` matches the form's target. If inconsistent, reconcile to the resolved form and note the correction.
-- **Backlog is the source.** The pre-layout plan is derived from the backlog book plan, never invented. Do not read `.framework/templates/presets/` — the book plan's `filter_chain` is authoritative.
+- **Validate before layout.** Confirm the book plan is internally consistent: the `filter_chain` matches the form's preset, the `chapters` array matches the form's structure, and `word_target` matches the preset's target. If inconsistent, reconcile to the resolved form and note the correction.
+- **Backlog is the source.** The pre-layout plan is derived from the backlog book plan, never invented. Do not read the layout skills' *Preset* sections — the book plan's `filter_chain` is authoritative.
 - **Do not scaffold.** This agent only prepares the plan. It must not create `.space/pipeline/book_<bookname>/`, must not create folders, and must not run the layout skill or any filter.
 - **Do not write to the backlog.** The pre-layout plan is a hand-off to the layout skill, not a file written to disk. If a record is needed, it is the layout skill's responsibility, not this agent's.
 
@@ -57,7 +57,7 @@ Return:
 2. The **chapter count** and the ordered **topic/chapter list**.
 3. The ordered **filter chain** (one name per line, in order).
 4. The **word target**.
-5. Any **inconsistencies reconciled** (e.g. "filter_chain was 8 filters but form is poetry; reconciled to 6").
+5. Any **inconsistencies reconciled** (e.g. "filter_chain did not match the form's preset; reconciled to the preset sequence").
 
 ## Constraints
 

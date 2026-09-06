@@ -1,0 +1,57 @@
+﻿{
+    "level":  "chapter",
+    "state":  "written",
+    "chapter_index":  27,
+    "topic":  "The Poet\u0027s Shame",
+    "chapter_summary":  "The poet admits where admiration can become vanity. Shame becomes a cleansing force rather than a final defeat.",
+    "category":  "philosophical devotional love poetry",
+    "subject":  "Dolly, New Delhi, Radha, Yamuna, pitcher, devotional love, ethical praise",
+    "era":  "contemporary New Delhi with mythic Braj resonance",
+    "place":  "New Delhi and the remembered Yamuna/Braj landscape",
+    "figures":  [
+                    "Dolly",
+                    "the poet",
+                    "Radha as devotional image"
+                ],
+    "events":  [
+                   "contemplation",
+                   "ethical praise",
+                   "inner transformation"
+               ],
+    "segments":  [
+                     1
+                 ],
+    "chapter_title":  "The Poet\u0027s Shame",
+    "chapter_name":  "27",
+    "workshop_file":  ".space/pipeline/book_dolly/chapters/27/chapter.md",
+    "theme":  "The Royal Service",
+    "contemporary_mapping":  "language serving the beloveds dignity",
+    "metaphor_family":  "servant lamp, lowest stone, invisible crown",
+    "stereotype":  {
+                       "form":  "poetry",
+                       "signature":  "rabindrasangeet",
+                       "reference":  "gosai_dictionary.txt",
+                       "theme_set":  "generic.md",
+                       "syntax_sample":  "gosai_bangla.md"
+                   },
+    "quality_review":  {
+                           "status":  "passed",
+                           "notes":  [
+                                         "Question / Oration / Benediction frame present.",
+                                         "Theme assigned: The Royal Service.",
+                                         "Stereotype assigned: rabindrasangeet / gosai_dictionary.txt / generic.md.",
+                                         "Quality checked against devotional ethics: Dolly remains human, free, and not reduced to mythology.",
+                                         "Research, correctness, syntax, and override were skipped because they are disabled in filters.json; this quality pass accepts the currently enabled chain state.",
+                                         "No human quality directives present; structural and thematic audit only."
+                                     ],
+                           "reviewed_at":  "2026-09-06",
+                           "scope":  "pipeline frames before reader-facing chapter writing"
+                       },
+    "reader_facing_file":  "source/books/book_dolly/chapters/Chapter_027_The_Poet_s_Shame.md",
+    "chapter_write":  {
+                          "status":  "written",
+                          "written_at":  "2026-09-06",
+                          "oration_word_count":  921,
+                          "override_applied":  false
+                      }
+}

@@ -1,0 +1,57 @@
+﻿{
+    "level":  "chapter",
+    "state":  "written",
+    "chapter_index":  55,
+    "topic":  "A Blessing At The Riverbank",
+    "chapter_summary":  "The poet blesses rather than claims the beloved. The riverbank becomes a threshold between longing and release.",
+    "category":  "philosophical devotional love poetry",
+    "subject":  "Dolly, New Delhi, Radha, Yamuna, pitcher, devotional love, ethical praise",
+    "era":  "contemporary New Delhi with mythic Braj resonance",
+    "place":  "New Delhi and the remembered Yamuna/Braj landscape",
+    "figures":  [
+                    "Dolly",
+                    "the poet",
+                    "Radha as devotional image"
+                ],
+    "events":  [
+                   "contemplation",
+                   "ethical praise",
+                   "inner transformation"
+               ],
+    "segments":  [
+                     1
+                 ],
+    "chapter_title":  "A Blessing At The Riverbank",
+    "chapter_name":  "55",
+    "workshop_file":  ".space/pipeline/book_dolly/chapters/55/chapter.md",
+    "theme":  "The Beloved Necessity",
+    "contemporary_mapping":  "accepting distance as part of devotion",
+    "metaphor_family":  "thread, wind, seed, yoke",
+    "stereotype":  {
+                       "form":  "poetry",
+                       "signature":  "rabindrasangeet",
+                       "reference":  "gosai_dictionary.txt",
+                       "theme_set":  "generic.md",
+                       "syntax_sample":  "gosai_bangla.md"
+                   },
+    "quality_review":  {
+                           "status":  "passed",
+                           "notes":  [
+                                         "Question / Oration / Benediction frame present.",
+                                         "Theme assigned: The Beloved Necessity.",
+                                         "Stereotype assigned: rabindrasangeet / gosai_dictionary.txt / generic.md.",
+                                         "Quality checked against devotional ethics: Dolly remains human, free, and not reduced to mythology.",
+                                         "Research, correctness, syntax, and override were skipped because they are disabled in filters.json; this quality pass accepts the currently enabled chain state.",
+                                         "No human quality directives present; structural and thematic audit only."
+                                     ],
+                           "reviewed_at":  "2026-09-06",
+                           "scope":  "pipeline frames before reader-facing chapter writing"
+                       },
+    "reader_facing_file":  "source/books/book_dolly/chapters/Chapter_055_A_Blessing_At_The_Riverbank.md",
+    "chapter_write":  {
+                          "status":  "written",
+                          "written_at":  "2026-09-06",
+                          "oration_word_count":  923,
+                          "override_applied":  false
+                      }
+}

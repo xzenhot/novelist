@@ -262,7 +262,6 @@ Read skill files only from inside the responsible agent flow.
 ```text
 .framework/rules/
 .framework/templates/moods/
-.framework/templates/presets/
 .framework/templates/stereotypes/novel/
 .framework/templates/stereotypes/poetry/
 .framework/templates/subjects/
@@ -361,7 +360,7 @@ workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> q
 For poetry, the full validation chain is:
 
 ```text
-research -> correctness -> theme -> syntax -> override -> quality
+workshop -> research -> correctness -> theme -> syntax -> override -> quality
 ```
 
 `quality` is the final gate. Do not mark a chapter complete or promote it to final output until quality has passed or the workflow explicitly records an accepted human override.

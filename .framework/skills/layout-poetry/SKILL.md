@@ -28,6 +28,27 @@ Poetry uses these root files as source of truth:
 - `model.json` for how to write: form, language, register, quality, themes, reference, index, vocabulary, and translation guide.
 - `bookseed.txt` for what to write: one topic per line.
 
+## Preset (Philosophical Poem)
+
+The poetry form's default preset is the **philosophical poem** preset, now folded into this skill. It declares the book's chapter count, word target, and the ordered filter/agent sequence (the "chapter-curation workflow"):
+
+- **Chapter count:** 10 main poems, one introductory poem, and one conclusion poem.
+- **Development:** new poetic development for each chapter.
+- **Word target:** 500 words per poem unless the book pipeline overrides it.
+- **Filter sequence** (each step is an agent/filter applied to every selected poem in sequence):
+
+```text
+workshop -> research -> correctness -> theme -> syntax -> override -> quality
+```
+
+1. **workshop** — Create the three-section poem frame: Question, Oration, and Benediction, grounded in the topic and chapter plan.
+2. **research** — Gather and organize the subject, context, source notes, and usable images for the poem.
+3. **correctness** — Verify factual, attributional, religious, philosophical, and cultural claims before poetic rendering.
+4. **theme** — Assign the poem's philosophical lens, contemporary mapping, and form-consistent poetic stereotype selection.
+5. **syntax** — Apply the selected poetic syntax guidance so the language remains current while preserving elevated cadence.
+6. **override** — Apply any human transformation instructions from the override layer, or pass through unchanged when empty.
+7. **quality** — Audit the poem against the preset, topic, theme, voice, correctness result, and final quality bar.
+
 ## Canonical Folder Shape
 
 ```text
@@ -37,6 +58,11 @@ Poetry uses these root files as source of truth:
 |-- progress.json
 |-- filters/
 |   |-- filters.json
+|   |-- workshop/
+|   |   |-- workshop.md
+|   |   |-- filter.md
+|   |   |-- filter-summary.md
+|   |   `-- content-output.md
 |   |-- research/
 |   |   |-- research.md
 |   |   |-- filter.md
@@ -166,10 +192,10 @@ Segment-level `model.json` minimum shape:
 
 ## Filter Registry
 
-Before creating the filter registry, read `.space/backlog/epic/<bookname>/book.json`. Use the ordered `filter_chain` list declared in the book plan as the canonical filter chain. If for any reason the book plan cannot be read, fall back to the default poetry chain:
+Before creating the filter registry, read `.space/backlog/epic/<bookname>/book.json`. Use the ordered `filter_chain` list declared in the book plan as the canonical filter chain. If for any reason the book plan cannot be read, fall back to the default poetry chain declared in this skill's *Preset* section:
 
 ```text
-research -> correctness -> theme -> syntax -> override -> quality
+workshop -> research -> correctness -> theme -> syntax -> override -> quality
 ```
 
 Create `.space/pipeline/book_<bookname>/filters/filters.json` with the selected chain in order.
@@ -184,6 +210,7 @@ Each registry entry must include:
 - `output_file`
 - `description`
 - `agent`
+- `autorun` — a boolean (`true` or `false`). Default `true` for every filter in the chain. The human may set any filter to `false` to skip it; `/write <bookname> filter *` (and `filter all`) runs only the filters whose `autorun` is `true`, in order, skipping disabled ones. A single named filter (`/write <bookname> filter <filter>`) still runs that filter explicitly regardless of its `autorun` flag.
 
 For each named filter folder, scaffold only:
 
@@ -219,7 +246,7 @@ Before reporting completion, verify:
 
 - Root files exist: `model.json`, `bookseed.txt`, and `progress.json`.
 - `filters/override/filter.md` exists — the override command file (no pipeline-root `override.md`).
-- `filters/filters.json` exists and names all six poetry filters in order.
+- `filters/filters.json` exists and names all seven poetry filters in order.
 - Every filter folder has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
 - Every topic has one numeric chapter folder.
 - Every chapter has `model.json` and `segments/1/model.json`.

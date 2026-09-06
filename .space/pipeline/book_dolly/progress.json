@@ -1,0 +1,502 @@
+﻿{
+    "title":  "Dolly: A Yamuna Of The Heart",
+    "language":  "English",
+    "source_terms":  [
+                         "Dolly",
+                         "New Delhi",
+                         "Radha",
+                         "Yamuna",
+                         "pitcher",
+                         "bhakti",
+                         "Braj",
+                         "devotional love",
+                         "ethical praise",
+                         "freedom"
+                     ],
+    "context":  "Dolly is a sixty-poem philosophical sequence about a poet who sees a beautiful woman from New Delhi through the sacred image of Radha by the Yamuna, with a pitcher resting in her lap. The poems move between city and river, modern tenderness and devotional memory, longing and restraint. The poet begins in amazement, but the true journey is ethical: he must learn how to praise beauty without possessing it. Dolly becomes a presence who awakens the poet\u0027s interior Yamuna, yet she remains fully human, contemporary, and free. Across the expanded arc, traffic, balconies, monsoon, clay, water, silence, shame, and blessing become stations in the poet\u0027s transformation. The sequence closes by turning desire into blessing, gratitude, humility, and disciplined song.",
+    "total_chapters":  60,
+    "completed_chapters":  60,
+    "current_chapter":  null,
+    "chapters":  [
+                     {
+                         "chapter_number":  1,
+                         "topic":  "First Sight In New Delhi",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_001_First_Sight_In_New_Delhi.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  2,
+                         "topic":  "Radha By The Yamuna",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_002_Radha_By_The_Yamuna.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  3,
+                         "topic":  "The Pitcher In Her Lap",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_003_The_Pitcher_In_Her_Lap.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  4,
+                         "topic":  "City Dust And River Light",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_004_City_Dust_And_River_Light.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  5,
+                         "topic":  "The Ethics Of Praise",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_005_The_Ethics_Of_Praise.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  6,
+                         "topic":  "A Lovable Distance",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_006_A_Lovable_Distance.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  7,
+                         "topic":  "Balcony At Evening",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_007_Balcony_At_Evening.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  8,
+                         "topic":  "Clay, Water, And Name",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_008_Clay_Water_And_Name.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  9,
+                         "topic":  "The Poet\u0027s Restlessness",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_009_The_Poet_s_Restlessness.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  10,
+                         "topic":  "Dolly\u0027s Human Radiance",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_010_Dolly_s_Human_Radiance.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  11,
+                         "topic":  "The Yamuna Within",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_011_The_Yamuna_Within.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  12,
+                         "topic":  "Benediction For Dolly",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_012_Benediction_For_Dolly.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  13,
+                         "topic":  "Metro Windows At Dusk",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_013_Metro_Windows_At_Dusk.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  14,
+                         "topic":  "The Anklet Of Traffic",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_014_The_Anklet_Of_Traffic.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  15,
+                         "topic":  "A Blue Sari In Memory",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_015_A_Blue_Sari_In_Memory.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  16,
+                         "topic":  "The Unsaid Greeting",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_016_The_Unsaid_Greeting.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  17,
+                         "topic":  "Pitcher As Moon",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_017_Pitcher_As_Moon.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  18,
+                         "topic":  "Braj In The Capital",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_018_Braj_In_The_Capital.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  19,
+                         "topic":  "The Beloved\u0027s Autonomy",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_019_The_Beloved_s_Autonomy.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  20,
+                         "topic":  "Jasmine Near The Road",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_020_Jasmine_Near_The_Road.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  21,
+                         "topic":  "Question Before Beauty",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_021_Question_Before_Beauty.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  22,
+                         "topic":  "The Hand That Holds Water",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_022_The_Hand_That_Holds_Water.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  23,
+                         "topic":  "Delhi Heat, Yamuna Memory",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_023_Delhi_Heat_Yamuna_Memory.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  24,
+                         "topic":  "The Flute Not Heard",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_024_The_Flute_Not_Heard.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  25,
+                         "topic":  "Prayer Without Temple",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_025_Prayer_Without_Temple.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  26,
+                         "topic":  "Radha\u0027s Shadow, Dolly\u0027s Face",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_026_Radha_s_Shadow_Dolly_s_Face.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  27,
+                         "topic":  "The Poet\u0027s Shame",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_027_The_Poet_s_Shame.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  28,
+                         "topic":  "Water At The Edge Of Speech",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_028_Water_At_The_Edge_Of_Speech.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  29,
+                         "topic":  "A Name Written In Air",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_029_A_Name_Written_In_Air.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  30,
+                         "topic":  "Evening Lamps Of Delhi",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_030_Evening_Lamps_Of_Delhi.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  31,
+                         "topic":  "The River\u0027s Polluted Mirror",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_031_The_River_s_Polluted_Mirror.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  32,
+                         "topic":  "Beauty And Responsibility",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_032_Beauty_And_Responsibility.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  33,
+                         "topic":  "The Clay Maker\u0027s Lesson",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_033_The_Clay_Maker_s_Lesson.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  34,
+                         "topic":  "Monsoon Over New Delhi",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_034_Monsoon_Over_New_Delhi.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  35,
+                         "topic":  "Distance As Devotion",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_035_Distance_As_Devotion.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  36,
+                         "topic":  "Dolly In The Market Light",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_036_Dolly_In_The_Market_Light.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  37,
+                         "topic":  "A Dupatta Like Water",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_037_A_Dupatta_Like_Water.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  38,
+                         "topic":  "The Threshold",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_038_The_Threshold.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  39,
+                         "topic":  "What The Pitcher Carries",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_039_What_The_Pitcher_Carries.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  40,
+                         "topic":  "The Poet\u0027s Discipline",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_040_The_Poet_s_Discipline.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  41,
+                         "topic":  "Radha Beyond Ornament",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_041_Radha_Beyond_Ornament.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  42,
+                         "topic":  "Dolly Beyond Comparison",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_042_Dolly_Beyond_Comparison.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  43,
+                         "topic":  "Yamuna At Night",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_043_Yamuna_At_Night.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  44,
+                         "topic":  "The City As Witness",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_044_The_City_As_Witness.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  45,
+                         "topic":  "The Beloved\u0027s Laughter",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_045_The_Beloved_s_Laughter.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  46,
+                         "topic":  "The Weight Of The Pitcher",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_046_The_Weight_Of_The_Pitcher.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  47,
+                         "topic":  "A River Under Asphalt",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_047_A_River_Under_Asphalt.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  48,
+                         "topic":  "The Poet\u0027s Jealousy",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_048_The_Poet_s_Jealousy.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  49,
+                         "topic":  "The Garland Refused",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_049_The_Garland_Refused.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  50,
+                         "topic":  "Sacred Ordinary Morning",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_050_Sacred_Ordinary_Morning.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  51,
+                         "topic":  "The Gaze Washed Clean",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_051_The_Gaze_Washed_Clean.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  52,
+                         "topic":  "The Pitcher Returned To Earth",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_052_The_Pitcher_Returned_To_Earth.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  53,
+                         "topic":  "Dolly\u0027s Silence",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_053_Dolly_s_Silence.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  54,
+                         "topic":  "The Poet\u0027s Inner Vrindavan",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_054_The_Poet_s_Inner_Vrindavan.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  55,
+                         "topic":  "A Blessing At The Riverbank",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_055_A_Blessing_At_The_Riverbank.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  56,
+                         "topic":  "The Last Question Of Desire",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_056_The_Last_Question_Of_Desire.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  57,
+                         "topic":  "Yamuna Of The Heart",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_057_Yamuna_Of_The_Heart.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  58,
+                         "topic":  "Dolly Free In Delhi",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_058_Dolly_Free_In_Delhi.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  59,
+                         "topic":  "Song Without Possession",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_059_Song_Without_Possession.md",
+                         "completed_date":  "2026-09-06"
+                     },
+                     {
+                         "chapter_number":  60,
+                         "topic":  "Final Benediction",
+                         "category":  "philosophical devotional love poetry",
+                         "status":  "completed",
+                         "file_path":  "source/books/book_dolly/chapters/Chapter_060_Final_Benediction.md",
+                         "completed_date":  "2026-09-06"
+                     }
+                 ]
+}

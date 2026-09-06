@@ -1,0 +1,81 @@
+{
+    "filters":  [
+                    {
+                        "order":  1,
+                        "name":  "workshop",
+                        "folder":  "filters/workshop",
+                        "role_file":  "filters/workshop/workshop.md",
+                        "summary_file":  "filters/workshop/filter-summary.md",
+                        "output_file":  "filters/workshop/content-output.md",
+                        "description":  "Create the three-section poem frame: Question, Oration, and Benediction.",
+                        "agent":  ".framework/agents/workshop/agent.md",
+                        "autorun":  true
+                    },
+                    {
+                        "order":  2,
+                        "name":  "research",
+                        "folder":  "filters/research",
+                        "role_file":  "filters/research/research.md",
+                        "summary_file":  "filters/research/filter-summary.md",
+                        "output_file":  "filters/research/content-output.md",
+                        "description":  "Gather and organize subject, context, source notes, and usable images for the poem.",
+                        "agent":  ".framework/agents/research/agent.md",
+                        "autorun":  false
+                    },
+                    {
+                        "order":  3,
+                        "name":  "correctness",
+                        "folder":  "filters/correctness",
+                        "role_file":  "filters/correctness/correctness.md",
+                        "summary_file":  "filters/correctness/filter-summary.md",
+                        "output_file":  "filters/correctness/content-output.md",
+                        "description":  "Verify factual, attributional, religious, philosophical, and cultural claims.",
+                        "agent":  ".framework/agents/correctness/agent.md",
+                        "autorun":  false
+                    },
+                    {
+                        "order":  4,
+                        "name":  "theme",
+                        "folder":  "filters/theme",
+                        "role_file":  "filters/theme/theme.md",
+                        "summary_file":  "filters/theme/filter-summary.md",
+                        "output_file":  "filters/theme/content-output.md",
+                        "description":  "Assign the philosophical lens, contemporary mapping, and poetic stereotype selection.",
+                        "agent":  ".framework/agents/theme/agent.md",
+                        "autorun":  true
+                    },
+                    {
+                        "order":  5,
+                        "name":  "syntax",
+                        "folder":  "filters/syntax",
+                        "role_file":  "filters/syntax/syntax.md",
+                        "summary_file":  "filters/syntax/filter-summary.md",
+                        "output_file":  "filters/syntax/content-output.md",
+                        "description":  "Apply the selected poetic syntax guidance while preserving elevated cadence.",
+                        "agent":  ".framework/agents/syntax/agent.md",
+                        "autorun":  false
+                    },
+                    {
+                        "order":  6,
+                        "name":  "override",
+                        "folder":  "filters/override",
+                        "role_file":  "filters/override/override.md",
+                        "summary_file":  "filters/override/filter-summary.md",
+                        "output_file":  "filters/override/content-output.md",
+                        "description":  "Apply any human transformation instructions from the override command file.",
+                        "agent":  ".framework/agents/override/agent.md",
+                        "autorun":  false
+                    },
+                    {
+                        "order":  7,
+                        "name":  "quality",
+                        "folder":  "filters/quality",
+                        "role_file":  "filters/quality/quality.md",
+                        "summary_file":  "filters/quality/filter-summary.md",
+                        "output_file":  "filters/quality/content-output.md",
+                        "description":  "Audit the poem against the preset, topic, theme, voice, correctness result, and final quality bar.",
+                        "agent":  ".framework/agents/quality/agent.md",
+                        "autorun":  false
+                    }
+                ]
+}

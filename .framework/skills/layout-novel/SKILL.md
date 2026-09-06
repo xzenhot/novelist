@@ -33,6 +33,26 @@ For novel story content, use the backlog epic:
 
 The epic is the narrative source of truth. The scaffold may summarize and structure it, but must not invent a different story.
 
+## Preset (Simple Novel)
+
+The novel form's default preset is the **simple novel** preset, now folded into this skill. It declares the book's chapter count, word target, and the ordered filter/agent sequence (the "chapter-curation workflow"):
+
+- **Chapter count:** 20 main chapters, one introductory chapter, and one conclusion chapter.
+- **Development:** new story development for each chapter.
+- **Word target:** 4500 words per main chapter unless the book pipeline overrides it.
+- **Filter sequence** (each step is an agent/filter applied to every selected chapter in sequence):
+
+```text
+workshop -> research -> seeds -> correctness -> theme -> syntax
+```
+
+1. **workshop** — Create the three-section chapter frame: Workshop, Story, and Discussion, grounded in the epic and chapter plan.
+2. **research** — Deepen and verify the chapter material, attaching era, place, figures, events, sources, and grounding notes.
+3. **seeds** — Curate the chapter seed by selecting included characters, quality parameters, mood-shaped summary, and segment structure.
+4. **correctness** — Check factual claims, names, dates, terms, and source traceability; record corrections and uncertainties.
+5. **theme** — Assign the chapter theme, theme essence, contemporary mapping, and form-consistent stereotype selection.
+6. **syntax** — Apply the selected syntax guidance so the chapter remains elevated, modern, readable, and ready for writing.
+
 ## Canonical Folder Shape
 
 ```text
@@ -240,10 +260,10 @@ Segment-level `model.json` minimum shape:
 
 Before creating the filter registry, read `.space/backlog/epic/<bookname>/book.json`. If it does not exist, invoke the init agent (`.framework/agents/init/agent.md`) to create it from the form-specific default template. The init agent will also create/confirm the book plan file.
 
-Use the ordered `filter_chain` list declared in the resulting book plan as the canonical filter chain. If for any reason the book plan cannot be read or created, fall back to the default novel chain:
+Use the ordered `filter_chain` list declared in the resulting book plan as the canonical filter chain. If for any reason the book plan cannot be read or created, fall back to the default novel chain declared in this skill's *Preset* section:
 
 ```text
-workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> quality
+workshop -> research -> seeds -> correctness -> theme -> syntax
 ```
 
 Create `.space/pipeline/book_<bookname>/filters/filters.json` with the selected chain in order.
@@ -258,6 +278,7 @@ Each registry entry must include:
 - `output_file`
 - `description`
 - `agent`
+- `autorun` — a boolean (`true` or `false`). Default `true` for every filter in the chain. The human may set any filter to `false` to skip it; `/write <bookname> filter *` (and `filter all`) runs only the filters whose `autorun` is `true`, in order, skipping disabled ones. A single named filter (`/write <bookname> filter <filter>`) still runs that filter explicitly regardless of its `autorun` flag.
 
 For each named filter folder, scaffold only:
 
@@ -293,7 +314,7 @@ Do not write finished chapters or `book.md` during layout.
 Before reporting completion, verify:
 
 - Root files exist: `model.json`, `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `progress.json`.
-- `filters/filters.json` exists and names the filters selected from `book.json`'s `filter_chain` (or all eight default novel filters if no book plan exists) in the exact order declared.
+- `filters/filters.json` exists and names the filters selected from `book.json`'s `filter_chain` (or the default novel preset chain if no book plan exists) in the exact order declared.
 - Every filter folder selected from the book plan has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
 - Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, and `segments/1/model.json`.
 - Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
