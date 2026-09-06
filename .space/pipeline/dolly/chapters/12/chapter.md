@@ -6,7 +6,23 @@ What changes in the poet when Benediction For Dolly reveals Dolly not as an obje
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: The poet blesses Dolly's freedom without claim. This early benediction opens the larger movement from desire toward gratitude.
+Take your evening, Dolly, whole and unwitnessed.
+Take the bus you catch, the friend you laugh with,
+the plans you make that include no one's poem.
+
+May your water be clean, your winters kind.
+May no song of mine stand at your door
+asking to be let in.
+
+I bless you the way a riverbank blesses —
+by being steady while you flow elsewhere.
+No claim travels with this blessing.
+It is addressed like a letter to the wind:
+to Dolly, wherever she is free.
+
+Go well. That is the whole prayer.
+And if my verse ever shadowed you,
+let this one stand in the sun instead.
 
 ## Benediction
 

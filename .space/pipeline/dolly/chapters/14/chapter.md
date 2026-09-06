@@ -1,4 +1,4 @@
-﻿# The Anklet Of Traffic
+# The Anklet Of Traffic
 
 ## Question
 
@@ -6,7 +6,27 @@ What changes in the poet when The Anklet Of Traffic reveals Dolly not as an obje
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: Delhi traffic becomes a broken anklet seeking rhythm. Noise is transfigured into a restless music that tests the poet's patience.
+Listen: the Ring Road is a broken anklet,
+each horn a bead that lost its thread,
+seeking a rhythm it can almost remember.
+
+Somewhere in the din a tabla
+studies its own pulse; somewhere
+a pressure horn becomes a fog-bell
+on the Yamuna of noise.
+
+I confess the noise tests me.
+My patience frays at the intersection.
+But then — look — the traffic parts
+like water around a stone,
+and in the gap her green dupatta
+crosses the road, unhurried,
+and the broken anklet finds, for one bar,
+its measure.
+
+Noise, too, is a ragga.
+Even the city's restlessness
+is only longing with nowhere to sit.
 
 ## Benediction
 

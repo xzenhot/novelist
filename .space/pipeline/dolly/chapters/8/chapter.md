@@ -6,7 +6,22 @@ What changes in the poet when Clay, Water, And Name reveals Dolly not as an obje
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: Clay and water become emblems of body, memory, and the forms that hold emotion. The poet meditates on the beloved's name as both nearness and boundary.
+First the clay: patient, ordinary,
+turned on a wheel by someone
+who learned pressure from his father.
+
+Then the water: shapeless, willing,
+taking the form of whatever holds it —
+which is what your name does to my day.
+
+The potters of Braj are not dead;
+they only work now in Kotla Mubarakpur.
+Each round vessel is a small reminder:
+feeling needs a form, and form needs humbleness.
+
+Your name sits on my tongue like water in clay —
+held, cooled, given a boundary.
+Nearness, and the courtesy of a rim.
 
 ## Benediction
 

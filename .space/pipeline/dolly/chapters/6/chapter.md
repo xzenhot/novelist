@@ -6,7 +6,22 @@ What changes in the poet when A Lovable Distance reveals Dolly not as an object 
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: Love is refined through distance, courtesy, and patience. The poet learns that longing may become more truthful when it does not demand possession.
+The bridge across the drain is wide enough
+for two strangers to pass without touching —
+and that is our whole grammar, Dolly:
+distance, kept lovingly, like a lamp
+kept at arm's length from paper.
+
+I do not ask where you go at evening.
+Longing that demands becomes a lock;
+longing that waits becomes a door.
+
+Let me love you the way the banks love the Yamuna —
+holding the shape of her going,
+gladdened by water that will not stay.
+The distance between us is not absence.
+It is the courtesy the river teaches:
+I make room; therefore I love.
 
 ## Benediction
 

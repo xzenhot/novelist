@@ -6,7 +6,22 @@ What changes in the poet when The Ethics Of Praise reveals Dolly not as an objec
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: The poet interrogates his own praise and its possible vanity. The poem turns adoration into a moral practice of restraint.
+Tonight I audit my own song:
+is this praise, or a thief in a poet's coat,
+stealing light to light himself?
+
+Beauty does not need my microphone.
+The jasmine does not post its fragrance.
+So let the verse be a lamp lowered
+into someone else's courtyard —
+set down, not taken.
+
+If I praise you, let it be the way rain praises earth:
+falling, keeping nothing,
+asking no receipt.
+O my vanity, sit outside the door.
+Tonight the poem belongs to the one it watches,
+and the watching must be clean.
 
 ## Benediction
 

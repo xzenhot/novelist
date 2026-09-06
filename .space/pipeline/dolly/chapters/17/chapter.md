@@ -1,4 +1,4 @@
-﻿# Pitcher As Moon
+# Pitcher As Moon
 
 ## Question
 
@@ -6,7 +6,28 @@ What changes in the poet when Pitcher As Moon reveals Dolly not as an object of 
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: The clay vessel gathers moonlight, water, and guarded desire. The poet studies roundness, fullness, and the discipline of not spilling feeling.
+On the terrace the clay pot stands
+gathering moonlight the way a word
+gathers meaning — slowly, from the rim.
+
+Inside it: rain from last week, coolness,
+the small dark whisper of water.
+
+Around it: my guarded desire,
+round as the pot, full as the pot,
+learning the discipline of the brim.
+
+Roundness is not weakness.
+It is the shape that holds most
+by touching least.
+
+O pitcher-moon, o full and silent discipline —
+teach me your mathematics:
+to be complete without a sound,
+to carry without spilling,
+to hold feeling the way you hold water —
+exactly to the measure of my making,
+and not one drop beyond it.
 
 ## Benediction
 

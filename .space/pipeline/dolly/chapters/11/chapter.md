@@ -6,7 +6,24 @@ What changes in the poet when The Yamuna Within reveals Dolly not as an object o
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: The river becomes inward, a current of disciplined remembrance. The poet begins to understand longing as a private confluence of image, conscience, and prayer.
+Close the atlas. The river has moved indoors.
+It runs now behind the sternum,
+a current of disciplined remembrance
+between the day's duties and the night's.
+
+I sit at my desk; the fan turns;
+and somewhere in the chest, water
+that once flashed under a broken bridge
+carries a lamp of attention downstream.
+
+This is the private confluence:
+image, conscience, and prayer
+meeting in one slow artery.
+
+O Yamuna of the interior,
+flow past my vanity, my hurry, my claim.
+Water the one field I own —
+the small field of how I see.
 
 ## Benediction
 

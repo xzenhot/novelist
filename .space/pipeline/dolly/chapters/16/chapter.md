@@ -1,4 +1,4 @@
-﻿# The Unsaid Greeting
+# The Unsaid Greeting
 
 ## Question
 
@@ -6,7 +6,27 @@ What changes in the poet when The Unsaid Greeting reveals Dolly not as an object
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: An unspoken greeting becomes the first lesson in restraint. Silence proves capable of carrying tenderness without demand.
+We did not speak. The stairwell heard
+only our unequal footsteps pass —
+hers down, mine up, and between them
+a greeting made entirely of restraint.
+
+No word was broken; none was owed.
+Silence carried the whole shipment
+of tenderness without spilling a drop.
+
+The old scriptures agree:
+the deepest offerings are unspoken.
+Even the flute begins as breath held in.
+
+O unspoken greeting, small teacher —
+you showed me that love has a grammar
+whose best sentence is the pause;
+that desire can bow without touching;
+that two passings on a stair
+can be a complete poem,
+published in the language of no one,
+read by the heart alone.
 
 ## Benediction
 

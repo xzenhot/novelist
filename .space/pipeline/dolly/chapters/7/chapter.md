@@ -6,7 +6,21 @@ What changes in the poet when Balcony At Evening reveals Dolly not as an object 
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: The evening city gathers lamps, jasmine, traffic, and waiting into a small temple of feeling. Dolly's remembered presence turns ordinary dusk into contemplation.
+Evening lowers its wicks one by one:
+the hoarding's glare, the office floor,
+the last yellow windows of the Crescent.
+Lamps arrive like guests who need nothing.
+
+From my balcony the city turns
+into a small temple of waiting —
+moths at the tube-light, kettle-steam,
+the jasmine seller's last basket.
+
+And in the middle of all this lamplight
+your remembered face, unsummoned, mild,
+till even the traffic seems to slow
+and dusk becomes a room
+where I sit with my one quiet thought of you.
 
 ## Benediction
 

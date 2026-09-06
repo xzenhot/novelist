@@ -1,4 +1,4 @@
-﻿# Metro Windows At Dusk
+# Metro Windows At Dusk
 
 ## Question
 
@@ -6,7 +6,27 @@ What changes in the poet when Metro Windows At Dusk reveals Dolly not as an obje
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: Glass, speed, and reflected faces become a modern riverbank. The poet sees how the city carries transient visions the way water carries light.
+The metro exhales its silver fish
+into the fluorescent evening; glass towers
+carry ten thousand passing faces
+the way water carries light — briefly, brilliantly, gone.
+
+Watch the windows: a woman laughing
+at someone else's phone, a child asleep
+against a stranger's shoulder, faces
+reflected, doubled, dissolved.
+
+Every pane is a riverbank of the moment.
+Every face a flash of scales.
+
+And once — only once — her reflection
+rode the opposite train across mine,
+a vision the glass released without grieving.
+
+The city knows this wisdom:
+light is lent, not owned.
+It moves the current on,
+and keeps nothing, and shines anyway.
 
 ## Benediction
 

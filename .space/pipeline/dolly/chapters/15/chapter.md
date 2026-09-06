@@ -1,4 +1,4 @@
-﻿# A Blue Sari In Memory
+# A Blue Sari In Memory
 
 ## Question
 
@@ -6,7 +6,27 @@ What changes in the poet when A Blue Sari In Memory reveals Dolly not as an obje
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: A remembered color opens questions of devotion and projection. The poet asks whether memory adorns the beloved or quietly alters her.
+The sari was peacock-green, or memory
+painted it so — I cannot swear now
+to any color but my own devotion.
+
+This is the question that haunts the brush:
+does memory adorn the beloved,
+or quietly repaint her?
+
+Radha's blue is the longing's blue.
+The river's silver is the heart's excuse.
+
+So I hold the color up to the window
+and let the true light through it:
+Dolly in her ordinary cotton,
+her serious eyebrows, her living tone —
+better than the hue I stored.
+
+Let memory keep its gallery,
+but let the woman always
+outshine her portrait.
+That is my vow of color.
 
 ## Benediction
 

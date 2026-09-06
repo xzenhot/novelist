@@ -6,7 +6,20 @@ What changes in the poet when The Pitcher In Her Lap reveals Dolly not as an obj
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: The pitcher becomes a vessel for silence, modesty, longing, and memory. The poet considers what love carries and what it must refuse to spill.
+What a pitcher knows: the weight of half,
+the hush of water that must not be spilled,
+the coolness earned by staying whole.
+
+It rests in your lap like a small moon
+that agreed to be carried —
+and I, watching, learn the first law of love:
+to hold is not to keep.
+
+Whatever longing fills me, let it fill
+to the brim and no further.
+Let the love that walks beside you
+be water with a steady surface,
+silent, and unspilled.
 
 ## Benediction
 

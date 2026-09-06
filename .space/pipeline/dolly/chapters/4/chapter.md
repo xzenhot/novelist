@@ -6,7 +6,22 @@ What changes in the poet when City Dust And River Light reveals Dolly not as an 
 
 ## Oration
 
-The poem should begin from the concrete scene named by this topic and let the image open slowly: Dolly in the contemporary city, the Radha-Yamuna resemblance glowing behind her, and the pitcher as a vessel of water, silence, dignity, and restraint. It should carry the ethical pressure of the whole book: the poet must praise without claiming, remember without imprisoning, and turn beauty into disciplined tenderness. The language should be songlike, intimate, and devotional, with New Delhi's balconies, roads, dust, rain, lamps, and crowds set beside river light, clay, Braj memory, flute-silence, and the inward movement of bhakti. This chapter's specific charge is: New Delhi's dust, roads, balconies, and traffic meet the remembered light of Yamuna. The poem asks where holiness survives in a restless modern city.
+Dust of Delhi settles on the temple bell;
+traffic writes its grey sentence on the air.
+Yet look — on a wet patch of asphalt
+the whole sky lies down like a river.
+
+Holiness has not left the city.
+It hides in the balcony garden,
+in the sweet-seller's folded light,
+in the water a conductor offers
+to a stranger fainting in the heat.
+
+Dolly walked through the crossing
+and the dust rose gold for a moment,
+river-light dressed as road-dust —
+and I understood: the sacred is not elsewhere.
+It survives wherever attention kneels.
 
 ## Benediction
 

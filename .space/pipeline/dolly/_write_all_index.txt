@@ -1,0 +1,60 @@
+[1] First Sight In New Delhi | The poet sees Dolly in the city and experiences beauty as recognition rather than spectacle. | next= | v3=False
+[2] Radha By The Yamuna | Dolly's presence calls forth Radha, Yamuna water, and the old tenderness of Braj. | next= | v3=False
+[3] The Pitcher In Her Lap | The pitcher becomes a vessel for silence, modesty, longing, and memory. | next= | v3=False
+[4] City Dust And River Light | New Delhi's dust, roads, balconies, and traffic meet the remembered light of Yamuna. The poem asks where holiness survives in a restless modern city. | next= | v3=False
+[5] The Ethics Of Praise | The poet interrogates his own praise and its possible vanity. The poem turns adoration into a moral practice of restraint. | next= | v3=False
+[6] A Lovable Distance | Love is refined through distance, courtesy, and patience. The poet learns that longing may become more truthful when it does not demand possession. | next= | v3=False
+[7] Balcony At Evening | The evening city gathers lamps, jasmine, traffic, and waiting into a small temple of feeling. Dolly's remembered presence turns ordinary dusk into contemplation. | next= | v3=False
+[8] Clay, Water, And Name | Clay and water become emblems of body, memory, and the forms that hold emotion. The poet meditates on the beloved's name as both nearness and boundary. | next= | v3=False
+[9] The Poet's Restlessness | The poet confronts hunger, vanity, and the instability of his own gaze. The poem darkens briefly so the later blessing can be earned. | next= | v3=False
+[10] Dolly's Human Radiance | Dolly is restored from symbol to person: beautiful, contemporary, self-possessed, and free. The poet sees that reverence must never erase the beloved's real life. | next= | v3=False
+[11] The Yamuna Within | The river becomes inward, a current of disciplined remembrance. The poet begins to understand longing as a private confluence of image, conscience, and prayer. | next= | v3=False
+[12] Benediction For Dolly | The poet blesses Dolly's freedom without claim. This early benediction opens the larger movement from desire toward gratitude. | next= | v3=False
+[13] Metro Windows At Dusk | Glass, speed, and reflected faces become a modern riverbank. The poet sees how the city carries transient visions the way water carries light. | next= | v3=False
+[14] The Anklet Of Traffic | Delhi traffic becomes a broken anklet seeking rhythm. Noise is transfigured into a restless music that tests the poet's patience. | next= | v3=False
+[15] A Blue Sari In Memory | A remembered color opens questions of devotion and projection. The poet asks whether memory adorns the beloved or quietly alters her. | next= | v3=False
+[16] The Unsaid Greeting | An unspoken greeting becomes the first lesson in restraint. Silence proves capable of carrying tenderness without demand. | next= | v3=False
+[17] Pitcher As Moon | The clay vessel gathers moonlight, water, and guarded desire. The poet studies roundness, fullness, and the discipline of not spilling feeling. | next= | v3=False
+[18] Braj In The Capital | Braj survives as inner weather inside New Delhi. The poem lets sacred geography pass through markets, roads, and rooms. | next= | v3=False
+[19] The Beloved's Autonomy | Dolly's own life stands beyond the poet's metaphors. The poem insists that true reverence begins where control ends. | next= | v3=False
+[20] Jasmine Near The Road |  | next= | v3=True
+[21] Question Before Beauty | Beauty becomes a question the poet must answer through conduct. The poem turns looking into an ethical test. | next= | v3=False
+[22] The Hand That Holds Water | A gesture teaches the difference between holding and hoarding. The poet learns from the hand that receives water without imprisoning it. | next= | v3=False
+[23] Delhi Heat, Yamuna Memory | Summer heat turns longing into thirst and memory into shade. The poet searches for coolness in a city that will not slow down. | next= | v3=False
+[24] The Flute Not Heard | The absence of music becomes a subtler music of waiting. The poem honors what is suggested rather than sounded. | next= | v3=False
+[25] Prayer Without Temple | The poet learns devotion in streets, rooms, and thresholds. The sacred becomes portable, intimate, and unsanctioned by spectacle. | next= | v3=False
+[26] Radha's Shadow, Dolly's Face | Mythic resemblance is purified by attention to real personhood. Dolly's face corrects every lazy symbol the poet tries to impose. | next= | v3=False
+[27] The Poet's Shame | The poet admits where admiration can become vanity. Shame becomes a cleansing force rather than a final defeat. | next= | v3=False
+[28] Water At The Edge Of Speech | Feeling gathers just before language. The poet learns that some emotions remain truest when they are not immediately named. | next= | v3=False
+[29] A Name Written In Air | Dolly's name becomes invocation, boundary, and breath. The poem asks how a name can be cherished without being consumed. | next= | v3=False
+[30] Evening Lamps Of Delhi | Domestic and public lights carry small benedictions through the city. The poet sees devotion in windows, street stalls, and quiet rooms. | next= | v3=False
+[31] The River's Polluted Mirror | The wounded Yamuna complicates the poet's sacred imagination. Devotion must include grief for the real river, not only nostalgia for its myth. | next= | v3=False
+[32] Beauty And Responsibility | The poet asks what responsibility beauty awakens in the witness. Admiration becomes accountable to care, truth, and restraint. | next= | v3=False
+[33] The Clay Maker's Lesson | Pottery becomes a meditation on pressure, patience, and form. The poet learns that vessels are shaped by touch disciplined by purpose. | next= | v3=False
+[34] Monsoon Over New Delhi | Rain renews the city and tests the poet's memory of the river. Dolly's image moves through wet streets and cleansed air. | next= | v3=False
+[35] Distance As Devotion | Distance becomes an active form of care. The poet discovers that reverence sometimes steps back to let the beloved remain whole. | next= | v3=False
+[36] Dolly In The Market Light | Ordinary commerce frames an extraordinary inward recognition. The poem lets vegetables, cloth, coins, and voices hold spiritual color. | next= | v3=False
+[37] A Dupatta Like Water | Cloth, motion, and river imagery merge without erasing Dolly's reality. The poem studies how metaphor can illuminate without replacing. | next= | v3=False
+[38] The Threshold | Doors, balconies, and crossings become ethical spaces. The poet learns when to approach, when to pause, and when to retreat. | next= | v3=False
+[39] What The Pitcher Carries | The pitcher carries history, modesty, unsent words, and water. Its weight becomes a figure for the beloved's unseen interior life. | next= | v3=False
+[40] The Poet's Discipline | Craft becomes a vow to protect the beloved from careless language. The poem turns composition itself into a moral practice. | next= | v3=False
+[41] Radha Beyond Ornament | The Radha image is returned to spiritual seriousness rather than decorative romance. The poet learns humility before inherited sacred symbols. | next= | v3=False
+[42] Dolly Beyond Comparison | The poet releases comparison and meets Dolly's singular presence. Love matures when resemblance yields to attention. | next= | v3=False
+[43] Yamuna At Night | Night water becomes a figure for secrecy, prayer, and depth. The poet stands before what cannot be fully seen. | next= | v3=False
+[44] The City As Witness | Delhi watches the poet's transformation through crowds and crossings. Public life becomes a silent witness to private refinement. | next= | v3=False
+[45] The Beloved's Laughter | Dolly's laughter restores lightness to reverence. The poem refuses solemnity when joy is the truer form of praise. | next= | v3=False
+[46] The Weight Of The Pitcher | Beauty includes labor, weight, balance, and embodied strength. The poet honors the beloved not as an image alone but as a living person. | next= | v3=False
+[47] A River Under Asphalt | Ancient feeling moves beneath the city's modern surface. The poem listens for buried water under roads, stations, and haste. | next= | v3=False
+[48] The Poet's Jealousy | Jealousy is confessed and transformed into humility. The poet discovers that possessiveness is a wound in the one who looks. | next= | v3=False
+[49] The Garland Refused | The beloved does not need the poet's decoration to be whole. The poem lets refusal become instruction rather than injury. | next= | v3=False
+[50] Sacred Ordinary Morning | Morning errands and city light reveal unannounced grace. The poet sees how holiness hides in repetition and daily motion. | next= | v3=False
+[51] The Gaze Washed Clean | The poet asks for a gaze freed from appetite and pride. Vision becomes an inner ablution. | next= | v3=False
+[52] The Pitcher Returned To Earth | Clay returns the poem to mortality and gratitude. The sacred object is honored as earth before it becomes symbol. | next= | v3=False
+[53] Dolly's Silence | Dolly's silence is honored as meaning, privacy, and freedom. The poet learns not to force an answer from what is complete without him. | next= | v3=False
+[54] The Poet's Inner Vrindavan | Vrindavan becomes an inward field of disciplined love. The poem moves from geography to conscience without losing earthly detail. | next= | v3=False
+[55] A Blessing At The Riverbank | The poet blesses rather than claims the beloved. The riverbank becomes a threshold between longing and release. | next= | v3=False
+[56] The Last Question Of Desire | Desire asks whether it can become service, prayer, or release. The poem tests the book's deepest transformation. | next= | v3=False
+[57] Yamuna Of The Heart | The river fully enters the poet's conscience. Inner water becomes memory, devotion, and self-command. | next= | v3=False
+[58] Dolly Free In Delhi | Dolly moves through her own life, untouched by the poet's claim. The poem lets her freedom become the final image of beauty. | next= | v3=False
+[59] Song Without Possession | The poet's final art is praise without ownership. Song remains, but its hunger has been clarified into gratitude. | next= | v3=False
+[60] Final Benediction | The book closes with gratitude, restraint, and luminous release. Dolly is blessed as herself, and the poet's love becomes a river that does not seize its banks. | next= | v3=False

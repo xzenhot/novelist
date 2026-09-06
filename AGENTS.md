@@ -221,7 +221,7 @@ Primary orchestration spec for `/book`.
 .framework/agents/postlayout/agent.md
 .framework/agents/override/agent.md
 .framework/agents/publish/agent.md
-.framework/agents/poet/agent.md
+.framework/agents/write/agent.md
 .framework/agents/quality/agent.md
 .framework/agents/reframe/agent.md
 .framework/agents/research/agent.md

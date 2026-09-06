@@ -1,6 +1,6 @@
 ---
 name: style
-description: Style transformer agent for `/book <bookname> style [<style>]`. Resolves a transformer from `.framework/templates/transformers/<style>/style.md` (default `pijush`), reads the style instructions and any authoritative companion file such as `signature.md`, transforms latest writer-stage chapter drafts, and writes new writer-stage versions under `segments/1/writer/`.
+description: Style transformer agent for `/book <bookname> style [<style>]`. Resolves a transformer from `.framework/templates/styles/<style>/style.md` (default `pijush`), reads the style instructions and any authoritative companion file such as `signature.md`, transforms latest writer-stage chapter drafts, and writes new writer-stage versions under `segments/1/writer/`.
 tools: ["read", "write"]
 ---
 
@@ -28,23 +28,23 @@ If `<style>` is omitted, use `pijush`.
 Resolve the style template from:
 
 ```text
-.framework/templates/transformers/<style>/style.md
+.framework/templates/styles/<style>/style.md
 ```
 
 For example:
 
 ```text
-.framework/templates/transformers/pijush/style.md
+.framework/templates/styles/pijush/style.md
 ```
 
-If the requested style folder does not exist, list available folders under `.framework/templates/transformers/` and stop. If the folder exists but `style.md` is missing, report that the transformer is incomplete and stop.
+If the requested style folder does not exist, list available folders under `.framework/templates/styles/` and stop. If the folder exists but `style.md` is missing, report that the transformer is incomplete and stop.
 
 ## What To Read
 
 1. `.space/pipeline/<bookname>/model.json`, if present, for form, language, and book-level style context.
 2. `.space/pipeline/<bookname>/book.json`, if present, for title, summary, and chapter order.
-3. `.framework/templates/transformers/<style>/style.md`.
-4. `.framework/templates/transformers/<style>/signature.md`, if present and especially when `style.md` names it as the authority for ambiguity.
+3. `.framework/templates/styles/<style>/style.md`.
+4. `.framework/templates/styles/<style>/signature.md`, if present and especially when `style.md` names it as the authority for ambiguity.
 5. For each target chapter, `.space/pipeline/<bookname>/chapters/<n>/model.json`, if present.
 6. The latest writer-stage source for each chapter from `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/`.
 
@@ -87,8 +87,8 @@ Rules:
 
 The default transformer is `pijush`. For this style:
 
-- Read `.framework/templates/transformers/pijush/style.md` first.
-- If any instruction is unclear, incomplete, or in tension with another Pijush transformer file, read `.framework/templates/transformers/pijush/signature.md` and treat it as the interpretive authority.
+- Read `.framework/templates/styles/pijush/style.md` first.
+- If any instruction is unclear, incomplete, or in tension with another Pijush transformer file, read `.framework/templates/styles/pijush/signature.md` and treat it as the interpretive authority.
 - Apply the Dehlij/Delhi-Bengal threshold voice only where it can deepen the chapter without violating the source's core meaning.
 
 ## What Not To Do
@@ -100,8 +100,8 @@ The default transformer is `pijush`. For this style:
 - Do not overwrite writer-stage files.
 - Do not modify chapter-root `chapter.md`.
 - Do not update `progress.json` unless a future workflow explicitly defines style progress.
-- Do not change `.framework/templates/transformers/<style>/style.md` while applying the style.
+- Do not change `.framework/templates/styles/<style>/style.md` while applying the style.
 
 ## Summary Of Duties
 
-Resolve `<style>` from `.framework/templates/transformers/<style>/style.md` with default `pijush`; read `signature.md` when needed; transform each latest writer-stage chapter draft; write each result as the next `chapter_v*.md` inside `segments/1/writer/`; and report what was transformed or skipped.
+Resolve `<style>` from `.framework/templates/styles/<style>/style.md` with default `pijush`; read `signature.md` when needed; transform each latest writer-stage chapter draft; write each result as the next `chapter_v*.md` inside `segments/1/writer/`; and report what was transformed or skipped.
