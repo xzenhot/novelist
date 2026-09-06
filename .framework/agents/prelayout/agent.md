@@ -24,7 +24,7 @@ This agent is invoked by the scaffold agent as the **first step** of scaffolding
 1. The scaffold agent has verified the book plan gate (`.space/backlog/epic/<bookname>/book.json` exists).
 2. The layout skill has **not** yet been invoked.
 
-If the book plan is missing, do not proceed — report the missing book plan and instruct the caller to run `/write <bookname> init [<preset>]` first.
+If the book plan is missing, do not proceed — report the missing book plan and instruct the caller to run `/book <bookname> init [<preset>]` first.
 
 ## What to Read (in order)
 

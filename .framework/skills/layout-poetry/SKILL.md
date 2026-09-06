@@ -21,7 +21,7 @@ source/books/book_<bookname>/
 
 ## Source Of Truth
 
-Use this skill together with `.framework/workflows/write.md`. Do not inspect existing book pipelines to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
+Use this skill together with `.framework/workflows/book.md`. Do not inspect existing book pipelines to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
 
 Poetry uses these root files as source of truth:
 
@@ -225,7 +225,7 @@ Each registry entry must include:
 - `output_file`
 - `description`
 - `agent`
-- `autorun` — a boolean (`true` or `false`). Default `true` for every filter in the chain. The human may set any filter to `false` to skip it; `/write <bookname> filter *` (and `filter all`) runs only the filters whose `autorun` is `true`, in order, skipping disabled ones. A single named filter (`/write <bookname> filter <filter>`) still runs that filter explicitly regardless of its `autorun` flag.
+- `autorun` — a boolean (`true` or `false`). Default `true` for every filter in the chain. The human may set any filter to `false` to skip it; `/book <bookname> filter *` (and `filter all`) runs only the filters whose `autorun` is `true`, in order, skipping disabled ones. A single named filter (`/book <bookname> filter <filter>`) still runs that filter explicitly regardless of its `autorun` flag.
 
 For each named filter folder, scaffold only:
 

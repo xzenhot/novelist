@@ -9,45 +9,47 @@ This repository is an autonomous literary workflow system. Agent engines such as
 The primary command surface is:
 
 ```text
-/write [args...]
+/book [args...]
 ```
 
-When a user invokes `/write`, parse the arguments, inspect the current repository state, then execute the matching workflow defined in:
+When a user invokes `/book`, parse the arguments, inspect the current repository state, then execute the matching workflow defined in:
 
 ```text
-.framework/workflows/write.md
+.framework/workflows/book.md
 ```
 
-`write.md` is the primary orchestration specification for command syntax, book lifecycle, filter order, progress tracking, form handling, and output promotion.
+`book.md` is the primary orchestration specification for command syntax, book lifecycle, filter order, progress tracking, form handling, and output promotion.
 
 ## Strict Slash Command Protocol
 
-All `/write` commands must be interpreted from left to right. Preserve user-provided argument text exactly unless the workflow explicitly normalizes it.
+All `/book` commands must be interpreted from left to right. Preserve user-provided argument text exactly unless the workflow explicitly normalizes it.
 
-Supported command families are defined by `.framework/workflows/write.md`. At minimum, the runtime must recognize these shapes:
+Supported command families are defined by `.framework/workflows/book.md`. At minimum, the runtime must recognize these shapes:
 
 ```text
-/write <bookname>
-/write <bookname> gist [<gist>]
-/write <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
-/write <bookname> add <chapter-count> filter <filter>|*|all
-/write <bookname> filter <filter>|*|all
-/write <bookname> chapter|story|content <chapter>|<n>|all|continue
-/write <bookname> form <novel|poetry>
-/write <bookname> config [<key> [<value>]]
-/write -o | --options
-/write -h | --help
+/book <bookname>
+/book <bookname> gist [<gist>]
+/book <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
+/book <bookname> add <chapter-count> filter <filter>|*|all
+/book <bookname> filter <filter>|*|all
+/book <bookname> write <n>|all|continue
+/book <bookname> style [<style>]
+/book <bookname> translate <n>|all|continue <language>
+/book <bookname> form <novel|poetry>
+/book <bookname> config [<key> [<value>]]
+/book -o | --options
+/book -h | --help
 ```
 
 Do not invent alternate slash commands. Do not treat subcommand keywords as book names, chapter names, filters, or prose.
 
 ## Parameter Parsing
 
-When parsing `/write [args...]`, classify parameters into these slots.
+When parsing `/book [args...]`, classify parameters into these slots.
 
 ### Target Work Or Book
 
-The first positional argument after `/write` is normally `<bookname>`.
+The first positional argument after `/book` is normally `<bookname>`.
 
 Map it to repository paths as follows:
 
@@ -55,7 +57,7 @@ Map it to repository paths as follows:
 <bookname>                       -> logical book name, e.g. wife
 .space/backlog/epic/<bookname>/  -> backlog epic folder
 .space/pipeline/book_<bookname>/ -> pipeline folder
-source/books/book_<bookname>/    -> final book output folder
+source/books/<bookname>/<version>/ -> final versioned book output folder
 ```
 
 If the user supplies `book_wife`, treat the canonical `<bookname>` as `wife` unless an existing path proves otherwise. Prefer existing repository paths over inference.
@@ -205,10 +207,10 @@ Use these framework locations as authoritative inputs.
 ### Workflow
 
 ```text
-.framework/workflows/write.md
+.framework/workflows/book.md
 ```
 
-Primary orchestration spec for `/write`.
+Primary orchestration spec for `/book`.
 
 ### Agents
 
@@ -218,13 +220,16 @@ Primary orchestration spec for `/write`.
 .framework/agents/prelayout/agent.md
 .framework/agents/postlayout/agent.md
 .framework/agents/override/agent.md
+.framework/agents/publish/agent.md
 .framework/agents/poet/agent.md
 .framework/agents/quality/agent.md
 .framework/agents/reframe/agent.md
 .framework/agents/research/agent.md
 .framework/agents/seeds/agent.md
+.framework/agents/style/agent.md
 .framework/agents/syntax/agent.md
 .framework/agents/theme/agent.md
+.framework/agents/translate/agent.md
 .framework/agents/workshop/agent.md
 ```
 
@@ -334,22 +339,22 @@ summary_file
 output_file
 ```
 
-If no registry exists, follow `.framework/workflows/write.md` and the current pipeline layout.
+If no registry exists, follow `.framework/workflows/book.md` and the current pipeline layout.
 
 ### Final Output
 
 Verified, finalized text is promoted to:
 
 ```text
-source/books/book_<bookname>/chapters/
-source/books/book_<bookname>/book.md
+source/books/<bookname>/<version>/chapters/
+source/books/<bookname>/<version>/book.md
 ```
 
 Only promote text after the required validation filters have passed.
 
 ## Validation And Promotion Rules
 
-Before writing to `source/books/`, apply the pipeline filters in the order specified by `.framework/workflows/write.md`.
+Before writing to `source/books/`, apply the pipeline filters in the order specified by `.framework/workflows/book.md`.
 
 For novels, the full validation chain is:
 
@@ -376,14 +381,14 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
 - Maintain the configured authorial tone, signature, language, register, syntax sample, reference, and theme set.
 - Prefer existing framework agents, skills, templates, and rules over new abstractions.
 - Keep runtime outputs in `.space/pipeline/` until validation permits promotion.
-- Keep finished, reader-facing text in `source/books/` only.
+- Keep finished, reader-facing text in versioned folders under `source/books/<bookname>/<version>/` only.
 
 ## Operating Procedure
 
-For every `/write` request:
+For every `/book` request:
 
 1. Read this `AGENTS.md` file.
-2. Read `.framework/workflows/write.md`.
+2. Read `.framework/workflows/book.md`.
 3. Parse the target book, unit/chapter/segment, signature/persona, and stage/role from the user arguments.
 4. Inspect the relevant `.space/backlog/`, `.space/pipeline/`, and `source/books/` paths before writing.
 5. Select the responsible agent from `.framework/agents/`.
@@ -392,5 +397,8 @@ For every `/write` request:
 8. Run the required filters and validations.
 9. Promote final text to `source/books/` only after validation passes.
 10. Report what changed, what was validated, and what remains pending.
+
+
+
 
 

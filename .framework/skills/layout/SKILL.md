@@ -16,7 +16,7 @@ This dispatcher must route to the form-specific skill and stop there. Do not ins
 
 ## Dispatch Rule
 
-1. Determine the book form from the `/write` command, `--form`, existing pipeline `model.json`, or the backlog epic/config.
+1. Determine the book form from the `/book` command, `--form`, existing pipeline `model.json`, or the backlog epic/config.
 2. If the form is `novel`, stop reading this file and follow `.framework/skills/layout-novel/SKILL.md`.
 3. If the form is `poetry`, stop reading this file and follow `.framework/skills/layout-poetry/SKILL.md`.
 4. If the form cannot be determined, infer conservatively: a narrative premise is `novel`; a topic/term list is `poetry`.
