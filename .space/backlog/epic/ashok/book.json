@@ -1,0 +1,90 @@
+{
+  "book_name": "ashok",
+  "book_long_title": "Ashok: The Dharma Stone",
+  "generic": "philosophical poetry",
+  "era": "ancient India, 3rd century BCE",
+  "language": "en",
+  "target_audience": "Readers of philosophical and spiritual poetry",
+  "chapter_count": 8,
+  "created_at": "2026-09-06T00:00:00Z",
+  "user_name": "pijush",
+  "gist": "A tormented prince-turned-emperor seeks redemption after a brutal conquest, turning from the sword to the dharma and reshaping an empire through compassion.",
+  "word_target": 500,
+  "filter_chain": ["research", "correctness", "theme", "syntax", "override", "quality"],
+  "book_summary": "A sequence of eight poems tracing the inner war of Ashok, the Mauryan emperor who conquered Kalinga in a river of blood and then turned from the sword to the dharma. Each poem is a chord struck on the same instrument: the sword that becomes a chisel, the conqueror who becomes a physician of sorrow, the empire re-founded in regret. The sequence moves from ambition through atrocity to remorse, and ends where the stone begins — the edict that outlives the hand that carved it.",
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "name": "1",
+      "chapter_title": "The Sword",
+      "chapter_summary": "The prince's ambition, the third son passed over, hardened by frontier wars and dreaming of a throne.",
+      "further_references": [
+        { "no": "1", "reference": "Ashoka - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Ashoka" }
+      ]
+    },
+    {
+      "chapter_index": 2,
+      "name": "2",
+      "chapter_title": "The Coup",
+      "chapter_summary": "The night seizure of Pataliputra, the massacre that crowns him, and the rain that sounds like footsteps.",
+      "further_references": [
+        { "no": "1", "reference": "Ashoka - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Ashoka" }
+      ]
+    },
+    {
+      "chapter_index": 3,
+      "name": "3",
+      "chapter_title": "Kalinga",
+      "chapter_summary": "The conquest of Kalinga, the elephants and chariots, the river turning red, and the victory that breaks something invisible.",
+      "further_references": [
+        { "no": "1", "reference": "Kalinga War - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Kalinga_War" }
+      ]
+    },
+    {
+      "chapter_index": 4,
+      "name": "4",
+      "chapter_title": "The River of Blood",
+      "chapter_summary": "Walking among the wounded and the pyres, counting the dead by the river, and the first stirring of remorse.",
+      "further_references": [
+        { "no": "1", "reference": "Kalinga War - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Kalinga_War" }
+      ]
+    },
+    {
+      "chapter_index": 5,
+      "name": "5",
+      "chapter_title": "The Physician of Sorrow",
+      "chapter_summary": "The encounter with the Buddha's teaching — the dharma as a physician of sorrow, not a crown.",
+      "further_references": [
+        { "no": "1", "reference": "Ashoka - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Ashoka" }
+      ]
+    },
+    {
+      "chapter_index": 6,
+      "name": "6",
+      "chapter_title": "The Edict",
+      "chapter_summary": "The labor of inscribing law and confession on rock and pillar, replacing conquest with persuasion.",
+      "further_references": [
+        { "no": "1", "reference": "Edicts of Ashoka - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Edicts_of_Ashoka" }
+      ]
+    },
+    {
+      "chapter_index": 7,
+      "name": "7",
+      "chapter_title": "Dharma",
+      "chapter_summary": "The daily discipline of choosing mercy when cruelty is easier, law when vengeance is sweeter.",
+      "further_references": [
+        { "no": "1", "reference": "Ashoka - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Ashoka" }
+      ]
+    },
+    {
+      "chapter_index": 8,
+      "name": "8",
+      "chapter_title": "The Stone",
+      "chapter_summary": "The final edict — 'All men are my children' — and the chisel that outlives the hand that carved it.",
+      "further_references": [
+        { "no": "1", "reference": "Edicts of Ashoka - Wikipedia", "weblink": "https://en.wikipedia.org/wiki/Edicts_of_Ashoka" }
+      ]
+    }
+  ],
+  "history": "Ashok (Ashoka) ruled the Mauryan empire around 268–232 BCE. His own inscriptions record the horror of the Kalinga war — more than 100,000 killed or deported — and the remorse that followed, which turned him toward the Buddha's dharma and the carving of rock and pillar edicts across the subcontinent."
+}

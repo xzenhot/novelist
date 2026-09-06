@@ -1,0 +1,10 @@
+{
+  "filters": [
+    { "order": 1, "name": "research", "folder": "filters/research/", "role_file": "research/research.md", "summary_file": "filter-summary.md", "output_file": "content-output.md", "description": "Gather and organize the subject, context, source notes, and usable images for the poem.", "agent": ".framework/agents/research/agent.md" },
+    { "order": 2, "name": "correctness", "folder": "filters/correctness/", "role_file": "correctness/correctness.md", "summary_file": "filter-summary.md", "output_file": "content-output.md", "description": "Verify factual, attributional, religious, philosophical, and cultural claims before poetic rendering.", "agent": ".framework/agents/correctness/agent.md" },
+    { "order": 3, "name": "theme", "folder": "filters/theme/", "role_file": "theme/theme.md", "summary_file": "filter-summary.md", "output_file": "content-output.md", "description": "Assign the poem's philosophical lens, contemporary mapping, and form-consistent poetic stereotype selection.", "agent": ".framework/agents/theme/agent.md" },
+    { "order": 4, "name": "syntax", "folder": "filters/syntax/", "role_file": "syntax/syntax.md", "summary_file": "filter-summary.md", "output_file": "content-output.md", "description": "Apply the selected poetic syntax guidance so the language remains current while preserving elevated cadence.", "agent": ".framework/agents/syntax/agent.md" },
+    { "order": 5, "name": "override", "folder": "filters/override/", "role_file": "filters/override/filter.md", "summary_file": "filter-summary.md", "output_file": "content-output.md", "description": "Apply any human transformation instructions from the override layer, or pass through unchanged when empty.", "agent": ".framework/agents/override/agent.md" },
+    { "order": 6, "name": "quality", "folder": "filters/quality/", "role_file": "quality/quality.md", "summary_file": "filter-summary.md", "output_file": "content-output.md", "description": "Audit the poem against the preset, topic, theme, voice, correctness result, and final quality bar.", "agent": ".framework/agents/quality/agent.md" }
+  ]
+}

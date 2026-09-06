@@ -1,0 +1,19 @@
+{
+  "title": "Ashok: The Dharma Stone",
+  "language": "en",
+  "source_terms": ["The Sword", "The Coup", "Kalinga", "The River of Blood", "The Physician of Sorrow", "The Edict", "Dharma", "The Stone"],
+  "context": "A sequence of eight poems tracing the inner war of Ashok, the Mauryan emperor who turned from the sword to the dharma.",
+  "total_chapters": 8,
+  "completed_chapters": 0,
+  "current_chapter": 1,
+  "chapters": [
+    { "chapter_number": 1, "topic": "The Sword", "category": "ambition", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_001_The_Sword.md", "completed_date": null },
+    { "chapter_number": 2, "topic": "The Coup", "category": "atrocity", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_002_The_Coup.md", "completed_date": null },
+    { "chapter_number": 3, "topic": "Kalinga", "category": "atrocity", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_003_Kalinga.md", "completed_date": null },
+    { "chapter_number": 4, "topic": "The River of Blood", "category": "remorse", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_004_The_River_of_Blood.md", "completed_date": null },
+    { "chapter_number": 5, "topic": "The Physician of Sorrow", "category": "conversion", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_005_The_Physician_of_Sorrow.md", "completed_date": null },
+    { "chapter_number": 6, "topic": "The Edict", "category": "dharma", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_006_The_Edict.md", "completed_date": null },
+    { "chapter_number": 7, "topic": "Dharma", "category": "dharma", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_007_Dharma.md", "completed_date": null },
+    { "chapter_number": 8, "topic": "The Stone", "category": "legacy", "status": "pending", "file_path": "source/books/book_ashok/chapters/Chapter_008_The_Stone.md", "completed_date": null }
+  ]
+}
