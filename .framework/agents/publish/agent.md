@@ -10,11 +10,11 @@ You are the **promotion** agent of the literary pipeline. Your task is to copy t
 
 ## Inputs
 
-1. `.space/pipeline/book_<bookname>/` — the pipeline (must exist; otherwise stop and tell the caller to run `scaffold` first).
+1. `.space/pipeline/<bookname>/` — the pipeline (must exist; otherwise stop and tell the caller to run `scaffold` first).
 2. Target chapters — all chapters with a usable segment, or scoped by `all` / `continue` (`continue` starts from the first chapter not yet published).
 3. `<language>` — optional. When absent, publish **writer-stage** segments; when present, publish **translator-stage** segments matching that language.
-4. `.space/pipeline/book_<bookname>/bookseed.txt` (poetry) or `book.json`/`model.json` (novel) — canonical chapter order for assembly.
-5. `.space/pipeline/book_<bookname>/progress.json` — publish state to update.
+4. `.space/pipeline/<bookname>/bookseed.txt` (poetry) or `book.json`/`model.json` (novel) — canonical chapter order for assembly.
+5. `.space/pipeline/<bookname>/progress.json` — publish state to update.
 
 ## Version Allocation
 
@@ -24,14 +24,14 @@ You are the **promotion** agent of the literary pipeline. Your task is to copy t
 
 ## Writer-Stage Publish (no `<language>`)
 
-1. For each target chapter, read the latest writer-stage segment from `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/` — the newest segment file (e.g. `chapter.md`, or the highest `chapter_v<n>.md`).
+1. For each target chapter, read the latest writer-stage segment from `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/` — the newest segment file (e.g. `chapter.md`, or the highest `chapter_v<n>.md`).
 2. If the writer segment is missing, skip the chapter and report it; do not fail the whole publish.
 3. Copy the segment content to `source/books/<bookname>/version<k>/chapters/<n>/chapter.md` (create the chapter folder on first publish).
 4. If the segment carries a metadata record (e.g. `segment.json`), copy it alongside as `source/books/<bookname>/version<k>/chapters/<n>/chapter.json`.
 
 ## Translator-Stage Publish (with `<language>`)
 
-1. For each target chapter, read the translator segment from `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/translator/` whose file matches the requested language (e.g. `bengali.md`, `en.md`, `bn.md`, `hi.md`).
+1. For each target chapter, read the translator segment from `.space/pipeline/<bookname>/chapters/<n>/segments/1/translator/` whose file matches the requested language (e.g. `bengali.md`, `en.md`, `bn.md`, `hi.md`).
 2. If no matching translation exists, skip the chapter and report the missing translation; do not fail the whole publish.
 3. Copy the translated segment to `source/books/<bookname>/version<k>/chapters/<n>/<language>/chapter.md` (create folders on first publish).
 
@@ -42,7 +42,7 @@ You are the **promotion** agent of the literary pipeline. Your task is to copy t
 
 ## Progress Update
 
-Update `.space/pipeline/book_<bookname>/progress.json` without resetting any filter or write state:
+Update `.space/pipeline/<bookname>/progress.json` without resetting any filter or write state:
 
 - `published: true`
 - `published_at` — UTC timestamp of this publish

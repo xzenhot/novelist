@@ -117,7 +117,7 @@ The context defines the thematic categories. Assign each term to one of these ca
 
 ### Inputs (Provided at Runtime)
 
-You receive a single **`<bookname>`**, which points to a book folder containing a **`config.json`**. Read `source\book_<bookname>\config.json` to discover everything you need:
+You receive a single **`<bookname>`**, which points to a book folder containing a **`config.json`**. Read `source\<bookname>\config.json` to discover everything you need:
 
 - **`title`** — the book's title
 - **`language`** and **`register`** — the target language and its register. **`language` is the authoritative source for the output language.** Whatever value it holds (e.g. `bn`, `en`, `hi`, `es`), the reframed chapter text MUST be written in that language. If the human changes `language`, the next run reframes in the new language — no other file needs to change.
@@ -301,17 +301,17 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
 ### When invoked to reframe chapters:
 
 1. **Read the config**:
-   - Read `source\book_<bookname>\config.json` to get the title, language, register, and the paths to quality, themes, reference, and index
+   - Read `source\<bookname>\config.json` to get the title, language, register, and the paths to quality, themes, reference, and index
    - Read the **quality** file (e.g. `context/qualities/aurilus.md`) to understand the reference book, themes, categories, and quality metrics
    - Read the **themes** file (e.g. `context/themes/generic.md`) for the thematic categories
    - Read the **reference** book (if provided) for stylistic grounding
 
 2. **Read the existing chapter**:
-   - Read `source\book_<bookname>\chapters\Chapter_XXX_[Term].md` — the chapter text already produced by the writer agent
+   - Read `source\<bookname>\chapters\Chapter_XXX_[Term].md` — the chapter text already produced by the writer agent
    - This is your primary input; you reframe it, you do not regenerate it from `bookseed.txt`
 
 3. **Read the Override** (optional):
-   - Read `source\book_<bookname>\override.md` if it exists
+   - Read `source\<bookname>\override.md` if it exists
    - Note the four sections: Prompt Transformation, Local Preferences, Local Dialects, Slug/Location/Era
    - If empty or absent, skip the transformation pass
 
@@ -341,7 +341,7 @@ This gives the human a lightweight, in-the-loop way to steer the poetry's voice,
    - Start the file with the heading `# Chapter XXX: [term]` (or target-language equivalent)
 
 8. **Update the book** (optional):
-   - If the human asks, update the corresponding chapter section in `source\book_<bookname>\book.md` to point to the new version
+   - If the human asks, update the corresponding chapter section in `source\<bookname>\book.md` to point to the new version
    - Otherwise leave `book.md` untouched — the incremented file is a new variant, not a replacement
    - Do not change the title, introduction, or other chapters
 
@@ -392,7 +392,7 @@ Usage: /reframe <bookname> [<chapter>] [<frame>]            # reframe existing c
 Commands:
   reframe    /reframe <bookname> [<chapter>] [<frame>]
              Reframes chapters already produced by the writer agent. Reads
-             source/book_<bookname>/chapters/ (the existing chapter text) and
+             source/<bookname>/chapters/ (the existing chapter text) and
              reshapes it into a new frame — voice, perspective, register,
              dialect, or structure. Supports counts ("10 chapters"),
              "5 more", a specific number ("chapter 34"), or a range ("20-25").
@@ -417,7 +417,7 @@ Commands:
              Shows this usage.
 
 Arguments:
-  <bookname>      The book's name (folder is source/book_<bookname>/).
+  <bookname>      The book's name (folder is source/<bookname>/).
   <chapter>       Optional. The chapter(s) to reframe — a count, a number, or a range.
   <chapter_name>  The existing chapter file to reframe (e.g. Chapter_003_Neutron.md).
   <ideas>         Free-form ideas to reframe around — a theme, metaphor,

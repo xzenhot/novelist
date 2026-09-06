@@ -20,7 +20,7 @@ Every workshop file — and every finished chapter — has three sections:
 1. Keep all three sections in every chapter.
 2. Leave Section 1 (Workshop) and Section 3 (Discussion) **unchanged**.
 3. Rewrite Section 2 (Story) in a deep, image-rich, emotionally resonant style.
-4. Write the finished chapter to `source/books/book_<bookname>/`.
+4. Write the finished chapter to `source/books/<bookname>/`.
 
 ## Batch Writing (Long Stories)
 
@@ -53,7 +53,7 @@ End every chapter with a **running summary** or thread that connects to the next
 
 ## File Mapping
 
-| Source (`workshop_minutes/`) | Destination (`source/books/book_<bookname>/`) |
+| Source (`workshop_minutes/`) | Destination (`source/books/<bookname>/`) |
 | --- | --- |
 | `Introduction.md` | `Introduction.md` (always first) |
 | `1.md` … `N.md` | `1.md` … `N.md` |

@@ -104,7 +104,7 @@ When transforming an existing epic:
 
 ## Constraints
 
-- Do **not** create or modify `.space/pipeline/book_<bookname>/`.
+- Do **not** create or modify `.space/pipeline/<bookname>/`.
 - Do **not** run filters, layout, research, or chapter writing.
 - Do **not** invent story content beyond what the great idea supports; derive every element from the idea.
 - In **Create Mode**, if `epic.md` already exists and no fresh gist was supplied, treat it as **Transform Mode** rather than overwriting blindly.

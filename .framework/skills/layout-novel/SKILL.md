@@ -1,6 +1,6 @@
 ---
 name: layout-novel
-description: "Use when scaffolding or repairing the structural skeleton of a novel pipeline. Creates .space/pipeline/book_<bookname>/, root planning JSON/Markdown, named filter folders, chapter folders, segment folders, and the empty source/books destination. Does not write finished prose or runtime filter results."
+description: "Use when scaffolding or repairing the structural skeleton of a novel pipeline. Creates .space/pipeline/<bookname>/, root planning JSON/Markdown, named filter folders, chapter folders, segment folders, and the empty source/books destination. Does not write finished prose or runtime filter results."
 ---
 
 # Layout Novel - Pipeline Scaffold
@@ -10,18 +10,18 @@ You are the structural architect for a novel pipeline. Create only the scaffold 
 A scaffolded novel lives at:
 
 ```text
-.space/pipeline/book_<bookname>/
+.space/pipeline/<bookname>/
 ```
 
 Finished content later lives at:
 
 ```text
-source/books/book_<bookname>/
+source/books/<bookname>/
 ```
 
 ## Source Of Truth
 
-Use this skill together with `.framework/workflows/book.md`. Do not inspect existing book pipelines such as `.space/pipeline/book_<bookname>/` to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
+Use this skill together with `.framework/workflows/book.md`. Do not inspect existing book pipelines such as `.space/pipeline/<bookname>/` to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
 
 If this skill conflicts with `.framework/workflows/book.md`, prefer the workflow for command semantics and filter-chain naming, then update this skill. Do not resolve conflicts by sampling another book pipeline.
 
@@ -56,7 +56,7 @@ workshop -> research -> seeds -> correctness -> theme -> syntax
 ## Canonical Folder Shape
 
 ```text
-.space/pipeline/book_<bookname>/
+.space/pipeline/<bookname>/
 |-- model.json
 |-- book.json
 |-- characters.json
@@ -100,11 +100,11 @@ Every filter folder uses the same four-file shape as `workshop/`, with the role 
 
 This is mandatory.
 
-- Chapter folders live only under `.space/pipeline/book_<bookname>/chapters/`.
-- Segment folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/`.
-- Writer, editor, and translator folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/`.
-- Each chapter has a `history/` folder (`.space/pipeline/book_<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
-- Do not create root-level chapter folders under `.space/pipeline/book_<bookname>/`.
+- Chapter folders live only under `.space/pipeline/<bookname>/chapters/`.
+- Segment folders live only under `.space/pipeline/<bookname>/chapters/<chapter>/segments/`.
+- Writer, editor, and translator folders live only under `.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/`.
+- Each chapter has a `history/` folder (`.space/pipeline/<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
+- Do not create root-level chapter folders under `.space/pipeline/<bookname>/`.
 - Do not create `chapter_<n>` or `segment_<n>` folders in new scaffolds; use `1`, `2`, etc.
 - If repairing legacy folders, rename only after confirming there is no collision and no user-authored content will be overwritten.
 
@@ -279,7 +279,7 @@ Use the ordered `filter_chain` list declared in the resulting book plan as the c
 workshop -> research -> seeds -> correctness -> theme -> syntax
 ```
 
-Create `.space/pipeline/book_<bookname>/filters/filters.json` with the selected chain in order.
+Create `.space/pipeline/<bookname>/filters/filters.json` with the selected chain in order.
 
 Each registry entry must include:
 
@@ -305,8 +305,8 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 **Override command file (novel customization):** the `override` filter is the one structural exception. Its exact seeding content is **dynamically derived at scaffold time** from the novel stereotype index at `.framework/templates/stereotypes/novel/readme.md` — do not treat this paragraph as the fixed recipe. Before you create the override files, read that readme and let it govern the shape:
 
 1. **Read `.framework/templates/stereotypes/novel/readme.md`** — the master index of the novel stereotype folder. It tells you the canonical contents and conventions: the `qualities/` (seed analyses), `references/` (source texts), `signatures/` (prose voices), `syntax/`, and `themes/` sub-indexes. Use the readme's published conventions as the source of truth for how a novel pipeline's override layer is structured.
-2. **Seed the pipeline override command file from the readme's declared structure.** The human-facing command file for a novel pipeline is `.space/pipeline/book_<bookname>/filters/override/filter.md` — recreate it with the agent-driven role content (see step 3) and leave the `## Instructions` section empty for the human below the `---` line.
-3. **Derive the role content from `.framework/agents/override/agent.md`**, customized to the novel form per the readme conventions: identity "novel pipeline", applies to every chapter (Workshop/Story/Discussion), command file at `.space/pipeline/book_<bookname>/filters/override/filter.md`, model updates on `.space/pipeline/book_<bookname>/chapters/<n>/model.json`, instruction scope "every chapter" (`Introduction`, `1..N`, `Conclusion`).
+2. **Seed the pipeline override command file from the readme's declared structure.** The human-facing command file for a novel pipeline is `.space/pipeline/<bookname>/filters/override/filter.md` — recreate it with the agent-driven role content (see step 3) and leave the `## Instructions` section empty for the human below the `---` line.
+3. **Derive the role content from `.framework/agents/override/agent.md`**, customized to the novel form per the readme conventions: identity "novel pipeline", applies to every chapter (Workshop/Story/Discussion), command file at `.space/pipeline/<bookname>/filters/override/filter.md`, model updates on `.space/pipeline/<bookname>/chapters/<n>/model.json`, instruction scope "every chapter" (`Introduction`, `1..N`, `Conclusion`).
 4. **Align with whatever the readme's sub-indexes declare** (the prose voice/signature set, reference texts, syntax samples, and theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
 5. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
 
@@ -317,7 +317,7 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 Create:
 
 ```text
-source/books/book_<bookname>/chapters/
+source/books/<bookname>/chapters/
 ```
 
 Do not write finished chapters or `book.md` during layout.
@@ -332,4 +332,4 @@ Before reporting completion, verify:
 - Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, a `history/` folder, and `segments/1/model.json`.
 - Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
 - No chapter or segment folders were created outside the canonical paths.
-- `source/books/book_<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.
+- `source/books/<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.

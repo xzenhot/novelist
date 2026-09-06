@@ -41,12 +41,12 @@ If the requested style folder does not exist, list available folders under `.fra
 
 ## What To Read
 
-1. `.space/pipeline/book_<bookname>/model.json`, if present, for form, language, and book-level style context.
-2. `.space/pipeline/book_<bookname>/book.json`, if present, for title, summary, and chapter order.
+1. `.space/pipeline/<bookname>/model.json`, if present, for form, language, and book-level style context.
+2. `.space/pipeline/<bookname>/book.json`, if present, for title, summary, and chapter order.
 3. `.framework/templates/transformers/<style>/style.md`.
 4. `.framework/templates/transformers/<style>/signature.md`, if present and especially when `style.md` names it as the authority for ambiguity.
-5. For each target chapter, `.space/pipeline/book_<bookname>/chapters/<n>/model.json`, if present.
-6. The latest writer-stage source for each chapter from `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/`.
+5. For each target chapter, `.space/pipeline/<bookname>/chapters/<n>/model.json`, if present.
+6. The latest writer-stage source for each chapter from `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/`.
 
 ## Latest Writer-Stage Source
 
@@ -63,7 +63,7 @@ Never use the chapter-root `chapters/<n>/chapter.md` as the source for this comm
 Write the transformed chapter into the same writer folder as the next unused version:
 
 ```text
-.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/chapter_v<next>.md
+.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/chapter_v<next>.md
 ```
 
 Rules:

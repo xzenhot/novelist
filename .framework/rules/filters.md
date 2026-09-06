@@ -11,7 +11,7 @@ A filter is a gate that answers one question about the material and transforms i
 Every pipeline keeps its filter order in a registry file at:
 
 ```text
-.space/pipeline/book_<bookname>/filters/filters.json
+.space/pipeline/<bookname>/filters/filters.json
 ```
 
 The registry maps numbers to filter names, so the order is explicit and easy to remember without mixing numbers into folder names. The default chain is:
@@ -65,7 +65,7 @@ The exact filters depend on the workflow, but the principle is universal: **each
 
 ## Filter → Folder Mapping
 
-Every filter is backed by a folder in `.space/pipeline/book_<bookname>/filters/`. The folder is the filter's scratch space — the place where it records what it did, so the pipeline is auditable per filter.
+Every filter is backed by a folder in `.space/pipeline/<bookname>/filters/`. The folder is the filter's scratch space — the place where it records what it did, so the pipeline is auditable per filter.
 
 Filter folders are **bare filter names** (no number prefix). The chain order is kept in the registry file, not encoded in folder names. Inside each named folder live three standard files plus the filter-specific role file:
 

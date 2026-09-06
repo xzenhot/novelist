@@ -46,8 +46,8 @@ The three selections must be **mutually consistent** — the signature, referenc
 3. Determine the chapter's **form** — poetry or novel (prose).
 4. Select the **signature**, **reference**, and **theme set** from the matching stereotype templates (see above).
 5. Assign the chapter its theme, and map it onto a contemporary concern.
-6. Record the theme in `.space/pipeline/book_<bookname>/filters/theme/theme.json` (per-chapter records if the workflow creates them).
-7. Record the stereotype selection in the chapter's model file `.space/pipeline/book_<bookname>/chapters/<n>/model.json` (see Output).
+6. Record the theme in `.space/pipeline/<bookname>/filters/theme/theme.json` (per-chapter records if the workflow creates them).
+7. Record the stereotype selection in the chapter's model file `.space/pipeline/<bookname>/chapters/<n>/model.json` (see Output).
 
 ## Weaving a Theme (Not Stating It)
 
@@ -59,9 +59,9 @@ The three selections must be **mutually consistent** — the signature, referenc
 
 ## Output
 
-Record the theme assignment and its contemporary mapping in `.space/pipeline/book_<bookname>/filters/theme/theme.json`.
+Record the theme assignment and its contemporary mapping in `.space/pipeline/<bookname>/filters/theme/theme.json`.
 
-Record the stereotype selection in the chapter's model file `.space/pipeline/book_<bookname>/chapters/<n>/model.json` by adding (or updating) a `stereotype` object:
+Record the stereotype selection in the chapter's model file `.space/pipeline/<bookname>/chapters/<n>/model.json` by adding (or updating) a `stereotype` object:
 
 ```json
 {

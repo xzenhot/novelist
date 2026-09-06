@@ -1,6 +1,6 @@
 ---
 name: translate
-description: Translation agent for `/book <bookname> translate <n>|all|continue <language>`. Reads the latest writer-stage chapter version from `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/`, translates it into the requested language while preserving literary voice and markdown structure, and writes the derivative to `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/translator/`.
+description: Translation agent for `/book <bookname> translate <n>|all|continue <language>`. Reads the latest writer-stage chapter version from `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/`, translates it into the requested language while preserving literary voice and markdown structure, and writes the derivative to `.space/pipeline/<bookname>/chapters/<n>/segments/1/translator/`.
 tools: ["read", "write"]
 ---
 
@@ -26,12 +26,12 @@ Examples:
 
 For each target chapter:
 
-- Pipeline root: `.space/pipeline/book_<bookname>/`
-- Source folder: `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/writer/`
-- Destination folder: `.space/pipeline/book_<bookname>/chapters/<n>/segments/1/translator/`
-- Optional chapter metadata: `.space/pipeline/book_<bookname>/chapters/<n>/model.json`
-- Optional book metadata: `.space/pipeline/book_<bookname>/model.json` and `.space/pipeline/book_<bookname>/book.json`
-- Optional history folder for replaced translator outputs: `.space/pipeline/book_<bookname>/chapters/<n>/history/`
+- Pipeline root: `.space/pipeline/<bookname>/`
+- Source folder: `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/`
+- Destination folder: `.space/pipeline/<bookname>/chapters/<n>/segments/1/translator/`
+- Optional chapter metadata: `.space/pipeline/<bookname>/chapters/<n>/model.json`
+- Optional book metadata: `.space/pipeline/<bookname>/model.json` and `.space/pipeline/<bookname>/book.json`
+- Optional history folder for replaced translator outputs: `.space/pipeline/<bookname>/chapters/<n>/history/`
 
 ## What To Read
 
@@ -66,7 +66,7 @@ Use the `<language>` argument as the target language. Normalize it only for the 
 Write to:
 
 ```text
-.space/pipeline/book_<bookname>/chapters/<n>/segments/1/translator/<language-slug>.md
+.space/pipeline/<bookname>/chapters/<n>/segments/1/translator/<language-slug>.md
 ```
 
 ## Translation Rules

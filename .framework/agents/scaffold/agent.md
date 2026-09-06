@@ -28,10 +28,10 @@ Then retry the scaffold command.
 5. If the form is `poetry`, read and follow `.framework/skills/layout-poetry/SKILL.md`.
 6. If the form cannot be determined, infer conservatively: a narrative premise is `novel`; a topic/term list is `poetry`.
 7. Record the chosen form in the pipeline root `model.json` during scaffolding.
-8. Create or update `.space/pipeline/book_<bookname>/filters/filters.json` from the book plan's ordered `filter_chain` list. The book plan is the sole source for this registry. Each registry entry carries an `autorun` flag (boolean, default `true`); the human may set any filter to `false` to skip it, and `/book <bookname> filter *` / `filter all` runs only the `autorun: true` filters in order. A single named filter still runs explicitly regardless of its flag.
+8. Create or update `.space/pipeline/<bookname>/filters/filters.json` from the book plan's ordered `filter_chain` list. The book plan is the sole source for this registry. Each registry entry carries an `autorun` flag (boolean, default `true`); the human may set any filter to `false` to skip it, and `/book <bookname> filter *` / `filter all` runs only the `autorun: true` filters in order. A single named filter still runs explicitly regardless of its flag.
 9. Do not run any filter agent or skill during scaffold. Create only structure and empty filter folders; leave all runtime outputs empty.
-10. **Seed the override command file.** If the book plan's `filter_chain` includes `override`, recreate `.space/pipeline/book_<bookname>/filters/override/filter.md` with the form-customized content derived from `.framework/agents/override/agent.md` (see *Override Command File Seeding*). This is structural scaffold output for the human to edit, not a runtime filter result.
-11. **Generate the dynamic master prompt.** After the layout skill has built the pipeline, invoke the postlayout agent (`.framework/agents/postlayout/agent.md`) to derive the pipeline's dynamic master prompt from the backlog idea (`.space/backlog/epic/<bookname>/override.txt`) and the resolved pipeline state, writing it to `.space/pipeline/book_<bookname>/override.txt`. This is the final scaffold step.
+10. **Seed the override command file.** If the book plan's `filter_chain` includes `override`, recreate `.space/pipeline/<bookname>/filters/override/filter.md` with the form-customized content derived from `.framework/agents/override/agent.md` (see *Override Command File Seeding*). This is structural scaffold output for the human to edit, not a runtime filter result.
+11. **Generate the dynamic master prompt.** After the layout skill has built the pipeline, invoke the postlayout agent (`.framework/agents/postlayout/agent.md`) to derive the pipeline's dynamic master prompt from the backlog idea (`.space/backlog/epic/<bookname>/override.txt`) and the resolved pipeline state, writing it to `.space/pipeline/<bookname>/override.txt`. This is the final scaffold step.
 
 ## Override Command File Seeding
 
@@ -39,10 +39,10 @@ The `override` human-in-the-loop filter needs a ready-made command file, not an 
 
 1. If `override` is not in the book plan's `filter_chain`, skip this step — no registry entry, no override folder, no `filter.md`.
 2. Read `.framework/agents/override/agent.md` — its content is the base for `filter.md`.
-3. Recreate `.space/pipeline/book_<bookname>/filters/override/filter.md` by reproducing the override agent's content with these form-specific customizations:
+3. Recreate `.space/pipeline/<bookname>/filters/override/filter.md` by reproducing the override agent's content with these form-specific customizations:
    - **Identity and units.** Novel: the "novel pipeline", applying to every **chapter** (Workshop/Story/Discussion). Poetry: the "poetry pipeline", applying to every **poem** (Question/Oration/Benediction).
-   - **Command file path.** All forms: `.space/pipeline/book_<bookname>/filters/override/filter.md`. There is no pipeline-root `override.md` in any form; the backlog `.space/backlog/epic/<bookname>/override.md` is only a planning copy.
-   - **Model updates.** Novel: `.space/pipeline/book_<bookname>/chapters/<n>/model.json`. Poetry: the poem chapter models under `chapters/<n>/`.
+   - **Command file path.** All forms: `.space/pipeline/<bookname>/filters/override/filter.md`. There is no pipeline-root `override.md` in any form; the backlog `.space/backlog/epic/<bookname>/override.md` is only a planning copy.
+   - **Model updates.** Novel: `.space/pipeline/<bookname>/chapters/<n>/model.json`. Poetry: the poem chapter models under `chapters/<n>/`.
    - **Instruction scope.** Novel: every chapter (`Introduction`, `1..N`, `Conclusion`). Poetry: every poem.
 4. Keep the trailing `## Instructions` section empty (below the `---` line) so the human has a blank editing surface.
 5. Never overwrite human instructions that already exist below the `---` line; refresh only the role/context portion above it.
@@ -53,7 +53,7 @@ After the layout skill has built the pipeline, the scaffold agent delegates the 
 
 1. The postlayout agent reads the backlog idea at `.space/backlog/epic/<bookname>/override.txt` (if present).
 2. It reads the resolved pipeline state — `model.json` (form, language, register, signature, quality, themes, reference, sacred vocabulary, translation guide, gist, book summary) and `bookseed.txt` (poetry) or `book.json` (novel).
-3. It derives a **dynamic** master prompt — the backlog identity/mandate enriched with the concrete topic/chapter list — and writes it to `.space/pipeline/book_<bookname>/override.txt`.
+3. It derives a **dynamic** master prompt — the backlog identity/mandate enriched with the concrete topic/chapter list — and writes it to `.space/pipeline/<bookname>/override.txt`.
 4. This file is the pipeline's operative writing mandate, distinct from the backlog `override.txt` (the seed idea) and the novel-only `masterprompt.md` planning artifact.
 
 The scaffold agent does not copy the backlog file verbatim; it routes the derivation through the postlayout agent.
@@ -65,10 +65,10 @@ Use `.framework/workflows/book.md` and the selected form-specific layout skill a
 ## Responsibilities
 
 - **Invoke the prelayout agent first.** Before the layout skill runs, the scaffold agent MUST call `.framework/agents/prelayout/agent.md` to resolve the form, validate the book plan, and produce the pre-layout plan. This is the mandatory first step of scaffold.
-- Create or repair `.space/pipeline/book_<bookname>/` using the selected layout skill.
+- Create or repair `.space/pipeline/<bookname>/` using the selected layout skill.
 - Preserve the selected skill's path invariants.
 - Create only structural scaffold files, planning artifacts, and empty filter folders owned by the scaffold step.
-- **Invoke the postlayout agent after every scaffold.** Once the layout skill has built the pipeline, the scaffold agent MUST call `.framework/agents/postlayout/agent.md` to generate the dynamic master prompt at `.space/pipeline/book_<bookname>/override.txt`. This is a mandatory final step, not optional — a scaffold is not complete until the postlayout agent has run.
+- **Invoke the postlayout agent after every scaffold.** Once the layout skill has built the pipeline, the scaffold agent MUST call `.framework/agents/postlayout/agent.md` to generate the dynamic master prompt at `.space/pipeline/<bookname>/override.txt`. This is a mandatory final step, not optional — a scaffold is not complete until the postlayout agent has run.
 - Do not write runtime filter outputs, research results, or finished chapters.
 - Do not run any filter agent or skill (the prelayout and postlayout agents are the sole exceptions, and they run only at the start and end of scaffold, respectively).
 - Do not overwrite existing book-specific content without inspecting it first.
@@ -79,7 +79,7 @@ If a scaffold/layout-related skill is needed, this agent invokes it. If a future
 
 **Pre-scaffold rule:** the scaffold agent always invokes the prelayout agent (`.framework/agents/prelayout/agent.md`) as the first step of scaffolding, before the layout skill builds the pipeline.
 
-**Post-scaffold rule:** the scaffold agent always invokes the postlayout agent (`.framework/agents/postlayout/agent.md`) as the final step of scaffolding, after the layout skill has built the pipeline. No scaffold is considered complete until the postlayout agent has produced `.space/pipeline/book_<bookname>/override.txt`.
+**Post-scaffold rule:** the scaffold agent always invokes the postlayout agent (`.framework/agents/postlayout/agent.md`) as the final step of scaffolding, after the layout skill has built the pipeline. No scaffold is considered complete until the postlayout agent has produced `.space/pipeline/<bookname>/override.txt`.
 
 
 

@@ -17,21 +17,21 @@ You are the bridge between the machine's output and the human's intent.
 
 ## What the Override Is
 
-The override is a **human-editable command file** — `.space/pipeline/book_<bookname>/filters/override/filter.md` — where the human records the transformations they want applied. It is a filter, not a skill: it is driven directly by the human's file, with no separate skill created for it.
+The override is a **human-editable command file** — `.space/pipeline/<bookname>/filters/override/filter.md` — where the human records the transformations they want applied. It is a filter, not a skill: it is driven directly by the human's file, with no separate skill created for it.
 
 ## Generating the filter.md (Runtime, Context-Aware)
 
 The `filter.md` is **generated from the chapter models** — it is not a static template. At runtime, read the chapter models and populate the file with the book's actual context, so the human's instructions are grounded in what the chapters actually contain.
 
-1. Read the book model at `.space/pipeline/book_<bookname>/model.json` and `book.json` for the book name and chapter list. Also read the book's master prompt at `.space/pipeline/book_<bookname>/override.txt` — it carries the book-level identity, premise, form/language, style mandate, and section structure that must be reflected in the filter.md header and context summary. If `override.txt` does not exist yet, create it at `.space/pipeline/book_<bookname>/override.txt` from the backlog `gist.md`/`epic.md` and `book.json` before generating the filter.md.
-2. Read each chapter model at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` to gather the context:
+1. Read the book model at `.space/pipeline/<bookname>/model.json` and `book.json` for the book name and chapter list. Also read the book's master prompt at `.space/pipeline/<bookname>/override.txt` — it carries the book-level identity, premise, form/language, style mandate, and section structure that must be reflected in the filter.md header and context summary. If `override.txt` does not exist yet, create it at `.space/pipeline/<bookname>/override.txt` from the backlog `gist.md`/`epic.md` and `book.json` before generating the filter.md.
+2. Read each chapter model at `.space/pipeline/<bookname>/chapters/<n>/model.json` to gather the context:
    - `chapter_index`, `chapter_name`, `chapter_title`
    - `subject`, `era`, `place`, `figures`, `events`
    - `theme`, `contemporary_mapping`
    - `stereotype` (form, signature, reference, theme_set)
    - `syntax` (form, sample)
    - `state`
-3. Write (or update) `.space/pipeline/book_<bookname>/filters/override/filter.md` with:
+3. Write (or update) `.space/pipeline/<bookname>/filters/override/filter.md` with:
    - A header explaining that instructions apply to **all chapters**, grounded in the identity, premise, form/language, and style mandate from `override.txt`.
    - A **context summary** — a compact table of each chapter's name, subject, theme, and stereotype, so the human can see at a glance what they are overriding.
    - An empty `## Instructions` section below a `---` line, where the human writes their transformations.
@@ -39,7 +39,7 @@ The `filter.md` is **generated from the chapter models** — it is not a static 
 
 ## Applying the Instructions
 
-1. Read the command file at `.space/pipeline/book_<bookname>/filters/override/filter.md`.
+1. Read the command file at `.space/pipeline/<bookname>/filters/override/filter.md`.
 2. If the `## Instructions` section is empty, pass every chapter through unchanged.
 3. If the instructions specify transformations, apply them **exactly as written** to **every chapter** (unless an instruction is scoped to a specific chapter).
 4. Record what was applied in each chapter's model.
@@ -54,7 +54,7 @@ The `filter.md` is **generated from the chapter models** — it is not a static 
 
 ## Chapter Model
 
-For each chapter, update `.space/pipeline/book_<bookname>/chapters/<n>/model.json`. Preserve all existing fields, and add or update:
+For each chapter, update `.space/pipeline/<bookname>/chapters/<n>/model.json`. Preserve all existing fields, and add or update:
 
 - `override` — an object recording the result: `{ status, applied }`, where `status` is `"passed_through"` (no instruction) or `"applied"`, and `applied` is an array of the transformations applied.
 
@@ -62,6 +62,6 @@ Do not overwrite unrelated fields; merge the override state into the existing mo
 
 ## Output
 
-- **Command file** — create or update `.space/pipeline/book_<bookname>/filters/override/filter.md` (the only file in that folder), generated from the chapter models' context and grounded in `.space/pipeline/book_<bookname>/override.txt` (created if missing).
-- **Master prompt** — create `.space/pipeline/book_<bookname>/override.txt` from the backlog `gist.md`/`epic.md` and `book.json` if it does not already exist; never overwrite an existing one.
-- **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` with the `override` result for each chapter.
+- **Command file** — create or update `.space/pipeline/<bookname>/filters/override/filter.md` (the only file in that folder), generated from the chapter models' context and grounded in `.space/pipeline/<bookname>/override.txt` (created if missing).
+- **Master prompt** — create `.space/pipeline/<bookname>/override.txt` from the backlog `gist.md`/`epic.md` and `book.json` if it does not already exist; never overwrite an existing one.
+- **Chapter models** — update `.space/pipeline/<bookname>/chapters/<n>/model.json` with the `override` result for each chapter.

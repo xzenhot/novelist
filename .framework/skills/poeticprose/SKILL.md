@@ -86,4 +86,4 @@ Plus the **subject-specific lexicon** from the book's `config.json` (`sacred_voc
 
 ## Output
 
-Each chapter is 500–800 words: The Question (50–100), The Oration (350–600), The Benediction (50–100). Write to `source/books/book_<bookname>/chapters/Chapter_XXX_[term].md` and append to `book.md`.
+Each chapter is 500–800 words: The Question (50–100), The Oration (350–600), The Benediction (50–100). Write to `source/books/<bookname>/chapters/Chapter_XXX_[term].md` and append to `book.md`.

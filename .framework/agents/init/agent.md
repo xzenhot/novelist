@@ -14,7 +14,7 @@ Init operates entirely inside the backlog:
 
 - **Input/output path:** `.space/backlog/epic/<bookname>/`
 - **What you create:** `gist.md`, `epic.md`, `book.json`, `override.md`, `override.txt`
-- **What you never create:** `.space/pipeline/book_<bookname>/`, `model.json`, chapter folders, or `filters/` directories
+- **What you never create:** `.space/pipeline/<bookname>/`, `model.json`, chapter folders, or `filters/` directories
 
 ## Inputs
 
@@ -129,7 +129,7 @@ The book's master prompt. A plain-text prompt that captures the book's identity 
 4. **If the gist is present, only fill gaps.** Ensure `book.json` and `override.md` exist (create if missing); leave `gist.md`, `epic.md`, and `override.txt` untouched unless the caller explicitly asks to regenerate them.
 5. **Resolve the preset and write its filter chain.** Read the preset (the caller's `<preset>` if supplied, otherwise the form's default preset — see *Presets* above). Extract its ordered filter sequence and write it into `.space/backlog/epic/<bookname>/book.json` as the `filter_chain` field, regardless of the gist state. Also apply the preset's `word_target` and chapter-count guidance to `book.json`.
 6. **Parse the ordered sequence.** Read the `filter_chain` field from `book.json` and extract the ordered agent/filter list. Preserve the numeric order exactly. Return only the leading token (e.g. `workshop`).
-7. **Do not scaffold anything.** The init agent must not create `.space/pipeline/book_<bookname>/`, must not create `filters/` directories, and must not run any agent or filter.
+7. **Do not scaffold anything.** The init agent must not create `.space/pipeline/<bookname>/`, must not create `filters/` directories, and must not run any agent or filter.
 
 ## Refresh Mode
 
@@ -166,7 +166,7 @@ The caller uses this list. Do not sort, deduplicate, or reorder it. Always appen
 
 ## Constraints
 
-- Do **not** create or modify any file under `.space/pipeline/book_<bookname>/`.
+- Do **not** create or modify any file under `.space/pipeline/<bookname>/`.
 - Do **not** execute filters or agents (except delegating to the gist agent to create a missing `epic.md`).
 - Preserve any human edits in an existing backlog `override.md` exactly as written; create it only if missing.
 - Preserve an existing `gist.md`, `epic.md`, and `override.txt`; create them only when the gist is absent or the caller explicitly asks.

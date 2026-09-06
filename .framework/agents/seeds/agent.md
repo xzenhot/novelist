@@ -28,11 +28,11 @@ A seed is the first filter in the chain. It runs *before* research and workshop,
 1. Read `characters.json` for the full roster.
 2. Read the epic at `.space/backlog/epic/<bookname>/epic.md` — the single source of truth for the story.
 3. Read `book.json` for the chapter list and summaries.
-4. Read the chapter model at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` for the current state.
-5. Read the chapter's mood at `.space/pipeline/book_<bookname>/chapters/<n>/mood.json` — the mood shapes the seed text.
+4. Read the chapter model at `.space/pipeline/<bookname>/chapters/<n>/model.json` for the current state.
+5. Read the chapter's mood at `.space/pipeline/<bookname>/chapters/<n>/mood.json` — the mood shapes the seed text.
 6. **Lay out the segments** — create the segment folders and state files the chapter needs.
 7. **Write the seed** — update the chapter model with `included_characters`, `quality_parameters`, and a rich `chapter_summary` that serves as the seed text, shaped by the mood.
-8. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/seeds/`.
+8. Write a single `filter-summary.md` to `.space/pipeline/<bookname>/filters/seeds/`.
 
 ## Chapter Layout Contract
 
@@ -51,11 +51,11 @@ For each chapter:
 
 1. Determine the number of segments from the chapter's length and the epic's material. A short chapter is one segment; a long chapter is several.
 2. For each segment `<x>`, create the folder tree:
-   - `.space/pipeline/book_<bookname>/chapters/<n>/segments/<x>/`
-   - `.space/pipeline/book_<bookname>/chapters/<n>/segments/<x>/writer/`
-   - `.space/pipeline/book_<bookname>/chapters/<n>/segments/<x>/editor/`
-   - `.space/pipeline/book_<bookname>/chapters/<n>/segments/<x>/translator/`
-3. For each segment, create a state file `.space/pipeline/book_<bookname>/chapters/<n>/segments/<x>/model.json`:
+   - `.space/pipeline/<bookname>/chapters/<n>/segments/<x>/`
+   - `.space/pipeline/<bookname>/chapters/<n>/segments/<x>/writer/`
+   - `.space/pipeline/<bookname>/chapters/<n>/segments/<x>/editor/`
+   - `.space/pipeline/<bookname>/chapters/<n>/segments/<x>/translator/`
+3. For each segment, create a state file `.space/pipeline/<bookname>/chapters/<n>/segments/<x>/model.json`:
    ```json
    {
      "level": "segment",
@@ -102,7 +102,7 @@ If the mood is the generic `default` template (a placeholder), still honor its c
 
 ## Chapter Model
 
-For each chapter, update `.space/pipeline/book_<bookname>/chapters/<n>/model.json`. Preserve all existing fields, and add or update:
+For each chapter, update `.space/pipeline/<bookname>/chapters/<n>/model.json`. Preserve all existing fields, and add or update:
 
 - `state` — set to `"seeds"` once the seed is written.
 - `included_characters` — an array of `{ character_id, full_name, role_in_chapter }`.
@@ -123,5 +123,5 @@ Do not overwrite unrelated fields; merge the seed state into the existing model.
 ## Output
 
 - **Segment layout** — create the segment folders and `model.json` state files under `chapters/<n>/segments/<x>/`.
-- **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` with `included_characters`, `quality_parameters`, `chapter_summary`, and `segments`.
-- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/seeds/` (the only summary file in that folder), summarizing the layout and the seed text written.
+- **Chapter models** — update `.space/pipeline/<bookname>/chapters/<n>/model.json` with `included_characters`, `quality_parameters`, `chapter_summary`, and `segments`.
+- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/<bookname>/filters/seeds/` (the only summary file in that folder), summarizing the layout and the seed text written.

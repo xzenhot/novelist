@@ -1,6 +1,6 @@
 ---
 name: layout-poetry
-description: "Use when scaffolding or repairing the structural skeleton of a poetry pipeline. Creates .space/pipeline/book_<bookname>/, model.json, bookseed.txt, progress.json, override.md, named poetry filter folders, one segment per topic, and the empty source/books destination. Does not write poem chapters or runtime filter results."
+description: "Use when scaffolding or repairing the structural skeleton of a poetry pipeline. Creates .space/pipeline/<bookname>/, model.json, bookseed.txt, progress.json, override.md, named poetry filter folders, one segment per topic, and the empty source/books destination. Does not write poem chapters or runtime filter results."
 ---
 
 # Layout Poetry - Pipeline Scaffold
@@ -10,13 +10,13 @@ You are the structural architect for a poetry pipeline. Create only the scaffold
 A scaffolded poetry book lives at:
 
 ```text
-.space/pipeline/book_<bookname>/
+.space/pipeline/<bookname>/
 ```
 
 Finished content later lives at:
 
 ```text
-source/books/book_<bookname>/
+source/books/<bookname>/
 ```
 
 ## Source Of Truth
@@ -52,7 +52,7 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
 ## Canonical Folder Shape
 
 ```text
-.space/pipeline/book_<bookname>/
+.space/pipeline/<bookname>/
 |-- model.json
 |-- bookseed.txt
 |-- progress.json
@@ -91,11 +91,11 @@ Every filter folder uses the same four-file shape as `research/`, with the role 
 
 This is mandatory.
 
-- Chapter folders live only under `.space/pipeline/book_<bookname>/chapters/`.
-- Segment folders live only under `.space/pipeline/book_<bookname>/chapters/<chapter>/segments/`.
+- Chapter folders live only under `.space/pipeline/<bookname>/chapters/`.
+- Segment folders live only under `.space/pipeline/<bookname>/chapters/<chapter>/segments/`.
 - Poetry chapters always have exactly one segment: `segments/1/`.
 - Writer, editor, and translator folders live only under `segments/1/`.
-- Each chapter has a `history/` folder (`.space/pipeline/book_<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
+- Each chapter has a `history/` folder (`.space/pipeline/<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
 - Do not create `mood.json` for poetry.
 - Do not create `book.json`, `characters.json`, `masterprompt.md`, or `workshop_metadata.md` for poetry unless the user explicitly asks for a hybrid project.
 
@@ -213,7 +213,7 @@ Before creating the filter registry, read `.space/backlog/epic/<bookname>/book.j
 workshop -> research -> correctness -> theme -> syntax -> override -> quality
 ```
 
-Create `.space/pipeline/book_<bookname>/filters/filters.json` with the selected chain in order.
+Create `.space/pipeline/<bookname>/filters/filters.json` with the selected chain in order.
 
 Each registry entry must include:
 
@@ -238,9 +238,9 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 
 **Override command file (poetry customization):** the `override` filter is the one structural exception. Its exact seeding content is **dynamically derived at scaffold time** from `.framework/agents/override/agent.md` plus the poetry stereotype index at `.framework/templates/stereotypes/poetry/readme.md` — do not treat this paragraph as the fixed recipe. Before you create the override file, read both and let them govern the shape:
 
-1. **Read `.framework/agents/override/agent.md`** — the base content for the command file: the override command file is `.space/pipeline/book_<bookname>/filters/override/filter.md`, and it is generated/refreshed from the chapter (or poem) models' context so the human instructions are grounded in what the poems actually contain.
+1. **Read `.framework/agents/override/agent.md`** — the base content for the command file: the override command file is `.space/pipeline/<bookname>/filters/override/filter.md`, and it is generated/refreshed from the chapter (or poem) models' context so the human instructions are grounded in what the poems actually contain.
 2. **Read `.framework/templates/stereotypes/poetry/readme.md`** — the master index of the poetry stereotype folder, for the identity wording and conventions of the poetry form.
-3. **Seed `.space/pipeline/book_<bookname>/filters/override/filter.md`**, customized for poetry: identity "poetry pipeline", applies to every **poem** (Question/Oration/Benediction), model updates on the poem chapter models under `chapters/<n>/`, instruction scope "every poem" (each topic in `bookseed.txt`).
+3. **Seed `.space/pipeline/<bookname>/filters/override/filter.md`**, customized for poetry: identity "poetry pipeline", applies to every **poem** (Question/Oration/Benediction), model updates on the poem chapter models under `chapters/<n>/`, instruction scope "every poem" (each topic in `bookseed.txt`).
 4. **Do not create a pipeline-root `override.md`.** All forms share the single override command file at `filters/override/filter.md`.
 5. Align with whatever the readme's sub-indexes declare (singer/signature set, reference texts, syntax samples, theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
 6. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
@@ -250,7 +250,7 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 Create:
 
 ```text
-source/books/book_<bookname>/chapters/
+source/books/<bookname>/chapters/
 ```
 
 Do not write poem chapters or `book.md` during layout.
@@ -268,5 +268,5 @@ Before reporting completion, verify:
 - Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
 - No `mood.json` files exist in poetry chapter folders.
 - No chapter or segment folders were created outside the canonical paths.
-- `source/books/book_<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.
+- `source/books/<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.
 

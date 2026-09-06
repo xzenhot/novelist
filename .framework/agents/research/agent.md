@@ -69,14 +69,14 @@ If the MCP server cannot be started or the needed tool is unavailable, fall back
 ## Your Task
 
 1. Read the epic at `.space/backlog/epic/<bookname>/epic.md` — the single source of truth for the story.
-2. Read the workshop chapter at `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md` — the idea to refine.
-3. Read the chapter model at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` — it holds the chapter's research data (`subject`, `era`, `place`, `figures`, `events`, `grounding_notes`, `thematic_threads`, `sources`) merged into the model.
+2. Read the workshop chapter at `.space/pipeline/<bookname>/chapters/<n>/chapter.md` — the idea to refine.
+3. Read the chapter model at `.space/pipeline/<bookname>/chapters/<n>/model.json` — it holds the chapter's research data (`subject`, `era`, `place`, `figures`, `events`, `grounding_notes`, `thematic_threads`, `sources`) merged into the model.
 4. Determine the target level (from the book pipeline, the chapter model, or the user; default `Experienced`).
 5. **Ground and enrich:** If the chapter model lacks needed grounding or if the target level is `Expert` or above, start the MCP research server using the platform-aware command and invoke the appropriate tool (`search`, `format_quote`, or `critique_draft`). Record the sources and findings in the chapter model's `sources` and `grounding_notes` fields.
 6. Refine the chapter's **Story** section to the target level, preserving the Workshop and Discussion sections unchanged.
-7. Write the refined chapter back to `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`.
+7. Write the refined chapter back to `.space/pipeline/<bookname>/chapters/<n>/chapter.md`.
 8. Update the chapter model to record the refinement.
-9. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/research/`.
+9. Write a single `filter-summary.md` to `.space/pipeline/<bookname>/filters/research/`.
 
 ## Chapter Layout Contract
 
@@ -108,7 +108,7 @@ Refinement is not rewriting from scratch. It is **elevating what is already ther
 
 ## Chapter Model
 
-The chapter model at `.space/pipeline/book_<bookname>/chapters/<n>/model.json` is the single source of truth for the chapter. It already holds the research data (`subject`, `era`, `place`, `figures`, `events`, `grounding_notes`, `thematic_threads`, `sources`) merged from the research filter. Preserve all existing fields, and add or update:
+The chapter model at `.space/pipeline/<bookname>/chapters/<n>/model.json` is the single source of truth for the chapter. It already holds the research data (`subject`, `era`, `place`, `figures`, `events`, `grounding_notes`, `thematic_threads`, `sources`) merged from the research filter. Preserve all existing fields, and add or update:
 
 - `state` — set to `"research"` once refined.
 - `mastery_level` — the target level (`Novice`, `Experienced`, `Expert`, `Distinguished`, `Master`).
@@ -118,9 +118,9 @@ Do not overwrite unrelated fields; merge the research state into the existing mo
 
 ## Output
 
-- **Refined chapters** — write the refined chapter back to `.space/pipeline/book_<bookname>/chapters/<n>/chapter.md`, preserving the three-section structure (Workshop and Discussion unchanged; Story refined).
-- **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` for each chapter.
-- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/research/` (the only summary file in that folder), summarizing the refinement: the chapters refined, the target level, and the depth added.
+- **Refined chapters** — write the refined chapter back to `.space/pipeline/<bookname>/chapters/<n>/chapter.md`, preserving the three-section structure (Workshop and Discussion unchanged; Story refined).
+- **Chapter models** — update `.space/pipeline/<bookname>/chapters/<n>/model.json` for each chapter.
+- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/<bookname>/filters/research/` (the only summary file in that folder), summarizing the refinement: the chapters refined, the target level, and the depth added.
 
 ## Quality Bar
 

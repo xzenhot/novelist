@@ -12,7 +12,7 @@ You are a research librarian. Your task is to gather, verify, and organize the *
 - **References** (`.space/context/references/`) — raw source texts.
 - **Qualities** (`.space/context/qualities/`) — seed analyses of reference works.
 - **Themes** (`.space/context/themes/`) — thematic category sets.
-- **Per-chapter research** (`.space/pipeline/book_<bookname>/chapters_research/`) — chapter-specific material.
+- **Per-chapter research** (`.space/pipeline/<bookname>/chapters_research/`) — chapter-specific material.
 
 ## Method
 
@@ -179,8 +179,8 @@ Beyond the shared context folder, research also produces **per-chapter research 
 
 ### Input: the book plan
 
-1. Read `.space/pipeline/book_<bookname>/book.json`.
-2. If `book.json` is absent, read `.space/pipeline/book_<bookname>/model.json` instead.
+1. Read `.space/pipeline/<bookname>/book.json`.
+2. If `book.json` is absent, read `.space/pipeline/<bookname>/model.json` instead.
 3. From it, extract the **chapter list** — each chapter's `chapter_index`, `name`, `chapter_title`, and `chapter_summary`.
 
 The chapter summaries are the seed for research: each summary tells you what the chapter is about, so you know what to research for it.
@@ -190,7 +190,7 @@ The chapter summaries are the seed for research: each summary tells you what the
 For each chapter, write a research file to:
 
 ```
-.space/pipeline/book_<bookname>/chapters_research/<n>.json
+.space/pipeline/<bookname>/chapters_research/<n>.json
 ```
 
 where `<n>` is the chapter index (e.g. `1.json`, `2.json`, … `20.json`). One file per chapter, named by its index.

@@ -56,11 +56,11 @@ Map it to repository paths as follows:
 ```text
 <bookname>                       -> logical book name, e.g. wife
 .space/backlog/epic/<bookname>/  -> backlog epic folder
-.space/pipeline/book_<bookname>/ -> pipeline folder
+.space/pipeline/<bookname>/ -> pipeline folder
 source/books/<bookname>/<version>/ -> final versioned book output folder
 ```
 
-If the user supplies `book_wife`, treat the canonical `<bookname>` as `wife` unless an existing path proves otherwise. Prefer existing repository paths over inference.
+If the user supplies `book_wife` or a legacy `book_<bookname>` path, treat the canonical `<bookname>` as `wife` (strip the `book_` prefix) unless an existing path proves otherwise. Prefer existing repository paths over inference. The pipeline folder is named directly after the book: `.space/pipeline/<bookname>/`.
 
 ### Unit, Chapter, And Segment
 
@@ -87,8 +87,8 @@ Conclusion/1
 Map chapter and segment paths to:
 
 ```text
-.space/pipeline/book_<bookname>/chapters/<chapter>/
-.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/
+.space/pipeline/<bookname>/chapters/<chapter>/
+.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/
 ```
 
 For poetry, every chapter has exactly one segment:
@@ -139,9 +139,9 @@ translator
 Segment-stage paths are:
 
 ```text
-.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/writer/
-.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/editor/
-.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/translator/
+.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/writer/
+.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/editor/
+.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/translator/
 ```
 
 Filter-stage roles are implemented by agents under:
@@ -291,19 +291,19 @@ For novels, `epic.md` is the story source of truth. Do not invent story content 
 Book pipelines live at:
 
 ```text
-.space/pipeline/book_<bookname>/
+.space/pipeline/<bookname>/
 ```
 
 Common pipeline files:
 
 ```text
-.space/pipeline/book_<bookname>/model.json
-.space/pipeline/book_<bookname>/book.json
-.space/pipeline/book_<bookname>/characters.json
-.space/pipeline/book_<bookname>/bookseed.txt
-.space/pipeline/book_<bookname>/progress.json
-.space/pipeline/book_<bookname>/filters/
-.space/pipeline/book_<bookname>/chapters/
+.space/pipeline/<bookname>/model.json
+.space/pipeline/<bookname>/book.json
+.space/pipeline/<bookname>/characters.json
+.space/pipeline/<bookname>/bookseed.txt
+.space/pipeline/<bookname>/progress.json
+.space/pipeline/<bookname>/filters/
+.space/pipeline/<bookname>/chapters/
 ```
 
 Novel pipelines use `epic.md`, `book.json`, `characters.json`, chapter folders, moods, segments, and filters.
@@ -315,9 +315,9 @@ Poetry pipelines use `model.json` and `bookseed.txt` as source of truth, one seg
 Intermediate segment work stays inside `.space/pipeline/`:
 
 ```text
-.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/writer/
-.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/editor/
-.space/pipeline/book_<bookname>/chapters/<chapter>/segments/<segment>/translator/
+.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/writer/
+.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/editor/
+.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/translator/
 ```
 
 Do not write unfinished drafts directly to `source/books/`.
@@ -327,7 +327,7 @@ Do not write unfinished drafts directly to `source/books/`.
 Filters write only inside the pipeline filter folders resolved by:
 
 ```text
-.space/pipeline/book_<bookname>/filters/filters.json
+.space/pipeline/<bookname>/filters/filters.json
 ```
 
 If a registry exists, use it to resolve:
@@ -373,7 +373,7 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
 ## Safety And Structure Constraints
 
 - Never alter the repository directory structure unless the active workflow explicitly requires it.
-- Never create root-level chapter folders under `.space/pipeline/book_<bookname>/`.
+- Never create root-level chapter folders under `.space/pipeline/<bookname>/`.
 - Never create segment folders outside `chapters/<chapter>/segments/<segment>/`.
 - Never move, rename, delete, or overwrite user-authored content without first reading it and confirming the workflow requires the change.
 - Never re-scaffold an existing pipeline from scratch unless the user explicitly asks.

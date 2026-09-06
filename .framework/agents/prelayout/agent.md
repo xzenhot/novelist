@@ -46,7 +46,7 @@ Resolve and hand off a **pre-layout plan** with these fields:
 
 - **Validate before layout.** Confirm the book plan is internally consistent: the `filter_chain` matches the form's preset, the `chapters` array matches the form's structure, and `word_target` matches the preset's target. If inconsistent, reconcile to the resolved form and note the correction.
 - **Backlog is the source.** The pre-layout plan is derived from the backlog book plan, never invented. Do not read the layout skills' *Preset* sections — the book plan's `filter_chain` is authoritative.
-- **Do not scaffold.** This agent only prepares the plan. It must not create `.space/pipeline/book_<bookname>/`, must not create folders, and must not run the layout skill or any filter.
+- **Do not scaffold.** This agent only prepares the plan. It must not create `.space/pipeline/<bookname>/`, must not create folders, and must not run the layout skill or any filter.
 - **Do not write to the backlog.** The pre-layout plan is a hand-off to the layout skill, not a file written to disk. If a record is needed, it is the layout skill's responsibility, not this agent's.
 
 ## Output Contract
@@ -61,7 +61,7 @@ Return:
 
 ## Constraints
 
-- Do **not** create or modify `.space/pipeline/book_<bookname>/` files.
+- Do **not** create or modify `.space/pipeline/<bookname>/` files.
 - Do **not** create or modify `.space/backlog/epic/<bookname>/` files.
 - Do **not** run any filter agent or skill.
 - Do **not** write to `source/books/`.

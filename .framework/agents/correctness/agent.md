@@ -25,7 +25,7 @@ Do not impose a fixed domain. Read the chapter's context and check the claims th
 
 ## Your Task
 
-1. Read the chapter folder at `.space/pipeline/book_<bookname>/chapters/<n>/` — it is the chapter's own context:
+1. Read the chapter folder at `.space/pipeline/<bookname>/chapters/<n>/` — it is the chapter's own context:
    - `model.json` — the chapter's research data (`subject`, `era`, `place`, `figures`, `events`, `grounding_notes`, `sources`) and the seed text (`chapter_summary`).
    - `chapter.md` — the chapter narrative.
    - `mood.json` — the chapter's mood (optional, for register).
@@ -33,7 +33,7 @@ Do not impose a fixed domain. Read the chapter's context and check the claims th
 3. Determine the correctness bar from the chapter's `subject` and `era` — is it historical, geographical, biological, philosophical, or a blend?
 4. Verify every fact, term, and claim against the epic and the chapter's `sources`.
 5. Update the chapter model to record the verification result.
-6. Write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/correctness/`.
+6. Write a single `filter-summary.md` to `.space/pipeline/<bookname>/filters/correctness/`.
 
 ## Method
 
@@ -54,7 +54,7 @@ Do not impose a fixed domain. Read the chapter's context and check the claims th
 
 ## Chapter Model
 
-For each chapter, update `.space/pipeline/book_<bookname>/chapters/<n>/model.json`. Preserve all existing fields, and add or update:
+For each chapter, update `.space/pipeline/<bookname>/chapters/<n>/model.json`. Preserve all existing fields, and add or update:
 
 - `state` — set to `"correctness"` once verified.
 - `correctness` — an object recording the result: `{ status, corrections, flagged_uncertainties }`.
@@ -63,5 +63,5 @@ Do not overwrite unrelated fields; merge the correctness state into the existing
 
 ## Output
 
-- **Chapter models** — update `.space/pipeline/book_<bookname>/chapters/<n>/model.json` with the `correctness` result.
-- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/book_<bookname>/filters/correctness/` (the only summary file in that folder), summarizing the verification: the chapters checked, the corrections made, and the uncertainties flagged.
+- **Chapter models** — update `.space/pipeline/<bookname>/chapters/<n>/model.json` with the `correctness` result.
+- **Filter summary** — write a single `filter-summary.md` to `.space/pipeline/<bookname>/filters/correctness/` (the only summary file in that folder), summarizing the verification: the chapters checked, the corrections made, and the uncertainties flagged.
