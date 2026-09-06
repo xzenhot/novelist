@@ -13,7 +13,10 @@ These commands operate only inside the backlog folder:
 They are allowed to create, read, or modify only the backlog files:
 
 - `epic.md`
-- `preset.md`
+- `book.json`
+- `gist.md`
+- `override.md`
+- `masterprompt.txt`
 
 The backlog commands are:
 
@@ -28,7 +31,7 @@ The backlog commands are:
 - A backlog command must **never** create, read, or modify any file under `.space/pipeline/book_<bookname>/`.
 - A backlog command must **never** create, read, or modify any file under `source/books/book_<bookname>/`.
 - If a pipeline already exists, backlog commands must leave it untouched.
-- If `init` produces a filter chain, it must write the result to `.space/backlog/epic/<bookname>/preset.md`, not to `.space/pipeline/book_<bookname>/filters/filters.json`.
+- If `init` produces a filter chain, it must write the result to `.space/backlog/epic/<bookname>/book.json` (the `filter_chain` field), not to `.space/pipeline/book_<bookname>/filters/filters.json`.
 
 ## Pipeline commands (4–10)
 
@@ -53,8 +56,8 @@ The pipeline commands are:
 
 ### Invariants
 
-- A pipeline command must **never** create, modify, or delete `.space/backlog/epic/<bookname>/epic.md` or `.space/backlog/epic/<bookname>/preset.md`.
-- A pipeline command may read the backlog as read-only input (for example, scaffold reads `epic.md` and `preset.md`), but it must never write there.
+- A pipeline command must **never** create, modify, or delete `.space/backlog/epic/<bookname>/epic.md` or `.space/backlog/epic/<bookname>/book.json`.
+- A pipeline command may read the backlog as read-only input (for example, scaffold reads `epic.md` and `book.json`), but it must never write there.
 - If the required pipeline does not exist, a pipeline command must stop and tell the user to run `scaffold` first.
 
 ## Sequence rules

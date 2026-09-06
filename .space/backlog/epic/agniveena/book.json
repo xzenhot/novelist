@@ -9,6 +9,8 @@
   "created_at": "2026-09-06T00:00:00Z",
   "user_name": "pijush",
   "gist": "A young poet strings a lute of fire and, through song, summons the sleeping masses of a colonized land to rise against bondage and claim their own dawn.",
+  "word_target": 500,
+  "filter_chain": ["research", "correctness", "theme", "syntax", "override", "quality"],
   "book_summary": "Agnibeena (The Fiery Lyre) is Kazi Nazrul Islam's first poetry collection, published in October 1922. It burst onto a Bengali literary scene dominated by Tagore's serene mysticism with a raw, primal energy that challenged both the literary status quo and the British Raj. The twelve poems are distinct rhythmic weapons: Pralayollas opens with the ecstasy of destruction, Bidrohi proclaims the eternal rebel, and poems like Raktambor-Dharini Ma, Dhumketu, Kamal Pasha, Anwar, Qurbani, and Muharram fuse Hindu and Islamic imagery into a fierce secular humanism. The collection earned Nazrul his eternal moniker, the Bidrohi Kobi (Rebel Poet), and its poems were sung by freedom fighters during the 1971 Bangladesh Liberation War.",
   "chapters": [
     {

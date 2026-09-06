@@ -238,9 +238,9 @@ Segment-level `model.json` minimum shape:
 
 ## Filter Registry
 
-Before creating the filter registry, read `.space/backlog/epic/<bookname>/preset.md`. If it does not exist, invoke the init agent (`.framework/agents/init/agent.md`) to create it from the form-specific default template. The init agent will also create/confirm the preset file.
+Before creating the filter registry, read `.space/backlog/epic/<bookname>/book.json`. If it does not exist, invoke the init agent (`.framework/agents/init/agent.md`) to create it from the form-specific default template. The init agent will also create/confirm the book plan file.
 
-Use the ordered filter/agent list declared in the resulting preset as the canonical filter chain. If for any reason the preset cannot be read or created, fall back to the default novel chain:
+Use the ordered `filter_chain` list declared in the resulting book plan as the canonical filter chain. If for any reason the book plan cannot be read or created, fall back to the default novel chain:
 
 ```text
 workshop -> research -> seeds -> correctness -> theme -> syntax -> override -> quality
@@ -276,7 +276,7 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 4. **Align with whatever the readme's sub-indexes declare** (the prose voice/signature set, reference texts, syntax samples, and theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
 5. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
 
-**Important:** Only create filter folders and registry entries for filters named in the selected preset. Do not create folders for default filters that the preset omits. The order must match the preset exactly.
+**Important:** Only create filter folders and registry entries for filters named in the selected book plan's `filter_chain`. Do not create folders for default filters that the book plan omits. The order must match the book plan exactly.
 
 ## Source Destination
 
@@ -293,8 +293,8 @@ Do not write finished chapters or `book.md` during layout.
 Before reporting completion, verify:
 
 - Root files exist: `model.json`, `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `progress.json`.
-- `filters/filters.json` exists and names the filters selected from `preset.md` (or all eight default novel filters if no preset exists) in the exact order declared.
-- Every filter folder selected from the preset has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
+- `filters/filters.json` exists and names the filters selected from `book.json`'s `filter_chain` (or all eight default novel filters if no book plan exists) in the exact order declared.
+- Every filter folder selected from the book plan has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
 - Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, and `segments/1/model.json`.
 - Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
 - No chapter or segment folders were created outside the canonical paths.

@@ -1,19 +1,19 @@
 ---
 name: init
-description: Backlog configurator. Ensures the backlog epic folder for a book is fully configured — gist.md, epic.md, book.json, preset.md, override.md, and masterprompt.txt — and returns the ordered filter chain. Does not create pipeline files, chapter folders, or filter directories.
+description: Backlog configurator. Ensures the backlog epic folder for a book is fully configured — gist.md, epic.md, book.json, override.md, and masterprompt.txt — and returns the ordered filter chain. Does not create pipeline files, chapter folders, or filter directories.
 tools: ["read", "write"]
 ---
 
 # Init Agent (Configurator)
 
-You are the init agent — the **backlog configurator**. Your job is to ensure the backlog epic folder for a book is fully configured before scaffolding. You create or validate the six backlog artifacts and return the ordered filter chain. You do not scaffold pipelines, create filter directories, or run filters.
+You are the init agent — the **backlog configurator**. Your job is to ensure the backlog epic folder for a book is fully configured before scaffolding. You create or validate the five backlog artifacts and return the ordered filter chain. You do not scaffold pipelines, create filter directories, or run filters.
 
 ## Scope
 
 Init operates entirely inside the backlog:
 
 - **Input/output path:** `.space/backlog/epic/<bookname>/`
-- **What you create:** `gist.md`, `epic.md`, `book.json`, `preset.md`, `override.md`, `masterprompt.txt`
+- **What you create:** `gist.md`, `epic.md`, `book.json`, `override.md`, `masterprompt.txt`
 - **What you never create:** `.space/pipeline/book_<bookname>/`, `model.json`, chapter folders, or `filters/` directories
 
 ## Inputs
@@ -25,16 +25,15 @@ You receive two optional positional parameters:
 
 Init does not inspect or modify the pipeline. The form parameter exists solely to choose the correct default preset when no pipeline exists yet.
 
-## The Six Backlog Artifacts
+## The Five Backlog Artifacts
 
-A fully configured backlog epic folder contains exactly six files. Each has one clear role:
+A fully configured backlog epic folder contains exactly five files. Each has one clear role:
 
 | File | Role |
 |------|------|
 | `gist.md` | The seed idea — a single-sentence gist plus a short expansion. The source of the book's premise. |
 | `epic.md` | The full narrative foundation — premise, setting, characters, themes, chapter outline. The source of truth for a novel's story. |
-| `book.json` | The chapter-layout plan — chapter count, per-chapter titles and summaries, characters, and subject matter. The blueprint for `scaffold`. |
-| `preset.md` | The ordered filter/agent chain and chapter-curation parameters. Read by `scaffold` to build the pipeline. |
+| `book.json` | The chapter-layout plan and filter chain — chapter count, per-chapter titles and summaries, characters, subject matter, and the ordered filter/agent sequence. The blueprint for `scaffold`. |
 | `override.md` | The human custom transformation layer (planning copy). Human-editable instructions applied to every chapter/poem. |
 | `masterprompt.txt` | The book's master prompt — identity, premise, form, language, style mandate, and section structure. |
 
@@ -67,22 +66,15 @@ The `book.json` must contain:
   - `further_references` — an array of `{ "no", "reference", "weblink" }` grounding sources (optional but recommended).
 - **`all_characters`** — an array of `{ "character_id", "full_name", "role", "identity", "psychological_depth" }` for novels; omit or leave empty for poetry.
 - **`history`** — a short paragraph of historical/contextual grounding (novels).
+- **`filter_chain`** — an ordered array of filter/agent names, e.g. `["workshop", "research", "seeds", "correctness", "theme", "syntax", "override", "quality"]` for novels or `["research", "correctness", "theme", "syntax", "override", "quality"]` for poetry. This is the authoritative filter sequence that `scaffold` uses to build the pipeline's `filters/filters.json`.
+- **`word_target`** — the target word count per chapter/poem (e.g. `4500` for novels, `500` for poetry).
 
 **Chapter count and layout.** The chapter count comes from the epic's declared chapter count (or its chapter outline length). The layout — how many main chapters, whether there is an Introduction and Conclusion — follows the form:
 
 - **Novel:** `Introduction`, `1..N`, `Conclusion` (N = the epic's main chapter count).
 - **Poetry:** `1..N` (N = the number of topics in the epic's topical structure).
 
-This file gives the complete hint of how many chapters will be written and how each is laid out, so `scaffold` can build the pipeline without re-deriving the plan.
-
-### preset.md
-
-The ordered filter/agent chain. Copy the form-specific default template:
-
-- **`novel` (default):** `.framework/templates/presets/simple_novel.md`
-- **`poetry`:** `.framework/templates/presets/philosophical_poem.md`
-
-If the caller supplied a preset (a file path, a named template, or inline Markdown), use it instead. If a path under `.framework/templates/presets/` is referenced, copy it.
+This file gives the complete hint of how many chapters will be written, how each is laid out, and the ordered filter chain, so `scaffold` can build the pipeline without re-deriving the plan.
 
 ### override.md
 
@@ -106,16 +98,15 @@ The book's master prompt. A plain-text prompt that captures the book's identity 
    - The backlog epic `.space/backlog/epic/<bookname>/epic.md` metadata or content.
    - Default to `novel` if none of the above resolve the form.
 2. **Check whether the gist is present.** The gist is present if `.space/backlog/epic/<bookname>/gist.md` exists and contains a non-empty gist.
-3. **If the gist is not present, bootstrap the whole folder.** Create all six artifacts in order:
+3. **If the gist is not present, bootstrap the whole folder.** Create all five artifacts in order:
    1. `gist.md` — generate or record the seed idea.
    2. `epic.md` — delegate to the gist agent to build the full narrative foundation from the gist.
-   3. `book.json` — derive the chapter-layout plan from the epic (chapter count, per-chapter titles and summaries, characters, subject matter).
-   4. `preset.md` — copy the form-specific default template (or the caller's preset).
-   5. `override.md` — create the human override planning copy.
-   6. `masterprompt.txt` — write the book's master prompt from the gist, form, and language.
-4. **If the gist is present, only fill gaps.** Ensure `book.json`, `preset.md`, and `override.md` exist (create if missing); leave `gist.md`, `epic.md`, and `masterprompt.txt` untouched unless the caller explicitly asks to regenerate them.
-5. **If the caller supplied a preset,** overwrite `.space/backlog/epic/<bookname>/preset.md` with the supplied content regardless of the gist state.
-6. **Parse the ordered sequence.** Read the preset and extract the numbered agent/filter list from the `Use following agents/filters` or `Use following filters` block. Preserve the numeric order exactly. Return only the leading token (e.g. `workshop`) and keep the explanatory statement as preset text.
+   3. `book.json` — derive the chapter-layout plan and the ordered filter chain from the epic and form (chapter count, per-chapter titles and summaries, characters, subject matter, `filter_chain`, `word_target`).
+   4. `override.md` — create the human override planning copy.
+   5. `masterprompt.txt` — write the book's master prompt from the gist, form, and language.
+4. **If the gist is present, only fill gaps.** Ensure `book.json` and `override.md` exist (create if missing); leave `gist.md`, `epic.md`, and `masterprompt.txt` untouched unless the caller explicitly asks to regenerate them.
+5. **If the caller supplied a preset,** merge its filter chain into `.space/backlog/epic/<bookname>/book.json` as the `filter_chain` field regardless of the gist state.
+6. **Parse the ordered sequence.** Read the `filter_chain` field from `book.json` and extract the ordered agent/filter list. Preserve the numeric order exactly. Return only the leading token (e.g. `workshop`).
 7. **Do not scaffold anything.** The init agent must not create `.space/pipeline/book_<bookname>/`, must not create `filters/` directories, and must not run any agent or filter.
 
 ## Output Contract
@@ -123,7 +114,7 @@ The book's master prompt. A plain-text prompt that captures the book's identity 
 Return:
 
 1. The absolute path to the configured backlog folder: `.space/backlog/epic/<bookname>/`.
-2. The list of artifacts created or validated (`gist.md`, `epic.md`, `book.json`, `preset.md`, `override.md`, `masterprompt.txt`), each marked `created` or `existing`.
+2. The list of artifacts created or validated (`gist.md`, `epic.md`, `book.json`, `override.md`, `masterprompt.txt`), each marked `created` or `existing`.
 3. A plain ordered list of agent/filter names, one per line, in the same order declared by the numbered preset, e.g.:
 
 ```text
@@ -141,9 +132,8 @@ The caller uses this list. Do not sort, deduplicate, or reorder it. If the pipel
 
 - Do **not** create or modify any file under `.space/pipeline/book_<bookname>/`.
 - Do **not** execute filters or agents (except delegating to the gist agent to create a missing `epic.md`).
-- Preserve any human edits in an existing `preset.md` exactly as written.
 - Preserve any human edits in an existing backlog `override.md` exactly as written; create it only if missing.
 - Preserve an existing `gist.md`, `epic.md`, and `masterprompt.txt`; create them only when the gist is absent or the caller explicitly asks.
-- The `preset.md`, `gist.md`, `epic.md`, and `override.md` files are Markdown only; `masterprompt.txt` is plain text; `book.json` is JSON. Do not add scripts, front-matter YAML, or wrapper files.
+- The `gist.md`, `epic.md`, and `override.md` files are Markdown only; `masterprompt.txt` is plain text; `book.json` is JSON. Do not add scripts, front-matter YAML, or wrapper files.
 - If the pipeline exists, it is acceptable to report its presence, but still do not create or delete filter directories; that belongs to `scaffold`.
 

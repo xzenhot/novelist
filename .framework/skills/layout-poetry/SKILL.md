@@ -171,11 +171,13 @@ Segment-level `model.json` minimum shape:
 
 ## Filter Registry
 
-Create `.space/pipeline/book_<bookname>/filters/filters.json` with this poetry chain in order:
+Before creating the filter registry, read `.space/backlog/epic/<bookname>/book.json`. Use the ordered `filter_chain` list declared in the book plan as the canonical filter chain. If for any reason the book plan cannot be read, fall back to the default poetry chain:
 
 ```text
 research -> correctness -> theme -> syntax -> override -> quality
 ```
+
+Create `.space/pipeline/book_<bookname>/filters/filters.json` with the selected chain in order.
 
 Each registry entry must include:
 

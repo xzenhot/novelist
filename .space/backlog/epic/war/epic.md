@@ -1,4 +1,4 @@
-> **Note:** This epic was last refreshed on 2026-09-05. If you manually edit this file, run `/write war refresh` to keep the metadata block and outline consistent.
+> **Note:** This epic was last refreshed on 2026-09-06. If you manually edit this file, run `/write war gist` to keep the metadata block and outline consistent.
 
 # War
 
@@ -11,8 +11,13 @@
 | Form | novel |
 | Source of Truth | `.space/backlog/epic/war/epic.md` |
 | Language | English |
+| Genre | geopolitical thriller |
+| Era | near-future (present day) |
 | Gist | A geopolitical thriller about a modern war erupting over control of the Strait of Hormuz, tracing the choices of sailors, pilots, civilians, and leaders as the global economy teeters on the edge of collapse. |
 | Chapters | 10 |
+| Created | 2026-09-05 |
+| Updated | 2026-09-06 |
+| Updated By | writer-agent |
 
 ## Premise
 
