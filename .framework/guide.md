@@ -40,12 +40,14 @@ Usage:
     /book <bookname> <agentname> <chapter>|<n>|all|continue              # 4. run any registered agent on chapters
     /book <bookname> poet|poetry|poem                                    # run the poet agent (poetry only)
     /book <bookname> write <n>|all|continue                               # 5. write chapters
-    /book <bookname> filter <filter>|*|all                               # 6. run filters
+    /book <bookname> filter <filter>                                     # 6. run a single filter
+    /book <bookname> enrich <count>|range|*                              # 6a. fuse active filters into one pass
     /book <bookname> form <formname>                                     # 7. set/change form
     /book <bookname> config [<key> [<value>]]                            # 8. get/set model config (bare = show config)
-    /book <bookname> add <chapter-count> filter <filter>|*|all           # 9. add chapters and run filter(s)
-    /book -o | --options                                                 # 10. list books and chapters
-    /book -h | --help                                                    # 11. show help
+    /book <bookname> add <chapter-count> filter <filter>                 # 9. add chapters and run a filter
+    /book <bookname> publish [<language>]                                # 10. promote segments to source/books
+    /book -o | --options                                                 # 11. list books and chapters
+    /book -h | --help                                                    # 12. show help
 
 ```
 
@@ -57,10 +59,12 @@ init [gist] [count] [preset] [form] [refresh] (aliases: backlog, layout) fully c
 | `<agentname> <chapter>\|<n>\|all\|continue` | Runs any registered agent (`.framework/agents/<agentname>/agent.md`) against selected chapters in an existing pipeline. Does not promote output to `source/books/`. |
 | `poet` | Invokes the poet agent to produce a single finished poem from the human-authored override file (poetry pipelines only). |
 | `chapter <chapter>\|<n>\|all\|continue` | Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters, routed through the chapter agent. |
-| `filter <filter>\|*\|all` | Runs a single filter, or all filters in order, on an existing pipeline. |
+| `filter <filter>` | Runs a single named filter on an existing pipeline. |
+| `enrich <count>\|range\|*` | Fuses the active (`autorun: true`) filters into one combined agent and runs them in a single pass over the selected chapters. |
 | `form <formname>` | Sets or changes the pipeline form (`novel` or `poetry`). |
 | `config [<key> [<value>]]` | Gets or sets stereotype/model config such as `signature`, `reference`, `theme_set`, or `syntax`. Bare `config` prints the current configuration. |
-| `add <chapter-count> filter <filter>\|*\|all` | Adds more main chapters to an existing book pipeline, then runs the requested filter or full filter chain for the newly added chapters. |
+| `add <chapter-count> filter <filter>` | Adds more main chapters to an existing book pipeline, then runs the requested filter for the newly added chapters. |
+| `publish [<language>]` | Promotes the latest writer-stage (or translator-stage) segments to a versioned `source/books/<bookname>/version<k>/` and assembles the consolidated book. |
 | `options` | Lists available book pipelines and destinations. |
 | `help` | Shows command usage. |
 
@@ -77,7 +81,8 @@ init [gist] [count] [preset] [form] [refresh] (aliases: backlog, layout) fully c
 - `scaffold` requires `count` or `chapter-count` followed by the main chapter count. The default comes from `book.json` if it specifies one, otherwise 5.
 - Once a pipeline exists, subsequent commands work from pipeline data. Do not re-scaffold from scratch unless explicitly asked.
 - `filter` never scaffolds. If the pipeline does not exist, report that the book must be scaffolded first.
-- `filter *` and `filter all` mean "run the full ordered filter chain."
+- `filter <filter>` runs a single named filter explicitly, regardless of its `autorun` flag.
+- `enrich <count>|range|*` fuses the active (`autorun: true`) filters into one combined agent and runs them in a single pass — the replacement for the old `filter *` / `filter all` full-chain behavior.
 - `write continue` resumes from the first missing finished chapter under `source/books/<bookname>/chapters/`.
 - A specific chapter request writes only that chapter, even if earlier chapters are incomplete.
 - **Agents invoke skills.** Route every skill-backed operation through an agent in `.framework/agents/<name>/agent.md`; never execute a skill directly from the workflow.
@@ -146,7 +151,7 @@ For `/book <bookname> scaffold <gist> count|chapter-count <number> [--form novel
 7. Build `filters/filters.json` from `book.json`'s authoritative `filter_chain` — never copy the layout skills' *Preset* sections directly.
 8. Apply form-specific initialization in `model.json` and related files; seed `filters/override/filter.md` whenever `override` appears in the chain.
 9. Run the postlayout agent (`.framework/agents/postlayout/agent.md`) to generate the dynamic pipeline master prompt from the backlog `override.txt`. A scaffold is not complete until postlayout has run.
-10. Do not run filters during scaffold — structure only. After scaffold, run `/book <bookname> filter <filter>|*|all` to populate filter outputs before writing any chapter.
+10. Do not run filters during scaffold — structure only. After scaffold, run `/book <bookname> enrich *` (or `filter <filter>`) to populate filter outputs before writing any chapter.
 
 ---
 
@@ -198,7 +203,7 @@ After init, report each artifact as `created` or `existing` plus the ordered fil
 
 ## The Add Command
 
-`/book <bookname> add <chapter-count> filter <filter>|*|all` extends an existing book pipeline with more main chapters, then runs the requested filter target for those new chapters.
+`/book <bookname> add <chapter-count> filter <filter>` extends an existing book pipeline with more main chapters, then runs the requested filter for those new chapters.
 
 1. Stop if `.space/pipeline/<bookname>/` does not exist; use `scaffold` first.
 2. Treat `<chapter-count>` as the number of additional main chapters to append, not the new total.
@@ -217,14 +222,14 @@ The filter chain depends on the form, and is declared by the form's preset (the 
 workshop -> research -> seeds -> correctness -> theme -> syntax
 ```
 
-| Filter | Agent | Folder | Role file |
-|--------|-------|--------|-----------|
-| workshop | `.framework/agents/workshop/agent.md` | `filters/workshop/` | `workshop/workshop.md` |
-| research | `.framework/agents/research/agent.md` | `filters/research/` | `research/research.md` |
-| seeds | `.framework/agents/seeds/agent.md` | `filters/seeds/` | `seeds/seeds.md` |
-| correctness | `.framework/agents/correctness/agent.md` | `filters/correctness/` | `correctness/correctness.md` |
-| theme | `.framework/agents/theme/agent.md` | `filters/theme/` | `theme/theme.md` |
-| syntax | `.framework/agents/syntax/agent.md` | `filters/syntax/` | `syntax/syntax.md` |
+| Filter | Agent |
+|--------|-------|
+| workshop | `.framework/agents/workshop/agent.md` |
+| research | `.framework/agents/research/agent.md` |
+| seeds | `.framework/agents/seeds/agent.md` |
+| correctness | `.framework/agents/correctness/agent.md` |
+| theme | `.framework/agents/theme/agent.md` |
+| syntax | `.framework/agents/syntax/agent.md` |
 
 **Poetry (preset: `layout-poetry/SKILL.md`):**
 
@@ -232,22 +237,22 @@ workshop -> research -> seeds -> correctness -> theme -> syntax
 workshop -> research -> correctness -> theme -> syntax -> override -> quality
 ```
 
-| Filter | Agent | Folder | Role file |
-|--------|-------|--------|-----------|
-| workshop | `.framework/agents/workshop/agent.md` | `filters/workshop/` | `workshop/workshop.md` |
-| research | `.framework/agents/research/agent.md` | `filters/research/` | `research/research.md` |
-| correctness | `.framework/agents/correctness/agent.md` | `filters/correctness/` | `correctness/correctness.md` |
-| theme | `.framework/agents/theme/agent.md` | `filters/theme/` | `theme/theme.md` |
-| syntax | `.framework/agents/syntax/agent.md` | `filters/syntax/` | `syntax/syntax.md` |
-| override | human-editable `filter.md` | `filters/override/` | `override/override.md` |
-| quality | `.framework/agents/quality/agent.md` | `filters/quality/` | `quality/quality.md` |
+| Filter | Agent |
+|--------|-------|
+| workshop | `.framework/agents/workshop/agent.md` |
+| research | `.framework/agents/research/agent.md` |
+| correctness | `.framework/agents/correctness/agent.md` |
+| theme | `.framework/agents/theme/agent.md` |
+| syntax | `.framework/agents/syntax/agent.md` |
+| override | `.framework/agents/override/agent.md` |
+| quality | `.framework/agents/quality/agent.md` |
 
 Each filter reads the pipeline data and any upstream filter output it needs, then writes to its own folder. Run the full chain strictly in order.
 
 After each filter runs against a chapter, the workflow:
 
 1. **Archives the previous draft** — if the filter rewrites `.space/pipeline/<bookname>/chapters/<n>/chapter.md`, the prior version is copied to `.space/pipeline/<bookname>/chapters/<n>/history/` (created if missing) with a timestamped/versioned name. The live `chapter.md` always holds the current state.
-2. **Updates the chapter state** — `.space/pipeline/<bookname>/chapters/<n>/model.json` is updated: `state` is set to the filter that just ran, and a `filter_history` array entry records `{ filter, ran_at, output_file }`. All other fields are preserved (merge, never overwrite).
+2. **Updates the chapter state** — `.space/pipeline/<bookname>/chapters/<n>/model.json` is updated: `state` is set to the filter that just ran, and a `filter_history` array entry records `{ filter, ran_at }`. All other fields are preserved (merge, never overwrite).
 
 ---
 
@@ -324,5 +329,5 @@ Use:
 
 - `/book <bookname> write continue` to write the first missing chapter onward.
 - `/book <bookname> write all` to write every chapter in canonical order and assemble `book.md`.
-- `/book <bookname> filter *` to refresh the full filter chain before chapter writing.
+- `/book <bookname> enrich *` to fuse the active filters into one pass before chapter writing.
 

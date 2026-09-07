@@ -30,11 +30,13 @@ Supported command families are defined by `.framework/workflows/book.md`. At min
 /book <bookname> [<gist>] [form] [refresh]
 /book <bookname> init|backlog|layout [<gist>] [<count>] [form] [refresh]
 /book <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
-/book <bookname> add <chapter-count> filter <filter>|*|all
-/book <bookname> filter <filter>|*|all
+/book <bookname> add <chapter-count> filter <filter>
+/book <bookname> filter <filter>
+/book <bookname> enrich <count>|range|*
 /book <bookname> write <n>|all|continue
 /book <bookname> style [<style>]
 /book <bookname> translate <n>|all|continue <language>
+/book <bookname> publish [<language>]
 /book <bookname> form <novel|poetry>
 /book <bookname> config [<key> [<value>]]
 
@@ -154,8 +156,14 @@ Filter-stage roles are implemented by agents under:
 Known filter agents:
 
 ```text
-correctness, scaffold, override, poet, quality, reframe, research,
-seeds, syntax, theme, workshop
+correctness, enrich, override, quality, research, seeds, syntax,
+theme, workshop
+```
+
+Known lifecycle agents:
+
+```text
+init, scaffold, write, chapter, style, translate, publish, gist, reframe
 ```
 
 Known post-scaffold agents:
@@ -216,22 +224,26 @@ Primary orchestration spec for `/book`.
 ### Agents
 
 ```text
-.framework/agents/correctness/agent.md
+.framework/agents/init/agent.md
+.framework/agents/gist/agent.md
 .framework/agents/scaffold/agent.md
 .framework/agents/prelayout/agent.md
 .framework/agents/postlayout/agent.md
-.framework/agents/override/agent.md
-.framework/agents/publish/agent.md
-.framework/agents/write/agent.md
-.framework/agents/quality/agent.md
-.framework/agents/reframe/agent.md
-.framework/agents/research/agent.md
-.framework/agents/seeds/agent.md
-.framework/agents/style/agent.md
-.framework/agents/syntax/agent.md
-.framework/agents/theme/agent.md
-.framework/agents/translate/agent.md
 .framework/agents/workshop/agent.md
+.framework/agents/research/agent.md
+.framework/agents/correctness/agent.md
+.framework/agents/theme/agent.md
+.framework/agents/syntax/agent.md
+.framework/agents/override/agent.md
+.framework/agents/quality/agent.md
+.framework/agents/enrich/agent.md
+.framework/agents/write/agent.md
+.framework/agents/chapter/agent.md
+.framework/agents/style/agent.md
+.framework/agents/translate/agent.md
+.framework/agents/publish/agent.md
+.framework/agents/reframe/agent.md
+.framework/agents/seeds/agent.md
 ```
 
 Agents are the only valid runtime entry points for skill-backed behavior.
@@ -333,14 +345,15 @@ Filters write only inside the pipeline filter folders resolved by:
 .space/pipeline/<bookname>/filters/filters.json
 ```
 
-If a registry exists, use it to resolve:
+If a registry exists, use it to resolve each filter's `agent` path and `autorun` flag. Each registry entry carries only:
 
 ```text
-folder
-role_file
+order
+name
+agent
 summary_file
-input_file
-output_file
+autorun
+```
 
 If no registry exists, follow `.framework/workflows/book.md` and the current pipeline layout.
 

@@ -1,190 +1,164 @@
-# Novelist
+# Writer
 
-A multi-agent literary engine for writing **poetic prose** and **frame-story novels** in the voice of Kahlil Gibran's *The Prophet* (1923), grounded in a reference book (e.g. Marcus Aurelius's *Meditations*, Lalon Shah's Baul tradition).
+A multi-agent literary engine for writing **poetry** and **novels** in a configured authorial voice, grounded in a reference work and a stereotype (signature, reference, theme set, syntax sample). The whole system is driven by a single slash command:
+
+```text
+/book <bookname> ...
+```
 
 The system is split into two layers:
 
-- **`.framework/`** — the agents (skills + workflows) that do the work.
-- **`.space/`** and **`source/`** — the data: inputs (context, pipeline, templates) and outputs (finished chapters).
+- **`.framework/`** — the agents (workflows, role agents, skills) that do the work.
+- **`.space/`** and **`source/`** — the data: inputs (backlog, pipeline) and outputs (finished, versioned books).
 
 ---
 
 ## Architecture
 
 ```
-novelist/
-├── .framework/              # the agents
-│   ├── agents/              # role agents (poet, editor, translator, character, …)
-│   ├── skills/              # on-demand workflows (slash commands)
-│   ├── workflows/           # the writing engines (poetry.md, reframe.md, novel.md, guide.md)
-│   ├── streams/             # narrative streams (novel, poetry, story, play, feature)
+writer/
+├── .framework/              # the engine
+│   ├── workflows/           # book.md — the single orchestration spec for /book
+│   ├── agents/              # role agents (scaffold, research, theme, enrich, write, publish, …)
+│   ├── skills/              # form-specific skills (layout-poetry, layout-novel, workshop-*, …)
 │   ├── rules/               # shared rules
-│   └── templates/           # canonical templates (poetry, stereotypes, novel)
-├── .space/                  # inputs & data
-│   ├── context/             # qualities/, references/, themes/
-│   ├── pipeline/            # novel layouts (book_<name>/)
-│   └── templates/           # poetry/, stereotypes/, novel/
-├── source/                  # finished chapters (book_<name>/)
-├── .gitignore
+│   └── templates/           # stereotypes (novel/, poetry/), styles/, moods/, subjects/
+├── .space/                  # inputs & working state
+│   ├── backlog/epic/<book>/ # gist.md, epic.md, book.json (the book plan)
+│   └── pipeline/<book>/     # model.json, bookseed.txt, progress.json, filters/, chapters/
+├── source/books/<book>/     # finished, versioned output
+├── AGENTS.md                # runtime steering for autonomous coding agents
 ├── LICENSE
 └── README.md
 ```
 
 ---
 
-## Skills
+## The `/book` Command
 
-Each skill is an on-demand workflow, invoked as a slash command.
+`/book` is the primary command surface. It is interpreted left-to-right, and its full specification lives in `.framework/workflows/book.md`. The command families are:
 
-| Skill | Command | Purpose |
-|-------|---------|---------|
-| `poet` | `/poet` | Write, scaffold, revise, and audit Gibran-esque poetic prose books. |
-| `novelist` | `/novel` | Scaffold a novel layout and write frame-story chapters. |
-| `historian` | `/historian` | Collect historical data from the internet, static text, and themes. |
-| `character-builder` | `/character` | Build and manage the character roster (`characters.json`). |
-| `workshop-director` | `/workshop` | Conduct workshops that frame each novel chapter. |
-| `subject-matter-philosophy` | `/philosophy` | Build the philosophical grounding (quality/seed analysis). |
-| `language-construct` | `/language` | Build the language layer (lexicon, register, dialect, stylistic DNA). |
+```text
+/book <bookname> [<gist>] [form] [refresh]                          # create/update the backlog epic
+/book <bookname> init|backlog|layout [<gist>] [<count>] [form]      # configure the backlog book plan
+/book <bookname> scaffold <gist> count|chapter-count <n> [--form]   # build the pipeline structure
+/book <bookname> <agentname> <chapter>|<n>|all|continue             # run an agent on chapters
+/book <bookname> filter <filter>|*|all                              # run a filter (or the chain)
+/book <bookname> enrich <count>|range|*                             # fuse active filters into one pass
+/book <bookname> write <n>|all|continue                             # write finished chapters
+/book <bookname> style [<style>]                                    # transform writer-stage chapters
+/book <bookname> translate <n>|all|continue <language>              # translate writer-stage chapters
+/book <bookname> publish [<language>]                               # promote segments to source/books
+/book <bookname> form <formname>                                    # set/change the book's form
+/book <bookname> config [<key> [<value>]]                           # get/set book config
+/book -o | --options                                                # list books and chapters
+/book -h | --help                                                   # show usage
+```
 
-> `story-writer` and `poetry-writer` are legacy aliases of `poet`.
+### The lifecycle
+
+```text
+/book <bookname> <gist>   →  backlog epic (gist.md, epic.md)
+/book <bookname> init     →  book.json (chapter plan + filter chain)
+/book <bookname> scaffold →  .space/pipeline/<bookname>/ (structure)
+/book <bookname> filter * →  run the filter chain (or enrich)
+/book <bookname> write    →  source/books/<bookname>/<version>/
+/book <bookname> publish  →  source/books/<bookname>/version<k>/
+```
 
 ---
 
-## The Writing Agents
+## Forms
 
-The `.framework/` layer is organized into four kinds of agents:
+A book is either **poetry** (verse) or **novel** (prose), declared in the pipeline's `form` field.
 
-| Kind | Location | Role |
-|------|----------|------|
-| **Workflows** | `.framework/workflows/` | The top-level writing engines that orchestrate a whole book. |
-| **Skills** | `.framework/skills/` | On-demand, single-purpose workflows invoked as slash commands. |
-| **Role agents** | `.framework/agents/` | Specialized roles (poet, editor, translator, character, …). |
-| **Streams** | `.framework/streams/` | Narrative streams (novel, poetry, story, play, feature). |
+| Signal | Poetry | Novel |
+|--------|--------|-------|
+| Source of truth | `model.json` + `bookseed.txt` | `epic.md` |
+| Chapter structure | Question / Oration / Benediction | Workshop / Story / Discussion |
+| Segments per chapter | exactly one (`segments/1`) | many |
+| Word target | 500–800 | 5,500+ |
+| Stereotype templates | `stereotypes/poetry/` | `stereotypes/novel/` |
 
-### Workflows (`.framework/workflows/`)
+---
 
-| Workflow | Purpose |
-|----------|---------|
-| `poetry.md` | The **writer** engine — transforms topics/terms into Gibran-esque poetic prose chapters. |
-| `reframe.md` | The **reframer** engine — reshapes finished chapters (voice, register, dialect) while preserving their core. |
-| `novel.md` | The **novel-writer** engine — turns workshop narratives into frame-story novel chapters. |
-| `guide.md` | Implementation guide for the writer agent. |
+## The Filter Chain
 
-### Skills (`.framework/skills/`)
+Filters run in a fixed order inside the pipeline. The chain is declared in `book.json`'s `filter_chain` and materialized as `.space/pipeline/<bookname>/filters/filters.json`.
 
-Each skill is a single-purpose workflow with a `SKILL.md` that defines when to use it and what it produces.
+**Poetry:** `workshop → research → correctness → theme → syntax → override → quality`
 
-| Skill | Purpose |
-|-------|---------|
-| `layout` | Scaffold the structural skeleton of a novel pipeline (`.space/pipeline/book_<name>/`). |
-| `narrative` | Write/revise frame-story novel chapters (Workshop / Story / Discussion). |
-| `poeticprose` | Write/revise Gibran-esque philosophical poetic prose. |
-| `research` | Gather, organize, and verify source material (qualities, themes, references). |
-| `history` | Gather and weave historical material into a narrative. |
-| `philosophy` | Build the philosophical grounding (seed/quality analysis). |
-| `theme` | Define and weave thematic categories into chapters. |
-| `revision` | Revise, tighten, audit, or transform already-written chapters. |
-| `translation` | Translate/localize literary text across languages. |
-| `dialogue` | Write and polish spoken exchanges between characters. |
-| `pacing` | Control rhythm, tempo, tension, and cliffhangers. |
-| `contemporary` | Write the modern frame scenes of a frame-story. |
-| `geography` | Build the physical and cultural sense of place. |
-| `indian` | Ground a story in Indian cultural, historical, and literary context. |
-| `mythology` | Draw on myth, legend, folklore, and sacred narrative. |
+**Novel:** `workshop → research → seeds → correctness → theme → syntax`
 
-### Role Agents (`.framework/agents/`)
+Each filter is backed by a role agent in `.framework/agents/<filter>/agent.md`. The `enrich` command fuses the active (`autorun: true`) filters into a single combined agent and runs them in one pass.
+
+---
+
+## Role Agents (`.framework/agents/`)
 
 | Agent | Role |
 |-------|------|
-| `poet` | The poetic-prose voice. |
-| `editor` | Revision and tightening. |
-| `translator` | Cross-language rendering. |
-| `character` | Character roster and depth. |
-| `review` | Audit and review. |
-| `reference` | Source-text grounding. |
-| `discovery` | Material discovery. |
-| `place` | Setting and geography. |
-| `prose` | Prose craft. |
-| `time` | Era and chronology. |
-
-### Streams (`.framework/streams/`)
-
-| Stream | Purpose |
-|--------|---------|
-| `novel` | Frame-story novel stream. |
-| `poetry` | Poetic-prose stream. |
-| `story` | Short-story stream. |
-| `play` | Dramatic/play stream. |
-| `feature` | Feature-writing stream. |
+| `init` | Configure the backlog book plan (`book.json`). |
+| `scaffold` | Build the pipeline structure (dispatches to layout skills). |
+| `prelayout` / `postlayout` | Pre/post-scaffold preparation and master-prompt seeding. |
+| `workshop` | Create the initial chapter frame. |
+| `research` | Ground and enrich the chapter. |
+| `correctness` | Verify factual and cultural claims. |
+| `theme` | Assign the philosophical lens and stereotype. |
+| `syntax` | Modernize sentence structure while keeping the register. |
+| `override` | Apply the human-in-the-loop transformation (`override.txt`). |
+| `quality` | Final quality audit. |
+| `enrich` | Fuse active filters into one combined pass. |
+| `write` / `chapter` | Write finished reader-facing chapters. |
+| `style` | Transform writer-stage chapters through a style template. |
+| `translate` | Translate writer-stage chapters. |
+| `publish` | Promote segments to `source/books/` and assemble the book. |
+| `gist`, `seeds`, `reframe` | Supporting roles. |
 
 ---
 
-## The Two Engines
+## Skills (`.framework/skills/`)
 
-### 1. Poet — Gibran-esque Poetic Prose
+Skills are invoked **only through an agent** — never directly. Form-specific layout and workshop skills include:
 
-Transforms a list of topics/terms into philosophical poetic prose chapters. Weaves three pillars:
-
-1. **Context** (dynamic) — the reference book and its analysis.
-2. **Style** (fixed) — the Gibran-esque voice (Question → Oration → Benediction).
-3. **Theme** (dynamic) — the thematic category assigned to each chapter.
-
-- Engine: `.framework/workflows/poetry.md`
-- Reframer: `.framework/workflows/reframe.md`
-- Inputs: `.framework/templates/stereotypes/poetry/` (qualities, themes, references, signatures)
-- Template: `.framework/templates/stereotypes/poetry/default/`
-- Outputs: `source/book_<name>/`
-
-### 2. Novelist — Frame-Story Novels
-
-Writes novels that interleave a modern frame (a theatre workshop) with a historical narrative. Every novel begins with a **layout** (mandatory structural skeleton).
-
-- Engine: `.framework/workflows/novel.md`
-- Layout: `.space/pipeline/book_<name>/` (book.json, characters.json, workshop_minutes/, chapter_seeds/, chapters_research/)
-- Outputs: `source/book_<name>/`
+- `layout-poetry`, `layout-novel` — pipeline scaffold skeletons.
+- `workshop-poetry`, `workshop-novel` — chapter-frame creation.
+- `poeticprose`, `narrative`, `dialogue`, `pacing` — prose craft.
+- `research`, `correctness`, `theme`, `syntax`, `quality`, `revision` — filter backing.
+- `translation` — cross-language rendering.
+- `geography`, `history`, `indian`, `mythology`, `philosophy`, `contemporary` — grounding.
 
 ---
 
-## The Novel Pipeline
+## Stereotypes & Styles
 
-The full chain for a frame-story novel:
+- **Stereotypes** (`.framework/templates/stereotypes/<form>/`) — `signatures/`, `references/`, `themes/`, `syntax/`. Each chapter selects a signature (voice), reference (source text), theme set (philosophical lens), and syntax sample.
+- **Styles** (`.framework/templates/styles/<style>/`) — transformer styles (e.g. `pijush`) applied by the `style` command.
 
-```
-layout → research → characters → workshops → chapters
-```
+---
 
-| Step | Skill | Produces |
-|------|-------|----------|
-| Layout | `novelist` | `.space/pipeline/book_<name>/` |
-| Research | `historian` | `chapters_research/<chapter>.json` |
-| Characters | `character-builder` | `characters.json` |
-| Workshops | `workshop-director` | `workshop_minutes/<chapter>.md` |
-| Chapters | `novelist` | `source/book_<name>/<chapter>.md` |
+## Data Layout
+
+| Path | Role |
+|------|------|
+| `.space/backlog/epic/<book>/` | `gist.md`, `epic.md`, `book.json` (the book plan) |
+| `.space/pipeline/<book>/` | `model.json`, `bookseed.txt`, `progress.json`, `filters/`, `chapters/` |
+| `.space/pipeline/<book>/chapters/<n>/` | `chapter.md` (live draft), `model.json`, `history/`, `segments/1/{writer,editor,translator}/` |
+| `source/books/<book>/<version>/` | finished, versioned reader-facing output |
 
 ---
 
 ## Quick Start
 
 ```text
-# Poetic prose
-/poet <bookname> <quality> <theme> <reference>   # scaffold a new book
-/poet <bookname>                                 # write chapters
-
-# Frame-story novel
-/novel <bookname> <chapter_count>                # scaffold the layout
-/novel <bookname> all                            # write all chapters
+/book behula "Bengali mythology of Behula..."          # create the backlog epic
+/book behula init poetry                               # configure the book plan
+/book behula scaffold                                  # build the pipeline
+/book behula enrich                                    # fuse active filters into one pass
+/book behula write                                     # write finished chapters
+/book behula translate bengali                         # translate to Bengali
+/book behula publish bengali                           # promote to source/books
 ```
 
----
-
-## Data Layout
-
-| Folder | Role |
-|--------|------|
-| `.framework/templates/novel/qualities/` | Seed analyses (philosophical grounding) |
-| `.framework/templates/novel/themes/` | Thematic category sets |
-| `.framework/templates/novel/references/` | Source texts and dictionaries |
-| `.space/pipeline/` | Novel layouts (inputs) |
-| `.framework/templates/` | Canonical templates (poetry, stereotypes, novel) |
-| `source/` | Finished chapters (outputs) |
+See `AGENTS.md` for the runtime steering contract and `.framework/workflows/book.md` for the full command specification.
 
