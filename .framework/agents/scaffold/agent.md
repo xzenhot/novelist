@@ -51,12 +51,11 @@ The `override` human-in-the-loop filter needs a ready-made command file, not an 
 
 After the layout skill has built the pipeline, the scaffold agent delegates the final step to the **postlayout agent** (`.framework/agents/postlayout/agent.md`):
 
-1. The postlayout agent reads the backlog idea at `.space/backlog/epic/<bookname>/override.txt` (if present).
-2. It reads the resolved pipeline state — `model.json` (form, language, register, signature, quality, themes, reference, sacred vocabulary, translation guide, gist, book summary) and `bookseed.txt` (poetry) or `book.json` (novel).
-3. It derives a **dynamic** master prompt — the backlog identity/mandate enriched with the concrete topic/chapter list — and writes it to `.space/pipeline/<bookname>/override.txt`.
-4. This file is the pipeline's operative writing mandate, distinct from the backlog `override.txt` (the seed idea) and the novel-only `masterprompt.md` planning artifact.
+1. The postlayout agent writes `.space/pipeline/<bookname>/override.txt` with the default content `No transform required.` — a single line, nothing else.
+2. This default tells the override agent that no transformation is requested, so every chapter passes through unchanged.
+3. The human may later replace the default line with a full transformation mandate when they want the override agent to rewrite the chapters.
 
-The scaffold agent does not copy the backlog file verbatim; it routes the derivation through the postlayout agent.
+The scaffold agent does not derive a full master prompt during a plain scaffold; it writes only the default line.
 
 ## Source Of Truth
 

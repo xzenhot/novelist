@@ -36,14 +36,17 @@ If the backlog master prompt is missing, do not fail — derive the master promp
 
 ## What to Produce
 
-Write a **dynamic master prompt** to `.space/pipeline/<bookname>/override.txt`. It is the pipeline's operative writing mandate, re-derived from the backlog idea against the concrete pipeline state. It must include:
+Write the **master prompt** to `.space/pipeline/<bookname>/override.txt`. It is the pipeline's operative writing mandate.
 
-1. **Identity** — who the writer is (a master novelist for `novel`, a poet for `poetry`), grounded in the book's actual form.
-2. **Central premise** — the gist, reconciled with the pipeline's `book_summary` so it reflects the full story, not just the one-liner.
-3. **Form and language** — the resolved `form` and `language` from `model.json`.
-4. **Style mandate** — the register, the master metaphor, the signature/voice, and the writing rules, drawn from `model.json` (register, signature, quality, themes, reference).
-5. **Section structure** — Workshop/Story/Discussion for `novel`; Question/Oration/Benediction for `poetry`.
-6. **Concrete subject matter** — for poetry, the actual topic list from `bookseed.txt`; for novels, the chapter titles/summaries from `book.json`. This is what makes the prompt *dynamic*: it names the real chapters/poems the writer will produce.
+**Default content.** By default, the file contains exactly one line:
+
+```text
+No transform required.
+```
+
+This is the scaffold-time default: it tells the override agent that no transformation is requested, so every chapter passes through unchanged. The human may later replace this line with a full transformation mandate (identity, premise, form/language, style mandate, section structure, and concrete subject matter) when they want the override agent to rewrite the chapters.
+
+**When to write the full mandate.** Only write the full dynamic master prompt (identity, central premise, form and language, style mandate, section structure, and concrete subject matter) when the human has supplied an actual transformation intent — never during a plain scaffold. A plain scaffold always writes the default `No transform required.` line.
 
 ## Chapter Draft Seeding (chapter.md)
 
@@ -64,7 +67,8 @@ This seeding can be done by a **python or powershell** step — read the JSON, i
 - **Backlog is the idea; pipeline is the reality.** The backlog file is the seed. The pipeline `model.json` and `bookseed.txt`/`book.json` are the resolved truth. When they differ, the pipeline wins.
 - **Form resolution lives here.** The pipeline `model.json` is the authoritative source for the resolved `form`. Init no longer reads the pipeline; this agent is the sole place that resolves the form from pipeline state.
 - **Plain text only.** The output is a `.txt` file. No front-matter YAML, no scripts, no wrapper files.
-- **Do not overwrite a human-edited file.** If `.space/pipeline/<bookname>/override.txt` already exists and contains human edits, do not overwrite it; report that it exists and leave it. Otherwise regenerate it.
+- **Default is "No transform required."** A plain scaffold writes `.space/pipeline/<bookname>/override.txt` containing exactly `No transform required.` — nothing else. Do not derive a full master prompt during a plain scaffold.
+- **Do not overwrite a human-edited file.** If `.space/pipeline/<bookname>/override.txt` already exists and contains content other than the default `No transform required.` line, do not overwrite it; report that it exists and leave it. Otherwise write the default.
 - **Do not scaffold or run filters.** This agent produces the master prompt and seeds chapter drafts; it must not create folders, run filters, or touch `source/books/`.
 - **Seed chapter.md from book.json.** For every chapter in `.space/pipeline/<bookname>/book.json`, write `.space/pipeline/<bookname>/chapters/<n>/chapter.md` from its `chapter_title` and `chapter_summary`, unless the file already holds content beyond the bare scaffold placeholder.
 

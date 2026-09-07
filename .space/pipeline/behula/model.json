@@ -1,0 +1,45 @@
+{
+  "form": "poetry",
+  "book_name": "behula",
+  "book_long_title": "Behula: The River of Devotion",
+  "language": "English",
+  "register": "archaic/literary",
+  "quality": ".framework/templates/stereotypes/poetry/qualities/aurilus.md",
+  "themes": ".framework/templates/stereotypes/poetry/themes/generic.md",
+  "reference": ".framework/templates/stereotypes/poetry/references/aurilus.txt",
+  "index": "bookseed.txt",
+  "sacred_vocabulary": {
+    "river": "road between life and death",
+    "raft": "floating shrine",
+    "serpent": "the shadow of fate",
+    "bhat flower": "the earth's weeping",
+    "devotion": "an argument with destiny"
+  },
+  "translation_guide": {
+    "Behula": "the woman who refused the widow's silence",
+    "Lakhindar": "the husband death could not keep",
+    "Manasa": "the goddess of serpents",
+    "Indra": "the king of the gods who bowed to love"
+  },
+  "chapter_count": 15,
+  "source_terms": [
+    "The Wedding Night",
+    "The Widow's Silence",
+    "The Raft",
+    "The River's Road",
+    "The Mockery of the World",
+    "The Court of the Gods",
+    "Indra's Honour",
+    "The Bhat Flower Weeps",
+    "The Return",
+    "The Question Behula Leaves",
+    "The Long Vigil",
+    "The Price of Medicine",
+    "The Blood She Gave",
+    "The Police and the Curfew",
+    "The Morning He Breathed"
+  ],
+  "gist": "Behula, the Bengali heroine of the Manasamangal, sacrifices her social life and braves the river of death to revive her dead husband Lakhindar, her devotion so great that Lord Indra himself honours her character and the bhat flower weeps upon her foot.",
+  "book_summary": "Behula: The River of Devotion is a poetry sequence in which Behula, the heroine of the Manasamangal, speaks as bride, widow, pilgrim, and defiant lover. The book begins on her wedding night, when her husband Lakhindar is bitten by a serpent and dies, and follows her refusal of the widow's silence. She builds a raft, lays her husband's body upon it, and sails the river for months, enduring storms, hunger, and the mockery of the world, until she reaches the court of the gods. There her devotion moves Lord Indra himself, who grants Lakhindar his life back, while the bhat flower of the riverbank weeps upon her foot in witness to her sacrifice. The poems do not treat devotion as passive endurance; they treat it as an active argument with fate, a woman's love strong enough to move heaven. By the end, Behula does not boast of her triumph. She asks what devotion is worth when it is not witnessed, and what a society owes to a woman who refuses to be buried with her husband.",
+  "created_at": "2026-09-08"
+}
