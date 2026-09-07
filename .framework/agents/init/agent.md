@@ -63,7 +63,7 @@ The `book.json` must contain:
   - `chapter_index` — `Introduction`, `1..N`, `Conclusion` for novels; `1..N` for poetry.
   - `name` — the chapter's canonical name (matches `chapter_index`).
   - `chapter_title` — a short, evocative title.
-  - chapter_summary - a simple, form-neutral contextual seed of 1-4 sentences, derived only from gist.md and epic.md. It should identify the chapter's subject, setting or situation, central movement or tension, and intended direction without prescribing poem, prose, verse, dialogue, or any other literary form. Keep it usable for poetry, prose, and other literary content; do not invent details beyond the gist and epic.
+  - chapter_summary - a short, form-neutral contextual seed of 1-4 sentences, derived only from gist.md and epic.md. Select a concrete subject, place, event, image, tension, or question from the source material with varied generation; do not reuse a fixed opening or sentence pattern. Keep it usable for poetry, prose, and other literary content, and do not invent details beyond the gist and epic.
   - `further_references` — an array of `{ "no", "reference", "weblink" }` grounding sources (optional but recommended).
 - **`all_characters`** — an array of `{ "character_id", "full_name", "role", "identity", "psychological_depth" }` for novels; omit or leave empty for poetry.
 - **`history`** — a short paragraph of historical/contextual grounding (novels).
@@ -78,7 +78,7 @@ The `book.json` must contain:
 
 This file gives the complete hint of how many chapters will be written, how each is laid out, and the ordered filter chain, so `scaffold` can build the pipeline without re-deriving the plan.
 
-For normal init, keep each chapter_summary simple and contextual. Do not force a poetry or prose voice, and do not expand it into a long four-bullet treatment; the summary is a neutral seed that later agents can use for any literary form. The richer 200-word, four-bullet expansion belongs to the separate layout command.
+For normal init, keep each chapter_summary simple and contextual. Do not force a poetry or prose voice, and do not expand it into a long four-bullet treatment; the summary is a neutral seed that later agents can use for any literary form. Init is the only backlog-plan command; its summaries stay simple and form-neutral. Layout is an alias of init, not a separate workflow.
 
 ## Operation
 
@@ -100,16 +100,13 @@ For normal init, keep each chapter_summary simple and contextual. Do not force a
 
 ## Refresh Mode
 
-When the caller supplies the `refresh` keyword, do not merely fill gaps — re-groom and regenerate all three backlog artifacts from the existing material, reconciling them to the resolved form. This is used when the backlog has drifted out of consistency (e.g. a poetry book whose `epic.md` still reads as a novel).
+When the caller supplies refresh, first compare the canonical one-line gist in gist.md with book.json.gist.
 
-1. **Resolve the form first** (caller `<form>` → epic metadata → default `novel`).
-2. **Re-groom each artifact to the form:**
-   - `gist.md` — keep the one-line gist; re-derive the expansion so it names the correct form (a poem sequence for poetry, a novel for novels).
-   - `epic.md` — re-groom into a form-consistent foundation. For poetry, drop the novel-only character roster and Introduction/Chapter/Conclusion outline in favor of a topical structure; for novels, keep the character arcs and chapter outline. Preserve the original `Created` timestamp; update `Updated` and `Updated By`.
-   - `book.json` — re-derive the `chapters` array, `filter_chain`, `word_target`, and `all_characters` (novels) / drop it (poetry) to match the form, and set the `form` field to the resolved form.
-3. **Never touch the pipeline or `source/books/`.** Refresh operates only inside `.space/backlog/epic/<bookname>/`.
-4. **Report the delta.** State what was re-groomed and what was preserved, so the caller can see the change.
-
+1. **Unchanged gist: book.json only.** If the canonical gist is unchanged, do not write, re-groom, or regenerate gist.md or epic.md. Read them as source context and update only book.json: preserve the existing chapter count and plan unless an explicit count or form change requires reconciliation, refresh the chapter_summary values as simple varied form-neutral seeds, and preserve the filter chain and word targets unless the form changes.
+2. **Changed gist: rebuild the dependent backlog.** If the canonical gist differs, update gist.md, re-groom or regenerate epic.md from the changed premise, and rebuild the affected book.json plan. Preserve the original Created timestamp in epic.md and update Updated and Updated By.
+3. **Missing gist or epic.** If either source artifact is missing, create or repair the missing artifact through the normal init path before writing book.json.
+4. **No pipeline work.** Never touch .space/pipeline/<bookname>/ or source/books/ during refresh.
+5. **Report the branch taken.** State whether the gist was unchanged or changed, which artifacts were written, and the chapter count and summary range updated.
 ## Output Contract
 
 Return:

@@ -1,0 +1,72 @@
+Yamuna: The Slow River's Question
+
+Identity: Write as a literary creator working in the resolved poetry form and English language.
+Premise: The Delhi NCR is built by Yamuna from prehistorycal days. Yamuna has witnessed the rise of dynasty, pandav nagar, indrapratha, qutub minar, lalqila, now yamuna has become tired, her walk has become slow and dry, asking a question about rubbish from mankind on her chest
+Context: Yamuna: The Slow River's Question is a poetry sequence in which the Yamuna speaks as river, mother, witness, archive, and moral questioner. The book begins before Delhi has a name, when the river gives water to animals, settlements, clay, hunger, and the first human fires. It then moves through Pandav Nagar and Indraprastha, the rise of dynasties, the stone ambition of the Qutub Minar, the Red Fort and Shahjahanabad, colonial measurement, and the glass-and-dust expansion of modern Delhi NCR. Across these ages, Yamuna sees people praise her holiness while shrinking her floodplain, slowing her current, and loading her chest with rubbish, sewage, foam, plastic, ash, and civic forgetfulness. The poems do not treat pollution as a statistic alone; they treat it as a broken relationship between a city and the water that made it possible. By the end, Yamuna does not merely accuse mankind. She asks whether Delhi NCR can become worthy of the river whose tired, dry walk still carries memory, warning, and the possibility of repair.
+Form: poetry
+Structure: Question, Oration, Benediction
+Register: archaic/literary, image-rich, historically aware, and contemporary in civic feeling
+Central images: Yamuna as river, mother, witness, archive, wound, and moral questioner; silt as memory; foam as false garland; rubbish as a burden on the river's chest; the dry bed as warning.
+Topics in order:
+Before the City Had a Name
+Pandav Nagar, Indraprastha
+Dynasties on the Floodplain
+The Minar and the Stone Sky
+The Red Fort and the River Window
+Canals, Maps, and a Measured River
+NCR of Glass and Dust
+Foam at the Ghats
+The Slow Dry Walk
+Rubbish on My Chest
+Children on the Bridge
+The Question Yamuna Leaves
+The Snowmelt Memory
+The River's Many Names
+A Handful of Water
+The Floodplain's Green Breath
+Ashes and Return
+The Boatman's Oar
+Monsoon's Forgotten Door
+Silt Writes Slowly
+The City Drinks in Secret
+A Mirror with No Face
+The Shrine Beside the Drain
+Delhi's Thirsting Throat
+When Birds Leave the Bank
+The Washerwoman's River
+Concrete Against the Reed
+The Drain's Confession
+Under the Bridge
+The Engineer's Notebook
+Foam in Winter Light
+The Plastic Prayer
+A Palace of Reflections
+The Red Dust Road
+The Metro Above the Water
+Night Shift at the River
+The Fisherman's Empty Net
+River of Migrants
+The City That Forgot Its Banks
+A Calendar of Water
+The Festival and the Aftermath
+The Law's Long Sentence
+The Woman Who Plants Reeds
+The School Beside the Floodplain
+A Future Rain
+The River's Patient Anger
+The City Learns to Bend
+Clean Water Is a Verb
+The Return of Small Fish
+A City Under Oath
+The River in the Kitchen
+The Archive of Wet Earth
+No River Is Alone
+The Breath Beneath the Foam
+The Old Woman's Blessing
+The Work of Returning
+A River Can Remember Us
+The Clear Reflection Returns
+Before We Call Her Sacred
+The Question Keeps Flowing
+
+Use each topic as the concrete subject for its chapter. Develop the subject from the backlog context and preserve factual humility. Do not run filters or invent a different book structure in this prompt.

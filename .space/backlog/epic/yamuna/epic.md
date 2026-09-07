@@ -4,7 +4,7 @@
 - **Epic path:** .space/backlog/epic/yamuna/epic.md
 - **Created:** 2026-09-07
 - **Updated:** 2026-09-07
-- **Updated by:** gist agent
+- **Updated by:** init refresh
 - **Gist:** The Delhi NCR is built by Yamuna from prehistorycal days. Yamuna has witnessed the rise of dynasty, pandav nagar, indrapratha, qutub minar, lalqila, now yamuna has become tired, her walk has become slow and dry, asking a question about rubbish from mankind on her chest
 
 ## Premise

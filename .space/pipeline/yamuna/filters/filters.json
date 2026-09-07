@@ -1,0 +1,88 @@
+{
+  "filters": [
+    {
+      "order": 1,
+      "name": "workshop",
+      "folder": "workshop",
+      "role_file": "workshop.md",
+      "summary_file": "filter-summary.md",
+      "input_file": "content-input.md",
+      "output_file": "content-output.md",
+      "description": "create the initial chapter frame",
+      "agent": ".framework/agents/workshop/agent.md",
+      "autorun": true
+    },
+    {
+      "order": 2,
+      "name": "research",
+      "folder": "research",
+      "role_file": "research.md",
+      "summary_file": "filter-summary.md",
+      "input_file": "content-input.md",
+      "output_file": "content-output.md",
+      "description": "gather subject and source context",
+      "agent": ".framework/agents/research/agent.md",
+      "autorun": true
+    },
+    {
+      "order": 3,
+      "name": "correctness",
+      "folder": "correctness",
+      "role_file": "correctness.md",
+      "summary_file": "filter-summary.md",
+      "input_file": "content-input.md",
+      "output_file": "content-output.md",
+      "description": "verify factual and cultural claims",
+      "agent": ".framework/agents/correctness/agent.md",
+      "autorun": false
+    },
+    {
+      "order": 4,
+      "name": "theme",
+      "folder": "theme",
+      "role_file": "theme.md",
+      "summary_file": "filter-summary.md",
+      "input_file": "content-input.md",
+      "output_file": "content-output.md",
+      "description": "assign the philosophical lens",
+      "agent": ".framework/agents/theme/agent.md",
+      "autorun": true
+    },
+    {
+      "order": 5,
+      "name": "syntax",
+      "folder": "syntax",
+      "role_file": "syntax.md",
+      "summary_file": "filter-summary.md",
+      "input_file": "content-input.md",
+      "output_file": "content-output.md",
+      "description": "apply language and cadence guidance",
+      "agent": ".framework/agents/syntax/agent.md",
+      "autorun": true
+    },
+    {
+      "order": 6,
+      "name": "override",
+      "folder": "override",
+      "role_file": "override.md",
+      "summary_file": "filter-summary.md",
+      "input_file": "content-input.md",
+      "output_file": "content-output.md",
+      "description": "apply human transformation instructions",
+      "agent": ".framework/agents/override/agent.md",
+      "autorun": false
+    },
+    {
+      "order": 7,
+      "name": "quality",
+      "folder": "quality",
+      "role_file": "quality.md",
+      "summary_file": "filter-summary.md",
+      "input_file": "content-input.md",
+      "output_file": "content-output.md",
+      "description": "perform the final quality audit",
+      "agent": ".framework/agents/quality/agent.md",
+      "autorun": true
+    }
+  ]
+}

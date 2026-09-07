@@ -1,0 +1,552 @@
+{
+  "title": "Yamuna: The Slow River's Question",
+  "language": "English",
+  "source_terms": [
+    "Before the City Had a Name",
+    "Pandav Nagar, Indraprastha",
+    "Dynasties on the Floodplain",
+    "The Minar and the Stone Sky",
+    "The Red Fort and the River Window",
+    "Canals, Maps, and a Measured River",
+    "NCR of Glass and Dust",
+    "Foam at the Ghats",
+    "The Slow Dry Walk",
+    "Rubbish on My Chest",
+    "Children on the Bridge",
+    "The Question Yamuna Leaves",
+    "The Snowmelt Memory",
+    "The River's Many Names",
+    "A Handful of Water",
+    "The Floodplain's Green Breath",
+    "Ashes and Return",
+    "The Boatman's Oar",
+    "Monsoon's Forgotten Door",
+    "Silt Writes Slowly",
+    "The City Drinks in Secret",
+    "A Mirror with No Face",
+    "The Shrine Beside the Drain",
+    "Delhi's Thirsting Throat",
+    "When Birds Leave the Bank",
+    "The Washerwoman's River",
+    "Concrete Against the Reed",
+    "The Drain's Confession",
+    "Under the Bridge",
+    "The Engineer's Notebook",
+    "Foam in Winter Light",
+    "The Plastic Prayer",
+    "A Palace of Reflections",
+    "The Red Dust Road",
+    "The Metro Above the Water",
+    "Night Shift at the River",
+    "The Fisherman's Empty Net",
+    "River of Migrants",
+    "The City That Forgot Its Banks",
+    "A Calendar of Water",
+    "The Festival and the Aftermath",
+    "The Law's Long Sentence",
+    "The Woman Who Plants Reeds",
+    "The School Beside the Floodplain",
+    "A Future Rain",
+    "The River's Patient Anger",
+    "The City Learns to Bend",
+    "Clean Water Is a Verb",
+    "The Return of Small Fish",
+    "A City Under Oath",
+    "The River in the Kitchen",
+    "The Archive of Wet Earth",
+    "No River Is Alone",
+    "The Breath Beneath the Foam",
+    "The Old Woman's Blessing",
+    "The Work of Returning",
+    "A River Can Remember Us",
+    "The Clear Reflection Returns",
+    "Before We Call Her Sacred",
+    "The Question Keeps Flowing"
+  ],
+  "context": "The Delhi NCR is built by Yamuna from prehistorycal days. Yamuna has witnessed the rise of dynasty, pandav nagar, indrapratha, qutub minar, lalqila, now yamuna has become tired, her walk has become slow and dry, asking a question about rubbish from mankind on her chest",
+  "total_chapters": 60,
+  "completed_chapters": 0,
+  "current_chapter": 1,
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "topic": "Before the City Had a Name",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/1/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 2,
+      "topic": "Pandav Nagar, Indraprastha",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/2/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 3,
+      "topic": "Dynasties on the Floodplain",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/3/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 4,
+      "topic": "The Minar and the Stone Sky",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/4/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 5,
+      "topic": "The Red Fort and the River Window",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/5/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 6,
+      "topic": "Canals, Maps, and a Measured River",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/6/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 7,
+      "topic": "NCR of Glass and Dust",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/7/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 8,
+      "topic": "Foam at the Ghats",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/8/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 9,
+      "topic": "The Slow Dry Walk",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/9/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 10,
+      "topic": "Rubbish on My Chest",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/10/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 11,
+      "topic": "Children on the Bridge",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/11/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 12,
+      "topic": "The Question Yamuna Leaves",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/12/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 13,
+      "topic": "The Snowmelt Memory",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/13/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 14,
+      "topic": "The River's Many Names",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/14/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 15,
+      "topic": "A Handful of Water",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/15/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 16,
+      "topic": "The Floodplain's Green Breath",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/16/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 17,
+      "topic": "Ashes and Return",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/17/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 18,
+      "topic": "The Boatman's Oar",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/18/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 19,
+      "topic": "Monsoon's Forgotten Door",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/19/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 20,
+      "topic": "Silt Writes Slowly",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/20/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 21,
+      "topic": "The City Drinks in Secret",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/21/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 22,
+      "topic": "A Mirror with No Face",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/22/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 23,
+      "topic": "The Shrine Beside the Drain",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/23/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 24,
+      "topic": "Delhi's Thirsting Throat",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/24/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 25,
+      "topic": "When Birds Leave the Bank",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/25/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 26,
+      "topic": "The Washerwoman's River",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/26/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 27,
+      "topic": "Concrete Against the Reed",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/27/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 28,
+      "topic": "The Drain's Confession",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/28/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 29,
+      "topic": "Under the Bridge",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/29/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 30,
+      "topic": "The Engineer's Notebook",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/30/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 31,
+      "topic": "Foam in Winter Light",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/31/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 32,
+      "topic": "The Plastic Prayer",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/32/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 33,
+      "topic": "A Palace of Reflections",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/33/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 34,
+      "topic": "The Red Dust Road",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/34/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 35,
+      "topic": "The Metro Above the Water",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/35/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 36,
+      "topic": "Night Shift at the River",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/36/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 37,
+      "topic": "The Fisherman's Empty Net",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/37/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 38,
+      "topic": "River of Migrants",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/38/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 39,
+      "topic": "The City That Forgot Its Banks",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/39/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 40,
+      "topic": "A Calendar of Water",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/40/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 41,
+      "topic": "The Festival and the Aftermath",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/41/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 42,
+      "topic": "The Law's Long Sentence",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/42/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 43,
+      "topic": "The Woman Who Plants Reeds",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/43/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 44,
+      "topic": "The School Beside the Floodplain",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/44/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 45,
+      "topic": "A Future Rain",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/45/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 46,
+      "topic": "The River's Patient Anger",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/46/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 47,
+      "topic": "The City Learns to Bend",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/47/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 48,
+      "topic": "Clean Water Is a Verb",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/48/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 49,
+      "topic": "The Return of Small Fish",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/49/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 50,
+      "topic": "A City Under Oath",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/50/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 51,
+      "topic": "The River in the Kitchen",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/51/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 52,
+      "topic": "The Archive of Wet Earth",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/52/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 53,
+      "topic": "No River Is Alone",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/53/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 54,
+      "topic": "The Breath Beneath the Foam",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/54/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 55,
+      "topic": "The Old Woman's Blessing",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/55/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 56,
+      "topic": "The Work of Returning",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/56/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 57,
+      "topic": "A River Can Remember Us",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/57/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 58,
+      "topic": "The Clear Reflection Returns",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/58/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 59,
+      "topic": "Before We Call Her Sacred",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/59/chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 60,
+      "topic": "The Question Keeps Flowing",
+      "category": "ecological historical poetry",
+      "status": "pending",
+      "file_path": "chapters/60/chapter.md",
+      "completed_date": null
+    }
+  ]
+}

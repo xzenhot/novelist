@@ -28,7 +28,7 @@ Supported command families are defined by `.framework/workflows/book.md`. At min
 
 ```text
 /book <bookname> [<gist>] [form] [refresh]
-/book <bookname> init|backlog [<gist>] [form] [refresh]
+/book <bookname> init|backlog|layout [<gist>] [<count>] [form] [refresh]
 /book <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
 /book <bookname> add <chapter-count> filter <filter>|*|all
 /book <bookname> filter <filter>|*|all
@@ -37,7 +37,7 @@ Supported command families are defined by `.framework/workflows/book.md`. At min
 /book <bookname> translate <n>|all|continue <language>
 /book <bookname> form <novel|poetry>
 /book <bookname> config [<key> [<value>]]
-/book <bookname> layout|pipeline [<count>]
+
 /book -o | --options
 /book -h | --help
 ```
@@ -253,6 +253,8 @@ Agents are the only valid runtime entry points for skill-backed behavior.
 .framework/skills/pacing/SKILL.md
 .framework/skills/philosophy/SKILL.md
 .framework/skills/poeticprose/SKILL.md
+.framework/skills/workshop-poetry/SKILL.md
+.framework/skills/workshop-novel/SKILL.md
 .framework/skills/quality/SKILL.md
 .framework/skills/research/SKILL.md
 .framework/skills/revision/SKILL.md
@@ -337,8 +339,8 @@ If a registry exists, use it to resolve:
 folder
 role_file
 summary_file
+input_file
 output_file
-```
 
 If no registry exists, follow `.framework/workflows/book.md` and the current pipeline layout.
 

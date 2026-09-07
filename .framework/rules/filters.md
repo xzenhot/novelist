@@ -45,11 +45,13 @@ filters/
 |   |-- workshop.md        # role definition: purpose, inputs, outputs, rules, hand-off
 |   |-- filter.md         # command / human-in-the-loop instructions for this run
 |   |-- filter-summary.md # summary of what this filter produced across chapters
+|   |-- content-input.md  # input snapshot: what this filter consumed (for undo/rollback)
 |   `-- content-output.md # consolidated content output from this filter
 |-- research/
 |   |-- research.md
 |   |-- filter.md
 |   |-- filter-summary.md
+|   |-- content-input.md
 |   `-- content-output.md
 ...
 ```
@@ -59,6 +61,7 @@ filters/
 | `<filter>.md` | **Role definition** — purpose, inputs, outputs, rules, and hand-off notes for this filter. |
 | `filter.md` | **Run command file** — human instructions or runtime command for this filter pass (especially used by `override`). |
 | `filter-summary.md` | **Filter-wide summary** — what was checked, produced, corrected, or decided across all chapters. |
+| `content-input.md` | **Input snapshot** — the upstream material this filter consumed (previous filter's output, chapter drafts, context). Written when the filter runs; the record that makes a filter pass undoable. |
 | `content-output.md` | **Consolidated output** — the combined content emitted by this filter (e.g., concatenated workshop narratives, merged research notes). |
 
 The exact filters depend on the workflow, but the principle is universal: **each filter owns a named folder in the book's pipeline, and each filter reads from and writes to its own folder.**
@@ -67,7 +70,7 @@ The exact filters depend on the workflow, but the principle is universal: **each
 
 Every filter is backed by a folder in `.space/pipeline/<bookname>/filters/`. The folder is the filter's scratch space — the place where it records what it did, so the pipeline is auditable per filter.
 
-Filter folders are **bare filter names** (no number prefix). The chain order is kept in the registry file, not encoded in folder names. Inside each named folder live three standard files plus the filter-specific role file:
+Filter folders are **bare filter names** (no number prefix). The chain order is kept in the registry file, not encoded in folder names. Inside each named folder live the standard files plus the filter-specific role file:
 
 ```text
 filters/
@@ -75,11 +78,13 @@ filters/
 |   |-- workshop.md        # role definition
 |   |-- filter.md         # run command / human-in-the-loop file
 |   |-- filter-summary.md # summary across chapters
+|   |-- content-input.md  # input snapshot (for undo/rollback)
 |   `-- content-output.md # consolidated output
 |-- research/
 |   |-- research.md
 |   |-- filter.md
 |   |-- filter-summary.md
+|   |-- content-input.md
 |   `-- content-output.md
 ...
 ```
@@ -107,17 +112,18 @@ Each filter folder contains a markdown file named after the filter it represents
 4. **Rules** — constraints, quality bars, and transformation instructions.
 5. **Hand-off** — how the next filter should consume this filter's output.
 
-Scaffolding a pipeline creates the folder and three standard files (`filter.md`, `filter-summary.md`, `content-output.md`) plus an empty role file. The role file is filled by the filter's agent or skill when the filter runs.
+Scaffolding a pipeline creates the folder and the standard files (`filter.md`, `filter-summary.md`, `content-input.md`, `content-output.md`) plus an empty role file. The role file is filled by the filter's agent or skill when the filter runs. When a filter runs, it first writes the upstream material it is about to consume into `content-input.md`, then writes its result to `content-output.md` — so a filter pass can be undone by restoring the input snapshot and the prior chapter state.
 
 > **Convention:** folder names are **bare filter names**. The registry (`filters.json`) records the order; file names inside identify the filter and the standard file type.
 
 ## Universal Filter Principles
 
 1. **A filter owns a folder.** Each filter reads from and writes to its own folder in the pipeline.
-2. **Filters run in order.** The chain is fixed: workshop → research → seeds → correctness → theme → syntax → override → quality (or the workflow's subset).
-3. **A filter is a gate.** Material is not complete until it passes every filter.
-4. **Filters are auditable.** Each filter records its work in its folder, so the pipeline can be traced per filter.
-5. **The human-in-the-loop is a filter, not a skill.** The human's `filter.md` inside the `override/` folder is applied as a filter, driven directly by the human-editable file — no skill is created for it.
+2. **Snapshot before change.** Before a filter modifies a chapter's working draft (`chapters/<n>/chapter.md`) or any chapter data, it must first copy the current `chapter.md` into its own `content-input.md` (the registry's `input_file`), prepending a header `## <n> <chapter_title> (snapshot before <filter>, <timestamp>)`. No filter may update chapter data before its input snapshot exists — this snapshot is the filter's undo record.
+3. **Filters run in order.** The chain is fixed: workshop → research → seeds → correctness → theme → syntax → override → quality (or the workflow's subset).
+4. **A filter is a gate.** Material is not complete until it passes every filter.
+5. **Filters are auditable.** Each filter records its work in its folder — the input snapshot (`content-input.md`), the result (`content-output.md`), and the summary (`filter-summary.md`) — so the pipeline can be traced and rolled back per filter.
+6. **The human-in-the-loop is a filter, not a skill.** The human's `filter.md` inside the `override/` folder is applied as a filter, driven directly by the human-editable file — no skill is created for it.
 
 ## Applying the Filters
 
