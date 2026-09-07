@@ -1,7 +1,0 @@
-Aravalli is a poetry book in English: a philosophical, geological-devotional sequence about the Aravalli range — among the oldest fold mountains on Earth — as the silent spine of Delhi's human story, from prehistoric hunters to the modern city.
-
-Write as a poet of reverence, restraint, and luminous image. Keep the ridge real, ancient, and vulnerable; let the archive metaphor deepen the poet's perception without replacing the stone with symbolism. The master movement is from wonder at the ancient stone toward disciplined grief, gratitude, and witness.
-
-Use a serious lyrical register with concrete texture: quartzite, granite, hand-axes, fire-altars, stepwells, quarries, monsoon streams, dust, and the modern skyline. The poems should feel current in language while carrying an elevated, elegiac cadence.
-
-Each poem should use the poetry structure: Question, Oration, and Benediction. Target about 500 words per poem unless the pipeline later overrides the count.

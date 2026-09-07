@@ -1,0 +1,674 @@
+{
+  "book_name": "yamuna",
+  "book_long_title": "Yamuna: The Slow River's Question",
+  "generic": "philosophical ecological poetry",
+  "era": "prehistoric Yamuna plain to contemporary Delhi NCR",
+  "language": "English",
+  "target_audience": "readers of ecological poetry, Delhi history, sacred geography, civic reflection, and contemporary Indian philosophical verse",
+  "chapter_count": 60,
+  "form": "poetry",
+  "book_summary": "Yamuna: The Slow River's Question is a poetry sequence in which the Yamuna speaks as river, mother, witness, archive, and moral questioner. The book begins before Delhi has a name, when the river gives water to animals, settlements, clay, hunger, and the first human fires. It then moves through Pandav Nagar and Indraprastha, the rise of dynasties, the stone ambition of the Qutub Minar, the Red Fort and Shahjahanabad, colonial measurement, and the glass-and-dust expansion of modern Delhi NCR. Across these ages, Yamuna sees people praise her holiness while shrinking her floodplain, slowing her current, and loading her chest with rubbish, sewage, foam, plastic, ash, and civic forgetfulness. The poems do not treat pollution as a statistic alone; they treat it as a broken relationship between a city and the water that made it possible. By the end, Yamuna does not merely accuse mankind. She asks whether Delhi NCR can become worthy of the river whose tired, dry walk still carries memory, warning, and the possibility of repair.",
+  "created_at": "2026-09-07",
+  "user_name": "pijush",
+  "gist": "The Delhi NCR is built by Yamuna from prehistorycal days. Yamuna has witnessed the rise of dynasty, pandav nagar, indrapratha, qutub minar, lalqila, now yamuna has become tired, her walk has become slow and dry, asking a question about rubbish from mankind on her chest",
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "name": "1",
+      "word_target": 500,
+      "chapter_title": "Before the City Had a Name",
+      "chapter_summary": "Yamuna remembers the prehistoric floodplain before Delhi had a name, when the river was not a boundary but the first road, first cup, first mirror, and first shelter. Animal tracks, reed beds, clay, fish, fire-smoke, and early human thirst gather around her banks. The poem asks the reader to see civilization not as stone or empire but as dependence on water. Its turning point is the river's quiet claim that the city began as a prayer of need, long before it became a proclamation of power.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "prehistoric settlement patterns in the Yamuna floodplain",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "archaeology of early habitation around Delhi",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 2,
+      "name": "2",
+      "word_target": 500,
+      "chapter_title": "Pandav Nagar, Indraprastha",
+      "chapter_summary": "Myth and memory enter Yamuna through Pandav Nagar and Indraprastha: palace, exile, dice, oath, fire, kinship, and the burden of dharma. The poem does not try to prove myth as record; it treats myth as moral memory flowing beside the river. Yamuna asks whether a city that tells stories of righteousness can remain righteous while neglecting the water that receives its offerings and waste. The turning point comes when sacred ancestry becomes a demand for present accountability.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "Indraprastha in epic and Delhi memory",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "Pandava associations with Delhi geography",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 3,
+      "name": "3",
+      "word_target": 500,
+      "chapter_title": "Dynasties on the Floodplain",
+      "chapter_summary": "This poem watches dynasties rise beside the river with banners, horses, tax ledgers, markets, soldiers, priests, and builders. Each power imagines itself permanent, but Yamuna sees their ambitions as reflections broken by current and monsoon. The poem should hold both grandeur and humility: rulers create roads, temples, cities, and laws, yet the river outlives their claims. Its turning point is Yamuna's memory that every throne eventually becomes silt, rumor, inscription, or silence.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "successive capitals and dynasties of Delhi",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "Yamuna floodplain and urban settlement",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 4,
+      "name": "4",
+      "word_target": 500,
+      "chapter_title": "The Minar and the Stone Sky",
+      "chapter_summary": "Qutub Minar rises as an image of conquest, craftsmanship, prayer, and vertical human ambition. Yamuna, moving low and patient, contrasts the upward hunger of stone with the downward labor of water, which carries waste, memory, ashes, and consequence. The poem should not flatten history into accusation; it should let beauty and violence stand together in the same red and pale stone. The turning point is the river asking why mankind honors monuments more carefully than the living water that allowed the city around them to endure.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "Qutub Minar and the Delhi Sultanate",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "water systems and settlement around medieval Delhi",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 5,
+      "name": "5",
+      "word_target": 500,
+      "chapter_title": "The Red Fort and the River Window",
+      "chapter_summary": "The poem turns toward Lal Qila, Shahjahanabad, gardens, processions, markets, boatmen, washerfolk, courtiers, and common mourners. Yamuna sees imperial splendor reflected in her water, but she also sees the hands that carry, clean, bury, bathe, cook, and survive. The poem should place courtly beauty beside ordinary dependence, so grandeur becomes morally incomplete without the riverine poor. The turning point arrives when Yamuna realizes that empire wants her reflection but does not always hear her voice.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "Red Fort and Shahjahanabad's relationship with the Yamuna",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "Mughal gardens, ghats, and riverfront life",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 6,
+      "name": "6",
+      "word_target": 500,
+      "chapter_title": "Canals, Maps, and a Measured River",
+      "chapter_summary": "Yamuna enters the age of surveying, canals, embankments, files, engineers, colonial geometry, and modern administration. The poem studies the violence and usefulness of measurement: a river can be mapped, diverted, counted, and named in reports, but its grief cannot be contained by a column of figures. The poem should show how living water becomes infrastructure in the official mind. Its turning point is Yamuna asking what is lost when a body is treated only as a line, resource, hazard, or problem.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "canals and water management in the Yamuna basin",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "colonial and modern planning of Delhi's riverfront",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 7,
+      "name": "7",
+      "word_target": 500,
+      "chapter_title": "NCR of Glass and Dust",
+      "chapter_summary": "Delhi NCR expands through Noida, Ghaziabad, Faridabad, Gurugram, bridges, expressways, towers, malls, construction dust, metro pillars, and real-estate promises. The poem's central tension is speed: the city rushes, sells, commutes, advertises, and climbs while Yamuna's own walk becomes slow and dry. The poem should render development as both aspiration and appetite. Its turning point is the discovery that a city can become modern in appearance while remaining ancient in its refusal to honor water.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "Delhi NCR urban expansion and floodplain pressure",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "urbanization along the Yamuna in Delhi",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 8,
+      "name": "8",
+      "word_target": 500,
+      "chapter_title": "Foam at the Ghats",
+      "chapter_summary": "Pollution becomes visible in this poem: drains, untreated sewage, industrial discharge, chemical foam, plastic bags, dead offerings, ash, broken idols, and news cameras searching for an image. Yamuna is not an abstract victim but a body receiving what the city refuses to keep in its own rooms. The poem should balance civic detail with moral force, avoiding slogan while making the wound undeniable. The turning point is when foam, mistaken for a garland from afar, becomes a sign of sickness.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "Yamuna pollution in Delhi",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "sewage, drains, and river water quality",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 9,
+      "name": "9",
+      "word_target": 500,
+      "chapter_title": "The Slow Dry Walk",
+      "chapter_summary": "The user's image of Yamuna's tired, slow, dry walk becomes the emotional center of this poem. The river speaks of reduced flow, exposed bed, cracked mud, interrupted current, and the humiliation of being named sacred while being denied enough living water. The poem should make slowness feel like testimony rather than weakness. Its turning point is Yamuna's realization that dryness is also speech: the absence of water can accuse more sharply than a flood.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "environmental flow of the Yamuna",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "seasonal depletion and urban water extraction",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 10,
+      "name": "10",
+      "word_target": 500,
+      "chapter_title": "Rubbish on My Chest",
+      "chapter_summary": "This poem concentrates the book's wound into one bodily image: rubbish laid on Yamuna's chest by the very mankind that depends on her. Plastic, cloth, flowers, sewage, bottles, construction waste, foam, and forgotten prayers become a burden of intimacy, not distance. The poem asks who taught human beings to believe that throwing something away means it vanishes. Its turning point is Yamuna turning the accusation into a question about love, responsibility, and the meaning of worship.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "solid waste and ritual waste in urban rivers",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "civic waste management and river health",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 11,
+      "name": "11",
+      "word_target": 500,
+      "chapter_title": "Children on the Bridge",
+      "chapter_summary": "The future enters through children crossing a bridge and looking down at the river their elders remember differently. They inherit stories of Indraprastha, Qutub, Lal Qila, monsoon, worship, stink, foam, and warning; they also inherit the possibility of repair. The poem should avoid sentimental rescue and instead place honest questions in young mouths. Its turning point is when a child's simple question becomes more powerful than the speeches of planners, priests, politicians, and citizens.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "environmental education and river restoration",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "public memory of the Yamuna in Delhi",
+          "weblink": ""
+        }
+      ]
+    },
+    {
+      "chapter_index": 12,
+      "name": "12",
+      "word_target": 500,
+      "chapter_title": "The Question Yamuna Leaves",
+      "chapter_summary": "The concluding poem gathers the whole arc: prehistoric thirst, Pandav Nagar, Indraprastha, dynasties, Qutub Minar, Lal Qila, colonial maps, Delhi NCR, dry walking, foam, and rubbish. Yamuna does not end by cursing the city; she leaves a question large enough to trouble love and policy together. The poem should become a benediction with an edge, blessing the city only if it learns responsibility. Its final turn asks whether mankind can still hear the river that made its home possible.",
+      "further_references": [
+        {
+          "no": "1",
+          "reference": "Yamuna as sacred river and civic responsibility",
+          "weblink": ""
+        },
+        {
+          "no": "2",
+          "reference": "river restoration ethics",
+          "weblink": ""
+        }
+      ]
+    },
+{
+  "chapter_index": 13,
+  "name": "13",
+  "word_target": 500,
+  "chapter_title": "The Snowmelt Memory",
+  "chapter_summary": "The poem turns toward The Snowmelt Memory, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 14,
+  "name": "14",
+  "word_target": 500,
+  "chapter_title": "The River's Many Names",
+  "chapter_summary": "The poem turns toward The River's Many Names, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 15,
+  "name": "15",
+  "word_target": 500,
+  "chapter_title": "A Handful of Water",
+  "chapter_summary": "The poem turns toward A Handful of Water, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 16,
+  "name": "16",
+  "word_target": 500,
+  "chapter_title": "The Floodplain's Green Breath",
+  "chapter_summary": "The poem turns toward The Floodplain's Green Breath, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 17,
+  "name": "17",
+  "word_target": 500,
+  "chapter_title": "Ashes and Return",
+  "chapter_summary": "The poem turns toward Ashes and Return, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 18,
+  "name": "18",
+  "word_target": 500,
+  "chapter_title": "The Boatman's Oar",
+  "chapter_summary": "The poem turns toward The Boatman's Oar, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 19,
+  "name": "19",
+  "word_target": 500,
+  "chapter_title": "Monsoon's Forgotten Door",
+  "chapter_summary": "The poem turns toward Monsoon's Forgotten Door, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 20,
+  "name": "20",
+  "word_target": 500,
+  "chapter_title": "Silt Writes Slowly",
+  "chapter_summary": "The poem turns toward Silt Writes Slowly, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 21,
+  "name": "21",
+  "word_target": 500,
+  "chapter_title": "The City Drinks in Secret",
+  "chapter_summary": "The poem turns toward The City Drinks in Secret, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 22,
+  "name": "22",
+  "word_target": 500,
+  "chapter_title": "A Mirror with No Face",
+  "chapter_summary": "The poem turns toward A Mirror with No Face, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 23,
+  "name": "23",
+  "word_target": 500,
+  "chapter_title": "The Shrine Beside the Drain",
+  "chapter_summary": "The poem turns toward The Shrine Beside the Drain, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 24,
+  "name": "24",
+  "word_target": 500,
+  "chapter_title": "Delhi's Thirsting Throat",
+  "chapter_summary": "The poem turns toward Delhi's Thirsting Throat, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 25,
+  "name": "25",
+  "word_target": 500,
+  "chapter_title": "When Birds Leave the Bank",
+  "chapter_summary": "The poem turns toward When Birds Leave the Bank, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 26,
+  "name": "26",
+  "word_target": 500,
+  "chapter_title": "The Washerwoman's River",
+  "chapter_summary": "The poem turns toward The Washerwoman's River, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 27,
+  "name": "27",
+  "word_target": 500,
+  "chapter_title": "Concrete Against the Reed",
+  "chapter_summary": "The poem turns toward Concrete Against the Reed, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 28,
+  "name": "28",
+  "word_target": 500,
+  "chapter_title": "The Drain's Confession",
+  "chapter_summary": "The poem turns toward The Drain's Confession, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 29,
+  "name": "29",
+  "word_target": 500,
+  "chapter_title": "Under the Bridge",
+  "chapter_summary": "The poem turns toward Under the Bridge, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 30,
+  "name": "30",
+  "word_target": 500,
+  "chapter_title": "The Engineer's Notebook",
+  "chapter_summary": "The poem turns toward The Engineer's Notebook, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 31,
+  "name": "31",
+  "word_target": 500,
+  "chapter_title": "Foam in Winter Light",
+  "chapter_summary": "The poem turns toward Foam in Winter Light, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 32,
+  "name": "32",
+  "word_target": 500,
+  "chapter_title": "The Plastic Prayer",
+  "chapter_summary": "The poem turns toward The Plastic Prayer, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 33,
+  "name": "33",
+  "word_target": 500,
+  "chapter_title": "A Palace of Reflections",
+  "chapter_summary": "The poem turns toward A Palace of Reflections, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 34,
+  "name": "34",
+  "word_target": 500,
+  "chapter_title": "The Red Dust Road",
+  "chapter_summary": "The poem turns toward The Red Dust Road, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 35,
+  "name": "35",
+  "word_target": 500,
+  "chapter_title": "The Metro Above the Water",
+  "chapter_summary": "The poem turns toward The Metro Above the Water, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 36,
+  "name": "36",
+  "word_target": 500,
+  "chapter_title": "Night Shift at the River",
+  "chapter_summary": "The poem turns toward Night Shift at the River, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 37,
+  "name": "37",
+  "word_target": 500,
+  "chapter_title": "The Fisherman's Empty Net",
+  "chapter_summary": "The poem turns toward The Fisherman's Empty Net, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 38,
+  "name": "38",
+  "word_target": 500,
+  "chapter_title": "River of Migrants",
+  "chapter_summary": "The poem turns toward River of Migrants, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 39,
+  "name": "39",
+  "word_target": 500,
+  "chapter_title": "The City That Forgot Its Banks",
+  "chapter_summary": "The poem turns toward The City That Forgot Its Banks, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 40,
+  "name": "40",
+  "word_target": 500,
+  "chapter_title": "A Calendar of Water",
+  "chapter_summary": "The poem turns toward A Calendar of Water, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 41,
+  "name": "41",
+  "word_target": 500,
+  "chapter_title": "The Festival and the Aftermath",
+  "chapter_summary": "The poem turns toward The Festival and the Aftermath, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 42,
+  "name": "42",
+  "word_target": 500,
+  "chapter_title": "The Law's Long Sentence",
+  "chapter_summary": "The poem turns toward The Law's Long Sentence, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 43,
+  "name": "43",
+  "word_target": 500,
+  "chapter_title": "The Woman Who Plants Reeds",
+  "chapter_summary": "The poem turns toward The Woman Who Plants Reeds, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 44,
+  "name": "44",
+  "word_target": 500,
+  "chapter_title": "The School Beside the Floodplain",
+  "chapter_summary": "The poem turns toward The School Beside the Floodplain, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 45,
+  "name": "45",
+  "word_target": 500,
+  "chapter_title": "A Future Rain",
+  "chapter_summary": "The poem turns toward A Future Rain, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 46,
+  "name": "46",
+  "word_target": 500,
+  "chapter_title": "The River's Patient Anger",
+  "chapter_summary": "The poem turns toward The River's Patient Anger, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 47,
+  "name": "47",
+  "word_target": 500,
+  "chapter_title": "The City Learns to Bend",
+  "chapter_summary": "The poem turns toward The City Learns to Bend, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 48,
+  "name": "48",
+  "word_target": 500,
+  "chapter_title": "Clean Water Is a Verb",
+  "chapter_summary": "The poem turns toward Clean Water Is a Verb, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 49,
+  "name": "49",
+  "word_target": 500,
+  "chapter_title": "The Return of Small Fish",
+  "chapter_summary": "The poem turns toward The Return of Small Fish, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 50,
+  "name": "50",
+  "word_target": 500,
+  "chapter_title": "A City Under Oath",
+  "chapter_summary": "The poem turns toward A City Under Oath, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 51,
+  "name": "51",
+  "word_target": 500,
+  "chapter_title": "The River in the Kitchen",
+  "chapter_summary": "The poem turns toward The River in the Kitchen, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 52,
+  "name": "52",
+  "word_target": 500,
+  "chapter_title": "The Archive of Wet Earth",
+  "chapter_summary": "The poem turns toward The Archive of Wet Earth, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 53,
+  "name": "53",
+  "word_target": 500,
+  "chapter_title": "No River Is Alone",
+  "chapter_summary": "The poem turns toward No River Is Alone, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 54,
+  "name": "54",
+  "word_target": 500,
+  "chapter_title": "The Breath Beneath the Foam",
+  "chapter_summary": "The poem turns toward The Breath Beneath the Foam, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 55,
+  "name": "55",
+  "word_target": 500,
+  "chapter_title": "The Old Woman's Blessing",
+  "chapter_summary": "The poem turns toward The Old Woman's Blessing, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 56,
+  "name": "56",
+  "word_target": 500,
+  "chapter_title": "The Work of Returning",
+  "chapter_summary": "The poem turns toward The Work of Returning, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 57,
+  "name": "57",
+  "word_target": 500,
+  "chapter_title": "A River Can Remember Us",
+  "chapter_summary": "The poem turns toward A River Can Remember Us, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 58,
+  "name": "58",
+  "word_target": 500,
+  "chapter_title": "The Clear Reflection Returns",
+  "chapter_summary": "The poem turns toward The Clear Reflection Returns, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 59,
+  "name": "59",
+  "word_target": 500,
+  "chapter_title": "Before We Call Her Sacred",
+  "chapter_summary": "The poem turns toward Before We Call Her Sacred, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+,{
+  "chapter_index": 60,
+  "name": "60",
+  "word_target": 500,
+  "chapter_title": "The Question Keeps Flowing",
+  "chapter_summary": "The poem turns toward The Question Keeps Flowing, bringing Yamuna's memory, human dependence, and the damaged floodplain into one concentrated image. It holds beauty beside civic neglect and listens for the lives carried by the river. Its turning point asks what responsibility mankind owes to the water that made Delhi possible.",
+  "further_references": []
+}
+  ],
+  "all_characters": [],
+  "filter_chain": [
+    {
+      "sl": 1,
+      "filter": "workshop",
+      "autorun": true,
+      "reference": "create the Question, Oration, and Benediction frame for each poem"
+    },
+    {
+      "sl": 2,
+      "filter": "research",
+      "autorun": true,
+      "reference": "gather subject, context, source notes, and usable imagery"
+    },
+    {
+      "sl": 3,
+      "filter": "correctness",
+      "autorun": true,
+      "reference": "verify factual, attributional, philosophical, cultural, and ecological claims"
+    },
+    {
+      "sl": 4,
+      "filter": "theme",
+      "autorun": true,
+      "reference": "assign the philosophical lens and form-consistent poetic voice"
+    },
+    {
+      "sl": 5,
+      "filter": "syntax",
+      "autorun": true,
+      "reference": "apply current language with elevated poetic cadence"
+    },
+    {
+      "sl": 6,
+      "filter": "override",
+      "autorun": true,
+      "reference": "apply human transformation instructions when present"
+    },
+    {
+      "sl": 7,
+      "filter": "quality",
+      "autorun": true,
+      "reference": "final audit against topic, theme, voice, correctness, and quality bar"
+    }
+  ],
+  "word_target": 500
+}
