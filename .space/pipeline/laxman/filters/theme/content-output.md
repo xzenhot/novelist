@@ -1,3 +1,0 @@
-# Theme Output
-
-Pending.

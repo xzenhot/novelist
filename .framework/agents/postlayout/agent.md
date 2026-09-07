@@ -1,6 +1,6 @@
 ---
 name: postlayout
-description: Post-scaffold master-prompt generator. Runs after the scaffold agent has built a pipeline. Reads the backlog master prompt at .space/backlog/epic/<bookname>/override.txt, then derives a dynamic, pipeline-specific master prompt and writes it to .space/pipeline/<bookname>/override.txt. Does not scaffold, filter, or write chapters.
+description: Post-scaffold master-prompt generator and chapter-draft seeder. Runs after the scaffold agent has built a pipeline. Reads the backlog master prompt at .space/backlog/epic/<bookname>/override.txt, then derives a dynamic, pipeline-specific master prompt and writes it to .space/pipeline/<bookname>/override.txt. Also seeds every chapter's chapter.md from the chapter_title and chapter_summary already present in .space/pipeline/<bookname>/book.json, using a python or powershell script. Does not run filters or write finished chapters.
 tools: ["read", "write"]
 ---
 
@@ -45,6 +45,19 @@ Write a **dynamic master prompt** to `.space/pipeline/<bookname>/override.txt`. 
 5. **Section structure** — Workshop/Story/Discussion for `novel`; Question/Oration/Benediction for `poetry`.
 6. **Concrete subject matter** — for poetry, the actual topic list from `bookseed.txt`; for novels, the chapter titles/summaries from `book.json`. This is what makes the prompt *dynamic*: it names the real chapters/poems the writer will produce.
 
+## Chapter Draft Seeding (chapter.md)
+
+After the master prompt is written, **seed every chapter's `chapter.md`** from the pipeline's cloned book plan. The chapter titles and summaries already exist in `.space/pipeline/<bookname>/book.json`; this step turns them into bare working drafts so the `workshop` filter and write agents have a real starting frame instead of a placeholder.
+
+1. **Read the book plan.** Read `.space/pipeline/<bookname>/book.json` and iterate its `chapters` array in order. Do **not** read the backlog copy; use the pipeline clone.
+2. **For each chapter entry**, write `.space/pipeline/<bookname>/chapters/<n>/chapter.md` using the chapter's `chapter_title` as the `# H1` heading and its `chapter_summary` as the body, wrapped in the form's frame sections:
+   - **Poetry** — `# <chapter_title>`, `## Question`, `## Oration` (the `chapter_summary` text), `## Benediction`.
+   - **Novel** — `# <chapter_title>`, `## Workshop`, `## Story` (the `chapter_summary` text), `## Discussion`.
+3. **Only fill the live draft.** If `chapter.md` already exists and already contains content beyond the bare scaffold placeholder, leave it unchanged (the workshop filter owns later rewrites). If the file is missing or is the bare scaffold placeholder, write the seeded draft.
+4. **Do not create chapter folders or segments.** This step assumes the scaffold already built `chapters/<n>/` and `segments/1/`. It only writes `chapter.md`.
+
+This seeding can be done by a **python or powershell** step — read the JSON, iterate `chapters`, write each `chapter.md`. Do not hand-edit each file when the data is already in `book.json`.
+
 ## Rules
 
 - **Dynamic, not copied.** Do not copy the backlog `override.txt` verbatim. Re-derive it: keep the identity and mandate, but enrich it with the pipeline's resolved form, language, register, signature, and the concrete topic/chapter list.
@@ -52,7 +65,8 @@ Write a **dynamic master prompt** to `.space/pipeline/<bookname>/override.txt`. 
 - **Form resolution lives here.** The pipeline `model.json` is the authoritative source for the resolved `form`. Init no longer reads the pipeline; this agent is the sole place that resolves the form from pipeline state.
 - **Plain text only.** The output is a `.txt` file. No front-matter YAML, no scripts, no wrapper files.
 - **Do not overwrite a human-edited file.** If `.space/pipeline/<bookname>/override.txt` already exists and contains human edits, do not overwrite it; report that it exists and leave it. Otherwise regenerate it.
-- **Do not scaffold, filter, or write chapters.** This agent only produces the master prompt. It must not create folders, run filters, or touch `source/books/`.
+- **Do not scaffold or run filters.** This agent produces the master prompt and seeds chapter drafts; it must not create folders, run filters, or touch `source/books/`.
+- **Seed chapter.md from book.json.** For every chapter in `.space/pipeline/<bookname>/book.json`, write `.space/pipeline/<bookname>/chapters/<n>/chapter.md` from its `chapter_title` and `chapter_summary`, unless the file already holds content beyond the bare scaffold placeholder.
 
 ## Output Contract
 
@@ -69,3 +83,4 @@ Return:
 - Do **not** write to `source/books/`.
 - Do **not** update `progress.json`.
 - The output file is `.space/pipeline/<bookname>/override.txt` — distinct from the novel-only `masterprompt.md` planning artifact and from the backlog `override.txt`.
+- The chapter seeding reads `.space/pipeline/<bookname>/book.json` and writes only `.space/pipeline/<bookname>/chapters/<n>/chapter.md`. It must not create chapter folders, segments, `model.json`, or any other file, and it must leave any human- or workshop-edited `chapter.md` unchanged.

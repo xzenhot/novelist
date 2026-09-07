@@ -16,9 +16,8 @@ Use this table to choose the recommended follow-up command. Remember the boundar
 
 | Completed command | State after completion | Recommended next step | Optional follow-ups |
 |---|---|---|---|
-| `/book <bookname>` (bare) | Backlog epic exists; no pipeline | `/book <bookname> init [preset]` | `/book <bookname> scaffold <gist> count <n>` (after init) |
-| `/book <bookname> gist [<gist>]` | Backlog epic created, updated, or rewritten; no pipeline | `/book <bookname> init [preset]` | `/book <bookname> scaffold <gist> count <n>` (after init) |
-| `/book <bookname> init [<preset>]` | Preset selected; filter chain configured; pipeline may or may not exist | If pipeline exists: `/book <bookname> filter all`<br>If pipeline missing: `/book <bookname> scaffold <gist> count <n>` | `/book <bookname> write all` (if pipeline exists and chapters are ready) |
+| `/book <bookname> [<gist>]` (bare) | Backlog epic created, updated, or rewritten; no pipeline | `/book <bookname> init [preset]` | `/book <bookname> scaffold <gist> count <n>` (after init) |
+| `/book <bookname> init [<preset>]` (alias: `backlog`) | Preset selected; filter chain configured; pipeline may or may not exist | If pipeline exists: `/book <bookname> filter all`<br>If pipeline missing: `/book <bookname> scaffold <gist> count <n>` | `/book <bookname> write all` (if pipeline exists and chapters are ready) |
 | `/book <bookname> scaffold <gist> count <n>` | Pipeline and chapter structure exist; research not yet run | `/book <bookname> filter all` | `/book <bookname> write all` |
 | `/book <bookname> write <target>` | One or more chapters written to `source/books/` or pending | If chapters remain: `/book <bookname> write continue`<br>If all chapters complete: `/book <bookname> filter quality` or final assembly | `/book <bookname> filter <next-filter>` |
 | `/book <bookname> write all` | All canonical chapters attempted | `/book <bookname> filter all` | `/book <bookname> filter quality` |

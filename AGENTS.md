@@ -27,8 +27,8 @@ All `/book` commands must be interpreted from left to right. Preserve user-provi
 Supported command families are defined by `.framework/workflows/book.md`. At minimum, the runtime must recognize these shapes:
 
 ```text
-/book <bookname>
-/book <bookname> gist [<gist>]
+/book <bookname> [<gist>] [form] [refresh]
+/book <bookname> init|backlog [<gist>] [form] [refresh]
 /book <bookname> scaffold <gist> count|chapter-count <number> [--form novel|poetry]
 /book <bookname> add <chapter-count> filter <filter>|*|all
 /book <bookname> filter <filter>|*|all
@@ -37,6 +37,7 @@ Supported command families are defined by `.framework/workflows/book.md`. At min
 /book <bookname> translate <n>|all|continue <language>
 /book <bookname> form <novel|poetry>
 /book <bookname> config [<key> [<value>]]
+/book <bookname> layout|pipeline [<count>]
 /book -o | --options
 /book -h | --help
 ```

@@ -1,0 +1,17 @@
+{
+  "written_at": "2026-09-07",
+  "state": "written",
+  "segment_number": 1,
+  "source_filter_outputs": [
+    "filters/workshop/content-output.md",
+    "filters/research/content-output.md",
+    "filters/correctness/content-output.md",
+    "filters/theme/content-output.md",
+    "filters/syntax/content-output.md",
+    "filters/override/content-output.md",
+    "filters/quality/content-output.md"
+  ],
+  "destination": "source/books/aravalli/2/chapters/16.md",
+  "chapter_index": 16,
+  "language": "English"
+}

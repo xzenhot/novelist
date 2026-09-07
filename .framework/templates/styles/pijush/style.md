@@ -76,6 +76,11 @@ Use these as living coordinates when they fit the source:
 - Gurgaon glass towers, Dwarka grid roads, Mahipalpur sky, metro windows
 - Bahirgachi, khal, bil, Jnan Gosai, dehatattva, bhav gaan
 
+## Instruction
+
+- Write poetic prose, no lyrics or rhymes
+- If language not provided, Assume bengali. Write text in Bengali. 
+
 ## Sample
 
 Source:

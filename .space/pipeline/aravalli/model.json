@@ -1,0 +1,107 @@
+{
+    "form": "poetry",
+    "book_name": "aravalli",
+    "book_long_title": "Aravalli: The Mountain Remembers",
+    "language": "English",
+    "register": "serious lyrical geological-devotional contemporary English",
+    "quality": {
+        "word_target": 500,
+        "structure": "Question / Oration / Benediction",
+        "mandate": "Concrete, grounded, reverent poems that honor the Aravalli ridge as a real, ancient, vulnerable archive while using the archive metaphor ethically and without sentimentality."
+    },
+    "themes": {
+        "theme_set": "generic",
+        "path": ".framework/templates/stereotypes/poetry/themes/generic.md",
+        "core": [
+            "deep time versus human time",
+            "memory and erasure",
+            "the mountain as archive",
+            "development and preservation",
+            "continuity of the sacred"
+        ]
+    },
+    "reference": {
+        "primary": "aurilus",
+        "path": ".framework/templates/stereotypes/poetry/references/aurilus.txt",
+        "secondary": "languages_sample"
+    },
+    "signature": {
+        "name": "rabindrasangeet",
+        "path": ".framework/templates/stereotypes/poetry/signatures/rabindrasangeet/signature.md",
+        "note": "Songlike, devotional, intimate cadence suitable for geological-devotional elegy."
+    },
+    "syntax": {
+        "sample": "generic",
+        "path": ".framework/templates/stereotypes/poetry/syntax/generic.md"
+    },
+    "index": [
+        "The Oldest Stone",
+        "The Mentor's Map",
+        "The Prehistoric Hunters",
+        "The Vedic Fire",
+        "The Stepwell",
+        "The Sultan's Quarry",
+        "The Contractor's Case",
+        "The Continuous Record",
+        "The Lost Layer",
+        "The Public Hearing",
+        "The Ridge Elder's Story",
+        "The Mountain Remembers",
+        "The Fold Of Time",
+        "Quartzite And Granite",
+        "The Aquifer Below",
+        "The Monsoon Stream",
+        "The Hand-Axe Maker",
+        "The First Fire",
+        "The Forest Hermitage",
+        "The Hymn To The Rivers"
+    ],
+    "sacred_vocabulary": [
+        "Aravalli",
+        "quartzite",
+        "granite",
+        "fold",
+        "outcrop",
+        "aquifer",
+        "stepwell",
+        "hand-axe",
+        "fire-altar",
+        "ridge"
+    ],
+    "translation_guide": {
+        "target": "English",
+        "rule": "Keep geological and sacred terms precise; use modern English syntax with lyrical devocational cadence."
+    },
+    "chapter_count": 20,
+    "source_terms": [
+        "Aravalli",
+        "Delhi",
+        "quartzite",
+        "granite",
+        "hand-axe",
+        "fire-altar",
+        "stepwell",
+        "quarry",
+        "devotional love",
+        "ethical praise"
+    ],
+    "created_at": "2026-09-07",
+    "epic_path": ".space/backlog/epic/aravalli/epic.md",
+    "backlog_book_plan": ".space/backlog/epic/aravalli/book.json",
+    "masterprompt_path": ".space/pipeline/aravalli/override.txt",
+    "gist": "The mountain ranges evidences for human civilization in Delhi from Prehistoric days, to Vedic age, the modern Delhi",
+    "book_summary": "Aravalli is a sixty-poem philosophical sequence about the Aravalli range — among the oldest fold mountains on Earth — as the silent spine of Delhi's human story. The poems read the ridge as a living archive: the same quartzite and granite has held the hand-axes of prehistoric hunters, the fire-altars and hermitages of the Vedic age, the stepwells and forts of the medieval sultanates, and the quarries and flyovers of the modern city. The sequence moves between deep time and human time, between the mountain that remembers and the city that forgets. The poet begins in wonder at the ancient stone, but the true journey is ethical: to witness what is being erased, to grieve what is already lost, and to resolve that the ridge's record be kept. The sequence closes by turning wonder into gratitude, grief into witness, and the mountain into a living archive that outlasts the city built upon it.",
+    "word_target": 500,
+    "filter_chain": [
+        { "sl": 1, "filter": "workshop", "autorun": true, "reference": "initial setup and preparation" },
+        { "sl": 2, "filter": "research", "autorun": true, "reference": "gather supporting information" },
+        { "sl": 3, "filter": "correctness", "autorun": true, "reference": "validate accuracy of content" },
+        { "sl": 4, "filter": "theme", "autorun": true, "reference": "ensure thematic consistency" },
+        { "sl": 5, "filter": "syntax", "autorun": true, "reference": "check grammar and structure" },
+        { "sl": 6, "filter": "override", "autorun": true, "reference": "apply custom rules or exceptions" },
+        { "sl": 7, "filter": "quality", "autorun": true, "reference": "final polish and refinement" }
+    ],
+    "target_audience": "readers of lyrical, geological, devotional, philosophical poetry",
+    "generic": "philosophical geological-devotional poetry",
+    "era": "deep time — prehistoric Delhi to the modern city"
+}

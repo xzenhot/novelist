@@ -1,0 +1,79 @@
+[
+  {
+    "order": 1,
+    "name": "workshop",
+    "folder": "workshop",
+    "role_file": "workshop/workshop.md",
+    "summary_file": "workshop/filter-summary.md",
+    "output_file": "workshop/content-output.md",
+    "description": "Create the three-section poem frame: Question, Oration, and Benediction, grounded in the topic and chapter plan.",
+    "agent": ".framework/agents/workshop/agent.md",
+    "autorun": true
+  },
+  {
+    "order": 2,
+    "name": "research",
+    "folder": "research",
+    "role_file": "research/research.md",
+    "summary_file": "research/filter-summary.md",
+    "output_file": "research/content-output.md",
+    "description": "Gather and organize the subject, context, source notes, and usable images for the poem.",
+    "agent": ".framework/agents/research/agent.md",
+    "autorun": false
+  },
+  {
+    "order": 3,
+    "name": "correctness",
+    "folder": "correctness",
+    "role_file": "correctness/correctness.md",
+    "summary_file": "correctness/filter-summary.md",
+    "output_file": "correctness/content-output.md",
+    "description": "Verify factual, attributional, religious, philosophical, and cultural claims before poetic rendering.",
+    "agent": ".framework/agents/correctness/agent.md",
+    "autorun": false
+  },
+  {
+    "order": 4,
+    "name": "theme",
+    "folder": "theme",
+    "role_file": "theme/theme.md",
+    "summary_file": "theme/filter-summary.md",
+    "output_file": "theme/content-output.md",
+    "description": "Assign the poem's philosophical lens, contemporary mapping, and form-consistent poetic stereotype selection.",
+    "agent": ".framework/agents/theme/agent.md",
+    "autorun": false
+  },
+  {
+    "order": 5,
+    "name": "syntax",
+    "folder": "syntax",
+    "role_file": "syntax/syntax.md",
+    "summary_file": "syntax/filter-summary.md",
+    "output_file": "syntax/content-output.md",
+    "description": "Apply the selected poetic syntax guidance so the language remains current while preserving elevated cadence.",
+    "agent": ".framework/agents/syntax/agent.md",
+    "autorun": true
+  },
+  {
+    "order": 6,
+    "name": "override",
+    "folder": "override",
+    "role_file": "override/filter.md",
+    "summary_file": "override/filter-summary.md",
+    "output_file": "override/content-output.md",
+    "description": "Apply any human transformation instructions from the override layer, or pass through unchanged when empty.",
+    "agent": ".framework/agents/override/agent.md",
+    "autorun": false
+  },
+  {
+    "order": 7,
+    "name": "quality",
+    "folder": "quality",
+    "role_file": "quality/quality.md",
+    "summary_file": "quality/filter-summary.md",
+    "output_file": "quality/content-output.md",
+    "description": "Audit the poem against the preset, topic, theme, voice, correctness result, and final quality bar.",
+    "agent": ".framework/agents/quality/agent.md",
+    "autorun": false
+  }
+]
