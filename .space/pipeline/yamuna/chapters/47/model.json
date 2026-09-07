@@ -1,6 +1,5 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 47,
   "chapter_name": "47",
   "topic": "The City Learns to Bend",
@@ -9,5 +8,37 @@
   "word_target": 500,
   "segments": [
     1
+  ],
+  "state": "quality",
+  "syntax": {
+    "form": "poetry",
+    "sample": "generic"
+  },
+  "filter_history": [
+    {
+      "ran_at": "2026-09-07",
+      "filter": "workshop",
+      "output_file": "filters/workshop/content-output.md"
+    },
+    {
+      "ran_at": "2026-09-07",
+      "filter": "research",
+      "output_file": "filters/research/content-output.md"
+    },
+    {
+      "ran_at": "2026-09-07",
+      "filter": "theme",
+      "output_file": "filters/theme/content-output.md"
+    },
+    {
+      "ran_at": "2026-09-07",
+      "filter": "syntax",
+      "output_file": "filters/syntax/content-output.md"
+    },
+    {
+      "ran_at": "2026-09-07",
+      "filter": "quality",
+      "output_file": "filters/quality/content-output.md"
+    }
   ]
 }

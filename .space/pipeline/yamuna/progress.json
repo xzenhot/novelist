@@ -64,9 +64,6 @@
     "The Question Keeps Flowing"
   ],
   "context": "The Delhi NCR is built by Yamuna from prehistorycal days. Yamuna has witnessed the rise of dynasty, pandav nagar, indrapratha, qutub minar, lalqila, now yamuna has become tired, her walk has become slow and dry, asking a question about rubbish from mankind on her chest",
-  "total_chapters": 60,
-  "completed_chapters": 0,
-  "current_chapter": 1,
   "chapters": [
     {
       "chapter_number": 1,
@@ -548,5 +545,8 @@
       "file_path": "chapters/60/chapter.md",
       "completed_date": null
     }
-  ]
+  ],
+  "total_chapters": 60,
+  "completed_chapters": 0,
+  "current_chapter": 1
 }

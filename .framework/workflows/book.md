@@ -20,6 +20,7 @@ You are an accomplished writer. Your task is to turn a book pipeline's material 
 /book <bookname> style [<style>]                                                  # 6. transform writer-stage chapters through a style template
 /book <bookname> translate <n>|all|continue <language>                               # 7. translate latest writer-stage chapter version
 /book <bookname> filter <filter>|*|all                                               # 8. run a filter (or all, in order)
+/book <bookname> enrich <count>|range|*                                              # 8a. fuse active filters into one combined agent and enrich chapters in one pass
 /book <bookname> form <formname>                                                     # 9. set/change the book's form
 /book <bookname> config [<key> [<value>]]                                            # 10. get/set the book's model config
 /book <bookname> add <chapter-count> filter <filter>|*|all                           # 11. add chapters and run filter(s)
@@ -45,6 +46,7 @@ You are an accomplished writer. Your task is to turn a book pipeline's material 
 | `translate` | Translates the latest writer-stage chapter version from `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/` into the requested language and writes the translated derivative to `.space/pipeline/<bookname>/chapters/<n>/segments/1/translator/`. Does not modify the live draft or promote output. |
 | `poet` (aliases: `poetry`, `poem`) | Invokes the write agent (`.framework/agents/write/agent.md`) to produce a single finished poem based on the human-authored `override.md` if it exists. |
 | `filter` | Runs a single filter or the full chain inside an existing pipeline. Never scaffolds or writes finished chapters. |
+| `enrich` | Fuses the active (`autorun: true`) filters from `filters.json` into one combined agent and runs it in a single pass over the selected chapters, producing an enriched `chapter.md` ready for write or publish. Never scaffolds or writes finished chapters. |
 | `form` | Changes the pipeline's `form` field and reconciles form-driven settings. |
 | `config` | Reads or writes book-level configuration values in `model.json` and chapter models. Requires an existing pipeline. |
 | `add <chapter-count> filter <filter>\|*\|all` | Adds more main chapters to an existing book pipeline, then runs the requested filter or full filter chain for the newly added chapters. |
@@ -347,42 +349,61 @@ Responsibility: run one preparatory filter, or the entire chain, inside an exist
 
 The filter chain depends on the form. Each filter owns a folder in the pipeline's `filters/` and consumes the output of the filters before it — run them strictly in order, never skipping or reordering.
 
-**Novel (preset: `layout-novel/SKILL.md`)** — backed by role agents in `.framework/agents/<filter>/agent.md`, bare named folders:
+**Novel (preset: `layout-novel/SKILL.md`)** — backed by role agents in `.framework/agents/<filter>/agent.md`:
 
-| # | Filter | Folder | Role file | Produces |
-|---|---|---|---|---|
-| 1 | workshop | `filters/workshop/` | `workshop/workshop.md` | The three-section frame (Workshop / Story / Discussion) |
-| 2 | research | `filters/research/` | `research/research.md` | The refined chapter at the target mastery level |
-| 3 | seeds | `filters/seeds/` | `seeds/seeds.md` | `included_characters` and `quality_parameters` |
-| 4 | correctness | `filters/correctness/` | `correctness/correctness.md` | Fact-check results |
-| 5 | theme | `filters/theme/` | `theme/theme.md` | Thematic lens and contemporary mapping |
-| 6 | syntax | `filters/syntax/` | `syntax/syntax.md` | Modernized sentence structure |
-
-**Poetry (preset: `layout-poetry/SKILL.md`)** — backed by filter agents in `.framework/agents/<filter>/agent.md`; those agents may invoke `.framework/skills/<filter>/SKILL.md` internally when needed. The workflow never executes skills directly. Bare named folders:
-
-| Filter | Folder | Role file | Produces |
+| # | Filter | Agent | Produces |
 |---|---|---|---|
-| workshop | `filters/workshop/` | `workshop/workshop.md` | The three-section poem frame (Question / Oration / Benediction) |
-| research | `filters/research/` | `research/research.md` | Research subject |
-| correctness | `filters/correctness/` | `correctness/correctness.md` | Correctness of information |
-| theme | `filters/theme/` | `theme/theme.md` | Contemporary theme |
-| syntax | `filters/syntax/` | `syntax/syntax.md` | Contemporary language syntax |
-| override | `filters/override/` | `filters/override/filter.md` | Custom human-authored override instructions |
-| quality | `filters/quality/` | `quality/quality.md` | Quality review |
+| 1 | workshop | `.framework/agents/workshop/agent.md` | The three-section frame (Workshop / Story / Discussion) |
+| 2 | research | `.framework/agents/research/agent.md` | The refined chapter at the target mastery level |
+| 3 | seeds | `.framework/agents/seeds/agent.md` | `included_characters` and `quality_parameters` |
+| 4 | correctness | `.framework/agents/correctness/agent.md` | Fact-check results |
+| 5 | theme | `.framework/agents/theme/agent.md` | Thematic lens and contemporary mapping |
+| 6 | syntax | `.framework/agents/syntax/agent.md` | Modernized sentence structure |
+
+**Poetry (preset: `layout-poetry/SKILL.md`)** — backed by filter agents in `.framework/agents/<filter>/agent.md`; those agents may invoke `.framework/skills/<filter>/SKILL.md` internally when needed. The workflow never executes skills directly:
+
+| Filter | Agent | Produces |
+|---|---|---|
+| workshop | `.framework/agents/workshop/agent.md` | The three-section poem frame (Question / Oration / Benediction) |
+| research | `.framework/agents/research/agent.md` | Research subject |
+| correctness | `.framework/agents/correctness/agent.md` | Correctness of information |
+| theme | `.framework/agents/theme/agent.md` | Contemporary theme |
+| syntax | `.framework/agents/syntax/agent.md` | Contemporary language syntax |
+| override | `.framework/agents/override/agent.md` | Custom human-authored override instructions |
+| quality | `.framework/agents/quality/agent.md` | Quality review |
 
 Running a filter (`/book <bookname> filter <filter>`):
 
 1. Stop if the pipeline does not exist. If the pipeline is missing, the user must run `scaffold` first.
-2. Read the filter registry at `.space/pipeline/<bookname>/filters/filters.json` to resolve the filter name to its folder (`folder`), role file (`role_file`), summary file (`summary_file`), input file (`input_file`), and output file (`output_file`). Each entry also carries an `autorun` flag (`true`/`false`).
+2. Read the filter registry at `.space/pipeline/<bookname>/filters/filters.json` to resolve the filter name to its agent path (`agent`) and `autorun` flag (`true`/`false`). Each entry carries only `order`, `name`, `agent`, and `autorun`.
 3. Read the filter's agent at `.framework/agents/<filter>/agent.md` for both novel and poetry. If the filter needs a skill and no agent exists, create the missing agent first; the agent may then invoke the skill.
 4. Read the pipeline data the filter needs (`model.json`, `characters.json`/`bookseed.txt`, the epic, upstream filter output).
-5. **Snapshot the chapter draft into the filter's input file before any update.** Before a filter makes any change for a chapter, copy the chapter's current working draft `.space/pipeline/<bookname>/chapters/<n>/chapter.md` into the filter's input file `.space/pipeline/<bookname>/filters/<filter>/content-input.md` (resolved from the registry's `input_file`; create the file if missing, and prepend a small header — `## <n> <chapter_title> (snapshot before <filter>, <timestamp>)` — so multiple chapters accumulate in one auditable file). This snapshot is the filter's undo record: restoring its contents to `chapter.md` (plus the `history/` archive and prior `model.json` state) reverses the filter's effect. No filter may modify chapter data before its input snapshot exists.
-6. **Run it, writing output to its folder.** Write a per-filter summary to `filter-summary.md` and consolidated output to `content-output.md`. `filter *` / `filter all` runs the whole chain in order, but **skips any filter whose `autorun` flag is `false`** — only `autorun: true` filters execute. A single named filter (`/book <bookname> filter <filter>`) runs that filter explicitly regardless of its `autorun` flag.
-7. **Archive the previous chapter draft before overwriting.** If the filter rewrites a chapter's working draft at `.space/pipeline/<bookname>/chapters/<n>/chapter.md`, first copy the existing `chapter.md` into the chapter's history folder `.space/pipeline/<bookname>/chapters/<n>/history/` (create it if missing), naming the copy with a timestamp or incrementing version (e.g. `chapter_<filter>_<timestamp>.md` or `chapter_v<n>.md`). The live `chapter.md` always holds the current state; `history/` holds the superseded drafts.
-8. **Update the chapter state after each filter.** After a filter runs against a chapter, update `.space/pipeline/<bookname>/chapters/<n>/model.json` to record the new state: set `state` to the filter name that just ran (e.g. `"workshop"`, `"research"`, `"theme"`, `"syntax"`, `"quality"`), and add or update a `filter_history` array entry recording `{ filter, ran_at, output_file }` so the chapter's progression through the chain is auditable. Preserve all other fields; merge, never overwrite.
-9. **Responsibility boundary:** `filter` is read/write on existing pipeline data only. It must never create folders, run layout, or perform scaffold steps.
+5. **Snapshot the chapter draft before any update.** Before a filter makes any change for a chapter, copy the chapter's current working draft `.space/pipeline/<bookname>/chapters/<n>/chapter.md` into the chapter's history folder `.space/pipeline/<bookname>/chapters/<n>/history/` (create it if missing), naming the copy with a timestamp or incrementing version (e.g. `chapter_<filter>_<timestamp>.md` or `chapter_v<n>.md`). This snapshot is the filter's undo record: restoring its contents to `chapter.md` (plus the prior `model.json` state) reverses the filter's effect. No filter may modify chapter data before its snapshot exists.
+6. **Run it.** `filter *` / `filter all` runs the whole chain in order, but **skips any filter whose `autorun` flag is `false`** — only `autorun: true` filters execute. A single named filter (`/book <bookname> filter <filter>`) runs that filter explicitly regardless of its `autorun` flag.
+7. **Update the chapter state after each filter.** After a filter runs against a chapter, update `.space/pipeline/<bookname>/chapters/<n>/model.json` to record the new state: set `state` to the filter name that just ran (e.g. `"workshop"`, `"research"`, `"theme"`, `"syntax"`, `"quality"`), and add or update a `filter_history` array entry recording `{ filter, ran_at }` so the chapter's progression through the chain is auditable. Preserve all other fields; merge, never overwrite.
+8. **Responsibility boundary:** `filter` is read/write on existing pipeline data only. It must never create folders, run layout, or perform scaffold steps.
 
 Filters must also obey the chapter layout contract: keep `chapter.md` as the live draft, write only commentary to `segments/<x>/editor/`, write only translations to `segments/<x>/translator/`, and archive any replaced draft into `history/` before changing the live file or a writer-stage copy.
+
+## The Enrich Command
+
+For `/book <bookname> enrich <count>|range|*`:
+
+Responsibility: fuse the active filters into one combined agent and run it in a single pass over the selected chapters, producing an enriched `chapter.md` ready for write or publish. This work is routed through the enrich agent at `.framework/agents/enrich/agent.md`.
+
+- `<count>` — a bare number targets that many chapters starting from chapter 1 (e.g. `enrich 5` → chapters 1–5).
+- `range` — a `start-end` range targets those chapters inclusive (e.g. `enrich 3-7` → chapters 3,4,5,6,7).
+- `*` (or `all`) — targets every canonical chapter in order.
+
+1. Stop if `.space/pipeline/<bookname>/` does not exist; use `scaffold` first.
+2. Read the filter registry at `.space/pipeline/<bookname>/filters/filters.json`. Resolve the **active** filters — every entry whose `autorun` is `true` — sorted by `order`. If none are active, stop and report that there is nothing to combine.
+3. Route the work through the enrich agent at `.framework/agents/enrich/agent.md`. The agent reads each active filter's `agent.md`, fuses their task/method/rules into one ordered instruction set, and applies it in a single pass.
+4. Resolve the target chapter(s) from `<count>`, `range`, or `*` (see above).
+5. For each target chapter, the combined agent reads `chapters/<n>/model.json` and `chapters/<n>/chapter.md`, applies the fused guidance in `order` sequence, flattens the result to continuous prose, and writes the enriched `chapter.md` back in place.
+6. The combined agent updates `chapters/<n>/model.json` with `state: "enriched"` and an `enrich` record listing the fused filter names in order. It does not write per-filter `content-input.md`/`content-output.md` files, does not write to `source/books/`, and does not overwrite unrelated `model.json` fields.
+7. Report the resolved active filters, the fused order, the chapters processed, and the resulting `state`.
+
+The enrich command is a single-pass fusion of the active filter chain, not a replacement for the individual `filter` command. It never reads the backlog or the epic; it works only from the chapter's own files and the active filter agents.
 
 ### The human-in-the-loop override filter
 
