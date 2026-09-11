@@ -213,7 +213,7 @@ The form is declared once, at scaffold time, in the pipeline's `form` field (`mo
 |---|---|---|
 | **`form` field** | `"novel"` | `"poetry"` |
 | **Source of truth** | `epic.md` (epic-driven) | `model.json` + `bookseed.txt` |
-| **Chapter structure** | Workshop / Story / Discussion | Question / Oration / Benediction |
+| **Chapter structure** | flat, continuous prose | flat, continuous poetic prose |
 | **Segments per chapter** | many (`segments/1`, `segments/2`, …) | exactly one (`segments/1`) |
 | **`mood.json`** | present per chapter | absent (no moods) |
 | **Filter chain** | preset-defined (`layout-novel/SKILL.md`) | preset-defined (`layout-poetry/SKILL.md`) |
@@ -335,9 +335,9 @@ Responsibility: change the form of an existing pipeline and reconcile all form-d
 
 1. Stop if the pipeline does not exist.
 2. If `<formname>` matches the current form, report no change needed.
-3. Otherwise update the `form` field and re-select everything the form drives: filter chain (8 vs 6), chapter structure (Workshop/Story/Discussion vs Question/Oration/Benediction), word target (5,500+ vs 500–800), stereotype template folder, and source of truth.
+3. Otherwise update the `form` field and re-select everything the form drives: filter chain (8 vs 6), chapter structure (flat prose vs flat poetic prose), word target (5,500+ vs 500–800), stereotype template folder, and source of truth.
 4. Re-run the form-dependent selections: **Theme** (re-assign each chapter's theme from `stereotypes/<form>/themes/`), **Syntax** (update each chapter's `syntax` object from `stereotypes/<form>/syntax/`), **Quality** (re-audit against the new form's quality parameters).
-5. **Re-seed the override command file for the new form.** The `override` filter is in both chains, so `.space/pipeline/<bookname>/filters/override/filter.md` is updated when the form flips. Apply the same rules as the scaffold step (*Override Command File Seeding* in `.framework/agents/scaffold/agent.md`): read `.framework/agents/override/agent.md` and reproduce its content customized to the new form — identity and units ("novel pipeline" / every chapter with Workshop-Story-Discussion, or "poetry pipeline" / every poem with Question-Oration-Benediction), command-file paths, model-update paths, and instruction scope. Preserve any human-authored `## Instructions` that remain applicable; carry them to the new form's operative instruction file so nothing human-authored is silently dropped:
+5. **Re-seed the override command file for the new form.** The `override` filter is in both chains, so `.space/pipeline/<bookname>/filters/override/filter.md` is updated when the form flips. Apply the same rules as the scaffold step (*Override Command File Seeding* in `.framework/agents/scaffold/agent.md`): read `.framework/agents/override/agent.md` and reproduce its content customized to the new form — identity and units ("novel pipeline" / every chapter, or "poetry pipeline" / every poem), command-file paths, model-update paths, and instruction scope. Preserve any human-authored `## Instructions` that remain applicable; carry them to the new form's operative instruction file so nothing human-authored is silently dropped:
    - **All forms:** the override command file stays at `.space/pipeline/<bookname>/filters/override/filter.md`. There is no pipeline-root `override.md` in any form. Re-render the role/context portion above the `---` line for the new form (identity, units, model-update paths, instruction scope) and preserve any human-authored `## Instructions` in place.
 6. Report the change and its consequences.
 
@@ -353,7 +353,7 @@ The filter chain depends on the form. Each filter owns a folder in the pipeline'
 
 | # | Filter | Agent | Produces |
 |---|---|---|---|
-| 1 | workshop | `.framework/agents/workshop/agent.md` | The three-section frame (Workshop / Story / Discussion) |
+| 1 | workshop | `.framework/agents/workshop/agent.md` | The flat, continuous prose (no section headings) |
 | 2 | research | `.framework/agents/research/agent.md` | The refined chapter at the target mastery level |
 | 3 | seeds | `.framework/agents/seeds/agent.md` | `included_characters` and `quality_parameters` |
 | 4 | correctness | `.framework/agents/correctness/agent.md` | Fact-check results |
@@ -364,7 +364,7 @@ The filter chain depends on the form. Each filter owns a folder in the pipeline'
 
 | Filter | Agent | Produces |
 |---|---|---|
-| workshop | `.framework/agents/workshop/agent.md` | The three-section poem frame (Question / Oration / Benediction) |
+| workshop | `.framework/agents/workshop/agent.md` | The flat, continuous poem prose (no section headings) |
 | research | `.framework/agents/research/agent.md` | Research subject |
 | correctness | `.framework/agents/correctness/agent.md` | Correctness of information |
 | theme | `.framework/agents/theme/agent.md` | Contemporary theme |
@@ -548,11 +548,11 @@ Responsibility: promote the latest writer-stage (or translator-stage) segments t
 
 ### Novel
 
-Each workshop file contains three sections: **Workshop** (the modern frame scene where characters discuss the story), **Story** (the narrated story — the main material), **Discussion** (the characters' response after hearing the story). Preserve all three sections; keep Workshop and Discussion unchanged; rewrite Story in the selected style so it becomes deeper, more vivid, and more emotionally resonant.
+Each chapter is written as **flat, continuous prose** — no section headings. The modern frame scene, the narrated story (the main material), and the characters' response are woven into a single unbroken prose flow, rewritten in the selected style so it becomes deeper, more vivid, and more emotionally resonant.
 
 ### Poetry
 
-Each chapter is a single Question → Oration → Benediction unit, generated from one topic in `bookseed.txt`, grounded in the quality/theme/reference from `model.json`, and rendered in the selected poetic voice.
+Each chapter is a single **flat, continuous poetic-prose** unit — no section headings — generated from one topic in `bookseed.txt`, grounded in the quality/theme/reference from `model.json`, and rendered in the selected poetic voice.
 
 ### File mapping
 
@@ -577,10 +577,10 @@ After all selected chapters for a write invocation are written, assemble `book.m
 
 ### Writing rules
 
-1. Preserve the form's structure (three sections for novel; Question/Oration/Benediction for poetry).
-2. Keep the frame sections unchanged (novel); rewrite the Story section in the configured target language and style.
+1. Preserve the form's structure (flat prose for novel; flat poetic prose for poetry) — no section headings.
+2. Write the chapter in the configured target language and style.
 3. Use a serious, descriptive, image-rich literary register unless the pipeline says otherwise.
-4. The Story section must reach the target: at least 5,500 words (novel) or 500–800 words (poetry), unless the user or pipeline specifies otherwise. Write in batches when needed; count words and expand through richer scenes, stronger conflict, and more embodied detail — never filler.
+4. The chapter must reach the target: at least 5,500 words (novel) or 500–800 words (poetry), unless the user or pipeline specifies otherwise. Write in batches when needed; count words and expand through richer scenes, stronger conflict, and more embodied detail — never filler.
 5. Follow `included_characters` and `quality_parameters` from the matching seed JSON (novel), or the topic and category (poetry).
 6. Weave the book's subject matter into the story: economics, politics, literature, religion, science, or any other domain the pipeline provides.
 7. Highlight the protagonist's conflict and victory in a way that moves and inspires the reader.

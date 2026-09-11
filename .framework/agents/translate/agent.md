@@ -72,7 +72,7 @@ Write to:
 ## Translation Rules
 
 1. Preserve all markdown headings and section order.
-2. Preserve the source's form: novel chapters keep Workshop/Story/Discussion or Section headings; poetry keeps Question/Oration/Benediction.
+2. Preserve the source's form: novel chapters keep flat prose; poetry keeps flat poetic prose. Do not introduce section headings.
 3. Preserve meaning, emotional arc, voice, register, metaphor, and rhythm.
 4. Localize idiom naturally into the target language. Avoid word-for-word calques.
 5. Preserve proper nouns unless the target language has a standard rendering or the chapter's model/metadata specifies one.

@@ -75,7 +75,7 @@ A book is either **poetry** (verse) or **novel** (prose), declared in the pipeli
 | Signal | Poetry | Novel |
 |--------|--------|-------|
 | Source of truth | `model.json` + `bookseed.txt` | `epic.md` |
-| Chapter structure | Question / Oration / Benediction | Workshop / Story / Discussion |
+| Chapter structure | flat, continuous poetic prose | flat, continuous prose |
 | Segments per chapter | exactly one (`segments/1`) | many |
 | Word target | 500–800 | 5,500+ |
 | Stereotype templates | `stereotypes/poetry/` | `stereotypes/novel/` |

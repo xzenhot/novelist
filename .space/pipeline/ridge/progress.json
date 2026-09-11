@@ -1,0 +1,23 @@
+{
+  "title": "Ridge: The Forest That Refused to Die",
+  "language": "en",
+  "source_terms": "book.json chapters",
+  "context": "epic.md + masterprompt.md",
+  "total_chapters": 12,
+  "completed_chapters": 0,
+  "current_chapter": 0,
+  "chapters": [
+    { "chapter_number": 0, "topic": "Introduction", "category": "Overview", "status": "pending", "file_path": "chapters/Introduction/chapter.md", "completed_date": null },
+    { "chapter_number": 1, "topic": "The Oldest Living Thing in Delhi", "category": "Sacred Conservation", "status": "pending", "file_path": "chapters/1/chapter.md", "completed_date": null },
+    { "chapter_number": 2, "topic": "The Forest That Got Lost", "category": "Contested Land", "status": "pending", "file_path": "chapters/2/chapter.md", "completed_date": null },
+    { "chapter_number": 3, "topic": "The Morning Walk", "category": "Urban Cohabitation", "status": "pending", "file_path": "chapters/3/chapter.md", "completed_date": null },
+    { "chapter_number": 4, "topic": "The Campus and the Ravine", "category": "Intellectual Ecology", "status": "pending", "file_path": "chapters/4/chapter.md", "completed_date": null },
+    { "chapter_number": 5, "topic": "The Water and the Wing", "category": "Migration", "status": "pending", "file_path": "chapters/5/chapter.md", "completed_date": null },
+    { "chapter_number": 6, "topic": "The Builders", "category": "Development", "status": "pending", "file_path": "chapters/6/chapter.md", "completed_date": null },
+    { "chapter_number": 7, "topic": "The Last Leopard", "category": "Predator / Corridor", "status": "pending", "file_path": "chapters/7/chapter.md", "completed_date": null },
+    { "chapter_number": 8, "topic": "The Corridor Dream", "category": "Reconnection", "status": "pending", "file_path": "chapters/8/chapter.md", "completed_date": null },
+    { "chapter_number": 9, "topic": "The Children of the Ridge", "category": "Memory / Future", "status": "pending", "file_path": "chapters/9/chapter.md", "completed_date": null },
+    { "chapter_number": 10, "topic": "What Remains", "category": "Stock-take", "status": "pending", "file_path": "chapters/10/chapter.md", "completed_date": null },
+    { "chapter_number": 11, "topic": "Conclusion", "category": "Reckoning", "status": "pending", "file_path": "chapters/Conclusion/chapter.md", "completed_date": null }
+  ]
+}

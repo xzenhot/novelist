@@ -40,7 +40,7 @@ The `override` human-in-the-loop filter needs a ready-made command file, not an 
 1. If `override` is not in the book plan's `filter_chain`, skip this step — no registry entry, no override folder, no `filter.md`.
 2. Read `.framework/agents/override/agent.md` — its content is the base for `filter.md`.
 3. Recreate `.space/pipeline/<bookname>/filters/override/filter.md` by reproducing the override agent's content with these form-specific customizations:
-   - **Identity and units.** Novel: the "novel pipeline", applying to every **chapter** (Workshop/Story/Discussion). Poetry: the "poetry pipeline", applying to every **poem** (Question/Oration/Benediction).
+   - **Identity and units.** Novel: the "novel pipeline", applying to every **chapter**. Poetry: the "poetry pipeline", applying to every **poem**.
    - **Command file path.** All forms: `.space/pipeline/<bookname>/filters/override/filter.md`. There is no pipeline-root `override.md` in any form; the backlog `.space/backlog/epic/<bookname>/override.md` is only a planning copy.
    - **Model updates.** Novel: `.space/pipeline/<bookname>/chapters/<n>/model.json`. Poetry: the poem chapter models under `chapters/<n>/`.
    - **Instruction scope.** Novel: every chapter (`Introduction`, `1..N`, `Conclusion`). Poetry: every poem.

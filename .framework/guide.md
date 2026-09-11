@@ -102,7 +102,7 @@ A book is either a **novel** (prose) or **poetry** (verse). The form is stored i
 |---|---|---|
 | **`form` field** | `"novel"` | `"poetry"` |
 | **Source of truth** | `epic.md` | `model.json` + `bookseed.txt` |
-| **Chapter structure** | Workshop / Story / Discussion | Question / Oration / Benediction |
+| **Chapter structure** | flat, continuous prose | flat, continuous poetic prose |
 | **Segments per chapter** | many (`segments/1`, `segments/2`, ...) | exactly one (`segments/1`) |
 | **`mood.json`** | present per chapter | absent |
 | **Filter chain** | preset-defined (`layout-novel/SKILL.md`) | preset-defined (`layout-poetry/SKILL.md`) |
@@ -274,17 +274,11 @@ Read the `registry.md` in each folder to discover available options, then read t
 
 ### Novel
 
-Novel workshop files contain three sections:
-
-1. **Section 1 - Workshop:** the modern frame scene.
-2. **Section 2 - Story:** the main historical or fictional story.
-3. **Section 3 - Discussion:** the characters' response.
-
-Preserve all three sections. Keep Section 1 and Section 3 unchanged. Rewrite Section 2 in the selected style and target language, using the epic, filter outputs, included characters, and quality parameters as source material.
+Novel chapters are written as **flat, continuous prose** — no section headings. The modern frame, the main historical or fictional story, and the characters' response are woven into a single unbroken prose flow, using the epic, filter outputs, included characters, and quality parameters as source material.
 
 ### Poetry
 
-Each poetry chapter is a single **Question -> Oration -> Benediction** unit, generated from one topic in `bookseed.txt`, grounded in `model.json`, and rendered in the selected poetic voice.
+Each poetry chapter is a single **flat, continuous poetic-prose** unit — no section headings — generated from one topic in `bookseed.txt`, grounded in `model.json`, and rendered in the selected poetic voice.
 
 For both forms:
 

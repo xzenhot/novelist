@@ -75,13 +75,32 @@ Rules:
 
 ## Transformation Rules
 
-1. Preserve the original chapter's markdown structure and section order.
-2. Preserve the source meaning, plot, topic, and chapter function.
-3. Apply the selected transformer's voice, image system, rhythm, and philosophical stance.
-4. Respect the pipeline language unless the transformer explicitly requires bilingual texture.
-5. Do not summarize. Recast the chapter in the transformer style.
-6. Keep proper nouns, sacred terms, and culturally specific vocabulary unless the transformer style gives a better local rendering.
-7. Do not add process notes, explanations, or metadata outside the transformed chapter text.
+1. Preserve the source meaning, plot, topic, and chapter function.
+2. Apply the selected transformer's voice, image system, rhythm, and philosophical stance.
+3. Respect the pipeline language unless the transformer explicitly requires bilingual texture.
+4. Do not summarize. Recast the chapter in the transformer style.
+5. Keep proper nouns, sacred terms, and culturally specific vocabulary unless the transformer style gives a better local rendering.
+6. Do not add process notes, explanations, or metadata outside the transformed chapter text.
+
+## One Chapter At A Time (STRICT)
+
+Process **exactly one chapter per invocation**. Never batch multiple chapters in a single pass. After writing one chapter, stop and report it; the next chapter is a separate invocation. This keeps each chapter's voice, opening, and closing distinct rather than templated.
+
+## Break The Pattern (STRICT)
+
+Do **not** follow the same formula across chapters. Each chapter must be shaped by its own internal logic, not a repeated template. To achieve this, before writing, spin up an internal sub-agent that decides, per chapter, a fresh set of choices:
+
+- **Opening move** — vary it: a coordinate, a fragment, a question, a body-image, a list, a single object, a memory, a sound. Never open two chapters the same way.
+- **Closing move** — vary it: an unclosed image, a question, a reversal, a silence, a return to the opening, a sudden cut. Never end two chapters the same way.
+- **Paragraph rhythm** — alternate long and short paragraphs; let some paragraphs be a single line, others a dense block. Make the shape of the page rise and fall.
+- **Sentence texture** — mix long, winding sentences with abrupt fragments. Break grammar when the break serves the music. Do not chase a "perfect" sentence.
+- **Anchor** — choose a different Delhi NCR coordinate, body-part, and buried layer for each chapter; do not reuse the same anchor twice in a row.
+
+The sub-agent's job is to *break* the pattern, not to reproduce it. If two chapters begin to look alike, the sub-agent must change course.
+
+## Poetry License
+
+This is poetry, not prose. You are not required to write grammatically complete or "correct" sentences. Fragments, run-ons, dropped subjects, and broken syntax are permitted and often preferred when they serve rhythm, image, and feeling. Let the line breathe; let the sentence bend. Do not smooth the text into tidy prose.
 
 ## Pijush Default
 
@@ -104,4 +123,4 @@ The default transformer is `pijush`. For this style:
 
 ## Summary Of Duties
 
-Resolve `<style>` from `.framework/templates/styles/<style>/style.md` with default `pijush`; read `signature.md` when needed; transform each latest writer-stage chapter draft; write each result as the next `chapter_v*.md` inside `segments/1/writer/`; and report what was transformed or skipped.
+Resolve `<style>` from `.framework/templates/styles/<style>/style.md` with default `pijush`; read `signature.md` when needed; transform **one** latest writer-stage chapter draft per invocation, breaking the pattern each time (varied opening, varied closing, mixed paragraph and sentence rhythm, poetry license); write the result as the next `chapter_v*.md` inside `segments/1/writer/`; and report what was transformed or skipped.

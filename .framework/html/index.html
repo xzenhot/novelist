@@ -300,7 +300,7 @@
       <tbody>
         <tr><td><strong><code>form</code> field</strong></td><td><code>"novel"</code></td><td><code>"poetry"</code></td></tr>
         <tr><td><strong>Source of truth</strong></td><td><code>epic.md</code></td><td><code>model.json</code> + <code>bookseed.txt</code></td></tr>
-        <tr><td><strong>Chapter structure</strong></td><td>Workshop / Story / Discussion</td><td>Question / Oration / Benediction</td></tr>
+        <tr><td><strong>Chapter structure</strong></td><td>flat, continuous prose</td><td>flat, continuous poetic prose</td></tr>
         <tr><td><strong>Segments per chapter</strong></td><td>many (<code>segments/1</code>, <code>segments/2</code>, …)</td><td>exactly one (<code>segments/1</code>)</td></tr>
         <tr><td><strong><code>mood.json</code></strong></td><td>present per chapter</td><td>absent</td></tr>
         <tr><td><strong>Filter chain</strong></td><td>preset-defined (<code>layout-novel/SKILL.md</code>)</td><td>preset-defined (<code>layout-poetry/SKILL.md</code>)</td></tr>
@@ -450,16 +450,10 @@
 
     <h2 id="writing-rules">Writing Rules</h2>
     <h3>Novel</h3>
-    <p>Novel workshop files contain three sections:</p>
-    <ol>
-      <li><strong>Section 1 — Workshop:</strong> the modern frame scene.</li>
-      <li><strong>Section 2 — Story:</strong> the main historical or fictional story.</li>
-      <li><strong>Section 3 — Discussion:</strong> the characters' response.</li>
-    </ol>
-    <p>Preserve all three sections. Keep Section 1 and Section 3 unchanged. Rewrite Section 2 in the selected style and target language, using the epic, filter outputs, included characters, and quality parameters as source material.</p>
+    <p>Novel chapters are written as <strong>flat, continuous prose</strong> — no section headings. The modern frame scene, the main historical or fictional story, and the characters' response are woven into a single unbroken prose flow, using the epic, filter outputs, included characters, and quality parameters as source material.</p>
 
     <h3>Poetry</h3>
-    <p>Each poetry chapter is a single <strong>Question → Oration → Benediction</strong> unit, generated from one topic in <code>bookseed.txt</code>, grounded in <code>model.json</code>, and rendered in the selected poetic voice.</p>
+    <p>Each poetry chapter is a single <strong>flat, continuous poetic-prose</strong> unit — no section headings — generated from one topic in <code>bookseed.txt</code>, grounded in <code>model.json</code>, and rendered in the selected poetic voice.</p>
 
     <h3>For both forms</h3>
     <ul>

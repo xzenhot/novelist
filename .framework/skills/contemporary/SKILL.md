@@ -26,7 +26,7 @@ The modern frame is not filler. It:
 
 - Keep the **modern frame** and the **historical narrative** in deliberate contrast — in voice, register, and atmosphere.
 - Let the frame's questions echo the story's themes, bridging past and present.
-- Preserve the frame sections **unchanged** when rewriting a chapter (only the story section is rewritten).
+- Write the chapter as flat, continuous prose — no section headings; the frame and the story are woven into one unbroken flow.
 
 ## Revision Checklist
 

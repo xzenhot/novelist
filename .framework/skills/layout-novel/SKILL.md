@@ -46,7 +46,7 @@ The novel form's default preset is the **simple novel** preset, now folded into 
 workshop -> research -> seeds -> correctness -> theme -> syntax
 ```
 
-1. **workshop** — Create the three-section chapter frame: Workshop, Story, and Discussion, grounded in the epic and chapter plan.
+1. **workshop** — Create the chapter as flat, continuous prose, grounded in the epic and chapter plan.
 2. **research** — Deepen and verify the chapter material, attaching era, place, figures, events, sources, and grounding notes.
 3. **seeds** — Curate the chapter seed by selecting included characters, quality parameters, mood-shaped summary, and segment structure.
 4. **correctness** — Check factual claims, names, dates, terms, and source traceability; record corrections and uncertainties.
@@ -310,7 +310,7 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 
 1. **Read `.framework/templates/stereotypes/novel/readme.md`** — the master index of the novel stereotype folder. It tells you the canonical contents and conventions: the `qualities/` (seed analyses), `references/` (source texts), `signatures/` (prose voices), `syntax/`, and `themes/` sub-indexes. Use the readme's published conventions as the source of truth for how a novel pipeline's override layer is structured.
 2. **Seed the pipeline override command file from the readme's declared structure.** The human-facing command file for a novel pipeline is `.space/pipeline/<bookname>/filters/override/filter.md` — recreate it with the agent-driven role content (see step 3) and leave the `## Instructions` section empty for the human below the `---` line.
-3. **Derive the role content from `.framework/agents/override/agent.md`**, customized to the novel form per the readme conventions: identity "novel pipeline", applies to every chapter (Workshop/Story/Discussion), command file at `.space/pipeline/<bookname>/filters/override/filter.md`, model updates on `.space/pipeline/<bookname>/chapters/<n>/model.json`, instruction scope "every chapter" (`Introduction`, `1..N`, `Conclusion`).
+3. **Derive the role content from `.framework/agents/override/agent.md`**, customized to the novel form per the readme conventions: identity "novel pipeline", applies to every chapter, command file at `.space/pipeline/<bookname>/filters/override/filter.md`, model updates on `.space/pipeline/<bookname>/chapters/<n>/model.json`, instruction scope "every chapter" (`Introduction`, `1..N`, `Conclusion`).
 4. **Align with whatever the readme's sub-indexes declare** (the prose voice/signature set, reference texts, syntax samples, and theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
 5. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
 

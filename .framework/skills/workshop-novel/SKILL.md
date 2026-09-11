@@ -1,6 +1,6 @@
 ---
 name: workshop-novel
-description: Expand a novel chapter seed into a complete Workshop, Story, and Discussion draft while updating the chapter model with accurate word-count metadata.
+description: Expand a novel chapter seed into a complete flat, continuous prose draft while updating the chapter model with accurate word-count metadata.
 ---
 
 # Novel Workshop
@@ -27,19 +27,15 @@ The epic is the story source of truth. Use the gist only to orient the premise. 
 
 ## Draft Contract
 
-Expand the current scaffolded draft into exactly these sections:
+Expand the current scaffolded draft into **flat, continuous prose** — no section headings. The `## Workshop`, `## Story`, and `## Discussion` headings are removed entirely; only the prose that followed them remains, merged into continuous paragraphs. The only heading permitted is the chapter title (`# {chapter_title}`). Do not leave empty headings, stray `#` markers, or orphaned labels.
 
-1. Workshop
-2. Story
-3. Discussion
-
-Workshop is the modern frame that introduces the chapter question. Story is the continuous historical or fictional narrative drawn from the epic. Discussion is the frame's response and should create a meaningful handoff to the next chapter. Preserve the chapter title and canonical order. Do not use poetry-only sections.
+The prose should open with the chapter's central question, carry the continuous historical or fictional narrative drawn from the epic, and close with a meaningful handoff to the next chapter. Preserve the chapter title and canonical order. Do not use poetry-only sections.
 
 ## Word Target
 
 Resolve the target from chapter model word_target first, then the matching book plan entry, then the pipeline model default. The target is authoritative.
 
-Count words in the complete literary body of chapter.md, excluding Markdown headings. Expand or tighten the three sections until the count matches word_target as closely as possible; treat a result within 2 percent as acceptable unless the workflow specifies an exact count. Record the measured count in chapter model word_count and retain word_target. Never claim completion without measuring the draft.
+Count words in the complete literary body of chapter.md, excluding Markdown headings. Expand or tighten the prose until the count matches word_target as closely as possible; treat a result within 2 percent as acceptable unless the workflow specifies an exact count. Record the measured count in chapter model word_count and retain word_target. Never claim completion without measuring the draft.
 
 ## Metadata And Files
 
@@ -67,4 +63,4 @@ Write one run summary to .space/pipeline/<bookname>/filters/workshop/filter-summ
 - Do not run research, correctness, theme, syntax, override, or quality.
 - Do not place writer output in segments/1/writer; that is a later stage.
 - Preserve human-edited chapter content by archiving before replacement.
-- The result must remain a prose narrative with a modern frame and continuous story.
+- The result must remain a prose narrative with a continuous story.

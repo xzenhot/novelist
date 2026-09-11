@@ -6,7 +6,7 @@ tools: ["read", "write"]
 
 # Workshop Agent
 
-This agent is only a dispatcher. It must not apply the old novel-only Workshop/Story/Discussion behavior directly.
+This agent is only a dispatcher. It must not apply the old novel-only sectioned behavior directly.
 
 ## Dispatch
 

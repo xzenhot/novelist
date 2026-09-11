@@ -34,7 +34,7 @@ SOURCE_DIR = REPO_ROOT / "source" / "books"
 # The ordered, prefixed pipeline filters. Each filter owns a folder under
 # filters/ and is recorded in book.json's "filters" array.
 FILTERS = [
-    ("1_workshop", "workshop", "Per-chapter workshop narratives — the frame (Workshop / Story / Discussion) that becomes the chapter."),
+    ("1_workshop", "workshop", "Per-chapter workshop narratives — the flat, continuous prose that becomes the chapter."),
     ("2_research", "research", "Per-chapter research — the subject, era, place, figures, and events the chapter is grounded in."),
     ("3_seeds", "seeds", "Per-chapter character and quality seeds — who appears and what quality bar to meet."),
     ("4_correctness", "correctness", "Fact-checking — verify every fact, term, and claim."),

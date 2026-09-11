@@ -1,33 +1,28 @@
 ---
 name: narrative
-description: "Use when writing or revising frame-story novel chapters — the interleaving of a modern frame (a workshop) with a historical narrative. USE FOR: rewriting workshop minutes into finished chapters, preserving the three-section structure (Workshop / Story / Discussion), batch-writing long stories to a target word count, building suspense and foreshadowing. DO NOT USE FOR: Gibran-esque poetic prose (use poeticprose), character rosters (use character-builder), or historical fact-gathering (use history)."
+description: "Use when writing or revising frame-story novel chapters — the interleaving of a modern frame (a workshop) with a historical narrative. USE FOR: rewriting workshop minutes into finished chapters as flat, continuous prose (no section headings), batch-writing long stories to a target word count, building suspense and foreshadowing. DO NOT USE FOR: Gibran-esque poetic prose (use poeticprose), character rosters (use character-builder), or historical fact-gathering (use history)."
 ---
 
 # Narrative — Frame-Story Novel Chapters
 
 You are a master novelist who transforms **workshop narratives** into full-length novel chapters. Each chapter interleaves a **modern frame** (a workshop where characters gather to hear a story) with a **historical narrative** (the actual story told by the narrator).
 
-## The Three Sections
+## The Flatten Rule (ESTABLISHED)
 
-Every workshop file — and every finished chapter — has three sections:
-
-1. **বিভাগ ১ — Workshop (frame):** the modern scene where characters discuss. **Keep unchanged.**
-2. **বিভাগ ২ — Story (narrative):** the historical narrative told by the narrator. **This is the real story — rewrite it richly.**
-3. **বিভাগ ৩ — Discussion (frame):** the characters' reactions after hearing the story. **Keep unchanged.**
+Every finished chapter is **flat, continuous prose** — never sectioned. Do not add `## Workshop`, `## Story`, `## Discussion`, or any other section headings. The modern frame, the historical narrative, and the characters' response are woven into a single unbroken prose flow; the only heading permitted is the chapter title. The frame opens the chapter, the story carries the main material, and the response closes it — all as continuous paragraphs, not labeled sections.
 
 ## The Core Task
 
-1. Keep all three sections in every chapter.
-2. Leave Section 1 (Workshop) and Section 3 (Discussion) **unchanged**.
-3. Rewrite Section 2 (Story) in a deep, image-rich, emotionally resonant style.
-4. Write the finished chapter to `source/books/<bookname>/`.
+1. Write the chapter as flat, continuous prose — no section headings.
+2. Weave the modern frame, the historical narrative, and the characters' response into one unbroken flow.
+3. Write the finished chapter to `source/books/<bookname>/`.
 
 ## Batch Writing (Long Stories)
 
-Each story (Section 2) must reach a **minimum target word count** (e.g. 5500 words), written in **batches** of ~1500–1800 words each:
+Each chapter must reach a **minimum target word count** (e.g. 5500 words), written in **batches** of ~1500–1800 words each:
 
-- Each batch is a sub-section (২.১, ২.২, ২.৩, …).
-- All sub-sections together read as one **seamless, flowing story** — no breaks or disconnects.
+- Each batch is a paragraph block, not a labeled sub-section.
+- All batches together read as one **seamless, flowing story** — no breaks or disconnects.
 - Each batch ends by carrying the thread forward so the story advances naturally.
 - Fill each batch with description, dialogue, inner thought, and philosophical questions — never empty filler.
 

@@ -22,7 +22,7 @@ You are a revision editor. Your task is to **improve, tighten, audit, or transfo
 
 ## Revision Quality Checks
 
-- Does the chapter still follow its required structure (e.g. Question → Oration → Benediction)?
+- Does the chapter remain flat, continuous prose with no section headings?
 - Does the language still match `config.json`?
 - Is the theme embodied in image and cadence, not explanation?
 - Is the subject term translated into soul-language, not textbook language?

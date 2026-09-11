@@ -41,7 +41,7 @@ The poetry form's default preset is the **philosophical poem** preset, now folde
 workshop -> research -> correctness -> theme -> syntax -> override -> quality
 ```
 
-1. **workshop** — Create the three-section poem frame: Question, Oration, and Benediction, grounded in the topic and chapter plan.
+1. **workshop** — Create the poem as flat, continuous poetic prose, grounded in the topic and chapter plan.
 2. **research** — Gather and organize the subject, context, source notes, and usable images for the poem.
 3. **correctness** — Verify factual, attributional, religious, philosophical, and cultural claims before poetic rendering.
 4. **theme** — Assign the poem's philosophical lens, contemporary mapping, and form-consistent poetic stereotype selection.
@@ -244,7 +244,7 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 
 1. **Read `.framework/agents/override/agent.md`** — the base content for the command file: the override command file is `.space/pipeline/<bookname>/filters/override/filter.md`, and it is generated/refreshed from the chapter (or poem) models' context so the human instructions are grounded in what the poems actually contain.
 2. **Read `.framework/templates/stereotypes/poetry/readme.md`** — the master index of the poetry stereotype folder, for the identity wording and conventions of the poetry form.
-3. **Seed `.space/pipeline/<bookname>/filters/override/filter.md`**, customized for poetry: identity "poetry pipeline", applies to every **poem** (Question/Oration/Benediction), model updates on the poem chapter models under `chapters/<n>/`, instruction scope "every poem" (each topic in `bookseed.txt`).
+3. **Seed `.space/pipeline/<bookname>/filters/override/filter.md`**, customized for poetry: identity "poetry pipeline", applies to every **poem**, model updates on the poem chapter models under `chapters/<n>/`, instruction scope "every poem" (each topic in `bookseed.txt`).
 4. **Do not create a pipeline-root `override.md`.** All forms share the single override command file at `filters/override/filter.md`.
 5. Align with whatever the readme's sub-indexes declare (singer/signature set, reference texts, syntax samples, theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
 6. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.

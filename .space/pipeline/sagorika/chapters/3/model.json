@@ -1,0 +1,46 @@
+{
+  "level": "chapter",
+  "state": "completed",
+  "chapter_index": 3,
+  "chapter_name": "3",
+  "topic": "The Vedic Age",
+  "chapter_title": "The Vedic Age",
+  "chapter_summary": "The hymns, the fire altars, and the first words of a civilization rise in her voice. The context turns on the question of what a civilization owes to its first prayers.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "workshop_skill": "workshop-poetry",
+  "word_count": 359,
+  "workshop_file": "chapters/3/chapter.md",
+  "source_context": "gist-and-epic",
+  "stereotype": {
+    "form": "poetry",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11"
+    },
+    {
+      "filter": "theme",
+      "ran_at": "2026-09-11"
+    },
+    {
+      "filter": "quality",
+      "ran_at": "2026-09-11"
+    }
+  ],
+  "quality_review": {
+    "status": "passed",
+    "notes": [
+      "audited against seed analysis quality parameters"
+    ]
+  },
+  "theme": "The Fading Name",
+  "theme_essence": "indifference to fame; the vanity of reputation and the forgetting of names",
+  "contemporary_mapping": "the loss of spiritual and cultural roots in a consumer, speed-driven metropolis"
+}

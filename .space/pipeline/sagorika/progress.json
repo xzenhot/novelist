@@ -1,0 +1,375 @@
+{
+  "title": "Sagorika: The Woman Who Is Delhi",
+  "language": "English",
+  "source_terms": [
+    "The Woman in Red",
+    "The Aravalli Remembers",
+    "The Vedic Age",
+    "The Vanished Saraswati",
+    "Indraprastha",
+    "Prithviraj",
+    "The Das Dynasty",
+    "The Khiljis",
+    "The Tughlaqs",
+    "The Mughals",
+    "The Volcanic Fire",
+    "The Woman Who Is Delhi",
+    "The Red Lipstick",
+    "The High Heels",
+    "The Metro and the Memory",
+    "The Beloved",
+    "The Witness",
+    "The Imagination",
+    "The Mountain",
+    "The Question Sagorika Leaves",
+    "The Oldest Mountain",
+    "The Quartzite and the Schist",
+    "The Alluvial Plain",
+    "The Groundwater",
+    "The Tropical Edge",
+    "The Pre-Monsoon Summer",
+    "The Dust Storm",
+    "The Monsoon",
+    "The Winter Fog",
+    "The Heat Island",
+    "The Ridge for Defence",
+    "The River for Water",
+    "The Plain for Grain",
+    "The Climate for Rhythm",
+    "The Forested Outcrops",
+    "The Meeting of Rock and River",
+    "The Layered Record",
+    "The Geology of Memory",
+    "The Tropical Geography of Delhi",
+    "The Land That Outlasts"
+  ],
+  "context": "../context/qualities/aurilus.md + writer.md",
+  "total_chapters": 40,
+  "completed_chapters": 10,
+  "current_chapter": 10,
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "topic": "The Woman in Red",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\1\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 2,
+      "topic": "The Aravalli Remembers",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\2\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 3,
+      "topic": "The Vedic Age",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\3\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 4,
+      "topic": "The Vanished Saraswati",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\4\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 5,
+      "topic": "Indraprastha",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\5\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 6,
+      "topic": "Prithviraj",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\6\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 7,
+      "topic": "The Das Dynasty",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\7\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 8,
+      "topic": "The Khiljis",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\8\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 9,
+      "topic": "The Tughlaqs",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\9\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 10,
+      "topic": "The Mughals",
+      "category": "The Woman Who Is Delhi",
+      "status": "completed",
+      "file_path": "chapters\\10\\chapter.md",
+      "completed_date": "2026-09-11T00:00:00Z"
+    },
+    {
+      "chapter_number": 11,
+      "topic": "The Volcanic Fire",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\11\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 12,
+      "topic": "The Woman Who Is Delhi",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\12\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 13,
+      "topic": "The Red Lipstick",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\13\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 14,
+      "topic": "The High Heels",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\14\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 15,
+      "topic": "The Metro and the Memory",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\15\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 16,
+      "topic": "The Beloved",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\16\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 17,
+      "topic": "The Witness",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\17\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 18,
+      "topic": "The Imagination",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\18\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 19,
+      "topic": "The Mountain",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\19\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 20,
+      "topic": "The Question Sagorika Leaves",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\20\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 21,
+      "topic": "The Oldest Mountain",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\21\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 22,
+      "topic": "The Quartzite and the Schist",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\22\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 23,
+      "topic": "The Alluvial Plain",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\23\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 24,
+      "topic": "The Groundwater",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\24\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 25,
+      "topic": "The Tropical Edge",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\25\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 26,
+      "topic": "The Pre-Monsoon Summer",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\26\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 27,
+      "topic": "The Dust Storm",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\27\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 28,
+      "topic": "The Monsoon",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\28\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 29,
+      "topic": "The Winter Fog",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\29\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 30,
+      "topic": "The Heat Island",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\30\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 31,
+      "topic": "The Ridge for Defence",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\31\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 32,
+      "topic": "The River for Water",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\32\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 33,
+      "topic": "The Plain for Grain",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\33\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 34,
+      "topic": "The Climate for Rhythm",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\34\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 35,
+      "topic": "The Forested Outcrops",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\35\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 36,
+      "topic": "The Meeting of Rock and River",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\36\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 37,
+      "topic": "The Layered Record",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\37\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 38,
+      "topic": "The Geology of Memory",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\38\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 39,
+      "topic": "The Tropical Geography of Delhi",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\39\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 40,
+      "topic": "The Land That Outlasts",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\40\\chapter.md",
+      "completed_date": null
+    }
+  ],
+  "published": true,
+  "published_at": "2026-09-11T16:28:18Z",
+  "published_version": 2
+}

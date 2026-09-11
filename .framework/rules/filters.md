@@ -91,7 +91,7 @@ filters/
 
 | # | Filter | Folder | Role File | Purpose |
 |---|--------|--------|-----------|---------|
-| 1 | **Workshop** | `filters/workshop/` | `workshop/workshop.md` | Per-chapter workshop narratives — the frame (Workshop / Story / Discussion) that becomes the chapter. |
+| 1 | **Workshop** | `filters/workshop/` | `workshop/workshop.md` | Per-chapter workshop narratives — the flat, continuous prose that becomes the chapter. |
 | 2 | **Research** | `filters/research/` | `research/research.md` | Per-chapter research — the subject, era, place, figures, and events the chapter is grounded in. |
 | 3 | **Seeds** | `filters/seeds/` | `seeds/seeds.md` | Per-chapter character and quality seeds — who appears and what quality bar to meet. |
 | 4 | **Correctness** | `filters/correctness/` | `correctness/correctness.md` | Fact-checking — verify every fact, term, and claim. |

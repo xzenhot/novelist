@@ -66,25 +66,16 @@ The style never changes, regardless of subject. It is the voice of Almustafa.
 - Render them in the target language, in the same prophetic register
 - These become the "sacred words" of THIS particular book
 
-#### 2.3 The Structural Formula
+#### 2.3 The Flatten Rule (ESTABLISHED)
 
-**Every chapter must follow this pattern:**
+**Every chapter is flat, continuous poetic prose — never sectioned.** Do not add `## Question`, `## Oration`, `## Benediction`, or any other section headings. The seeker's question, the prophet's answer, and the closing thought are woven into the prose as a single unbroken movement:
 
-1. **The Question** (Opening)
-   - Begin with a seeker addressing the prophet
-   - Format: "And a [seeker] said, 'Speak to us of [topic].'" (or the target-language equivalent)
-   - Vary the seeker each chapter (student, weaver, farmer, mother, traveler, elder, etc.)
+- Open with a seeker addressing the prophet — "And a [seeker] said, 'Speak to us of [topic].'" (or the target-language equivalent) — flowing directly into the answer.
+- Vary the seeker each chapter (student, weaver, farmer, mother, traveler, elder, etc.).
+- Answer with "And he answered, saying:" (or the target-language equivalent), using nature metaphors to explain the subject concept, building philosophical depth through layered imagery, and weaving in the reference book's core themes.
+- Close with a short, final wise thought, often circular, returning to the opening image, leaving the reader with contemplative resonance.
 
-2. **The Answer** (Core)
-   - Always respond with: "And he answered, saying:" (or the target-language equivalent)
-   - Use nature metaphors to explain the subject concept
-   - Build philosophical depth through layered imagery
-   - Weave in the reference book's core themes (from Context)
-
-3. **The Benediction** (Closing)
-   - End with a short, final wise thought
-   - Often circular, returning to the opening image
-   - Leave the reader with contemplative resonance
+These three movements are prose paragraphs, not labeled sections.
 
 #### 2.4 Translation Guide: Subject to Metaphorical
 
@@ -367,11 +358,11 @@ The user may request reframing in **any quantity or form**. Interpret the reques
 - Repeat steps 4-8 for each requested chapter, then provide a summary report (e.g. "Chapters 6–15 of 199 reframed").
 
 ### Reframe Quality Checks:
-- The chapter still follows Question → Oration → Benediction.
+- The chapter remains flat, continuous poetic prose — no section headings.
 - The language still matches `config.json`.
 - The theme is more embodied in image and cadence than in direct explanation.
 - The scientific or subject term is translated into soul-language, not textbook language.
-- The reframed chapter keeps the requested frame while remaining coherent with the surrounding book.
+- The reframed chapter keeps the requested voice while remaining coherent with the surrounding book.
 - The philosophical core (subject, theme, wisdom) is preserved — only the frame changed.
 
 ### Resume Mode:

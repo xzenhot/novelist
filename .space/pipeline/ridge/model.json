@@ -1,0 +1,22 @@
+{
+  "form": "novel",
+  "gist": "The Aravalli Ridge is a rare tropical forest spine cutting through the concrete heart of Delhi NCR, where the frantic rat race of human ambition collides with — and quietly surrenders to — an ancient ecosystem where animals, birds, and wild folk endure together.",
+  "epic_path": ".space/backlog/epic/ridge/epic.md",
+  "book_long_title": "Ridge: The Forest That Refused to Die",
+  "book_summary": "Ridge traces the fragmented but stubbornly living Aravalli forest patches of Delhi NCR — Mangar Bani, Jasola Bhatti, Buddh Jayanti Park, the JNU campus, and Okhla Bird Sanctuary — as a single broken ecosystem pressing back against one of the world's most relentless urban expansions. Through the lives of a forest guard, a birder, an ecologist, a developer, and a student, the book asks what it costs a megacity to keep its forest alive, and what it loses when it does not.",
+  "language": "en",
+  "genre": "Literary Non-fiction / Nature Writing / Urban Ecology",
+  "era": "Contemporary (2000s–2026)",
+  "chapter_count": 12,
+  "stereotype": {
+    "form": "novel",
+    "signature": "hemingway",
+    "reference": "nature writing",
+    "theme_set": "ecology",
+    "syntax": "contemporary"
+  },
+  "syntax": {
+    "form": "contemporary",
+    "sample": "Short declarative sentences. Sensory precision. The specific bird, the specific tree, the specific hour. No abstraction without an image anchoring it."
+  }
+}

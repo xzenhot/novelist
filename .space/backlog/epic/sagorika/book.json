@@ -1,0 +1,338 @@
+{
+  "book_name": "sagorika",
+  "book_long_title": "Sagorika: The Woman Who Is Delhi",
+  "generic": "philosophical historical poetry",
+  "era": "prehistoric Aravalli and Vedic age to contemporary Dwarka, New Delhi",
+  "language": "English",
+  "target_audience": "readers of Delhi history, sacred geography, women's narratives, and contemporary Indian philosophical verse",
+  "chapter_count": 40,
+  "form": "poetry",
+  "book_summary": "Sagorika: The Woman Who Is Delhi is a poetry sequence in which Sagorika speaks as woman, city, earth, memory, and myth. She is a modern woman of Dwarka, New Delhi — alluring, red-lipped, high-heeled, slim, fair, young enough to be beloved — and yet she is eternal, the earth itself, the witness of civilization. She carries the prehistoric dates of the Aravalli ridge, the Vedic age, and the Saraswati river that has vanished into sand. She is the symbol of imagination, poetry, mountain, and volcanic fire — the fire that built modern Delhi from its inception. Across the poems she remembers Indraprastha, Prithviraj Chauhan, the Das dynasty, the Khiljis, the Tughlaqs, and the Mughals, watching each dynasty desire her as a woman while she outlives them as the earth. Beneath the woman and the city lies the land itself: the Aravalli, among the oldest mountain systems on Earth, a Precambrian spine of quartzite and schist that still cuts through Delhi as the Ridge; the tropical geography of the Delhi area, where ancient rock meets the young alluvial plain of the Yamuna; and the climate that shapes every season, from the scorching pre-monsoon summer and the Thar dust storms to the monsoon's flood and the winter fog. The poems do not treat beauty as a surface alone; they treat it as the latest mask worn by a civilization that has always been watched, held, and judged by the ground beneath it. By the end, Sagorika does not boast of her eternity. She asks whether Delhi can recognize the earth — the geology, the climate, the tropical geography — that has always been its woman before the memory becomes only stone.",
+  "created_at": "2026-09-11",
+  "user_name": "pijush",
+  "gist": "Sagorika is a modern woman of Dwarka, New Delhi — alluring, red-lipped, high-heeled, slim and fair — who is also eternal, the earth itself, the witness of civilization from the prehistoric Aravalli and the Vedic age and the vanished Saraswati, the living symbol of imagination, poetry, mountain, and volcanic fire that built modern Delhi from Indraprastha through Prithviraj, the Das dynasty, the Khiljis, the Tughlaqs, and the Mughals.",
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "name": "1",
+      "word_target": 500,
+      "chapter_title": "The Woman in Red",
+      "chapter_summary": "Sagorika appears as the modern woman of Dwarka: red lipstick, high heels, slim, fair, young, beloved. The context turns on the question of whether beauty is a surface or a memory.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 2,
+      "name": "2",
+      "word_target": 500,
+      "chapter_title": "The Aravalli Remembers",
+      "chapter_summary": "The prehistoric ridge speaks through her, the oldest bone of the earth, older than every monument. The context turns on the realization that she was here before the city had a name.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 3,
+      "name": "3",
+      "word_target": 500,
+      "chapter_title": "The Vedic Age",
+      "chapter_summary": "The hymns, the fire altars, and the first words of a civilization rise in her voice. The context turns on the question of what a civilization owes to its first prayers.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 4,
+      "name": "4",
+      "word_target": 500,
+      "chapter_title": "The Vanished Saraswati",
+      "chapter_summary": "The river that disappeared into sand becomes her grief. The context turns on the image of water that is remembered but no longer seen.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 5,
+      "name": "5",
+      "word_target": 500,
+      "chapter_title": "Indraprastha",
+      "chapter_summary": "The mythic founding of the city enters her body. The context turns on the question of whether a city founded in dharma can survive adharma toward its own earth.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 6,
+      "name": "6",
+      "word_target": 500,
+      "chapter_title": "Prithviraj",
+      "chapter_summary": "The age of Prithviraj Chauhan, the last Hindu king, rises and falls. The context turns on the moment a kingdom becomes a memory.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 7,
+      "name": "7",
+      "word_target": 500,
+      "chapter_title": "The Das Dynasty",
+      "chapter_summary": "The early sultanate arrives with banners and stone. The context turns on the earth's indifference to the names of rulers.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 8,
+      "name": "8",
+      "word_target": 500,
+      "chapter_title": "The Khiljis",
+      "chapter_summary": "The Khilji sultanate builds and burns. The context turns on the fire that forges and the fire that destroys.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 9,
+      "name": "9",
+      "word_target": 500,
+      "chapter_title": "The Tughlaqs",
+      "chapter_summary": "The Tughlaq dynasty's ambition and ruin unfold. The context turns on the question of what remains when a city is abandoned.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 10,
+      "name": "10",
+      "word_target": 500,
+      "chapter_title": "The Mughals",
+      "chapter_summary": "The Mughal empire's grandeur and decline pass through her. The context turns on the beauty of a civilization that believed itself eternal.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 11,
+      "name": "11",
+      "word_target": 500,
+      "chapter_title": "The Volcanic Fire",
+      "chapter_summary": "The fire that raised the land and built the city becomes her own body. The context turns on the realization that she is the fire beneath every stone.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 12,
+      "name": "12",
+      "word_target": 500,
+      "chapter_title": "The Woman Who Is Delhi",
+      "chapter_summary": "The concluding poem gathers the Aravalli, the Vedic age, the vanished Saraswati, Indraprastha, Prithviraj, the Das dynasty, the Khiljis, the Tughlaqs, the Mughals, and the volcanic fire into one final address. The context turns on whether the city can recognize the earth that has always been its woman.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 13,
+      "name": "13",
+      "word_target": 500,
+      "chapter_title": "The Red Lipstick",
+      "chapter_summary": "The red lipstick becomes the city's glamour, a bright mask over prehistoric stone. The context turns on the question of what a civilization paints over when it paints itself beautiful.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 14,
+      "name": "14",
+      "word_target": 500,
+      "chapter_title": "The High Heels",
+      "chapter_summary": "The high heels become the city's restless ambition, always rising, never resting. The context turns on the cost of a civilization that cannot stand still.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 15,
+      "name": "15",
+      "word_target": 500,
+      "chapter_title": "The Metro and the Memory",
+      "chapter_summary": "The metro lines of Dwarka run over the earth's oldest memory. The context turns on the question of whether speed can outrun what the ground remembers.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 16,
+      "name": "16",
+      "word_target": 500,
+      "chapter_title": "The Beloved",
+      "chapter_summary": "Men desire her as a woman while she remembers them as brief dynasties. The context turns on the difference between being loved and being seen.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 17,
+      "name": "17",
+      "word_target": 500,
+      "chapter_title": "The Witness",
+      "chapter_summary": "She has watched every dynasty rise and fall without ceasing to be young. The context turns on the loneliness of the one who outlives everything she loves.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 18,
+      "name": "18",
+      "word_target": 500,
+      "chapter_title": "The Imagination",
+      "chapter_summary": "She is the imagination that dreams a city into being, the poetry that names it. The context turns on the question of whether a city can exist without the dream that made it.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 19,
+      "name": "19",
+      "word_target": 500,
+      "chapter_title": "The Mountain",
+      "chapter_summary": "She is the mountain that holds the city, the ridge that refuses to be buried. The context turns on the patience of the ground beneath every monument.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 20,
+      "name": "20",
+      "word_target": 500,
+      "chapter_title": "The Question Sagorika Leaves",
+      "chapter_summary": "The final poem gathers the woman, the earth, the fire, and the vanished river into one address. The context turns on whether Delhi can learn to see the woman beneath its own glamour before the memory becomes only stone.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 21,
+      "name": "21",
+      "word_target": 500,
+      "chapter_title": "The Oldest Mountain",
+      "chapter_summary": "The Aravalli speaks of its Precambrian age, older than the Himalayas, older than the Alps, older than almost every mountain the human eye has named. The context turns on the patience of a mountain worn down to a ridge.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 22,
+      "name": "22",
+      "word_target": 500,
+      "chapter_title": "The Quartzite and the Schist",
+      "chapter_summary": "The rock of the Ridge — quartzite and schist — becomes her bones. The context turns on the question of what a city is built upon when it is built upon the oldest stone.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 23,
+      "name": "23",
+      "word_target": 500,
+      "chapter_title": "The Alluvial Plain",
+      "chapter_summary": "The young soil washed down by the Yamuna lies over the ancient rock. The context turns on the meeting of the oldest and the youngest, the Precambrian and the present.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 24,
+      "name": "24",
+      "word_target": 500,
+      "chapter_title": "The Groundwater",
+      "chapter_summary": "The water beneath the city still remembers the vanished Saraswati. The context turns on the hidden rivers that run under every street.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 25,
+      "name": "25",
+      "word_target": 500,
+      "chapter_title": "The Tropical Edge",
+      "chapter_summary": "Delhi sits on the tropical edge of the subcontinent, where the Aravalli meets the plain. The context turns on the geography that chose the city before any king did.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 26,
+      "name": "26",
+      "word_target": 500,
+      "chapter_title": "The Pre-Monsoon Summer",
+      "chapter_summary": "The scorching heat of the pre-monsoon season becomes her breath. The context turns on the question of what a civilization learns from a season that burns.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 27,
+      "name": "27",
+      "word_target": 500,
+      "chapter_title": "The Dust Storm",
+      "chapter_summary": "The dust storms that rise from the Thar sweep over the city. The context turns on the wind that carries the desert into the streets.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 28,
+      "name": "28",
+      "word_target": 500,
+      "chapter_title": "The Monsoon",
+      "chapter_summary": "The monsoon arrives like a promise and a flood. The context turns on the water that gives and the water that takes.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 29,
+      "name": "29",
+      "word_target": 500,
+      "chapter_title": "The Winter Fog",
+      "chapter_summary": "The winter fog hides the city in white. The context turns on the question of what a city becomes when it cannot see itself.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 30,
+      "name": "30",
+      "word_target": 500,
+      "chapter_title": "The Heat Island",
+      "chapter_summary": "The concrete has made a heat island of the old earth. The context turns on the city's own warmth, the fever of its ambition.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 31,
+      "name": "31",
+      "word_target": 500,
+      "chapter_title": "The Ridge for Defence",
+      "chapter_summary": "Every dynasty chose the ridge for defence. The context turns on the stone that protected kings and outlived them.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 32,
+      "name": "32",
+      "word_target": 500,
+      "chapter_title": "The River for Water",
+      "chapter_summary": "Every dynasty chose the river for water. The context turns on the thirst that built a civilization.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 33,
+      "name": "33",
+      "word_target": 500,
+      "chapter_title": "The Plain for Grain",
+      "chapter_summary": "Every dynasty chose the plain for grain. The context turns on the bread that fed empires.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 34,
+      "name": "34",
+      "word_target": 500,
+      "chapter_title": "The Climate for Rhythm",
+      "chapter_summary": "Every dynasty chose the climate for its rhythm of scarcity and abundance. The context turns on the seasons that shaped the city's soul.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 35,
+      "name": "35",
+      "word_target": 500,
+      "chapter_title": "The Forested Outcrops",
+      "chapter_summary": "The broken chain of forested outcrops still cuts through the city. The context turns on the green that refuses to be buried.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 36,
+      "name": "36",
+      "word_target": 500,
+      "chapter_title": "The Meeting of Rock and River",
+      "chapter_summary": "The Aravalli's ancient rock meets the Yamuna's young plain. The context turns on the marriage of the oldest and the newest.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 37,
+      "name": "37",
+      "word_target": 500,
+      "chapter_title": "The Layered Record",
+      "chapter_summary": "The geography is a layered record: basement, alluvium, groundwater, climate. The context turns on the earth as an archive written before writing.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 38,
+      "name": "38",
+      "word_target": 500,
+      "chapter_title": "The Geology of Memory",
+      "chapter_summary": "The quartzite, the schist, the alluvium, and the groundwater are the earth's own memory. The context turns on the question of what the ground remembers that the city forgets.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 39,
+      "name": "39",
+      "word_target": 500,
+      "chapter_title": "The Tropical Geography of Delhi",
+      "chapter_summary": "The full geography of the Delhi area — ridge, river, plain, climate — gathers into one address. The context turns on the land that made the city possible.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 40,
+      "name": "40",
+      "word_target": 500,
+      "chapter_title": "The Land That Outlasts",
+      "chapter_summary": "The concluding poem of the geography gathers the Aravalli, the tropical climate, the geology, and the history into one final address. The context turns on whether the city can recognize the land that will outlast it.",
+      "further_references": []
+    }
+  ],
+  "filter_chain": ["workshop", "research", "correctness", "theme", "syntax", "override", "quality"],
+  "word_target": 500
+}

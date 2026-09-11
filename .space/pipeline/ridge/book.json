@@ -1,0 +1,136 @@
+{
+  "book_name": "ridge",
+  "book_long_title": "Ridge: The Forest That Refused to Die",
+  "generic": "Literary Non-fiction / Nature Writing / Urban Ecology",
+  "era": "Contemporary (2000s–2026)",
+  "language": "en",
+  "target_audience": "Adult readers interested in ecology, urban nature, sustainability, and place writing",
+  "chapter_count": 12,
+  "created_at": "2026-09-08",
+  "user_name": "author",
+  "book_summary": "Ridge traces the fragmented but stubbornly living Aravalli forest patches of Delhi NCR — Mangar Bani, Jasola Bhatti, Buddh Jayanti Park, the JNU campus, and Okhla Bird Sanctuary — as a single broken ecosystem pressing back against one of the world's most relentless urban expansions. Through the lives of a forest guard, a birder, an ecologist, a developer, and a student, the book asks what it costs a megacity to keep its forest alive, and what it loses when it does not. Each chapter moves between a specific site and a larger question: about the sacred as conservation, about migration and belonging, about the rights of the non-human city, and about the ordinary daily discipline that sustainability actually requires. The Aravalli Ridge is 1.5 billion years old; the city around it is 800 years old at most. The book is an act of witness to what survives between those two scales of time, and a meditation on what it means to choose — deliberately, daily — to keep something wild.",
+  "chapters": [
+    {
+      "chapter_index": "Introduction",
+      "name": "Introduction",
+      "chapter_title": "The Ridge Beneath the City",
+      "chapter_summary": "An aerial and historical introduction to the Aravalli Ridge as it exists in Delhi NCR today — a broken chain of forest fragments older than the Himalayas, threading through one of the most densely populated urban corridors on Earth. The narrator stands at a high point and traces what is visible and what has been swallowed.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "1",
+      "name": "1",
+      "chapter_title": "The Oldest Living Thing in Delhi",
+      "chapter_summary": "Mangar Bani, Faridabad — the sacred grove preserved by Gujjar and Meo tradition. The forest guard leads the narrator through a forest that state law could not save but communal faith did. A meditation on sacrality as the oldest form of conservation, and what it means that a leopard is still spotted here.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "2",
+      "name": "2",
+      "chapter_title": "The Forest That Got Lost",
+      "chapter_summary": "Jasola Bhatti Reserved Forest — lesser known, under pressure, extraordinary at dawn. The narrator walks the contested boundary between scrub forest and construction site, and meets the birder who has been counting here for twenty years without institutional support.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "3",
+      "name": "3",
+      "chapter_title": "The Morning Walk",
+      "chapter_summary": "Buddh Jayanti Park and the Central Ridge Reserved Forest — the most visited fragment. The narrator joins the morning walkers and tracks the uneasy cohabitation of joggers, sambar deer, and the occasional leopard pugmark on the path. Who owns a forest at 6 a.m.?",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "4",
+      "name": "4",
+      "chapter_title": "The Campus and the Ravine",
+      "chapter_summary": "JNU campus — where a university accidentally became a wildlife sanctuary. The narrator walks the forested ravines with a student who has never seen a forest and the ecologist whose leopard corridor research began here. The forest and the institution are both, in their way, acts of resistance.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "5",
+      "name": "5",
+      "chapter_title": "The Water and the Wing",
+      "chapter_summary": "Okhla Bird Sanctuary — where the ridge meets the river and the city meets migration. Winter morning: bar-headed geese, painted storks, pochards arriving from Central Asia and Siberia. The sanctuary is flanked by a highway and a residential colony. And yet they come. A meditation on migration as faith.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "6",
+      "name": "6",
+      "chapter_title": "The Builders",
+      "chapter_summary": "The fringe of Delhi NCR — Gurugram, Faridabad, Noida. The narrator sits with a developer whose arguments are heard without caricature. The chapter maps the political economy of land conversion and asks what legal and financial structures would need to change for the ridge to survive the next twenty years.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "7",
+      "name": "7",
+      "chapter_title": "The Last Leopard",
+      "chapter_summary": "A leopard is photographed at a camera trap near Mangar Bani. The narrator traces the animal's likely range across four forest patches — a journey that crosses four highways and two expressways. What does a predator at the edge of a megacity mean for the city, for the forest, and for us?",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "8",
+      "name": "8",
+      "chapter_title": "The Corridor Dream",
+      "chapter_summary": "The ecologist's map shows what a connected Aravalli green corridor could look like — and what stands in the way. Land acquisition, political will, the memory of what was there before the expressway. The chapter moves between all five sites and asks what reconnection would cost, and what it would give back.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "9",
+      "name": "9",
+      "chapter_title": "The Children of the Ridge",
+      "chapter_summary": "Schools near the forest edge, birding clubs, community naturalist groups. The narrator spends a day with children who are learning to identify a raptor, a fern, a monsoon mushroom. The chapter asks who will remember this, and how the ridge passes itself into the future.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "10",
+      "name": "10",
+      "chapter_title": "What Remains",
+      "chapter_summary": "A stock-take of the ridge in 2026: what has been lost in the last twenty years, what has held, and what unexpected recoveries have happened. The narrator revisits each of the five sites in sequence and measures change against memory.",
+      "word_target": 4500
+    },
+    {
+      "chapter_index": "Conclusion",
+      "name": "Conclusion",
+      "chapter_title": "What the Ridge Asks of Us",
+      "chapter_summary": "The narrator returns to the ridge alone, before dawn, and watches the light come up over a forest that should not exist here but does. The conclusion is inward: not a policy prescription but a personal reckoning with what it means to live beside something ancient and wild, and to choose — every day — not to look away.",
+      "word_target": 4500
+    }
+  ],
+  "all_characters": [
+    {
+      "character_id": "forest_guard",
+      "full_name": "The Forest Guard",
+      "role": "protagonist / anchor",
+      "identity": "A Gujjar man who has patrolled Mangar Bani since his father did. His family's memory of the forest spans three generations.",
+      "psychological_depth": "Carries a quiet authority that comes from continuity. Suspicious of outsiders but generous once trust is established."
+    },
+    {
+      "character_id": "birder",
+      "full_name": "The Birder",
+      "role": "witness / memory-keeper",
+      "identity": "A retired civil servant who has counted birds at Okhla every winter morning for twenty-two years.",
+      "psychological_depth": "Meticulous, patient, quietly furious at institutional indifference."
+    },
+    {
+      "character_id": "ecologist",
+      "full_name": "The Ecologist",
+      "role": "analyst / dreamer",
+      "identity": "A researcher at JNU whose work on leopard movement corridors across the Aravalli fragments is the scientific backbone of the corridor dream.",
+      "psychological_depth": "Believes in the corridor dream but measures hope in small increments."
+    },
+    {
+      "character_id": "developer",
+      "full_name": "The Developer",
+      "role": "counterpoint",
+      "identity": "A mid-sized real estate developer working the Faridabad–Gurugram fringe. Not a villain — a man with his own logic.",
+      "psychological_depth": "Genuinely believes he is building homes for people who need them."
+    },
+    {
+      "character_id": "student",
+      "full_name": "The Student",
+      "role": "lens / future",
+      "identity": "A first-generation college student at JNU from a small town in Uttar Pradesh. The ravine outside her hostel window is the first wild thing she has had time to notice.",
+      "psychological_depth": "Her discovery of the forest is the reader's discovery."
+    }
+  ],
+  "history": "The Aravalli Range formed approximately 1.5 billion years ago. The Delhi ridge is its northernmost extension, a rocky spine of quartzite and schist that once ran unbroken but now survives in fragments. The forests are classified as tropical dry deciduous — dominated by dhau, teak, flame of the forest, and khair."
+}

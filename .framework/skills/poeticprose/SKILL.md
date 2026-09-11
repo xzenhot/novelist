@@ -1,6 +1,6 @@
 ---
 name: poeticprose
-description: "Use when writing or revising Gibran-esque philosophical poetic prose — the prophetic voice of Kahlil Gibran's The Prophet (1923). USE FOR: rendering a topic/term into soul-language, building the Question → Oration → Benediction structure, weaving sacred vocabulary and nature metaphors, translating dry subject terms into metaphorical register. DO NOT USE FOR: frame-story novel chapters (use narrative), dialogue-heavy scenes (use dialogue), or factual research (use research)."
+description: "Use when writing or revising Gibran-esque philosophical poetic prose — the prophetic voice of Kahlil Gibran's The Prophet (1923). USE FOR: rendering a topic/term into soul-language, weaving sacred vocabulary and nature metaphors, translating dry subject terms into metaphorical register. DO NOT USE FOR: frame-story novel chapters (use narrative), dialogue-heavy scenes (use dialogue), or factual research (use research)."
 ---
 
 # Poetic Prose — The Gibran-esque Voice
@@ -15,18 +15,9 @@ Every passage is woven from three pillars, supplied at runtime:
 2. **Style** (fixed) — the Gibran-esque voice described below. Never changes.
 3. **Theme** (dynamic) — the thematic category assigned to the chapter. Read from `.space/context/themes/`.
 
-## The Structural Formula
+## The Flatten Rule (ESTABLISHED)
 
-Every chapter follows this pattern:
-
-1. **The Question** (opening) — a seeker addresses the prophet.
-   - Format: "And a [seeker] said, 'Speak to us of [topic].'"
-   - Vary the seeker each chapter (student, weaver, farmer, mother, traveler, elder, mason, woman, old man, young man).
-2. **The Answer** (core) — always respond with "And he answered, saying:"
-   - Use nature metaphors to explain the subject concept.
-   - Build philosophical depth through layered imagery.
-   - Weave in the reference book's core themes.
-3. **The Benediction** (closing) — a short, final wise thought, often circular, returning to the opening image.
+The chapter output is **always flat, continuous poetic prose** — never sectioned. Do not add `## Question`, `## Oration`, `## Benediction`, or any other section headings. The prose flows as continuous paragraphs; the only heading permitted is the chapter title. The seeker's question, the prophet's answer, and the closing thought are woven into the prose as a single unbroken movement, not separated into labeled sections.
 
 ## Sacred Vocabulary (Required Lexicon)
 
@@ -86,4 +77,4 @@ Plus the **subject-specific lexicon** from the book's `config.json` (`sacred_voc
 
 ## Output
 
-Each chapter is 500–800 words: The Question (50–100), The Oration (350–600), The Benediction (50–100). Write to `source/books/<bookname>/chapters/Chapter_XXX_[term].md` and append to `book.md`.
+Each chapter is 500–800 words of flat, continuous poetic prose — no section headings. Write to `source/books/<bookname>/chapters/Chapter_XXX_[term].md` and append to `book.md`.
