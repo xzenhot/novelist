@@ -13,7 +13,7 @@
   "workshop_file": "chapters/49/chapter.md",
   "word_count": 508,
   "workshop_skill": "workshop-poetry",
-  "state": "enriched",
+  "state": "workshop",
   "filter_history": [
     {
       "filter": "workshop",
@@ -23,21 +23,5 @@
       "word_count": 508,
       "ran_at": "2026-09-11T16:56:59.3040723Z"
     }
-  ],
-  "theme_essence": "The unity of all things; each thread in the tapestry, each note in the cosmic song",
-  "theme": "The Woven Whole",
-  "stereotype": {
-    "form": "poetry",
-    "signature": "aurilus",
-    "reference": "aurilus.txt",
-    "theme_set": "generic.md"
-  },
-  "contemporary_mapping": "The wild peacock and the seat of power as threads of one city; beauty and authority woven into a single present rather than opposed",
-  "enrich": {
-    "active_filters": [
-      "theme",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  ]
 }

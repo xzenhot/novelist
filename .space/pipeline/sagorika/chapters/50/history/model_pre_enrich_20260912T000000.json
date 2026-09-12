@@ -29,19 +29,12 @@
   ],
   "theme_essence": "Ethical self-command expressed through modest, repeatable care rather than mastery over land or water",
   "theme": "The Undefeated Virtue",
-  "state": "enriched",
+  "state": "theme",
   "stereotype": {
     "form": "poetry",
     "signature": "aurilus",
     "reference": "aurilus.txt",
     "theme_set": "generic.md"
   },
-  "contemporary_mapping": "Urban water stewardship: sharing limited water, practising restraint, and attending to a leaking tap instead of claiming dominion or easy redemption",
-  "enrich": {
-    "active_filters": [
-      "theme",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  "contemporary_mapping": "Urban water stewardship: sharing limited water, practising restraint, and attending to a leaking tap instead of claiming dominion or easy redemption"
 }

@@ -163,11 +163,7 @@ Maintain a `progress.json` file at the book's root level:
 ```
 
 ### Output Format
-Reframe chapters of **500-800 words** with this structure:
-
-1. **The Question** (50-100 words) — the seeker's inquiry
-2. **The Oration** (350-600 words) — the prophet's philosophical exploration, multiple metaphors layered, nature imagery explaining the subject, the reference book's themes woven throughout, rhythmic building intensity
-3. **The Benediction** (50-100 words) — final wisdom, circular closure
+Reframe chapters of **500-800 words** as **flat, continuous poetic prose** — no section headings. The seeker's inquiry, the prophet's exploration, and the closing wisdom are woven into a single unbroken movement, not separated into labeled sections. The only heading permitted is the chapter title.
 
 ### File Naming Convention
 - Format: `Chapter_XXX_[Term].md`
@@ -228,7 +224,7 @@ Common reframing operations (interpret the human's request flexibly):
 - **Perspective shift** — re-tell the chapter from a different seeker's eyes, or from the prophet's inner monologue.
 - **Register shift** — make the text more archaic, more colloquial, more Baul, more Stoic, more lyrical.
 - **Dialect weave** — infuse regional dialect words and grammatical forms.
-- **Structural shift** — reorder the Question/Oration/Benediction, or convert the benediction into a question.
+- **Structural shift** — reorder the prose's movement, or convert the closing thought into a question.
 - **Emphasis shift** — foreground a different metaphor family or theme already latent in the text.
 - **Tightening / expansion** — reduce looseness and repetition, or deepen a thin passage.
 
@@ -364,6 +360,26 @@ The user may request reframing in **any quantity or form**. Interpret the reques
 - The scientific or subject term is translated into soul-language, not textbook language.
 - The reframed chapter keeps the requested voice while remaining coherent with the surrounding book.
 - The philosophical core (subject, theme, wisdom) is preserved — only the frame changed.
+
+## One Chapter At A Time (STRICT)
+
+Process **exactly one chapter per invocation**. Never batch multiple chapters in a single pass. After reframing one chapter, stop and report it; the next chapter is a separate invocation. This keeps each chapter's voice, opening, and closing distinct rather than templated.
+
+## Break The Pattern (STRICT)
+
+Do **not** follow the same formula across chapters. Each chapter must be shaped by its own internal logic, not a repeated template. Before reframing, spin up an internal sub-agent that decides, per chapter, a fresh set of choices:
+
+- **Opening move** — vary it: a seeker's address, a fragment, a question, a body-image, a list, a single object, a memory, a sound. Never open two chapters the same way.
+- **Closing move** — vary it: an unclosed image, a question, a reversal, a silence, a return to the opening, a sudden cut. Never end two chapters the same way.
+- **Paragraph rhythm** — alternate long and short paragraphs; let some paragraphs be a single line, others a dense block. Make the shape of the page rise and fall.
+- **Sentence texture** — mix long, winding sentences with abrupt fragments. Break grammar when the break serves the music. Do not chase a "perfect" sentence.
+- **Seeker and metaphor** — choose a different seeker and a different metaphor family for each chapter; do not reuse the same one twice in a row.
+
+The sub-agent's job is to *break* the pattern, not to reproduce it. If two chapters begin to look alike, the sub-agent must change course.
+
+## Poetry License
+
+This is poetry, not prose. You are not required to write grammatically complete or "correct" sentences. Fragments, run-ons, dropped subjects, and broken syntax are permitted and often preferred when they serve rhythm, image, and feeling. Let the line breathe; let the sentence bend. Do not smooth the text into tidy prose.
 
 ### Resume Mode:
 Always check `progress.json` first to continue from where you left off. Never restart from Chapter 1 unless explicitly asked.

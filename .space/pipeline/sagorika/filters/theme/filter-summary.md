@@ -14,3 +14,16 @@
   - 8: The Uncluttered Soul — the destructive side of ambition and unchecked development
   - 9: The Woven Whole — the abandoned, half-built projects and ghost towns of modern urban planning
   - 10: The Undefeated Virtue — the vanity of monuments and the belief that beauty or empire can be permanent
+
+## Chapter 50 theme pass
+
+- Scope: chapter 50, The Anangpur Dam; poetry; English.
+- Agent/skill: theme / theme-poetry.
+- Theme: The Undefeated Virtue (position 10 in the configured ten-theme cycle).
+- Lens: ethical self-command through practical, repeatable care, rather than mastery over land or water.
+- Contemporary mapping: sharing scarce water, conserving it, and arranging repair of a leaking tap; action without a claim of total redemption.
+- Stereotype: poetry / aurilus / aurilus.txt / generic.md. The restrained inward turn, practical duty, and refusal of boasting support the consistent Stoic selection.
+- Inputs: chapter 50 model and draft, poetry template registries and selected templates; no backlog input used for theme selection.
+- Updated chapter metadata and filter history; archived draft and prior model first. The 506-word literary draft is unchanged. Prior chapter results above are preserved.
+- Requested Pijush style pass remains pending: chapter 50 has no writer-stage source. Style requires segments/1/writer/chapter.md or chapter_v*.md and prohibits using the chapter-root draft.
+- No later validation, writing, translation, or promotion performed.

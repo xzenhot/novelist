@@ -13,6 +13,7 @@
   "workshop_file": "chapters/50/chapter.md",
   "word_count": 506,
   "workshop_skill": "workshop-poetry",
+  "state": "workshop",
   "filter_history": [
     {
       "filter": "workshop",
@@ -21,27 +22,6 @@
       "skill": "workshop-poetry",
       "word_count": 506,
       "ran_at": "2026-09-11T16:56:59.3206545Z"
-    },
-    {
-      "filter": "theme",
-      "ran_at": "2026-09-12T00:16:32.1595669Z"
     }
-  ],
-  "theme_essence": "Ethical self-command expressed through modest, repeatable care rather than mastery over land or water",
-  "theme": "The Undefeated Virtue",
-  "state": "enriched",
-  "stereotype": {
-    "form": "poetry",
-    "signature": "aurilus",
-    "reference": "aurilus.txt",
-    "theme_set": "generic.md"
-  },
-  "contemporary_mapping": "Urban water stewardship: sharing limited water, practising restraint, and attending to a leaking tap instead of claiming dominion or easy redemption",
-  "enrich": {
-    "active_filters": [
-      "theme",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  ]
 }
