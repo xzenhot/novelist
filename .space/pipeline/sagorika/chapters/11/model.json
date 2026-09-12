@@ -1,13 +1,23 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 11,
   "chapter_name": "11",
   "topic": "The Volcanic Fire",
   "chapter_title": "The Volcanic Fire",
   "chapter_summary": "The fire that raised the land and built the city becomes her own body. The context turns on the realization that she is the fire beneath every stone.",
-  "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "word_count": 490,
+  "workshop_skill": "workshop-poetry",
+  "word_target": 500,
+  "state": "workshop",
+  "workshop_file": "chapters/11/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:01.8498502Z"
+    }
   ]
 }

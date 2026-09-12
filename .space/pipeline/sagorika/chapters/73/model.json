@@ -1,0 +1,23 @@
+{
+  "level": "chapter",
+  "chapter_index": 73,
+  "chapter_name": "73",
+  "topic": "The India Gate Names",
+  "chapter_title": "The India Gate Names",
+  "chapter_summary": "Dead soldiers' names carved in stone, ignored by picnickers. The context turns on the memory that no one reads.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "word_count": 509,
+  "workshop_skill": "workshop-poetry",
+  "workshop_file": "chapters/73/chapter.md",
+  "state": "workshop",
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:03.4972916Z"
+    }
+  ]
+}

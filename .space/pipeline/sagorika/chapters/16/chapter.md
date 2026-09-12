@@ -1,13 +1,11 @@
 # The Beloved
 
-## Question
+He told Sagorika that he wished the evening would never end. They were sitting beside her open window in Dwarka, and the city gave their silence a thousand distant voices. She had taken off her shoes, leaving them beneath the chair like two small exhausted creatures. His praise was tender, and she wanted to receive it tenderly. Yet the wish for an endless evening passed across her with the old unease of a kingdom declaring that the ground beneath it would remain forever its own.
 
-(To be written by the workshop filter.)
+What would you keep, she asked, if you could keep this hour? He looked at the red upon her lips, at the light resting along her cheek, and began with the things he could see. She listened until his answer thinned. Outside, a bright train moved between the dark buildings and vanished. There was no accusation in her question, but there was a door he had not expected to open. He had loved the mystery of her long remembering; he had not considered how weary the keeper of so much loss might sometimes become.
 
-## Oration
+I am not always the woman you find beautiful, she said. Some days the city is loud within me, and I have no wise words for its noise. Some days I remember nothing clearly. The epic made her the witness of dynasties, beloved while rulers passed into dust; tonight she asked to be met without the splendour of that role. He reached towards her hand and stopped, allowing the gesture to become a question. She placed her hand in his. The consent was small and present, sufficient for what neither eternity nor praise could promise.
 
-Men desire her as a woman while she remembers them as brief dynasties. The context turns on the difference between being loved and being seen.
+Then she told him that she wanted to be alone before the night grew late. His disappointment was visible. For a moment he tried to disguise it as concern, asking whether something was wrong, whether he had failed her. She shook her head. Solitude was not a verdict upon the hours they had shared. He looked towards the window, where another train would eventually pass whether they watched it together or separately. To love a person who could leave the room of his wishes required a courage different from the courage of declaring devotion before a beautiful face.
 
-## Benediction
-
-(To be written by the workshop filter.)
+He rose and carried the cups to the basin. At the door he asked when she would like to see him again, and accepted that she would answer tomorrow. After he left, the room did not become proof against loneliness. She missed the warmth of his hand and welcomed the quiet at the same time. Both truths could sit beside the window without defeating each other. May love grant its beloved that undivided freedom, the freedom to remain more than the comfort she provides. Sagorika drew her feet beneath her and listened to the city. The evening had ended, as evenings must; something gentler than possession had survived its ending, and had not yet demanded to be called eternal.

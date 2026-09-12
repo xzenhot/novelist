@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 42,
+  "chapter_name": "42",
+  "topic": "The Gondwana Drift",
+  "chapter_title": "The Gondwana Drift",
+  "chapter_summary": "The continent that drifted and broke still moves beneath the city. The context turns on the slow migration written in stone.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "workshop_file": "chapters/42/chapter.md",
+  "source_context": "gist-and-epic",
+  "word_count": 507,
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:53:29.4349255Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 507,
+      "ran_at": "2026-09-11T16:53:29.4349255Z"
+    }
+  ]
+}

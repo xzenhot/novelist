@@ -1,0 +1,23 @@
+{
+  "level": "chapter",
+  "chapter_index": 61,
+  "chapter_name": "61",
+  "topic": "The Khirki Masjid",
+  "chapter_title": "The Khirki Masjid",
+  "chapter_summary": "A fortress-mosque whose stone windows catch no breeze. The context turns on the prayer that cannot breathe.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "source_context": "gist-and-epic",
+  "word_count": 497,
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "workshop_file": "chapters/61/chapter.md",
+  "filter_history": [
+    {
+      "ran_at": "2026-09-11T16:58:53.4387706Z",
+      "filter": "workshop"
+    }
+  ]
+}

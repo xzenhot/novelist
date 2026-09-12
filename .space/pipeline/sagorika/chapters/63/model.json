@@ -1,0 +1,23 @@
+{
+  "level": "chapter",
+  "chapter_index": 63,
+  "chapter_name": "63",
+  "topic": "The Jamali Kamali",
+  "chapter_title": "The Jamali Kamali",
+  "chapter_summary": "Sufi saints and hidden whispers in red sandstone. The context turns on the secret that the stone keeps.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "source_context": "gist-and-epic",
+  "word_count": 505,
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "workshop_file": "chapters/63/chapter.md",
+  "filter_history": [
+    {
+      "ran_at": "2026-09-11T16:58:53.4387706Z",
+      "filter": "workshop"
+    }
+  ]
+}

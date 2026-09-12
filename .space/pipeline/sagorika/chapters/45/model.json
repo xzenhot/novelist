@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 45,
+  "chapter_name": "45",
+  "topic": "The Badarpur Quarries",
+  "chapter_title": "The Badarpur Quarries",
+  "chapter_summary": "The ancient bedrock is ground down to build modern apartments. The context turns on the mountain that becomes a wall.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "workshop_skill": "workshop-poetry",
+  "workshop_file": "chapters/45/chapter.md",
+  "state": "workshop",
+  "word_count": 506,
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:55:15.9560431Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 506,
+      "ran_at": "2026-09-11T16:55:15.9560431Z"
+    }
+  ]
+}

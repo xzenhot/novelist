@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 54,
+  "chapter_name": "54",
+  "topic": "The Lalkot Walls",
+  "chapter_title": "The Lalkot Walls",
+  "chapter_summary": "Prithviraj's walls still stand in the scrub. The context turns on the last Hindu king's unfinished defence.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "workshop_file": "chapters/54/chapter.md",
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "word_count": 501,
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:58:49.1054061Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 501,
+      "ran_at": "2026-09-11T16:58:49.1054061Z"
+    }
+  ]
+}

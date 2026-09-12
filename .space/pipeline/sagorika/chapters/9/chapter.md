@@ -1,17 +1,12 @@
 # The Tughlaqs
 
-## Question
+A piece of cloth moved inside the broken doorway, and for a moment I mistook it for someone beckoning. Sagorika stood beside me among the Tughlaq ruins, where the epic's ambition had become an architecture of absence. What remains, I asked, when a city is abandoned? The cloth lifted again. Beyond it the opening framed a strip of pale sky, and the wind entered with the familiarity of a tenant who had never signed a lease.
 
-What remains when a city is abandoned? The Tughlaqs built a capital and then left it, and their walls still stand empty in the dust, a monument to ambition that outran its own wisdom. Does a city die when its people leave it, or does it only wait? And what does the earth do with the ruins we leave behind?
+I wanted the ruin to answer with wisdom. Empty walls make generous teachers when we are free to leave them before night. Sagorika walked towards the doorway and found that the cloth had caught upon a rough edge. It belonged to no ghost in our story, only to the day's untidy passage. She freed it carefully. Its torn corner hung from her hand while she considered where to put it, and my grand account of the earth reclaiming kingdoms had to wait upon the small fact of something left behind.
 
-## Oration
+The Tughlaqs, in the poem's remembered distance, dreamed a city into enclosure and then became absent from what they had raised. Sagorika did not name one departure as the explanation of every empty stone. The epic offered ambition and abandonment; it did not give us the private grief of each person who had crossed a threshold for the last time. She imagined a hand closing upon a bundle, another hand reaching back for something nearly forgotten. A capital could be called empty while remaining crowded with such unfinished gestures, too ordinary for the names that survived.
 
-I remember the Tughlaqs, who dreamed too large and built too fast. They raised a capital of their own, a city of walls and gates and palaces, and they filled it with their ambition and their armies and their plans. And then, for reasons that were part wisdom and part folly, they left it, and the city they had built began to empty, and the wind began to move through the halls where their voices had been.
+We heard footsteps beyond the wall. A visitor had taken a narrow way through the scrub and could not see where it joined the path. He called, uncertain whether anyone was there. I answered and went to the opening. It required no knowledge of dynasties to guide him towards us; it required only that I cease treating the place as a stage for my solitude. He emerged scratched and embarrassed, thanked us, and rested while the wind moved through the doorway. For a few moments the ruin held a fellowship no ruler had ordered into being.
 
-I held their empty city the way I hold all ruins, without judgment. The earth does not mourn an abandoned wall; it simply waits, and slowly, patiently, it begins to take the city back. The dust settles in the courtyards, the grass grows through the stones, the birds nest in the arches, and the city that was built to last forever becomes a place where only the wind and the memory of kings still walk.
+Sagorika folded the torn cloth so that it could be carried out. The visitor rose, and we walked together until the broader path appeared. Behind us the walls remained broken. We had repaired no city, restored no lost household, solved none of the grief that the word abandonment concealed. Yet the place had briefly ceased to be an emptiness in which I admired my own reflections. Someone had called from beyond my view and found an answer. May what we build permit that answer; may what we leave behind not make it harder to hear. The doorway narrowed with distance, holding its piece of sky, and I understood that a ruin's honesty lies partly in the life we still allow to cross it, carrying a burden towards a place where other hands may receive it.
 
-There is a truth in the empty city that the full city never learns: that everything we build is borrowed from the earth, and the earth will take it back. The Tughlaqs are gone, and their capital is a ruin, and the ruin is more honest than the city ever was, because it no longer pretends to be forever.
-
-## Benediction
-
-May the city learn from the empty walls, and build with the knowledge that it too will one day be a ruin. May it leave behind not only stone but wisdom. And may the earth, which takes back everything we build, still find in our ruins something worth keeping.

@@ -1,0 +1,23 @@
+{
+  "level": "chapter",
+  "chapter_index": 77,
+  "chapter_name": "77",
+  "topic": "The Yamuna at Wazirabad",
+  "chapter_title": "The Yamuna at Wazirabad",
+  "chapter_summary": "The sacred river meets industrial foam before it enters the town. The context turns on the holiness that is poisoned at the gate.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "state": "workshop",
+  "source_context": "gist-and-epic",
+  "word_count": 503,
+  "workshop_skill": "workshop-poetry",
+  "workshop_file": "chapters/77/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:07.9130402Z"
+    }
+  ]
+}

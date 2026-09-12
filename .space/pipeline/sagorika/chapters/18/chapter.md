@@ -1,13 +1,12 @@
 # The Imagination
 
-## Question
+The child drew a tower upon the pavement dust and asked Sagorika to give it a name. She had stopped beside the courtyard on her way home, carrying a notebook full of sentences that had pleased her in the morning and disappointed her by dusk. The drawn tower had more windows than walls. Its top reached a crack in the paving, where the child's finger hesitated as though the ground itself had placed a limit upon the sky. Can a city begin here? the child asked.
 
-(To be written by the workshop filter.)
+Sagorika knelt, careful of her skirt, and drew a small door at the base. The child immediately made it taller. People carrying things must get through, she explained. A woman with a bundle was crossing the courtyard nearby, and her shadow passed over their unfinished building. Sagorika watched the door enlarge and thought of all the visions which had entered her notebook without admitting a body. She had called imagination a fire, yet too often it had illuminated only the person tending it, leaving everyone else outside its circle.
 
-## Oration
+In the epic she was the dream that gave the city shape, the poetry that made it speak. Indraprastha and the later names rose within that dreaming, each a way of saying that something might stand where nothing had stood before. But the child had introduced another measure. What would the imagined thing allow? A window could become a promise of light or merely a pattern admired from outside. A door could announce hospitality while remaining too narrow for the burdens people actually brought. The dream had to endure such plain questions before it could deserve the ground.
 
-She is the imagination that dreams a city into being, the poetry that names it. The context turns on the question of whether a city can exist without the dream that made it.
+They drew a path, then a tree whose spreading roots complicated the path. The child rubbed out a corner of the tower to make room. Sagorika felt a small resistance; she had liked the first shape. The feeling embarrassed her until she recognized it as useful. Here, in a drawing no rain was obliged to preserve, she could practise surrendering a pleasing arrangement to a more generous need. She opened the notebook and copied neither the tower nor the tree, but the bend where the path had changed to receive them both.
 
-## Benediction
+A breeze crossed the courtyard and blurred the lowest windows. The child rose without distress, called by someone waiting upstairs. Sagorika stayed a moment longer, watching the city lose its precision. No building would rise from this dust by the power of wishing. Labour, judgment, materials, and other people's voices would be needed wherever a real plan began. Still, her notebook now held a question with which to meet those beginnings. May imagination remain able to kneel beside its own design and alter the door. She closed the book and went home. Behind her, the tower had already begun returning to the ground, but the opening at its base remained large enough for a figure carrying an unseen burden to enter without bowing beneath the dream.
 
-(To be written by the workshop filter.)

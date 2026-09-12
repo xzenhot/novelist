@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 60,
+  "chapter_name": "60",
+  "topic": "The Jama Masjid's Crowd",
+  "chapter_title": "The Jama Masjid's Crowd",
+  "chapter_summary": "Twenty-five thousand worshippers inside, chaos outside. The context turns on the prayer that holds against the noise.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "word_count": 510,
+  "state": "workshop",
+  "workshop_skill": "workshop-poetry",
+  "workshop_file": "chapters/60/chapter.md",
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T23:37:09.2715815Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 510,
+      "ran_at": "2026-09-11T23:37:09.2715815Z"
+    }
+  ]
+}

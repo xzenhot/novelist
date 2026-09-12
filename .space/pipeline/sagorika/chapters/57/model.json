@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 57,
+  "chapter_name": "57",
+  "topic": "The Feroz Shah Kotla",
+  "chapter_title": "The Feroz Shah Kotla",
+  "chapter_summary": "Djinns live among broken pillars and cricket cheers. The context turns on the spirits that outlast the stones.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "word_count": 507,
+  "state": "workshop",
+  "workshop_skill": "workshop-poetry",
+  "workshop_file": "chapters/57/chapter.md",
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T23:37:09.2445048Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 507,
+      "ran_at": "2026-09-11T23:37:09.2445048Z"
+    }
+  ]
+}

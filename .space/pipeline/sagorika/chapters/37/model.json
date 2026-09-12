@@ -1,6 +1,5 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 37,
   "chapter_name": "37",
   "topic": "The Layered Record",
@@ -9,5 +8,20 @@
   "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "workshop_file": "chapters/37/chapter.md",
+  "word_count": 492,
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:58:40.1674956Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 492,
+      "ran_at": "2026-09-11T16:58:40.1674956Z"
+    }
   ]
 }

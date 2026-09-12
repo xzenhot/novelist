@@ -1,25 +1,34 @@
 {
   "level": "chapter",
-  "state": "completed",
   "chapter_index": 10,
   "chapter_name": "10",
   "topic": "The Mughals",
   "chapter_title": "The Mughals",
   "chapter_summary": "The Mughal empire's grandeur and decline pass through her. The context turns on the beauty of a civilization that believed itself eternal.",
-  "word_target": 500,
   "segments": [
     1
   ],
-  "workshop_skill": "workshop-poetry",
-  "word_count": 343,
-  "workshop_file": "chapters/10/chapter.md",
-  "source_context": "gist-and-epic",
   "stereotype": {
     "form": "poetry",
     "signature": "gibran",
     "reference": "aurilus.txt",
     "theme_set": "generic.md"
   },
+  "quality_review": {
+    "status": "passed",
+    "notes": [
+      "audited against seed analysis quality parameters"
+    ]
+  },
+  "theme": "The Undefeated Virtue",
+  "theme_essence": "virtue's invincibility",
+  "contemporary_mapping": "the vanity of monuments and the belief that beauty or empire can be permanent",
+  "source_context": "gist-and-epic",
+  "word_count": 493,
+  "workshop_skill": "workshop-poetry",
+  "word_target": 500,
+  "state": "workshop",
+  "workshop_file": "chapters/10/chapter.md",
   "filter_history": [
     {
       "filter": "workshop",
@@ -32,15 +41,10 @@
     {
       "filter": "quality",
       "ran_at": "2026-09-11"
+    },
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:01.8498502Z"
     }
-  ],
-  "quality_review": {
-    "status": "passed",
-    "notes": [
-      "audited against seed analysis quality parameters"
-    ]
-  },
-  "theme": "The Undefeated Virtue",
-  "theme_essence": "virtue's invincibility",
-  "contemporary_mapping": "the vanity of monuments and the belief that beauty or empire can be permanent"
+  ]
 }

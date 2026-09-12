@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 48,
+  "chapter_name": "48",
+  "topic": "The Ridge's Green Breath",
+  "chapter_title": "The Ridge's Green Breath",
+  "chapter_summary": "The half-dead heart of the city still breathes through its trees. The context turns on the pulse that refuses to stop.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "workshop_skill": "workshop-poetry",
+  "workshop_file": "chapters/48/chapter.md",
+  "state": "workshop",
+  "word_count": 504,
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:55:15.9771664Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 504,
+      "ran_at": "2026-09-11T16:55:15.9771664Z"
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "era": "prehistoric Aravalli and Vedic age to contemporary Dwarka, New Delhi",
   "language": "English",
   "target_audience": "readers of Delhi history, sacred geography, women's narratives, and contemporary Indian philosophical verse",
-  "chapter_count": 40,
+  "chapter_count": 80,
   "form": "poetry",
   "book_summary": "Sagorika: The Woman Who Is Delhi is a poetry sequence in which Sagorika speaks as woman, city, earth, memory, and myth. She is a modern woman of Dwarka, New Delhi — alluring, red-lipped, high-heeled, slim, fair, young enough to be beloved — and yet she is eternal, the earth itself, the witness of civilization. She carries the prehistoric dates of the Aravalli ridge, the Vedic age, and the Saraswati river that has vanished into sand. She is the symbol of imagination, poetry, mountain, and volcanic fire — the fire that built modern Delhi from its inception. Across the poems she remembers Indraprastha, Prithviraj Chauhan, the Das dynasty, the Khiljis, the Tughlaqs, and the Mughals, watching each dynasty desire her as a woman while she outlives them as the earth. Beneath the woman and the city lies the land itself: the Aravalli, among the oldest mountain systems on Earth, a Precambrian spine of quartzite and schist that still cuts through Delhi as the Ridge; the tropical geography of the Delhi area, where ancient rock meets the young alluvial plain of the Yamuna; and the climate that shapes every season, from the scorching pre-monsoon summer and the Thar dust storms to the monsoon's flood and the winter fog. The poems do not treat beauty as a surface alone; they treat it as the latest mask worn by a civilization that has always been watched, held, and judged by the ground beneath it. By the end, Sagorika does not boast of her eternity. She asks whether Delhi can recognize the earth — the geology, the climate, the tropical geography — that has always been its woman before the memory becomes only stone.",
   "created_at": "2026-09-11",
@@ -330,6 +330,326 @@
       "word_target": 500,
       "chapter_title": "The Land That Outlasts",
       "chapter_summary": "The concluding poem of the geography gathers the Aravalli, the tropical climate, the geology, and the history into one final address. The context turns on whether the city can recognize the land that will outlast it.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 41,
+      "name": "41",
+      "word_target": 500,
+      "chapter_title": "The Tethys Sea",
+      "chapter_summary": "The ancient sea that once covered this plain still laps at the city's foundations. The context turns on the water that was here before the land.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 42,
+      "name": "42",
+      "word_target": 500,
+      "chapter_title": "The Gondwana Drift",
+      "chapter_summary": "The continent that drifted and broke still moves beneath the city. The context turns on the slow migration written in stone.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 43,
+      "name": "43",
+      "word_target": 500,
+      "chapter_title": "The Quartzite Vein",
+      "chapter_summary": "The quartzite that runs through the Ridge is the earth's oldest blood. The context turns on the mineral that outlasts every empire.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 44,
+      "name": "44",
+      "word_target": 500,
+      "chapter_title": "The Schist and the Sky",
+      "chapter_summary": "The schist of the Aravalli holds the memory of a sky that had no name. The context turns on the stone that remembers the first light.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 45,
+      "name": "45",
+      "word_target": 500,
+      "chapter_title": "The Badarpur Quarries",
+      "chapter_summary": "The ancient bedrock is ground down to build modern apartments. The context turns on the mountain that becomes a wall.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 46,
+      "name": "46",
+      "word_target": 500,
+      "chapter_title": "The Asola Bhatti Lakes",
+      "chapter_summary": "Water fills the craters left by mining, and leopards rule the night. The context turns on the wildness that returns to the wound.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 47,
+      "name": "47",
+      "word_target": 500,
+      "chapter_title": "The Manger Jungle",
+      "chapter_summary": "Wild boars and secret lovers share the oldest forest. The context turns on the green that hides what the city cannot see.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 48,
+      "name": "48",
+      "word_target": 500,
+      "chapter_title": "The Ridge's Green Breath",
+      "chapter_summary": "The half-dead heart of the city still breathes through its trees. The context turns on the pulse that refuses to stop.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 49,
+      "name": "49",
+      "word_target": 500,
+      "chapter_title": "The Peacocks of Raisina",
+      "chapter_summary": "Wild peacocks walk beside the seat of power. The context turns on the beauty that ignores the throne.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 50,
+      "name": "50",
+      "word_target": 500,
+      "chapter_title": "The Anangpur Dam",
+      "chapter_summary": "Eighth-century water engineering hides in the scrubland. The context turns on the water that was tamed before the city was named.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 51,
+      "name": "51",
+      "word_target": 500,
+      "chapter_title": "The Sultan Ghari Crypt",
+      "chapter_summary": "The hidden crypt of the first slave-king's forgotten son. The context turns on the dead who are buried before the dynasty is born.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 52,
+      "name": "52",
+      "word_target": 500,
+      "chapter_title": "The Yogmaya Shrine",
+      "chapter_summary": "An older sacred space predating the Sultanate. The context turns on the goddess who was here before the kings.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 53,
+      "name": "53",
+      "word_target": 500,
+      "chapter_title": "The Tomar Forts",
+      "chapter_summary": "The first stone builders, forgotten by almost everyone. The context turns on the founders whose names the city lost.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 54,
+      "name": "54",
+      "word_target": 500,
+      "chapter_title": "The Lalkot Walls",
+      "chapter_summary": "Prithviraj's walls still stand in the scrub. The context turns on the last Hindu king's unfinished defence.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 55,
+      "name": "55",
+      "word_target": 500,
+      "chapter_title": "The Qutub's Shadow",
+      "chapter_summary": "Seventy-three metres of conquest carved with verses. The context turns on the stone that reaches for a sky it cannot hold.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 56,
+      "name": "56",
+      "word_target": 500,
+      "chapter_title": "The Siri Fort's Silence",
+      "chapter_summary": "Alauddin's military arrogance flattened into a morning park. The context turns on the war that became a lawn.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 57,
+      "name": "57",
+      "word_target": 500,
+      "chapter_title": "The Feroz Shah Kotla",
+      "chapter_summary": "Djinns live among broken pillars and cricket cheers. The context turns on the spirits that outlast the stones.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 58,
+      "name": "58",
+      "word_target": 500,
+      "chapter_title": "The Humayun's Tomb",
+      "chapter_summary": "Persian symmetry masking a clumsy emperor's bones. The context turns on the beauty that hides the fall.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 59,
+      "name": "59",
+      "word_target": 500,
+      "chapter_title": "The Safdarjung Whisper",
+      "chapter_summary": "The last Mughal whisper, forgotten in a generation. The context turns on the empire that ended in a garden.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 60,
+      "name": "60",
+      "word_target": 500,
+      "chapter_title": "The Jama Masjid's Crowd",
+      "chapter_summary": "Twenty-five thousand worshippers inside, chaos outside. The context turns on the prayer that holds against the noise.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 61,
+      "name": "61",
+      "word_target": 500,
+      "chapter_title": "The Khirki Masjid",
+      "chapter_summary": "A fortress-mosque whose stone windows catch no breeze. The context turns on the prayer that cannot breathe.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 62,
+      "name": "62",
+      "word_target": 500,
+      "chapter_title": "The Adham Khan's Dome",
+      "chapter_summary": "The haunted dome of a murderer punished by his emperor. The context turns on the justice that outlives the crime.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 63,
+      "name": "63",
+      "word_target": 500,
+      "chapter_title": "The Jamali Kamali",
+      "chapter_summary": "Sufi saints and hidden whispers in red sandstone. The context turns on the secret that the stone keeps.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 64,
+      "name": "64",
+      "word_target": 500,
+      "chapter_title": "The Ghalib's Haveli",
+      "chapter_summary": "Poetry born in poverty in Ballimaran. The context turns on the verse that survived the hunger.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 65,
+      "name": "65",
+      "word_target": 500,
+      "chapter_title": "The Chandni Chowk",
+      "chapter_summary": "Chaos perfected — eat, pray, buy, survive. The context turns on the market that never sleeps.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 66,
+      "name": "66",
+      "word_target": 500,
+      "chapter_title": "The Khari Baoli",
+      "chapter_summary": "The spice market where the air burns the throat. The context turns on the scent that is older than the city.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 67,
+      "name": "67",
+      "word_target": 500,
+      "chapter_title": "The Kinari Bazaar",
+      "chapter_summary": "Tinsel and gold lace sold by the kilo. The context turns on the joy that is bought and worn.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 68,
+      "name": "68",
+      "word_target": 500,
+      "chapter_title": "The Chawri Bazaar",
+      "chapter_summary": "Once nautch girls, now brass paper rolls. The context turns on the street that changed its song.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 69,
+      "name": "69",
+      "word_target": 500,
+      "chapter_title": "The Fatehpuri Steps",
+      "chapter_summary": "Old men watch the pigeons scatter in the afternoon sun. The context turns on the stillness inside the crowd.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 70,
+      "name": "70",
+      "word_target": 500,
+      "chapter_title": "The Daryaganj Books",
+      "chapter_summary": "Knowledge sold on dusty plastic sheets. The context turns on the words that cost almost nothing.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 71,
+      "name": "71",
+      "word_target": 500,
+      "chapter_title": "The Kashmere Gate",
+      "chapter_summary": "Bullet-riddled stones remembering 1857. The context turns on the wall that still bleeds.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 72,
+      "name": "72",
+      "word_target": 500,
+      "chapter_title": "The North and South Blocks",
+      "chapter_summary": "Twin monoliths dictating files and destinies. The context turns on the power that lives in stone.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 73,
+      "name": "73",
+      "word_target": 500,
+      "chapter_title": "The India Gate Names",
+      "chapter_summary": "Dead soldiers' names carved in stone, ignored by picnickers. The context turns on the memory that no one reads.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 74,
+      "name": "74",
+      "word_target": 500,
+      "chapter_title": "The Connaught Place",
+      "chapter_summary": "A white colonial horseshoe trapping greed and youth. The context turns on the circle that holds the city.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 75,
+      "name": "75",
+      "word_target": 500,
+      "chapter_title": "The Lodhi Gardens",
+      "chapter_summary": "Joggers step over royal graves. The context turns on the kings who became a path.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 76,
+      "name": "76",
+      "word_target": 500,
+      "chapter_title": "The Agrasen ki Baoli",
+      "chapter_summary": "A stepwell dropping into the earth, holding shadows instead of water. The context turns on the depth that forgot its water.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 77,
+      "name": "77",
+      "word_target": 500,
+      "chapter_title": "The Yamuna at Wazirabad",
+      "chapter_summary": "The sacred river meets industrial foam before it enters the town. The context turns on the holiness that is poisoned at the gate.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 78,
+      "name": "78",
+      "word_target": 500,
+      "chapter_title": "The Najafgarh Drain",
+      "chapter_summary": "The concrete creek carrying the hidden waste of millions. The context turns on the river that became a sewer.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 79,
+      "name": "79",
+      "word_target": 500,
+      "chapter_title": "The Hauz Khas Tank",
+      "chapter_summary": "A dry medieval reservoir reflecting upscale cafes. The context turns on the water that became a mirror for wine.",
+      "further_references": []
+    },
+    {
+      "chapter_index": 80,
+      "name": "80",
+      "word_target": 500,
+      "chapter_title": "The Okhla Barrage",
+      "chapter_summary": "The river chained by locks, gates, and pipes. The context turns on the water that is held against its will.",
       "further_references": []
     }
   ],

@@ -1,0 +1,23 @@
+{
+  "level": "chapter",
+  "chapter_index": 70,
+  "chapter_name": "70",
+  "topic": "The Daryaganj Books",
+  "chapter_title": "The Daryaganj Books",
+  "chapter_summary": "Knowledge sold on dusty plastic sheets. The context turns on the words that cost almost nothing.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "source_context": "gist-and-epic",
+  "state": "workshop",
+  "workshop_file": "chapters/70/chapter.md",
+  "word_count": 501,
+  "workshop_skill": "workshop-poetry",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:00.4582998Z"
+    }
+  ]
+}

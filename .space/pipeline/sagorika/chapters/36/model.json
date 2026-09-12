@@ -1,6 +1,5 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 36,
   "chapter_name": "36",
   "topic": "The Meeting of Rock and River",
@@ -9,5 +8,20 @@
   "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "workshop_file": "chapters/36/chapter.md",
+  "word_count": 492,
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:58:40.1637743Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 492,
+      "ran_at": "2026-09-11T16:58:40.1637743Z"
+    }
   ]
 }

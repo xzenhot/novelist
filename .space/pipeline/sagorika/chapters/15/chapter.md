@@ -1,13 +1,12 @@
 # The Metro and the Memory
 
-## Question
+The train carried Sagorika through Dwarka while the words upon her phone remained stubbornly unfinished. She had promised to write about memory, and the speed beyond the glass seemed to invite a splendid comparison: the new city flying over the ancient earth, the present escaping its foundations. She typed half a sentence and stopped. Beside her, a passenger was trying to balance a bag while searching for something inside it. Each movement disturbed the carefully maintained border between their two small spaces.
 
-(To be written by the workshop filter.)
+At first she turned towards the window. There were lights enough to conceal an unwillingness to notice. The epic's Aravalli could occupy her thought with dignity; a stranger's elbow offered none. Then the bag slipped, spilling a folded cloth and a small container near her shoes. She bent before the passenger could reach them. The train moved on while they gathered the scattered things, and the sentence upon her screen waited without suffering. She gave back the container and held the bag open while the passenger placed everything inside.
 
-## Oration
+For a little distance they travelled without speaking. In the window their reflections overlapped, hers bright at the mouth, the other's shadowed by the changing light. Sagorika imagined the ground below holding the line of their passage, not as a ledger which preserved every footstep, but as the deep condition that allowed this brief meeting to occur. The mountain's memory belonged to poetry; the stranger's gratitude belonged to the hour. Neither had to cancel the other. She put the phone away and let the window contain a world she was not immediately obliged to describe.
 
-The metro lines of Dwarka run over the earth's oldest memory. The context turns on the question of whether speed can outrun what the ground remembers.
+When the passenger rose, the bag's fastening caught upon the seat. Sagorika noticed and freed it before the doors opened. The woman smiled, then crossed into the movement outside. There was no exchange of names, no promise to meet again, no grand kinship declared above the sound of departure. A little delay had been prevented because one person remembered a difficulty she had seen a few moments before. Such memory was neither ancient nor magnificent. It was the ordinary faculty by which attention can remain faithful long enough to become useful.
 
-## Benediction
+At her own stop Sagorika took out the phone again. She erased the line about speed escaping the earth. The train had carried her quickly, yet within its movement there had been room to bend, to gather, to remember. Haste became a wound when she used it to excuse the narrowing of her regard. She wrote instead of a bag held open between two strangers while the lights crossed their hands. May the city keep such intervals within its swiftness, and may its journeys bring us nearer to more than our destinations. She left the platform with the page still unfinished, but the next sentence had somewhere truthful to begin. Beneath her descent the stairs received each foot in turn, giving speed back to the patient measure of a body returning to the ground.
 
-(To be written by the workshop filter.)

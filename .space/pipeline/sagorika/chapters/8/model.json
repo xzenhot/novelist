@@ -1,25 +1,34 @@
 {
   "level": "chapter",
-  "state": "completed",
   "chapter_index": 8,
   "chapter_name": "8",
   "topic": "The Khiljis",
   "chapter_title": "The Khiljis",
   "chapter_summary": "The Khilji sultanate builds and burns. The context turns on the fire that forges and the fire that destroys.",
-  "word_target": 500,
   "segments": [
     1
   ],
-  "workshop_skill": "workshop-poetry",
-  "word_count": 352,
-  "workshop_file": "chapters/8/chapter.md",
-  "source_context": "gist-and-epic",
   "stereotype": {
     "form": "poetry",
     "signature": "gibran",
     "reference": "aurilus.txt",
     "theme_set": "generic.md"
   },
+  "quality_review": {
+    "status": "passed",
+    "notes": [
+      "audited against seed analysis quality parameters"
+    ]
+  },
+  "theme": "The Uncluttered Soul",
+  "theme_essence": "simplicity and detachment",
+  "contemporary_mapping": "the destructive side of ambition and unchecked development",
+  "source_context": "gist-and-epic",
+  "word_count": 491,
+  "workshop_skill": "workshop-poetry",
+  "word_target": 500,
+  "state": "workshop",
+  "workshop_file": "chapters/8/chapter.md",
   "filter_history": [
     {
       "filter": "workshop",
@@ -32,15 +41,10 @@
     {
       "filter": "quality",
       "ran_at": "2026-09-11"
+    },
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:01.8498502Z"
     }
-  ],
-  "quality_review": {
-    "status": "passed",
-    "notes": [
-      "audited against seed analysis quality parameters"
-    ]
-  },
-  "theme": "The Uncluttered Soul",
-  "theme_essence": "simplicity and detachment",
-  "contemporary_mapping": "the destructive side of ambition and unchecked development"
+  ]
 }

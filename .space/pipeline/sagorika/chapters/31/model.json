@@ -1,6 +1,5 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 31,
   "chapter_name": "31",
   "topic": "The Ridge for Defence",
@@ -9,5 +8,20 @@
   "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "workshop_file": "chapters/31/chapter.md",
+  "word_count": 495,
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:58:40.1206415Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 495,
+      "ran_at": "2026-09-11T16:58:40.1206415Z"
+    }
   ]
 }

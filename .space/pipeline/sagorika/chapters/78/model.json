@@ -1,0 +1,23 @@
+{
+  "level": "chapter",
+  "chapter_index": 78,
+  "chapter_name": "78",
+  "topic": "The Najafgarh Drain",
+  "chapter_title": "The Najafgarh Drain",
+  "chapter_summary": "The concrete creek carrying the hidden waste of millions. The context turns on the river that became a sewer.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "state": "workshop",
+  "source_context": "gist-and-epic",
+  "word_count": 505,
+  "workshop_skill": "workshop-poetry",
+  "workshop_file": "chapters/78/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:07.9130402Z"
+    }
+  ]
+}

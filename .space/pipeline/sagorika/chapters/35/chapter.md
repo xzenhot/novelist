@@ -1,13 +1,13 @@
 # The Forested Outcrops
 
-## Question
+Who told the green that it had no place left? Sagorika followed the broken line of outcrops through a morning already loud with traffic. Between walls and roads the Ridge persisted in fragments, stone showing through roots, leaves trembling above the city's haste. She had meant to cross quickly. Then she saw a strip of bright plastic wound around a young branch, pulling it down whenever the wind rose.
 
-(To be written by the workshop filter.)
+The branch was too high to reach from the path. She tried standing on a stone, slipped, and caught herself against the trunk. An elderly walker stopped to steady her. Together they found a fallen stick and lifted the plastic free. It came away reluctantly, as if the city's discarded brightness wished to keep its claim upon the living wood. The branch rose a little, then settled into its own imperfect shape.
 
-## Oration
+They stood looking at it, embarrassed by the modest scale of their achievement. No forest had been saved. The traffic had not diminished. Yet a particular weight had been removed from a particular life, and Sagorika would not permit the immensity of what remained to erase the value of that act. She folded the plastic into her bag. It would make an ugly companion to her mirror, which seemed appropriate.
 
-The broken chain of forested outcrops still cuts through the city. The context turns on the green that refuses to be buried.
+The walker told her he came here because the streets left him no room to hear his own footsteps. She listened. Beneath the horns there were smaller sounds: dry leaves touching, a bird moving out of sight, the scrape of his shoe upon stone. The outcrop did not stand outside Delhi. It offered Delhi a way of being other than ceaseless passage, a pause rooted within the very ground the roads crossed.
 
-## Benediction
+Inwardly Sagorika felt the Ridge as the earth's old bone, clothed unevenly in green. She remembered the dynasties, the masonry, the repeated desire to turn a place into proof of power. The surviving trees were no guarantee that the earth would recover every injury. Survival should not be made into permission for further harm. A woman who endured was not therefore unhurt; a forest that persisted was not therefore inexhaustible.
 
-(To be written by the workshop filter.)
+At a fork the walker turned toward home. Sagorika continued until the road reclaimed the path. Beside the exit another scrap lay caught among roots. She picked it up, not because the first act had made her virtuous, but because seeing had made this second act difficult to evade. Later, in Dwarka, she emptied her bag and found dust upon the mirror. Her reflection looked through a faint veil of the Ridge. She cleaned the glass and kept the memory. Let the city make room for what lives without advertising its usefulness, she thought. Let a branch rise because the burden can be lifted, even if no witness calls the gesture great. Tomorrow the traffic would return to this morning's volume. Somewhere beneath it, a leaf would move with one less tether, and that fact would remain both small and real.

@@ -1,6 +1,5 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 28,
   "chapter_name": "28",
   "topic": "The Monsoon",
@@ -9,5 +8,20 @@
   "word_target": 500,
   "segments": [
     1
+  ],
+  "state": "workshop",
+  "word_count": 491,
+  "workshop_file": "chapters/28/chapter.md",
+  "workshop_skill": "workshop-poetry",
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:55:10.8542406Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 491,
+      "ran_at": "2026-09-11T16:55:10.8542406Z"
+    }
   ]
 }

@@ -233,6 +233,7 @@ The `form` field drives: stereotype template folder, filter chain, chapter struc
 - **Gist vs. summary.** The gist is exactly one sentence (used for `book_long_title`). The book summary is a 5–10 sentence paragraph outlining the complete story, derived from the epic and stored as `book_summary`. When the epic changes, regenerate the gist and update `model.json`.
 - **Read before writing.** Before writing any chapter, read its seed/JSON from the pipeline's `filters/`, including `included_characters` and `quality_parameters` (novel) or the topic and category (poetry).
 - **Agents invoke skills.** Never execute a skill directly from this workflow. Route every skill-backed operation through an agent in `.framework/agents/<name>/agent.md`; the agent may then read and apply `.framework/skills/<name>/SKILL.md`. If the required agent does not exist, create that agent first, then have the agent invoke the skill.
+- **Helper scripts live in `.tools/`.** During execution, if any Python or PowerShell helper script is needed (scaffold, publish, layout, translation, filtering, or any other structural operation), save it to the `.tools/` folder as a reusable, parameterized tool — do **not** create it inside `.space/pipeline/<bookname>/` or any other working folder, and do **not** delete it after use. Prefer reusing an existing `.tools/` script over writing a new one. One-off content generation (the actual prose/verse of a chapter) is authored directly, not scripted; only structural, repeatable operations belong in `.tools/`.
 
 ## Scaffolding
 

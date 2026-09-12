@@ -41,10 +41,50 @@
     "The Layered Record",
     "The Geology of Memory",
     "The Tropical Geography of Delhi",
-    "The Land That Outlasts"
+    "The Land That Outlasts",
+    "The Tethys Sea",
+    "The Gondwana Drift",
+    "The Quartzite Vein",
+    "The Schist and the Sky",
+    "The Badarpur Quarries",
+    "The Asola Bhatti Lakes",
+    "The Manger Jungle",
+    "The Ridge's Green Breath",
+    "The Peacocks of Raisina",
+    "The Anangpur Dam",
+    "The Sultan Ghari Crypt",
+    "The Yogmaya Shrine",
+    "The Tomar Forts",
+    "The Lalkot Walls",
+    "The Qutub's Shadow",
+    "The Siri Fort's Silence",
+    "The Feroz Shah Kotla",
+    "The Humayun's Tomb",
+    "The Safdarjung Whisper",
+    "The Jama Masjid's Crowd",
+    "The Khirki Masjid",
+    "The Adham Khan's Dome",
+    "The Jamali Kamali",
+    "The Ghalib's Haveli",
+    "The Chandni Chowk",
+    "The Khari Baoli",
+    "The Kinari Bazaar",
+    "The Chawri Bazaar",
+    "The Fatehpuri Steps",
+    "The Daryaganj Books",
+    "The Kashmere Gate",
+    "The North and South Blocks",
+    "The India Gate Names",
+    "The Connaught Place",
+    "The Lodhi Gardens",
+    "The Agrasen ki Baoli",
+    "The Yamuna at Wazirabad",
+    "The Najafgarh Drain",
+    "The Hauz Khas Tank",
+    "The Okhla Barrage"
   ],
   "context": "../context/qualities/aurilus.md + writer.md",
-  "total_chapters": 40,
+  "total_chapters": 80,
   "completed_chapters": 10,
   "current_chapter": 10,
   "chapters": [
@@ -367,9 +407,330 @@
       "status": "pending",
       "file_path": "chapters\\40\\chapter.md",
       "completed_date": null
+    },
+    {
+      "chapter_number": 41,
+      "topic": "The Tethys Sea",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\41\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 42,
+      "topic": "The Gondwana Drift",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\42\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 43,
+      "topic": "The Quartzite Vein",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\43\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 44,
+      "topic": "The Schist and the Sky",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\44\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 45,
+      "topic": "The Badarpur Quarries",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\45\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 46,
+      "topic": "The Asola Bhatti Lakes",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\46\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 47,
+      "topic": "The Manger Jungle",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\47\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 48,
+      "topic": "The Ridge's Green Breath",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\48\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 49,
+      "topic": "The Peacocks of Raisina",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\49\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 50,
+      "topic": "The Anangpur Dam",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\50\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 51,
+      "topic": "The Sultan Ghari Crypt",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\51\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 52,
+      "topic": "The Yogmaya Shrine",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\52\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 53,
+      "topic": "The Tomar Forts",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\53\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 54,
+      "topic": "The Lalkot Walls",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\54\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 55,
+      "topic": "The Qutub's Shadow",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\55\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 56,
+      "topic": "The Siri Fort's Silence",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\56\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 57,
+      "topic": "The Feroz Shah Kotla",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\57\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 58,
+      "topic": "The Humayun's Tomb",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\58\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 59,
+      "topic": "The Safdarjung Whisper",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\59\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 60,
+      "topic": "The Jama Masjid's Crowd",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\60\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 61,
+      "topic": "The Khirki Masjid",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\61\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 62,
+      "topic": "The Adham Khan's Dome",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\62\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 63,
+      "topic": "The Jamali Kamali",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\63\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 64,
+      "topic": "The Ghalib's Haveli",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\64\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 65,
+      "topic": "The Chandni Chowk",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\65\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 66,
+      "topic": "The Khari Baoli",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\66\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 67,
+      "topic": "The Kinari Bazaar",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\67\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 68,
+      "topic": "The Chawri Bazaar",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\68\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 69,
+      "topic": "The Fatehpuri Steps",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\69\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 70,
+      "topic": "The Daryaganj Books",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\70\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 71,
+      "topic": "The Kashmere Gate",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\71\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 72,
+      "topic": "The North and South Blocks",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\72\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 73,
+      "topic": "The India Gate Names",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\73\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 74,
+      "topic": "The Connaught Place",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\74\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 75,
+      "topic": "The Lodhi Gardens",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\75\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 76,
+      "topic": "The Agrasen ki Baoli",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\76\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 77,
+      "topic": "The Yamuna at Wazirabad",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\77\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 78,
+      "topic": "The Najafgarh Drain",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\78\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 79,
+      "topic": "The Hauz Khas Tank",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\79\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 80,
+      "topic": "The Okhla Barrage",
+      "category": "The Woman Who Is Delhi",
+      "status": "pending",
+      "file_path": "chapters\\80\\chapter.md",
+      "completed_date": null
     }
   ],
   "published": true,
-  "published_at": "2026-09-11T16:28:18Z",
-  "published_version": 2
+  "published_at": "2026-09-11T16:39:46Z",
+  "published_version": 4,
+  "published_language": "bengali"
 }

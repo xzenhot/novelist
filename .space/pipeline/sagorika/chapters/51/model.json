@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 51,
+  "chapter_name": "51",
+  "topic": "The Sultan Ghari Crypt",
+  "chapter_title": "The Sultan Ghari Crypt",
+  "chapter_summary": "The hidden crypt of the first slave-king's forgotten son. The context turns on the dead who are buried before the dynasty is born.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "source_context": "gist-and-epic",
+  "workshop_file": "chapters/51/chapter.md",
+  "word_count": 508,
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:56:59.3238529Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 508,
+      "ran_at": "2026-09-11T16:56:59.3238529Z"
+    }
+  ]
+}

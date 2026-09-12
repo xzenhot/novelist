@@ -50,7 +50,7 @@ def publish(bookname: str, language: str | None = None) -> None:
             return int(fname[len("chapter_v"):-3])
         return 0
 
-    published = []
+    published = []  # list of (n, out_chapter_path)
     skipped = []
     for n in range(1, total + 1):
         if language:
@@ -78,8 +78,9 @@ def publish(bookname: str, language: str | None = None) -> None:
             out_dir = os.path.join(chapters_out, str(n))
 
         os.makedirs(out_dir, exist_ok=True)
-        shutil.copyfile(src_file, os.path.join(out_dir, "chapter.md"))
-        published.append(n)
+        out_chapter = os.path.join(out_dir, "chapter.md")
+        shutil.copyfile(src_file, out_chapter)
+        published.append((n, out_chapter))
 
     # assemble book.md
     title = "Book"
@@ -90,8 +91,7 @@ def publish(bookname: str, language: str | None = None) -> None:
         title = model.get("book_long_title", "Book")
 
     parts = [f"# {title}\n"]
-    for n in published:
-        cp = os.path.join(chapters_out, str(n), "chapter.md")
+    for n, cp in published:
         with open(cp, encoding="utf-8") as f:
             parts.append(f.read().strip())
         parts.append("\n---\n")

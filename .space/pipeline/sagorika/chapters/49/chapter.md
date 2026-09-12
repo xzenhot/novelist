@@ -1,0 +1,15 @@
+# The Peacocks of Raisina
+
+At Raisina, Sagorika stopped because a peacock had entered the scene her companion was arranging. He wanted her against the buildings, the city's grandeur gathered around her. The bird passed through his chosen foreground with an untidy, searching gait. He lowered the camera and waited for it to leave. Sagorika watched its feet. They belonged to no procession and obeyed none of the lines by which the architecture instructed the eye to rise.
+
+The morning had been planned for photographs. At home she had chosen the shoes that made her seem taller, and he had praised the change without seeing how carefully she must walk. Now the bird paused beside a small patch of earth. It did not display itself. Its folded splendour dragged quietly behind the business of being alive. She envied that indifference to an audience, then distrusted her envy: even now she was turning another life into a lesson for her own.
+
+Her companion suggested moving a few steps. She followed, caught a heel in an uneven place, and stumbled. He reached her before she fell. The camera struck his chest; the photograph was lost. For an instant both stood frightened by the ordinary frailty beneath their arrangement. Then she laughed with embarrassment, and he knelt to free the shoe. Above his bent head the buildings retained their authority. At ground level, authority had become the patience required to avoid tearing a strap.
+
+She sat and removed the shoes. The peacock continued its foraging beyond them, neither blessing nor mocking the interruption. Sagorika thought of the rulers who had desired the woman as a setting for their own permanence. Their colours had passed through her, bright and brief. Yet her companion on his knees was not a dynasty merely because she could make him one in a poem. He was checking whether her ankle hurt. She answered him plainly.
+
+They abandoned the portrait for a while. Bare feet on the permitted path, shoes in hand, she walked slowly enough to notice what the planned picture would have excluded: a fallen leaf caught against a curb, the shadow beneath a resting hand, dust whitening the edge of his trousers. He had dressed carefully too. She brushed the dust away and found herself touched by that small vanity shared between them, no longer required to carry the weight of empire.
+
+When the bird moved out of sight, he asked whether she still wanted the photograph. Yes, she said, but let me stand as I am. He stepped back. Her shoes hung from two fingers. Nothing in the resulting image explained the oldest bone beneath the city, the vanished river, or the fires by which imagination forged its towers. Yet the woman looked present rather than enthroned.
+
+That evening she chose this imperfect portrait over the polished ones. At its edge a little empty ground remained where the bird had been. She resisted cropping it away. Beauty had crossed their morning on its own errands, leaving enough space for two people to become less certain of their pose.

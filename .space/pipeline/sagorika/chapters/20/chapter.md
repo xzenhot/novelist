@@ -1,13 +1,12 @@
 # The Question Sagorika Leaves
 
-## Question
+Before dawn Sagorika left a page upon the table and went out into Dwarka. She had written a question at its centre, then found that every answer she added made the page less honest. Could Delhi see the woman beneath its own glamour before the memory became only stone? The words had followed her through the night. Now the towers were losing their borrowed brilliance, and the first unadorned light made their windows look like ordinary places where people had slept badly or well.
 
-(To be written by the workshop filter.)
+She carried no speech for the city. The epic's woman, earth, fire, and vanished river moved within her, but they had grown weary of being summoned only to make a conclusion sound profound. The Aravalli did not need another magnificent farewell. The water in the households needed attention, the ground needed room, and the woman herself needed the freedom to remain a person after the poem had asked her to become a world. She walked until the rhythm of her steps loosened the sentences still pressing behind her eyes.
 
-## Oration
+At the entrance to a building, a door had swung shut upon the corner of a cloth bag. Someone inside was pulling, unable to see what held it. Sagorika stopped and pushed the door open from her side. The bag came free so suddenly that its owner laughed with relief. An ordinary thank you crossed the threshold. She might have gone on then, but the person asked whether she was looking for an address. No, she said, I was trying to find an ending. The answer sounded strange in the morning, and they both smiled.
 
-The final poem gathers the woman, the earth, the fire, and the vanished river into one address. The context turns on whether Delhi can learn to see the woman beneath its own glamour before the memory becomes only stone.
+She returned by the same street. Nothing had become whole in the interval. The city still carried its unequal burdens; her small intervention had not answered the question left upon the table. Yet it had shown her why the question must remain open. A finished moral could be admired and put away. An unfinished responsibility would interrupt the hand reaching for admiration and ask what stood caught within reach of it. The earth's witness became demanding only when it entered such an hour, where someone could act and might still choose to pass.
 
-## Benediction
+Back in her room, Sagorika read the page in the new light. She crossed out the answer she had written beneath the question and left the white space. Then she opened the window and set a cup of water beside the chair. She would go on living here, which meant she would go on failing to notice things, and would have to begin noticing again without the protection of a perfect self. May the city grant itself that difficult beginning. She sat down, her red mouth unpainted for the moment, her feet resting upon the floor. Outside, a door opened and closed. The poem had reached its pause; the morning had not. Beyond the window the living ground continued, bearing another day whose claims could not be settled by the beauty of her last sentence.
 
-(To be written by the workshop filter.)

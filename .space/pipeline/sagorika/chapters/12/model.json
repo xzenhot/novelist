@@ -1,13 +1,23 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 12,
   "chapter_name": "12",
   "topic": "The Woman Who Is Delhi",
   "chapter_title": "The Woman Who Is Delhi",
   "chapter_summary": "The concluding poem gathers the Aravalli, the Vedic age, the vanished Saraswati, Indraprastha, Prithviraj, the Das dynasty, the Khiljis, the Tughlaqs, the Mughals, and the volcanic fire into one final address. The context turns on whether the city can recognize the earth that has always been its woman.",
-  "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "word_count": 500,
+  "workshop_skill": "workshop-poetry",
+  "word_target": 500,
+  "state": "workshop",
+  "workshop_file": "chapters/12/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:01.8498502Z"
+    }
   ]
 }

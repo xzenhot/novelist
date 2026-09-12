@@ -1,0 +1,23 @@
+{
+  "level": "chapter",
+  "chapter_index": 71,
+  "chapter_name": "71",
+  "topic": "The Kashmere Gate",
+  "chapter_title": "The Kashmere Gate",
+  "chapter_summary": "Bullet-riddled stones remembering 1857. The context turns on the wall that still bleeds.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "source_context": "gist-and-epic",
+  "state": "workshop",
+  "workshop_file": "chapters/71/chapter.md",
+  "word_count": 502,
+  "workshop_skill": "workshop-poetry",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:00.4582998Z"
+    }
+  ]
+}

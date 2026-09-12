@@ -1,13 +1,11 @@
 # The Mountain
 
-## Question
+They had built the little wall straight until the rock interrupted it. Sagorika stood beside the unfinished edge and watched a man measure the obstruction with his eyes. He was not a king, nor did the small repair promise to become a monument. He wanted the work finished before the light went, and the stone rose inconveniently where his line should continue. Must everything here resist us? he asked, more to his tired hands than to the woman standing nearby.
 
-(To be written by the workshop filter.)
+She understood the weariness in the question. The mountain of the epic bore cities and dynasties with a patience that could become almost inhuman when spoken too easily. This man had only an afternoon, a body that ached, a task for which another person was waiting. She would not answer him with the grandeur of geological time as though his briefness made his trouble contemptible. Instead she asked whether the wall could bend. He looked at the rock again, then at the short distance still to be closed.
 
-## Oration
+It would change the shape, he said. She waited while he considered how much the shape mattered and to whom. Beneath his irritation there remained the intelligence of his hands, the knowledge that a line upon an intention is different from a line laid over actual ground. He set one loose piece carefully beside the waiting stone and stepped back, rubbing his dusty palms together. The wall would lose its straightness, but the opening could still be held. A small curve appeared, tentative, as though the work had begun to listen to the place in which it was being done.
 
-She is the mountain that holds the city, the ridge that refuses to be buried. The context turns on the patience of the ground beneath every monument.
+Sagorika imagined the Aravalli within that resistance, the old bone beneath the city's newest face. The image did not tell her the age or identity of the particular stone; it gave her a way to see the encounter without reducing either side to an enemy. The ground had a shape before the task arrived. The task had a purpose which need not vanish when the shape was acknowledged. Between surrender and conquest lay the less celebrated labour of adjustment, the willingness to let an intention become answerable to what it touched.
 
-## Benediction
-
-(To be written by the workshop filter.)
+She held the loose pieces steady while the man marked his altered line. They did not speak much. When the work could continue without her, she stepped away, and he nodded towards the curve as though introducing a feature he had discovered rather than a defeat he had accepted. The light was fading, yet the remaining task seemed smaller. May the city's ambition find such turns within itself, making room for the ground without making a spectacle of humility. Sagorika walked home with dust along her fingers. The mountain had not bowed, and the man had not been diminished. A wall would stand a little differently by evening, carrying in its bend the quiet record of a hand that had ceased insisting upon the shortest line between its wish and the world.

@@ -1,13 +1,13 @@
 # The Ridge for Defence
 
-## Question
+Whom does a wall defend when the gate is closed? Sagorika climbed beside an old rampart upon the Ridge as evening entered the stones. A boy ran ahead, choosing the highest surviving part for his fortress. From there he declared himself king of Delhi. His sister, left below with a bag too large for her shoulders, asked permission to enter. He denied it with the joyous severity of borrowed power.
 
-(To be written by the workshop filter.)
+Sagorika watched her set the bag down. The game had made the height magnificent and the burden invisible. Around them the Ridge lay under the masonry like an older body beneath armour. In her thought the dynasties returned, each seeking the stone's advantage, each giving its brief purpose the name of permanence. Defence had always sounded noble from the sheltered side.
 
-## Oration
+The girl tried another approach. A loose piece slipped beneath her shoe, and she drew back. Her brother shouted instructions from above, irritated that she did not understand his imagined entrance. Sagorika asked him to come down and show her. He refused at first; descent would cost him his throne. Then the girl's silence disturbed him more than any protest. He climbed down, still issuing commands to preserve the dignity of his surrender.
 
-Every dynasty chose the ridge for defence. The context turns on the stone that protected kings and outlived them.
+Together they found an easier path. He took the bag and discovered its weight. Sagorika offered her hand where the rock narrowed. Their little ascent required more judgement than the boy's conquest had required, for now there was another body's safety to consider. When they reached the top, he gave his sister the place from which he had ruled. She sat there without proclaiming anything.
 
-## Benediction
+Beyond the wall, Delhi spread its rooms and roads across the gathering dusk. Sagorika imagined every ruler who had trusted height to separate him from need. Yet the rock had never eaten his bread for him, never drunk his water, never loved those whom his command had frightened. It had offered a position; men had made that position into a claim upon others. Stone could outlast the claim without being innocent of the uses to which it was forced.
 
-(To be written by the workshop filter.)
+The children opened their bag. Inside were a bottle, folded clothes, and food wrapped against the dust. They offered Sagorika a piece. She accepted and sat below them upon the older outcrop, letting the rampart stand behind her without adopting its authority. When darkness thickened, the boy was first to say they should leave together. He carried the bag all the way down. Sagorika heard his breathing change under it and did not relieve him too soon. Here was a burden from which a useful sovereignty might begin: knowing the weight another had carried while one played at greatness. Behind them the Ridge kept its uncelebrated watch. May every gate remember the body approaching it, she thought, and every height remember that its first decent use is to help another ascend. At the foot of the path the girl took her brother's hand, freely, without asking leave.

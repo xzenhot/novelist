@@ -1,13 +1,23 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 13,
   "chapter_name": "13",
   "topic": "The Red Lipstick",
   "chapter_title": "The Red Lipstick",
   "chapter_summary": "The red lipstick becomes the city's glamour, a bright mask over prehistoric stone. The context turns on the question of what a civilization paints over when it paints itself beautiful.",
-  "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "word_count": 494,
+  "workshop_skill": "workshop-poetry",
+  "word_target": 500,
+  "state": "workshop",
+  "workshop_file": "chapters/13/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:01.8498502Z"
+    }
   ]
 }

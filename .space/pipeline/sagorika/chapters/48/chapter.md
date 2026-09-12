@@ -1,0 +1,15 @@
+# The Ridge's Green Breath
+
+On the hottest afternoon of that week, Sagorika found her neighbour sitting halfway up the stairs, unable to climb the remaining flight without resting. The building's walls held the day like a grievance. She brought a chair to the landing, and they sat together while the lift remained silent behind its metal doors. Through a narrow window a distant band of trees marked the ridge. The neighbour looked towards it as a thirsty person looks towards the sound of a vessel being filled.
+
+When evening loosened the heat, they walked slowly towards a patch of green. Sagorika, accustomed to the sharp command of her heels, shortened her stride to the rhythm beside her. She thought of the city's breath, how often poets borrowed it without listening to an actual person draw air. Now every pause had weight. Her companion was a woman annoyed that her sandal strap had begun to chafe.
+
+They reached a bench beneath the trees. Leaves moved overhead, and a little air touched their foreheads. The neighbour closed her eyes. Sagorika felt the earth's old bone beneath the broken green, its persistence neither a cure nor an excuse for the city's neglect. The ridge could offer this shade. It could not make all the rooms humane merely by remaining visible from their windows. A living remnant was not an endless reserve upon which every new wall might draw.
+
+A boy nearby was trying to fasten a strip of cloth between two branches. It slipped; he pulled harder; one twig bent almost to breaking. The neighbour opened her eyes and called to him. Tie it lower, she said, indicating a sturdier place. He frowned, then obeyed. The cloth held. Sagorika watched the exchange with an affection more difficult than awe. Here was the city's breath returned as instruction, a woman rested enough to spare a branch.
+
+They talked about the stairwell, which had once kept its window open until someone complained of dust. Sagorika remembered consenting to its closure without considering the trapped air. Tomorrow she would raise the matter with the neighbours, ask what could safely be changed, help make an arrangement that took the upper floors seriously. The promise was ordinary enough to be tested. She spoke it aloud because the trees had heard too many beautiful resolutions that vanished on the road home.
+
+Darkness gathered under the bench. Her companion stood first, surprising them both, and insisted on carrying the empty water bottle. They returned more slowly than traffic allowed, waited through another light, and laughed when a little gust disturbed Sagorika's carefully arranged hair. She left it disordered. Her face in a shop window looked less like a city's advertisement and more like someone who had spent the evening beside another human being.
+
+At the stairs they stopped again. Rest was still necessary; the walk had not transformed a body into a parable. Sagorika brought the chair back to the landing and left it there for the next ascent. Outside, the ridge's leaves continued their small, uncounted movements.

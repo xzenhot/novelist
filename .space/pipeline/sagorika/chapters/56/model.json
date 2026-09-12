@@ -1,0 +1,27 @@
+{
+  "level": "chapter",
+  "chapter_index": 56,
+  "chapter_name": "56",
+  "topic": "The Siri Fort's Silence",
+  "chapter_title": "The Siri Fort's Silence",
+  "chapter_summary": "Alauddin's military arrogance flattened into a morning park. The context turns on the war that became a lawn.",
+  "word_target": 500,
+  "segments": [
+    1
+  ],
+  "workshop_file": "chapters/56/chapter.md",
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "word_count": 503,
+  "source_context": "gist-and-epic",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:58:49.1117152Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 503,
+      "ran_at": "2026-09-11T16:58:49.1117152Z"
+    }
+  ]
+}

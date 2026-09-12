@@ -1,13 +1,23 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 18,
   "chapter_name": "18",
   "topic": "The Imagination",
   "chapter_title": "The Imagination",
   "chapter_summary": "She is the imagination that dreams a city into being, the poetry that names it. The context turns on the question of whether a city can exist without the dream that made it.",
-  "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "word_count": 491,
+  "workshop_skill": "workshop-poetry",
+  "word_target": 500,
+  "state": "workshop",
+  "workshop_file": "chapters/18/chapter.md",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "ran_at": "2026-09-11T16:59:01.8498502Z"
+    }
   ]
 }

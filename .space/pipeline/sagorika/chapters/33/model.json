@@ -1,6 +1,5 @@
 {
   "level": "chapter",
-  "state": "scaffolded",
   "chapter_index": 33,
   "chapter_name": "33",
   "topic": "The Plain for Grain",
@@ -9,5 +8,20 @@
   "word_target": 500,
   "segments": [
     1
+  ],
+  "source_context": "gist-and-epic",
+  "workshop_file": "chapters/33/chapter.md",
+  "word_count": 490,
+  "workshop_skill": "workshop-poetry",
+  "state": "workshop",
+  "filter_history": [
+    {
+      "filter": "workshop",
+      "timestamp": "2026-09-11T16:58:40.1541489Z",
+      "status": "completed",
+      "skill": "workshop-poetry",
+      "word_count": 490,
+      "ran_at": "2026-09-11T16:58:40.1541489Z"
+    }
   ]
 }

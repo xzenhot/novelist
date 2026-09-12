@@ -1,13 +1,13 @@
 # The Layered Record
 
-## Question
+Who may read the page that has never learned our letters? Sagorika stopped beside a cut in the roadside earth where work had exposed a narrow face of ground. A labourer rested nearby, his tools laid down in the shade. Above the cut the pavement remained level, carrying everyone past with its usual assurance. Beneath it, colours and textures changed, refusing the smooth story the surface told.
 
-(To be written by the workshop filter.)
+She asked whether she might look more closely. He warned her away from the edge and pointed to a safer place. There she saw loose soil, packed earth, fragments of stone, a darker dampness below. She would not name each layer with an authority she did not possess. Attention could begin without pretending to scholarship. The ground's difference was visible before its full explanation could be claimed.
 
-## Oration
+The labourer said that people complained about the opening because it interrupted their passage. Sagorika understood the complaint; she too had wanted an unbroken road. Yet the road depended upon what it concealed, and some repairs required the concealment to be broken. Here was a page Delhi could not turn without standing briefly still. The oldest archive had no polite means of asking an appointment.
 
-The geography is a layered record: basement, alluvium, groundwater, climate. The context turns on the earth as an archive written before writing.
+In her imagination the city's broader layers gathered: ancient basement, riverborne alluvium, hidden water, the seasons working upon all three. Over them came the sediment of human habitation, names and laws, desires hardened into walls. She distinguished the image from the exposed strip before her; not every memory lay neatly arranged in a trench. Still, the opening rebuked the habit of seeing the present as a foundation rather than a surface.
 
-## Benediction
+A passerby nearly stepped beyond the loose barrier while looking at his telephone. Sagorika called out. He stopped, annoyed, then saw the drop and withdrew. The labourer moved the barrier farther into the path. His adjustment cost the walkers a few more inches and spared them a danger that their haste had made invisible. Sagorika helped hold it steady while he secured the end. Reading the earth had become, for the moment, arranging how people would approach it.
 
-(To be written by the workshop filter.)
+When work resumed, she left the labourer to his task. By evening the opening might be covered, the road restored to its fiction of seamlessness. She took no fragment away. What belonged to the cut should remain available to those responsible for its repair. At home she wrote a single sentence: a surface is a kindness only when its hidden supports are kept sound. Then she crossed out kindness and wrote promise. A promise could be examined, maintained, broken; it need not ask for gratitude merely because it bore another's step. Outside, traffic continued over innumerable unseen depths. Sagorika listened to its steady passage and wondered how much of civilization was this agreement to care for what most people would never look beneath, and how quietly that agreement failed when looking was dismissed as delay. The sentence waited beside her, requiring more than agreement.
