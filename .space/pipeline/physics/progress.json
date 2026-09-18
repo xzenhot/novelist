@@ -1,0 +1,966 @@
+{
+  "title": "পদার্থ: জগতের পাঠ, অন্তরের প্রশ্ন",
+  "language": "বাংলা",
+  "source_terms": [
+    "ত্বরণ (Acceleration)",
+    "বল (Force)",
+    "শক্তি (Energy)",
+    "ক্ষমতা (Power)",
+    "ঘর্ষণ (Friction)",
+    "ঘনত্ব (Density)",
+    "চাপ (Pressure)",
+    "আয়তন (Volume)",
+    "টর্ক / ঘূর্ণনবল (Torque)",
+    "টান (Tension)",
+    "কম্পাঙ্ক (Frequency)",
+    "তরঙ্গদৈর্ঘ্য (Wavelength)",
+    "বিস্তার (Amplitude)",
+    "তড়িৎপ্রবাহ (Current)",
+    "ভোল্টেজ / বিভবপ্রভেদ (Voltage)",
+    "রোধ (Resistance)",
+    "ধারকত্ব (Capacitance)",
+    "আবেশাঙ্ক (Inductance)",
+    "আধান (Charge)",
+    "ফ্লাক্স / প্রবাহ ঘনত্ব (Flux)",
+    "ঔজ্জ্বল্য / দীপ্তি (Luminosity)",
+    "তাপমাত্রা (Temperature)",
+    "তাপ (Heat)",
+    "এনথ্যালপি (Enthalpy)",
+    "কাজ / কার্য (Work)",
+    "ঘাত / আবেগ (Impulse)",
+    "জড়তা (Inertia)",
+    "সান্দ্রতা (Viscosity)",
+    "স্থিতিস্থাপকতা (Elasticity)",
+    "চুম্বকত্ব (Magnetism)",
+    "বিকিরণ (Radiation)",
+    "পরিবহন (Conduction)",
+    "পরিচলন (Convection)",
+    "প্রতিসরণ (Refraction)",
+    "অপবর্তন (Diffraction)",
+    "প্রতিফলন (Reflection)",
+    "বিচ্ছুরণ (Dispersion)",
+    "সমবর্তন (Polarization)",
+    "অনুনাদ (Resonance)",
+    "দোলন (Oscillation)",
+    "প্লবতা (Buoyancy)",
+    "ওজন / ভার (Weight)",
+    "সরণ (Displacement)",
+    "ভেক্টর (Vector)",
+    "স্কেলার (Scalar)",
+    "শূন্যস্থান (Vacuum)",
+    "প্লাজমা (Plasma)",
+    "ফোটন (Photon)",
+    "ইলেকট্রন (Electron)",
+    "প্রোটন (Proton)",
+    "নিউট্রন (Neutron)",
+    "কোয়ার্ক (Quark)",
+    "বোসন (Boson)",
+    "ফার্মিয়ন (Fermion)",
+    "গ্র্যাভিটন (Graviton)",
+    "নিউট্রিনো (Neutrino)",
+    "আইসোটোপ (Isotope)",
+    "ক্ষয় (Decay)",
+    "বিভাজন / ফিশন (Fission)",
+    "সংযোজন / ফিউশন (Fusion)",
+    "স্থিতিশক্তি / বিভব (Potential)",
+    "গতিশক্তি (Kinetic)",
+    "অবিচ্ছিন্নতা (Continuum)",
+    "সাম্যাবস্থা (Equilibrium)",
+    "অতিপরিবাহিতা (Superconductivity)",
+    "চুম্বকায়ন (Magnetization)",
+    "তড়িৎভেদ্যতা (Permittivity)",
+    "চৌম্বকভেদ্যতা (Permeability)",
+    "পরিবাহিতা (Conductance)",
+    "প্রতিবাধা (Impedance)",
+    "প্রতিঘাত / রিঅ্যাক্ট্যান্স (Reactance)",
+    "প্রবেশ্যতা / অ্যাডমিট্যান্স (Admittance)",
+    "চৌম্বক প্রতিরোধ / রিলাকট্যান্স (Reluctance)",
+    "চৌম্বক প্রবণতা / Susceptibility",
+    "বিকিরণ তীব্রতা (Radiance)",
+    "বিকিরণ প্রবাহ (Irradiance)",
+    "তীব্রতা (Intensity)",
+    "গুণাঙ্ক (Modulus)",
+    "পীড়ন (Stress)",
+    "বিকৃতি (Strain)",
+    "নমনীয়তা (Ductility)",
+    "ঘাতসহনশীলতা (Malleability)",
+    "দৃঢ়তা / কাঠিন্য (Hardness)",
+    "ভঙ্গুরতা (Brittleness)",
+    "বিশৃঙ্খলা / অশান্ত প্রবাহ (Turbulence)",
+    "গতিপথ (Trajectory)",
+    "কক্ষপথ (Orbit)",
+    "লম্বন (Parallax)",
+    "লোহিত সরণ / Redshift",
+    "নীল সরণ / Blueshift",
+    "সিঙ্গুলারিটি / পরম বিন্দু (Singularity)",
+    "স্থান-কাল (Spacetime)",
+    "জিওডেসিক / ভূগাণিতিক রেখা (Geodesic)",
+    "কোয়ান্টাম (Quantum)",
+    "স্পিন / ঘূর্ণন (Spin)",
+    "সুসংগতি (Coherence)",
+    "এনট্যাঙ্গলমেন্ট / জড়ানো অবস্থা (Entanglement)",
+    "জুল (Joule)",
+    "প্যাসকেল (Pascal)",
+    "ওয়াট (Watt)",
+    "দ্রুতি (Velocity)",
+    "ভরবেগ (Momentum)",
+    "মহাকর্ষ (Gravity)",
+    "ভর (Mass)",
+    "ক্যালোরি (Calorie)",
+    "এনট্রপি (Entropy)"
+  ],
+  "context": "model.json",
+  "total_chapters": 106,
+  "completed_chapters": 0,
+  "current_chapter": 1,
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "topic": "ত্বরণ (Acceleration)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\1\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 2,
+      "topic": "বল (Force)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\2\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 3,
+      "topic": "শক্তি (Energy)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\3\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 4,
+      "topic": "ক্ষমতা (Power)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\4\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 5,
+      "topic": "ঘর্ষণ (Friction)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\5\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 6,
+      "topic": "ঘনত্ব (Density)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\6\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 7,
+      "topic": "চাপ (Pressure)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\7\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 8,
+      "topic": "আয়তন (Volume)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\8\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 9,
+      "topic": "টর্ক / ঘূর্ণনবল (Torque)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\9\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 10,
+      "topic": "টান (Tension)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\10\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 11,
+      "topic": "কম্পাঙ্ক (Frequency)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\11\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 12,
+      "topic": "তরঙ্গদৈর্ঘ্য (Wavelength)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\12\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 13,
+      "topic": "বিস্তার (Amplitude)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\13\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 14,
+      "topic": "তড়িৎপ্রবাহ (Current)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\14\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 15,
+      "topic": "ভোল্টেজ / বিভবপ্রভেদ (Voltage)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\15\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 16,
+      "topic": "রোধ (Resistance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\16\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 17,
+      "topic": "ধারকত্ব (Capacitance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\17\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 18,
+      "topic": "আবেশাঙ্ক (Inductance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\18\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 19,
+      "topic": "আধান (Charge)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\19\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 20,
+      "topic": "ফ্লাক্স / প্রবাহ ঘনত্ব (Flux)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\20\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 21,
+      "topic": "ঔজ্জ্বল্য / দীপ্তি (Luminosity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\21\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 22,
+      "topic": "তাপমাত্রা (Temperature)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\22\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 23,
+      "topic": "তাপ (Heat)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\23\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 24,
+      "topic": "এনথ্যালপি (Enthalpy)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\24\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 25,
+      "topic": "কাজ / কার্য (Work)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\25\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 26,
+      "topic": "ঘাত / আবেগ (Impulse)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\26\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 27,
+      "topic": "জড়তা (Inertia)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\27\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 28,
+      "topic": "সান্দ্রতা (Viscosity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\28\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 29,
+      "topic": "স্থিতিস্থাপকতা (Elasticity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\29\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 30,
+      "topic": "চুম্বকত্ব (Magnetism)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\30\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 31,
+      "topic": "বিকিরণ (Radiation)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\31\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 32,
+      "topic": "পরিবহন (Conduction)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\32\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 33,
+      "topic": "পরিচলন (Convection)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\33\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 34,
+      "topic": "প্রতিসরণ (Refraction)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\34\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 35,
+      "topic": "অপবর্তন (Diffraction)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\35\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 36,
+      "topic": "প্রতিফলন (Reflection)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\36\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 37,
+      "topic": "বিচ্ছুরণ (Dispersion)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\37\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 38,
+      "topic": "সমবর্তন (Polarization)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\38\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 39,
+      "topic": "অনুনাদ (Resonance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\39\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 40,
+      "topic": "দোলন (Oscillation)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\40\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 41,
+      "topic": "প্লবতা (Buoyancy)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\41\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 42,
+      "topic": "ওজন / ভার (Weight)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\42\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 43,
+      "topic": "সরণ (Displacement)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\43\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 44,
+      "topic": "ভেক্টর (Vector)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\44\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 45,
+      "topic": "স্কেলার (Scalar)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\45\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 46,
+      "topic": "শূন্যস্থান (Vacuum)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\46\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 47,
+      "topic": "প্লাজমা (Plasma)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\47\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 48,
+      "topic": "ফোটন (Photon)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\48\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 49,
+      "topic": "ইলেকট্রন (Electron)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\49\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 50,
+      "topic": "প্রোটন (Proton)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\50\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 51,
+      "topic": "নিউট্রন (Neutron)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\51\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 52,
+      "topic": "কোয়ার্ক (Quark)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\52\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 53,
+      "topic": "বোসন (Boson)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\53\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 54,
+      "topic": "ফার্মিয়ন (Fermion)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\54\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 55,
+      "topic": "গ্র্যাভিটন (Graviton)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\55\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 56,
+      "topic": "নিউট্রিনো (Neutrino)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\56\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 57,
+      "topic": "আইসোটোপ (Isotope)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\57\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 58,
+      "topic": "ক্ষয় (Decay)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\58\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 59,
+      "topic": "বিভাজন / ফিশন (Fission)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\59\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 60,
+      "topic": "সংযোজন / ফিউশন (Fusion)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\60\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 61,
+      "topic": "স্থিতিশক্তি / বিভব (Potential)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\61\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 62,
+      "topic": "গতিশক্তি (Kinetic)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\62\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 63,
+      "topic": "অবিচ্ছিন্নতা (Continuum)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\63\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 64,
+      "topic": "সাম্যাবস্থা (Equilibrium)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\64\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 65,
+      "topic": "অতিপরিবাহিতা (Superconductivity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\65\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 66,
+      "topic": "চুম্বকায়ন (Magnetization)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\66\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 67,
+      "topic": "তড়িৎভেদ্যতা (Permittivity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\67\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 68,
+      "topic": "চৌম্বকভেদ্যতা (Permeability)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\68\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 69,
+      "topic": "পরিবাহিতা (Conductance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\69\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 70,
+      "topic": "প্রতিবাধা (Impedance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\70\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 71,
+      "topic": "প্রতিঘাত / রিঅ্যাক্ট্যান্স (Reactance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\71\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 72,
+      "topic": "প্রবেশ্যতা / অ্যাডমিট্যান্স (Admittance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\72\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 73,
+      "topic": "চৌম্বক প্রতিরোধ / রিলাকট্যান্স (Reluctance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\73\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 74,
+      "topic": "চৌম্বক প্রবণতা / Susceptibility",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\74\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 75,
+      "topic": "বিকিরণ তীব্রতা (Radiance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\75\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 76,
+      "topic": "বিকিরণ প্রবাহ (Irradiance)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\76\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 77,
+      "topic": "তীব্রতা (Intensity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\77\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 78,
+      "topic": "গুণাঙ্ক (Modulus)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\78\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 79,
+      "topic": "পীড়ন (Stress)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\79\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 80,
+      "topic": "বিকৃতি (Strain)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\80\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 81,
+      "topic": "নমনীয়তা (Ductility)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\81\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 82,
+      "topic": "ঘাতসহনশীলতা (Malleability)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\82\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 83,
+      "topic": "দৃঢ়তা / কাঠিন্য (Hardness)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\83\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 84,
+      "topic": "ভঙ্গুরতা (Brittleness)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\84\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 85,
+      "topic": "বিশৃঙ্খলা / অশান্ত প্রবাহ (Turbulence)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\85\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 86,
+      "topic": "গতিপথ (Trajectory)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\86\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 87,
+      "topic": "কক্ষপথ (Orbit)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\87\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 88,
+      "topic": "লম্বন (Parallax)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\88\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 89,
+      "topic": "লোহিত সরণ / Redshift",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\89\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 90,
+      "topic": "নীল সরণ / Blueshift",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\90\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 91,
+      "topic": "সিঙ্গুলারিটি / পরম বিন্দু (Singularity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\91\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 92,
+      "topic": "স্থান-কাল (Spacetime)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\92\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 93,
+      "topic": "জিওডেসিক / ভূগাণিতিক রেখা (Geodesic)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\93\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 94,
+      "topic": "কোয়ান্টাম (Quantum)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\94\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 95,
+      "topic": "স্পিন / ঘূর্ণন (Spin)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\95\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 96,
+      "topic": "সুসংগতি (Coherence)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\96\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 97,
+      "topic": "এনট্যাঙ্গলমেন্ট / জড়ানো অবস্থা (Entanglement)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\97\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 98,
+      "topic": "জুল (Joule)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\98\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 99,
+      "topic": "প্যাসকেল (Pascal)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\99\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 100,
+      "topic": "ওয়াট (Watt)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\100\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 101,
+      "topic": "দ্রুতি (Velocity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\101\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 102,
+      "topic": "ভরবেগ (Momentum)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\102\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 103,
+      "topic": "মহাকর্ষ (Gravity)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\103\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 104,
+      "topic": "ভর (Mass)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\104\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 105,
+      "topic": "ক্যালোরি (Calorie)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\105\\chapter.md",
+      "completed_date": null
+    },
+    {
+      "chapter_number": 106,
+      "topic": "এনট্রপি (Entropy)",
+      "category": "",
+      "status": "pending",
+      "file_path": "chapters\\106\\chapter.md",
+      "completed_date": null
+    }
+  ]
+}

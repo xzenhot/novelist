@@ -1,18 +1,17 @@
 ---
 name: theme-poetry
-description: Assign a poetry chapter its thematic lens and stereotype (signature, reference, theme set) from the chapter's own metadata and prose, using the poetry stereotype templates. Reads only the chapter's model.json and chapter.md — never the backlog.
+description: Assign a poetry chapter its thematic lens and stereotype (signature, reference, theme set) from the chapter's own metadata, using the poetry stereotype templates. Reads only the chapter's model.json — never the backlog, never chapter.md.
 ---
 
 # Poetry Theme — The Philosophical Lens
 
-Use this skill for a poetry pipeline to assign one chapter its **theme** (the philosophical lens) and one **stereotype** (signature, reference, theme set). Work only from the chapter's own files.
+Use this skill for a poetry pipeline to assign one chapter its **theme** (the philosophical lens) and one **stereotype** (signature, reference, theme set). Work only from the chapter's own metadata.
 
 ## Inputs (only these)
 
-1. `.space/pipeline/<bookname>/chapters/<n>/model.json` — the chapter's metadata.
-2. `.space/pipeline/<bookname>/chapters/<n>/chapter.md` — the chapter's prose.
+1. `.space/pipeline/<bookname>/chapters/<n>/model.json` — the chapter's metadata. This is the only per-chapter input; `chapter.md` is an output file owned by the write path and is never read.
 
-Read both. Everything you need is already there.
+Everything you need is in the chapter model.
 
 ## What a Theme Is
 
@@ -20,7 +19,7 @@ A theme is not a topic or a plot point. It is a **lens** — a recurring idea th
 
 ## Method
 
-1. Read the chapter's `model.json` and `chapter.md`.
+1. Read the chapter's `model.json`.
 2. Confirm the form is `poetry` (from `model.json` → `syntax.form` or the pipeline model).
 3. Select the **signature**, **reference**, and **theme set** from the poetry stereotype templates:
    - `.framework/templates/stereotypes/poetry/signatures/`

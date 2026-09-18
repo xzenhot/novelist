@@ -152,9 +152,7 @@ def scaffold(bookname: str) -> None:
         with open(os.path.join(seg, "model.json"), "w", encoding="utf-8") as f:
             json.dump(sm, f, indent=2, ensure_ascii=False)
 
-        with open(os.path.join(cd, "chapter.md"), "w", encoding="utf-8") as f:
-            f.write(f"# {c['chapter_title']}\n\n")
-            f.write(f"{c['chapter_summary']}\n")
+        # Chapter drafts are authored only by the write/chapter/poet path.
 
     # Postlayout default for a plain scaffold; never create reader-facing output.
     with open(os.path.join(PIPE, "override.txt"), "w", encoding="utf-8") as f:

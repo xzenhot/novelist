@@ -20,11 +20,11 @@ The poetry workflow writes in an elevated, archaic register (the voice of Almust
 
 ## Method
 
-1. **Read the chapter** with a modern reader's eye.
-2. **Identify archaic syntax** — constructions that feel dated or hard to parse.
-3. **Modernize the syntax** — keep the elevated vocabulary and cadence, but rebuild the sentence structure in current form.
-4. **Preserve the voice** — the prophetic register, sacred vocabulary, and rhythm must survive the syntax change.
-5. **Check readability** — the result should read naturally aloud.
+1. **Read the chapter model** (`model.json`) with a modern reader's eye — never `chapter.md`, which is an output file owned by the write path.
+2. **Record archaic-syntax guidance** — note which dated constructions to avoid.
+3. **Record modernization directives** — keep the elevated vocabulary and cadence, rebuild the sentence structure in current form.
+4. **Preserve the voice** — the prophetic register, sacred vocabulary, and rhythm must survive the syntax guidance.
+5. **Check readability** — the recorded target should read naturally aloud when the writer enacts it.
 
 ## Rules
 

@@ -1,0 +1,875 @@
+{
+  "book_name": "physics",
+  "book_long_title": "পদার্থ: জগতের পাঠ, অন্তরের প্রশ্ন",
+  "generic": "বিজ্ঞানভাবনামূলক আত্মানুসন্ধানী কবিতা",
+  "era": "সমকাল; নির্দিষ্ট ঐতিহাসিক ঘটনার দাবি নেই",
+  "language": "বাংলা",
+  "target_audience": "বাংলা সাহিত্য, বিজ্ঞানভাবনা ও আত্মজিজ্ঞাসায় আগ্রহী পাঠক",
+  "chapter_count": 106,
+  "form": "poetry",
+  "created_at": "2026-09-18",
+  "user_name": "pijush",
+  "gist": "পদার্থবিদ্যার দৃশ্য ও ধারণার সামনে দাঁড়িয়ে এক অনুসন্ধানী মানুষ নিজের প্রেম, শ্রম, বিচ্ছেদ ও মৃত্যুচেতনাকে নতুন করে পড়তে শেখে, অথচ জীবনের রূপককে বিজ্ঞানের প্রমাণ বলে ভুল করে না।",
+  "book_summary": "এক অনুসন্ধানী মানুষ দৈনন্দিন জগতের দৃশ্য থেকে পদার্থবিদ্যার ধারণাগুলির দিকে যাত্রা করে। হাঁটার গতি, হাতের টান, ঘরের আলো ও জলের স্পর্শ তার প্রথম প্রশ্নের উৎস। বাইরের ঘটনা জানতে গিয়ে নিজের প্রেম, শ্রম, বিচ্ছেদ ও মৃত্যুচেতনার দিকে সে ফিরে তাকায়। পরিচিত ছবি দিয়ে সূক্ষ্ম জগৎ ও দূর আকাশের সব বিষয় বোঝার সীমাবদ্ধতা ধীরে ধীরে প্রকাশ পায়। অন্য মানুষের স্বতন্ত্র অভিজ্ঞতাকে কোনও সূত্রের উদাহরণে নামিয়ে আনার প্রলোভনও সে চিনতে শেখে। শেষের বিষয়গুলি আগের ভাবনায় ফেরায়, কিন্তু কোনও সর্বব্যাখ্যাকারী উত্তর দেয় না। জগতের স্বাতন্ত্র্য মেনে নেওয়া, সীমাবোধ এবং নতুন প্রশ্নের জন্য প্রস্তুতিই তার অন্তরযাত্রার গন্তব্য।",
+  "chapters": [
+    {
+      "chapter_index": 1,
+      "name": "1",
+      "word_target": 500,
+      "chapter_title": "ত্বরণ (Acceleration)",
+      "chapter_summary": "হাঁটার গতি বদলানোর মুহূর্তে এগিয়ে যাওয়ার তাগিদ ও দ্বিধা মুখোমুখি হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 2,
+      "name": "2",
+      "word_target": 500,
+      "chapter_title": "বল (Force)",
+      "chapter_summary": "হাতের টান অন্যের শ্রমের দিকে মন ফেরায়; নিজের ইচ্ছার সীমা ধরা পড়ে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 3,
+      "name": "3",
+      "word_target": 500,
+      "chapter_title": "শক্তি (Energy)",
+      "chapter_summary": "কাজের শেষে সামর্থ্য নিয়ে প্রশ্ন ওঠে, মানুষ কী ব্যয় করে এবং কী ধরে রাখে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 4,
+      "name": "4",
+      "word_target": 500,
+      "chapter_title": "ক্ষমতা (Power)",
+      "chapter_summary": "কাজের তাড়া সহকর্মীর নিজস্ব সময়কে আড়াল করছে কি না, সংশয় জন্মায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 5,
+      "name": "5",
+      "word_target": 500,
+      "chapter_title": "ঘর্ষণ (Friction)",
+      "chapter_summary": "রাস্তার সঙ্গে পায়ের সংযোগ অগ্রগতির মধ্যে বাধার ভূমিকা ভাবতে শেখায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 6,
+      "name": "6",
+      "word_target": 500,
+      "chapter_title": "ঘনত্ব (Density)",
+      "chapter_summary": "টেবিলের বস্তু দেখে দৃশ্যমান আকারের বাইরেও জানার প্রয়োজন অনুভূত হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 7,
+      "name": "7",
+      "word_target": 500,
+      "chapter_title": "চাপ (Pressure)",
+      "chapter_summary": "শ্রমের দৃশ্যে চাপের পরিভাষা ও মানুষের অনুভূত বোঝা আলাদা প্রশ্ন হয়ে ওঠে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 8,
+      "name": "8",
+      "word_target": 500,
+      "chapter_title": "আয়তন (Volume)",
+      "chapter_summary": "ঘরে বস্তুর জায়গা দখল অন্যের জন্য জায়গা রাখার কথা মনে করায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 9,
+      "name": "9",
+      "word_target": 500,
+      "chapter_title": "টর্ক / ঘূর্ণনবল (Torque)",
+      "chapter_summary": "হাতের কাজে ঘোরানোর ভঙ্গি নজরে আসে; শুধু চেষ্টার পরিমাণ দিয়ে ফল বোঝা যায় কি না প্রশ্ন থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 10,
+      "name": "10",
+      "word_target": 500,
+      "chapter_title": "টান (Tension)",
+      "chapter_summary": "সম্পর্কের টান স্মরণ করতে গিয়ে বস্তুগত টানের সঙ্গে তার মিলের সীমা প্রকাশ পায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 11,
+      "name": "11",
+      "word_target": 500,
+      "chapter_title": "কম্পাঙ্ক (Frequency)",
+      "chapter_summary": "কারখানার পুনরাবৃত্ত শব্দ পরিচিত পরিবেশকে নতুন করে শোনার অবকাশ আনে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 12,
+      "name": "12",
+      "word_target": 500,
+      "chapter_title": "তরঙ্গদৈর্ঘ্য (Wavelength)",
+      "chapter_summary": "শব্দের প্রসঙ্গে ব্যবধানের ধারণা আসে, মানুষের দূরত্ব তার সমার্থক হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 13,
+      "name": "13",
+      "word_target": 500,
+      "chapter_title": "বিস্তার (Amplitude)",
+      "chapter_summary": "অনুভবের প্রবলতা ও বাইরের প্রকাশের মাত্রার ফারাক নিয়ে মনোযোগ তৈরি হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 14,
+      "name": "14",
+      "word_target": 500,
+      "chapter_title": "তড়িৎপ্রবাহ (Current)",
+      "chapter_summary": "ঘরের আলো দৃশ্যমান ফলের পিছনের অদেখা প্রক্রিয়া জানার আকাঙ্ক্ষা জাগায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 15,
+      "name": "15",
+      "word_target": 500,
+      "chapter_title": "ভোল্টেজ / বিভবপ্রভেদ (Voltage)",
+      "chapter_summary": "পুরোনো খাতার বিভবপ্রভেদ শব্দটি পার্থক্য নিয়ে প্রশ্ন আনে; সম্পর্কের বৈষম্য পৃথক অভিজ্ঞতা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 16,
+      "name": "16",
+      "word_target": 500,
+      "chapter_title": "রোধ (Resistance)",
+      "chapter_summary": "প্রতিরোধ ভাবতে গিয়ে অন্যের অসম্মতিকে নিছক বাধা ভাবার প্রবণতা ধরা পড়ে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 17,
+      "name": "17",
+      "word_target": 500,
+      "chapter_title": "ধারকত্ব (Capacitance)",
+      "chapter_summary": "ধরে রাখার বাসনা স্মৃতিতে ফেরায়; ধারকত্বের অর্থ সেই ব্যক্তিগত অনুষঙ্গ থেকে আলাদা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 18,
+      "name": "18",
+      "word_target": 500,
+      "chapter_title": "আবেশাঙ্ক (Inductance)",
+      "chapter_summary": "আবেশাঙ্কের অপরিচিত নাম দ্রুত উপমা খোঁজার বদলে বোঝার ধৈর্য পরীক্ষা করে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 19,
+      "name": "19",
+      "word_target": 500,
+      "chapter_title": "আধান (Charge)",
+      "chapter_summary": "আধানের বিষয়টি অদৃশ্যকে জানার প্রশ্ন আনে, চোখের অভিজ্ঞতার সীমা খোলে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 20,
+      "name": "20",
+      "word_target": 500,
+      "chapter_title": "ফ্লাক্স / প্রবাহ ঘনত্ব (Flux)",
+      "chapter_summary": "ফ্লাক্সের উৎস-নাম নিয়ে খাতার সামনে থামতে হয়; অর্থ না জেনে ছবি বানানোর তাড়া সংযত হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 21,
+      "name": "21",
+      "word_target": 500,
+      "chapter_title": "ঔজ্জ্বল্য / দীপ্তি (Luminosity)",
+      "chapter_summary": "রাতের আকাশের দীপ্তি নিজের দেখার সীমা মনে করায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 22,
+      "name": "22",
+      "word_target": 500,
+      "chapter_title": "তাপমাত্রা (Temperature)",
+      "chapter_summary": "জলের স্পর্শে অনুভূতি ও পরিমাপের ব্যবধান নিয়ে প্রশ্ন জাগে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 23,
+      "name": "23",
+      "word_target": 500,
+      "chapter_title": "তাপ (Heat)",
+      "chapter_summary": "উষ্ণতার স্মৃতি প্রিয়জনের কাছে নিয়ে যায়, কিন্তু ব্যক্তিগত উষ্ণতায় তাপের ব্যাখ্যা শেষ হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 24,
+      "name": "24",
+      "word_target": 500,
+      "chapter_title": "এনথ্যালপি (Enthalpy)",
+      "chapter_summary": "এনথ্যালপির অপরিচিত নাম না-বোঝা স্বীকার করার প্রয়োজন সামনে আনে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 25,
+      "name": "25",
+      "word_target": 500,
+      "chapter_title": "কাজ / কার্য (Work)",
+      "chapter_summary": "শ্রমজীবীর কাজ দেখে মানুষের শ্রমের মর্যাদাকে শুধু পরিভাষার মাপে নামাতে দ্বিধা হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 26,
+      "name": "26",
+      "word_target": 500,
+      "chapter_title": "ঘাত / আবেগ (Impulse)",
+      "chapter_summary": "ঘাত ও আবেগের পাশাপাশি নাম স্মৃতির আকস্মিক আলোড়ন আনে; শব্দের দ্ব্যর্থতা খোলা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 27,
+      "name": "27",
+      "word_target": 500,
+      "chapter_title": "জড়তা (Inertia)",
+      "chapter_summary": "পরিচিত পথে চলার অভ্যাস নিজের বদলাতে না চাওয়ার প্রবণতা দেখায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 28,
+      "name": "28",
+      "word_target": 500,
+      "chapter_title": "সান্দ্রতা (Viscosity)",
+      "chapter_summary": "নদীর জল প্রবাহকে মনোযোগ দিয়ে জানার আগ্রহ আনে, অনুভূতিই সংজ্ঞার বিকল্প হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 29,
+      "name": "29",
+      "word_target": 500,
+      "chapter_title": "স্থিতিস্থাপকতা (Elasticity)",
+      "chapter_summary": "ফিরে আসার বাসনা ও আগের অবস্থায় ফিরতে পারার প্রশ্ন সম্পর্কের স্মৃতিকে ঘিরে থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 30,
+      "name": "30",
+      "word_target": 500,
+      "chapter_title": "চুম্বকত্ব (Magnetism)",
+      "chapter_summary": "আকর্ষণের ভাষা প্রিয়জনের স্মৃতি আনে; মানুষকে চুম্বকের মতো ব্যাখ্যা করা অসম্পূর্ণ থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 31,
+      "name": "31",
+      "word_target": 500,
+      "chapter_title": "বিকিরণ (Radiation)",
+      "chapter_summary": "ঘরের আলো থেকে অদেখা বিস্তারের প্রশ্ন আসে; পরিচিত অভিজ্ঞতা জ্ঞানের শেষ নয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 32,
+      "name": "32",
+      "word_target": 500,
+      "chapter_title": "পরিবহন (Conduction)",
+      "chapter_summary": "টেবিলের বস্তুর সংযোগ কাছে থাকা ও প্রভাবের সম্পর্ক নিয়ে ভাবায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 33,
+      "name": "33",
+      "word_target": 500,
+      "chapter_title": "পরিচলন (Convection)",
+      "chapter_summary": "জল ও তাপের প্রসঙ্গে চলাচলের দিকে দৃষ্টি ফেরে, স্থির দৃশ্যের ধারণা পরীক্ষিত হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 34,
+      "name": "34",
+      "word_target": 500,
+      "chapter_title": "প্রতিসরণ (Refraction)",
+      "chapter_summary": "জলের দিকে তাকিয়ে দেখা ও বোঝার ব্যবধান সামনে আসে, প্রথম দৃষ্টির নিশ্চয়তা নড়ে যায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 35,
+      "name": "35",
+      "word_target": 500,
+      "chapter_title": "অপবর্তন (Diffraction)",
+      "chapter_summary": "জানালার আলো অপবর্তনের প্রশ্ন খোলে; পরিচিত ছবির পাশে নির্দিষ্ট ব্যাখ্যা প্রয়োজন হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 36,
+      "name": "36",
+      "word_target": 500,
+      "chapter_title": "প্রতিফলন (Reflection)",
+      "chapter_summary": "প্রতিফলনের প্রসঙ্গ বাইরের জগতকে শুধু নিজের প্রতিচ্ছবি ভাবার সীমা প্রকাশ করে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 37,
+      "name": "37",
+      "word_target": 500,
+      "chapter_title": "বিচ্ছুরণ (Dispersion)",
+      "chapter_summary": "আলো নিয়ে ভাবনায় এক বলে দেখা জিনিসকে আলাদা করে জানার আগ্রহ জন্মায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 38,
+      "name": "38",
+      "word_target": 500,
+      "chapter_title": "সমবর্তন (Polarization)",
+      "chapter_summary": "সমবর্তনের সামনে চোখের অভিজ্ঞতা কতখানি যথেষ্ট, সেই প্রশ্ন রাখা হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 39,
+      "name": "39",
+      "word_target": 500,
+      "chapter_title": "অনুনাদ (Resonance)",
+      "chapter_summary": "কারখানার শব্দে স্মৃতির সাড়া মেশে; অনুনাদ ও ব্যক্তিগত প্রতিধ্বনির পার্থক্য থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 40,
+      "name": "40",
+      "word_target": 500,
+      "chapter_title": "দোলন (Oscillation)",
+      "chapter_summary": "দ্বিধায় বারবার ফিরে আসা মন নিজের চলন দেখতে চায়, দোলনের ধারণা প্রশ্নের সঙ্গী হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 41,
+      "name": "41",
+      "word_target": 500,
+      "chapter_title": "প্লবতা (Buoyancy)",
+      "chapter_summary": "নদীর ধারে ভেসে থাকা নিয়ে বিস্ময়ের পাশে মানুষের বেঁচে থাকার আশা পৃথক অনুষঙ্গ হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 42,
+      "name": "42",
+      "word_target": 500,
+      "chapter_title": "ওজন / ভার (Weight)",
+      "chapter_summary": "ভার শব্দে অনুপস্থিত প্রিয়জনের স্মৃতি আসে, অনুভবের বোঝা ও পরিমাপ এক হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 43,
+      "name": "43",
+      "word_target": 500,
+      "chapter_title": "সরণ (Displacement)",
+      "chapter_summary": "রাস্তার শেষে কোথায় এসে দাঁড়ানো হল, সেই প্রশ্ন যাত্রাকে নতুন করে দেখতে শেখায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 44,
+      "name": "44",
+      "word_target": 500,
+      "chapter_title": "ভেক্টর (Vector)",
+      "chapter_summary": "চলার দিক নিয়ে দ্বিধা ভেক্টরের বিষয়কে ঘিরে থাকে; চাওয়া ও দিকনির্দেশ পৃথক হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 45,
+      "name": "45",
+      "word_target": 500,
+      "chapter_title": "স্কেলার (Scalar)",
+      "chapter_summary": "পরিমাণ জানা মানেই সমস্ত পরিচয় জানা কি না, স্কেলার শব্দটি সেই প্রশ্ন আনে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 46,
+      "name": "46",
+      "word_target": 500,
+      "chapter_title": "শূন্যস্থান (Vacuum)",
+      "chapter_summary": "অনুপস্থিতির স্মৃতি শূন্যস্থানে মন ফেরায়, ব্যক্তিগত শূন্যতা পৃথক অভিজ্ঞতা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 47,
+      "name": "47",
+      "word_target": 500,
+      "chapter_title": "প্লাজমা (Plasma)",
+      "chapter_summary": "প্লাজমার প্রসঙ্গ দৈনন্দিন পরিচয়ের সীমা বাড়ায়, সহজ নামে সব অবস্থা ধরার তাগিদ কমে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 48,
+      "name": "48",
+      "word_target": 500,
+      "chapter_title": "ফোটন (Photon)",
+      "chapter_summary": "জানালার আলো ফোটনের প্রশ্নে নতুন অপরিচয় পায়, পরিচিত দৃশ্যেও অজানা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 49,
+      "name": "49",
+      "word_target": 500,
+      "chapter_title": "ইলেকট্রন (Electron)",
+      "chapter_summary": "ইলেকট্রনের নাম অদেখা সম্পর্কে কীভাবে জ্ঞান গড়ে ওঠে তা জানতে উদ্বুদ্ধ করে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 50,
+      "name": "50",
+      "word_target": 500,
+      "chapter_title": "প্রোটন (Proton)",
+      "chapter_summary": "প্রোটনকে নিজের পরিচয়ের রূপক করার আগে তার স্বতন্ত্র অর্থ জানার প্রয়োজন হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 51,
+      "name": "51",
+      "word_target": 500,
+      "chapter_title": "নিউট্রন (Neutron)",
+      "chapter_summary": "নিউট্রনের নাম ও বৈশিষ্ট্য নিয়ে কৌতূহল জাগে, মানুষের নিরপেক্ষতা তার ব্যাখ্যা হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 52,
+      "name": "52",
+      "word_target": 500,
+      "chapter_title": "কোয়ার্ক (Quark)",
+      "chapter_summary": "কোয়ার্ক পরিচিত ছবির সীমায় নিয়ে যায়; ছোট হলেই সহজ হবে এমন প্রত্যাশা প্রশ্নবিদ্ধ হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 53,
+      "name": "53",
+      "word_target": 500,
+      "chapter_title": "বোসন (Boson)",
+      "chapter_summary": "বোসনের বিষয় শ্রেণির নাম জানা ও বিষয় বোঝার দূরত্ব সামনে আনে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 54,
+      "name": "54",
+      "word_target": 500,
+      "chapter_title": "ফার্মিয়ন (Fermion)",
+      "chapter_summary": "ফার্মিয়নের পাশে মানুষের স্বাতন্ত্র্য নিয়ে ভাবনা আসে, সেই ভাবনা বৈজ্ঞানিক নিয়ম হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 55,
+      "name": "55",
+      "word_target": 500,
+      "chapter_title": "গ্র্যাভিটন (Graviton)",
+      "chapter_summary": "গ্র্যাভিটনের প্রসঙ্গে অনুমান, প্রত্যাশা ও প্রমাণ আলাদা রাখার প্রশ্ন জরুরি হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 56,
+      "name": "56",
+      "word_target": 500,
+      "chapter_title": "নিউট্রিনো (Neutrino)",
+      "chapter_summary": "নিউট্রিনোর নাম অদেখার কৌতূহল বাড়ায়; অনুপস্থিত মানুষের স্মৃতি প্রমাণের বিকল্প থাকে না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 57,
+      "name": "57",
+      "word_target": 500,
+      "chapter_title": "আইসোটোপ (Isotope)",
+      "chapter_summary": "আইসোটোপ একই পরিচয়ের মধ্যে ভিন্নতা জানার প্রশ্ন আনে, সম্পর্কের পরিচয়ও ভাবায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 58,
+      "name": "58",
+      "word_target": 500,
+      "chapter_title": "ক্ষয় (Decay)",
+      "chapter_summary": "ক্ষয় শব্দে মৃত্যুচেতনা জাগে, শোক ও বিষয়টির নির্দিষ্ট অর্থ মেশানোর প্রলোভন থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 59,
+      "name": "59",
+      "word_target": 500,
+      "chapter_title": "বিভাজন / ফিশন (Fission)",
+      "chapter_summary": "বিভাজন বিচ্ছেদের স্মৃতি আনে, সম্পর্ক ভাঙার দায় প্রাকৃতিক অনিবার্যতা বলে সরানো যায় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 60,
+      "name": "60",
+      "word_target": 500,
+      "chapter_title": "সংযোজন / ফিউশন (Fusion)",
+      "chapter_summary": "সংযোজনে এক হওয়ার বাসনার পাশে অন্য মানুষের পৃথক ইচ্ছার প্রশ্ন থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 61,
+      "name": "61",
+      "word_target": 500,
+      "chapter_title": "স্থিতিশক্তি / বিভব (Potential)",
+      "chapter_summary": "বিভবের বিষয় ভবিষ্যৎ নিয়ে আশায় ফেরায়; পরিভাষা ও আকাঙ্ক্ষার ফারাক সামনে আসে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 62,
+      "name": "62",
+      "word_target": 500,
+      "chapter_title": "গতিশক্তি (Kinetic)",
+      "chapter_summary": "হাঁটার দৃশ্যে সক্রিয়তা ফিরে আসে, চলতে থাকা ও লক্ষ্য খুঁজে পাওয়া এক নয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 63,
+      "name": "63",
+      "word_target": 500,
+      "chapter_title": "অবিচ্ছিন্নতা (Continuum)",
+      "chapter_summary": "নিরবচ্ছিন্ন মনে হওয়া রাস্তা ও স্মৃতি অবিচ্ছিন্নতার ধারণা নিয়ে প্রশ্ন জাগায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 64,
+      "name": "64",
+      "word_target": 500,
+      "chapter_title": "সাম্যাবস্থা (Equilibrium)",
+      "chapter_summary": "কাজ ও বিরতির সাম্যের আকাঙ্ক্ষা ব্যক্তিগত শান্তি ও সাম্যাবস্থার পার্থক্য ভাবায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 65,
+      "name": "65",
+      "word_target": 500,
+      "chapter_title": "অতিপরিবাহিতা (Superconductivity)",
+      "chapter_summary": "বাধাহীন চলার স্বপ্ন অতিপরিবাহিতার নামের পাশে আসে, বাস্তব শর্ত জানার প্রয়োজন থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 66,
+      "name": "66",
+      "word_target": 500,
+      "chapter_title": "চুম্বকায়ন (Magnetization)",
+      "chapter_summary": "চুম্বকায়ন আকর্ষণের আগের ভাবনায় ফেরায়, পরিচয়ের সঙ্গে বদলের প্রশ্ন যুক্ত হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 67,
+      "name": "67",
+      "word_target": 500,
+      "chapter_title": "তড়িৎভেদ্যতা (Permittivity)",
+      "chapter_summary": "তড়িৎভেদ্যতার অপরিচিত নাম তৎক্ষণাৎ মানবিক গুণে অনুবাদ না করার ধৈর্য শেখায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 68,
+      "name": "68",
+      "word_target": 500,
+      "chapter_title": "চৌম্বকভেদ্যতা (Permeability)",
+      "chapter_summary": "চৌম্বকভেদ্যতার প্রসঙ্গে মাধ্যম জানার আগ্রহ জন্মায়, শুধু ফল দেখা যথেষ্ট থাকে না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 69,
+      "name": "69",
+      "word_target": 500,
+      "chapter_title": "পরিবাহিতা (Conductance)",
+      "chapter_summary": "পরিবাহিতা ঘরের আলোয় ফেরায়, দৈনন্দিন সুবিধার পিছনের ব্যবস্থায় মনোযোগ আনে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 70,
+      "name": "70",
+      "word_target": 500,
+      "chapter_title": "প্রতিবাধা (Impedance)",
+      "chapter_summary": "প্রতিবাধা বাধাকে এক শব্দে সেরে ফেলার অভ্যাসে প্রশ্ন তোলে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 71,
+      "name": "71",
+      "word_target": 500,
+      "chapter_title": "প্রতিঘাত / রিঅ্যাক্ট্যান্স (Reactance)",
+      "chapter_summary": "প্রতিঘাতের নাম মতভেদের স্মৃতি আনে, শব্দের মিল দিয়ে মানুষের প্রতিক্রিয়া ব্যাখ্যা থেমে যায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 72,
+      "name": "72",
+      "word_target": 500,
+      "chapter_title": "প্রবেশ্যতা / অ্যাডমিট্যান্স (Admittance)",
+      "chapter_summary": "প্রবেশ্যতার প্রসঙ্গে অন্যকে জায়গা দেওয়ার কথা মনে পড়ে, উদারতা পরিভাষার অর্থ হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 73,
+      "name": "73",
+      "word_target": 500,
+      "chapter_title": "চৌম্বক প্রতিরোধ / রিলাকট্যান্স (Reluctance)",
+      "chapter_summary": "চৌম্বক প্রতিরোধ আগের রোধের বিষয়ে ফেরায়, কাছাকাছি শব্দের পৃথক প্রসঙ্গ বোঝা প্রয়োজন হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 74,
+      "name": "74",
+      "word_target": 500,
+      "chapter_title": "চৌম্বক প্রবণতা / Susceptibility",
+      "chapter_summary": "প্রবণতা শব্দ নিজের সাড়া দেওয়ার অভ্যাস মনে করায়, চৌম্বক প্রসঙ্গ তার সমার্থক নয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 75,
+      "name": "75",
+      "word_target": 500,
+      "chapter_title": "বিকিরণ তীব্রতা (Radiance)",
+      "chapter_summary": "বিকিরণ তীব্রতা আকাশ দেখার অভিজ্ঞতাকে প্রশ্ন করে, বিস্ময়ের পাশে নির্দিষ্ট ভাষা দরকার হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 76,
+      "name": "76",
+      "word_target": 500,
+      "chapter_title": "বিকিরণ প্রবাহ (Irradiance)",
+      "chapter_summary": "বিকিরণ প্রবাহের উৎস-নামে অনুসন্ধান থামে, পরিভাষা যাচাইয়ের আগে সিদ্ধান্ত স্থগিত থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 77,
+      "name": "77",
+      "word_target": 500,
+      "chapter_title": "তীব্রতা (Intensity)",
+      "chapter_summary": "শব্দ ও আলোর প্রবলতা ভাবায়, তীব্র অনুভূতি সবসময় গভীর বোঝাপড়া আনে কি না প্রশ্ন থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 78,
+      "name": "78",
+      "word_target": 500,
+      "chapter_title": "গুণাঙ্ক (Modulus)",
+      "chapter_summary": "গুণাঙ্কের সামনে একটি সংখ্যা কী বলে এবং কী বলে না, সেই সীমা নিয়ে ভাবনা আসে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 79,
+      "name": "79",
+      "word_target": 500,
+      "chapter_title": "পীড়ন (Stress)",
+      "chapter_summary": "শ্রমের দৃশ্যে পীড়নের ভাষা ফেরে, মানুষের কষ্টকে একটি রাশিতে শেষ না করার প্রয়োজন হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 80,
+      "name": "80",
+      "word_target": 500,
+      "chapter_title": "বিকৃতি (Strain)",
+      "chapter_summary": "বদলে যাওয়া সম্পর্কের স্মৃতিতে বিকৃতির বিষয় আসে; আগের রূপই একমাত্র মানদণ্ড কি না প্রশ্ন ওঠে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 81,
+      "name": "81",
+      "word_target": 500,
+      "chapter_title": "নমনীয়তা (Ductility)",
+      "chapter_summary": "টেবিলের বস্তু নমনীয়তার প্রশ্ন খোলে, মানুষের মানিয়ে নেওয়াকে শুধু গুণ ভাবতে দ্বিধা হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 82,
+      "name": "82",
+      "word_target": 500,
+      "chapter_title": "ঘাতসহনশীলতা (Malleability)",
+      "chapter_summary": "ঘাতসহনশীলতার উৎস-নাম সহ্য করার প্রসঙ্গ আনে, অন্যের সহ্যকে বাধ্যতামূলক গুণ বানানোর বিপদ ধরা পড়ে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 83,
+      "name": "83",
+      "word_target": 500,
+      "chapter_title": "দৃঢ়তা / কাঠিন্য (Hardness)",
+      "chapter_summary": "কাঠিন্য দৃঢ় থাকার আকাঙ্ক্ষা আনে, দৃঢ়তা ও অনুভূতিহীনতার ফারাক বোঝা প্রয়োজন হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 84,
+      "name": "84",
+      "word_target": 500,
+      "chapter_title": "ভঙ্গুরতা (Brittleness)",
+      "chapter_summary": "ভঙ্গুরতায় সম্পর্ক হারানোর ভয় প্রকাশ পায়, অবহেলার বদলে যত্নের প্রশ্ন আসে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 85,
+      "name": "85",
+      "word_target": 500,
+      "chapter_title": "বিশৃঙ্খলা / অশান্ত প্রবাহ (Turbulence)",
+      "chapter_summary": "নদীর জলে বিশৃঙ্খলার নাম ফেরে, নিজের অস্থিরতা দিয়ে বাইরের চলন ব্যাখ্যা করা থামে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 86,
+      "name": "86",
+      "word_target": 500,
+      "chapter_title": "গতিপথ (Trajectory)",
+      "chapter_summary": "রাস্তার যাত্রায় গতিপথ কাছে আসে, পেছনে তাকিয়ে পথকে অনিবার্য ভাবার অভ্যাস ধরা পড়ে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 87,
+      "name": "87",
+      "word_target": 500,
+      "chapter_title": "কক্ষপথ (Orbit)",
+      "chapter_summary": "রাতের আকাশে কক্ষপথের প্রশ্ন ওঠে, মানুষের ফিরে আসাকে একই নিয়মে ব্যাখ্যার সীমা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 88,
+      "name": "88",
+      "word_target": 500,
+      "chapter_title": "লম্বন (Parallax)",
+      "chapter_summary": "জানালায় দৃষ্টির অবস্থান অন্যের চোখে দেখার ইচ্ছা জাগায়, সহমর্মিতা পরিমাপের বিকল্প নয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 89,
+      "name": "89",
+      "word_target": 500,
+      "chapter_title": "লোহিত সরণ / Redshift",
+      "chapter_summary": "লোহিত সরণের নাম দূর আকাশের অজানায় নিয়ে যায়, ব্যক্তিগত দূরত্ববোধ পৃথক থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 90,
+      "name": "90",
+      "word_target": 500,
+      "chapter_title": "নীল সরণ / Blueshift",
+      "chapter_summary": "নীল সরণে কাছে আসার প্রত্যাশা মনে পড়ে, রঙের নাম থেকেই সিদ্ধান্ত না নেওয়ার প্রয়োজন হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 91,
+      "name": "91",
+      "word_target": 500,
+      "chapter_title": "সিঙ্গুলারিটি / পরম বিন্দু (Singularity)",
+      "chapter_summary": "সিঙ্গুলারিটিতে সব প্রশ্নের শেষ উত্তর চাওয়ার প্রবণতা ধরা পড়ে, ব্যাখ্যার সীমা মানার প্রয়োজন বাড়ে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 92,
+      "name": "92",
+      "word_target": 500,
+      "chapter_title": "স্থান-কাল (Spacetime)",
+      "chapter_summary": "স্থান-কালে কোথায় ও কখনের স্মৃতি পাশাপাশি আসে, স্মৃতির অভিজ্ঞতা তত্ত্বের প্রমাণ হয় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 93,
+      "name": "93",
+      "word_target": 500,
+      "chapter_title": "জিওডেসিক / ভূগাণিতিক রেখা (Geodesic)",
+      "chapter_summary": "জিওডেসিকের অপরিচিত নাম পরিচিত পথের ছবি পরীক্ষা করে, সহজ উপমার বাইরে যেতে হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 94,
+      "name": "94",
+      "word_target": 500,
+      "chapter_title": "কোয়ান্টাম (Quantum)",
+      "chapter_summary": "কোয়ান্টামের নাম সর্বব্যাখ্যার আশ্বাসের বদলে নির্দিষ্ট প্রশ্নের সূচনা হয়ে ওঠে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 95,
+      "name": "95",
+      "word_target": 500,
+      "chapter_title": "স্পিন / ঘূর্ণন (Spin)",
+      "chapter_summary": "স্পিনের পাশে ঘূর্ণন শব্দ পড়ে পরিচিত ছবি কতখানি গ্রহণযোগ্য তা জানার প্রয়োজন হয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 96,
+      "name": "96",
+      "word_target": 500,
+      "chapter_title": "সুসংগতি (Coherence)",
+      "chapter_summary": "সুসংগতিতে স্মৃতিকে এক কাহিনিতে বাঁধার ইচ্ছা আসে, মিলিয়ে বলা ও সত্য বোঝা এক নয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 97,
+      "name": "97",
+      "word_target": 500,
+      "chapter_title": "এনট্যাঙ্গলমেন্ট / জড়ানো অবস্থা (Entanglement)",
+      "chapter_summary": "জড়ানো অবস্থার নাম সম্পর্কের গভীরতা আনে, আবেগের সংযোগ বৈজ্ঞানিক প্রমাণ নয়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 98,
+      "name": "98",
+      "word_target": 500,
+      "chapter_title": "জুল (Joule)",
+      "chapter_summary": "জুল পরিমাপের ভাষা ফিরিয়ে আনে, মানুষের শ্রমের মূল্যকে শুধু সংখ্যায় শেষ করা যায় না।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 99,
+      "name": "99",
+      "word_target": 500,
+      "chapter_title": "প্যাসকেল (Pascal)",
+      "chapter_summary": "প্যাসকেলে এককের নাম ও অনুভবের চাপ আলাদা করে দেখার অভ্যাস গড়ে ওঠে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 100,
+      "name": "100",
+      "word_target": 500,
+      "chapter_title": "ওয়াট (Watt)",
+      "chapter_summary": "ওয়াট কাজের তাড়ার আগের প্রশ্নে ফেরায়, দক্ষতার পাশে মানুষের ক্লান্তি মনোযোগ চায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 101,
+      "name": "101",
+      "word_target": 500,
+      "chapter_title": "দ্রুতি (Velocity)",
+      "chapter_summary": "হাঁটার দৃশ্যে উৎসের দ্রুতি ও Velocity নামজোড়া যাচাইয়ের প্রয়োজন আসে, পুরোনো নিশ্চিতি প্রশ্ন পায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 102,
+      "name": "102",
+      "word_target": 500,
+      "chapter_title": "ভরবেগ (Momentum)",
+      "chapter_summary": "চলতে থাকার প্রসঙ্গে ভরবেগ আসে, নিজের জেদের সঙ্গে তার মিলের সীমা খোলা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 103,
+      "name": "103",
+      "word_target": 500,
+      "chapter_title": "মহাকর্ষ (Gravity)",
+      "chapter_summary": "রাতের আকাশ ও মাটির পথ একই মনোযোগে আসে, ব্যক্তিগত টানের বাইরেও জগতকে দেখা যায়।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 104,
+      "name": "104",
+      "word_target": 500,
+      "chapter_title": "ভর (Mass)",
+      "chapter_summary": "ভরে বস্তুর পরিচয়ে ফেরা ঘটে, মানুষের গুরুত্বকে বস্তুগত মাপে নামানোর অসম্পূর্ণতা সামনে আসে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 105,
+      "name": "105",
+      "word_target": 500,
+      "chapter_title": "ক্যালোরি (Calorie)",
+      "chapter_summary": "ক্যালোরি শরীর ও শ্রমে দৃষ্টি ফেরায়, পরিমাপের পাশে অনুভূত অভাবের নিজস্বতা থাকে।",
+      "further_references": []
+    },
+    {
+      "chapter_index": 106,
+      "name": "106",
+      "word_target": 500,
+      "chapter_title": "এনট্রপি (Entropy)",
+      "chapter_summary": "এনট্রপির বিষয়ে সমস্ত অভিজ্ঞতার এক ব্যাখ্যা চাওয়ার আকাঙ্ক্ষা সরে যায়, প্রশ্ন ও মনোযোগ অবশিষ্ট থাকে।",
+      "further_references": []
+    }
+  ],
+  "all_characters": [],
+  "filter_chain": [
+    "workshop",
+    "research",
+    "correctness",
+    "theme",
+    "syntax",
+    "override",
+    "quality"
+  ],
+  "word_target": 500
+}

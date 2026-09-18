@@ -34,11 +34,11 @@ Read the `registry.md` to discover available syntax samples, then read the chose
 
 1. **Determine the chapter's form** — poetry or novel (prose).
 2. **Select the syntax sample** from the matching stereotype templates (see above).
-3. **Read the chapter** with a modern reader's eye.
-4. **Identify archaic syntax** — constructions that feel dated or hard to parse.
-5. **Modernize the syntax** — keep the elevated vocabulary and cadence, but rebuild the sentence structure in current form.
-6. **Preserve the voice** — the register, imagery, and rhythm must survive the syntax change.
-7. **Check readability** — the result should read naturally aloud.
+3. **Read the chapter model** (`model.json`) with a modern reader's eye — never `chapter.md`, which is an output file owned by the write path.
+4. **Record archaic-syntax guidance** — note which dated constructions to avoid and the target modern sentence structure.
+5. **Record modernization directives** — keep the elevated vocabulary and cadence, rebuild the sentence structure in current form.
+6. **Preserve the voice** — the register, imagery, and rhythm must survive the syntax guidance.
+7. **Check readability** — the recorded target should read naturally aloud when the writer enacts it.
 
 ## Rules
 

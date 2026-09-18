@@ -46,7 +46,7 @@ You are an accomplished writer. Your task is to turn a book pipeline's material 
 | `translate` | Translates the latest writer-stage chapter version from `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/` into the requested language and writes the translated derivative to `.space/pipeline/<bookname>/chapters/<n>/segments/1/translator/`. Does not modify the live draft or promote output. |
 | `poet` (aliases: `poetry`, `poem`) | Invokes the write agent (`.framework/agents/write/agent.md`) to produce a single finished poem based on the human-authored `override.md` if it exists. |
 | `filter` | Runs a single filter or the full chain inside an existing pipeline. Never scaffolds or writes finished chapters. |
-| `enrich` | Fuses the active (`autorun: true`) filters from `filters.json` into one combined agent and runs it in a single pass over the selected chapters, producing an enriched `chapter.md` ready for write or publish. Never scaffolds or writes finished chapters. |
+| `enrich` | Fuses the active (`autorun: true`) filters from `filters.json` into one combined agent and runs it in a single pass over the selected chapters, recording the combined enrichment guidance in each chapter's `model.json` ready for write or publish. Never scaffolds, never reads or writes `chapter.md`, and never writes finished chapters. |
 | `form` | Changes the pipeline's `form` field and reconciles form-driven settings. |
 | `config` | Reads or writes book-level configuration values in `model.json` and chapter models. Requires an existing pipeline. |
 | `add <chapter-count> filter <filter>\|*\|all` | Adds more main chapters to an existing book pipeline, then runs the requested filter or full filter chain for the newly added chapters. |
@@ -306,7 +306,7 @@ On an existing pipeline, preserve the incremental rule: do not re-clone over an 
 
 #### Chapter paths
 
-- `chapters/<n>/chapter.md` is the live working draft for the chapter. Scaffold seeds it with the bare minimum chapter content and every filter that rewrites the chapter updates this file in place.
+- `chapters/<n>/chapter.md` is the live working draft for the chapter. Scaffold seeds it with the bare minimum chapter content. It is reserved exclusively for the writing stage (chapter/write agents); **filters (workshop, research, correctness, theme, syntax, override, quality, enrich) must never read or modify it** — filters operate solely on `chapters/<n>/model.json` (e.g. `.space/pipeline/lau/chapters/4/model.json`) and their own `filters/<filter>/` inputs/outputs.
 - `chapters/<n>/model.json` is the runtime state for the chapter. Filters, chapter agents, poet agents, and supporting skills must merge their metadata here rather than inventing parallel state files.
 - `chapters/<n>/mood.json` describes how the chapter is shaped across segments and must remain the continuity/readability guide for downstream writing.
 - `chapters/<n>/history/` stores superseded copies of `chapter.md` or writer-stage drafts before an agent overwrites them.
@@ -405,19 +405,19 @@ Running a filter (`/book <bookname> filter <filter>`):
 1. Stop if the pipeline does not exist. If the pipeline is missing, the user must run `scaffold` first.
 2. Read the filter registry at `.space/pipeline/<bookname>/filters/filters.json` to resolve the filter name to its agent path (`agent`) and `autorun` flag (`true`/`false`). Each entry carries only `order`, `name`, `agent`, and `autorun`.
 3. Read the filter's agent at `.framework/agents/<filter>/agent.md` for both novel and poetry. If the filter needs a skill and no agent exists, create the missing agent first; the agent may then invoke the skill.
-4. Read the pipeline data the filter needs (`model.json`, `characters.json`/`bookseed.txt`, the epic, upstream filter output).
-5. **Snapshot the chapter draft before any update.** Before a filter makes any change for a chapter, copy the chapter's current working draft `.space/pipeline/<bookname>/chapters/<n>/chapter.md` into the chapter's history folder `.space/pipeline/<bookname>/chapters/<n>/history/` (create it if missing), naming the copy with a timestamp or incrementing version (e.g. `chapter_<filter>_<timestamp>.md` or `chapter_v<n>.md`). This snapshot is the filter's undo record: restoring its contents to `chapter.md` (plus the prior `model.json` state) reverses the filter's effect. No filter may modify chapter data before its snapshot exists.
+4. Read the pipeline data the filter needs — for the target chapter, this is the chapter's `model.json` only (e.g. `.space/pipeline/lau/chapters/4/model.json`), plus shared pipeline inputs such as the root `model.json`, `characters.json`/`bookseed.txt`, the epic, and upstream filter outputs under `filters/`. **Filters must not read `chapters/<n>/chapter.md`**: the live draft is reserved for the write/authoring stage; filters operate on chapter metadata (`model.json`) and filter-to-filter inputs/outputs only.
+5. **Snapshot the model state before any update.** Before a filter makes any change for a chapter, copy the chapter's current `model.json` into the chapter's history folder `.space/pipeline/<bookname>/chapters/<n>/history/` (create it if missing), naming the copy with a timestamp or incrementing version (e.g. `model_<filter>_<timestamp>.json` or `model_v<n>.json`). This snapshot is the filter's undo record: restoring it reverses the filter's effect. No filter may modify chapter data before its snapshot exists. Filters do not snapshot `chapter.md`, because they never read or modify it.
 6. **Run it.** `filter *` / `filter all` runs the whole chain in order, but **skips any filter whose `autorun` flag is `false`** — only `autorun: true` filters execute. A single named filter (`/book <bookname> filter <filter>`) runs that filter explicitly regardless of its `autorun` flag.
 7. **Update the chapter state after each filter.** After a filter runs against a chapter, update `.space/pipeline/<bookname>/chapters/<n>/model.json` to record the new state: set `state` to the filter name that just ran (e.g. `"workshop"`, `"research"`, `"theme"`, `"syntax"`, `"quality"`), and add or update a `filter_history` array entry recording `{ filter, ran_at }` so the chapter's progression through the chain is auditable. Preserve all other fields; merge, never overwrite.
-8. **Responsibility boundary:** `filter` is read/write on existing pipeline data only. It must never create folders, run layout, or perform scaffold steps.
+8. **Responsibility boundary:** `filter` is read/write on the chapter's `model.json` and `filters/` outputs only. It must never read or write `chapters/<n>/chapter.md`, create folders, run layout, or perform scaffold steps.
 
-Filters must also obey the chapter layout contract: keep `chapter.md` as the live draft, write only commentary to `segments/<x>/editor/`, write only translations to `segments/<x>/translator/`, and archive any replaced draft into `history/` before changing the live file or a writer-stage copy.
+Filters must also obey the chapter layout contract: filters read/write only the chapter `model.json` and their own `filters/<filter>/` outputs; `chapter.md` stays untouched as the live draft for the writing stage; commentary goes to `segments/<x>/editor/`, translations to `segments/<x>/translator/`, and any replaced writer-stage draft is archived into `history/` by the writing agents.
 
 ## The Enrich Command
 
 For `/book <bookname> enrich <count>|range|*`:
 
-Responsibility: fuse the active filters into one combined agent and run it in a single pass over the selected chapters, producing an enriched `chapter.md` ready for write or publish. This work is routed through the enrich agent at `.framework/agents/enrich/agent.md`.
+Responsibility: fuse the active filters into one combined agent and run it in a single pass over the selected chapters, recording the fused enrichment guidance in each chapter's `model.json`, ready for write or publish. This work is routed through the enrich agent at `.framework/agents/enrich/agent.md`.
 
 - `<count>` — a bare number targets that many chapters starting from chapter 1 (e.g. `enrich 5` → chapters 1–5).
 - `range` — a `start-end` range targets those chapters inclusive (e.g. `enrich 3-7` → chapters 3,4,5,6,7).
@@ -427,8 +427,8 @@ Responsibility: fuse the active filters into one combined agent and run it in a 
 2. Read the filter registry at `.space/pipeline/<bookname>/filters/filters.json`. Resolve the **active** filters — every entry whose `autorun` is `true` — sorted by `order`. If none are active, stop and report that there is nothing to combine.
 3. Route the work through the enrich agent at `.framework/agents/enrich/agent.md`. The agent reads each active filter's `agent.md`, fuses their task/method/rules into one ordered instruction set, and applies it in a single pass.
 4. Resolve the target chapter(s) from `<count>`, `range`, or `*` (see above).
-5. For each target chapter, the combined agent reads `chapters/<n>/model.json` and `chapters/<n>/chapter.md`, applies the fused guidance in `order` sequence, flattens the result to continuous prose, and writes the enriched `chapter.md` back in place.
-6. The combined agent updates `chapters/<n>/model.json` with `state: "enriched"` and an `enrich` record listing the fused filter names in order. It does not write per-filter `content-input.md`/`content-output.md` files, does not write to `source/books/`, and does not overwrite unrelated `model.json` fields.
+5. For each target chapter, the combined agent reads **only** `chapters/<n>/model.json` (e.g. `.space/pipeline/lau/chapters/4/model.json`) plus the active filters' own outputs under `filters/`, and applies the fused guidance in `order` sequence. Enrich — like every filter — must not read `chapters/<n>/chapter.md`; that file is reserved for the writing stage and is authored only by the chapter/write agents.
+6. The combined agent updates `chapters/<n>/model.json` with `state: "enriched"` and an `enrich` record listing the fused filter names in order. It does not write per-filter `content-input.md`/`content-output.md` files, does not write to `source/books/`, does not touch `chapter.md`, and does not overwrite unrelated `model.json` fields.
 7. Report the resolved active filters, the fused order, the chapters processed, and the resulting `state`.
 
 The enrich command is a single-pass fusion of the active filter chain, not a replacement for the individual `filter` command. It never reads the backlog or the epic; it works only from the chapter's own files and the active filter agents.

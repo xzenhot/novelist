@@ -54,6 +54,8 @@ The full narrative foundation. If `epic.md` is missing, create it by delegating 
 ### book.json
 
 The chapter-layout plan. This is the blueprint that tells `scaffold` exactly how many chapters to build and how each chapter is laid out. Derive it from the epic (or, for poetry, from the topical structure in the epic). Use `.framework/templates/book.json` as the schema sample.
+If there are more than 10 chapters, always execute this in batch of 10 to minimise the token context windows.
+
 
 The `book.json` must contain:
 
@@ -76,7 +78,8 @@ The `book.json` must contain:
 - **Poetry:** `1..N` (N = the number of topics in the epic's topical structure).
 - **Format:** Sample book.json is here `.framework\templates\book.json`
 
-This file gives the complete hint of how many chapters will be written, how each is laid out, and the ordered filter chain, so `scaffold` can build the pipeline without re-deriving the plan.
+This file gives the complete hint of how many chapters will be written, how each is laid out, and the ordered filter chain, so `scaffold` can build the pipeline without re-deriving the plan.
+
 
 For normal init, keep each chapter_summary simple and contextual. Do not force a poetry or prose voice, and do not expand it into a long four-bullet treatment; the summary is a neutral seed that later agents can use for any literary form. Init is the only backlog-plan command; its summaries stay simple and form-neutral. Layout is an alias of init, not a separate workflow.
 

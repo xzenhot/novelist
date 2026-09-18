@@ -1,11 +1,11 @@
 ---
 name: workshop-poetry
-description: Expand a poetry chapter seed into a complete flat, continuous poetic-prose draft while updating the chapter model with accurate word-count metadata.
+description: Expand a poetry chapter seed into expansion and shaping guidance recorded in the chapter model. The workshop filter never reads or writes chapter.md — prose is authored only later by the write/chapter/poet path.
 ---
 
 # Poetry Workshop
 
-Use this skill for a poetry pipeline after scaffold and before research or later filters.
+Use this skill for a poetry pipeline after scaffold and before research or later filters. It prepares the chapter model for authoring; it does not write the poem.
 
 ## Inputs
 
@@ -14,37 +14,31 @@ Read, in order:
 1. The pipeline model and cloned book plan:
    - .space/pipeline/<bookname>/model.json
    - .space/pipeline/<bookname>/book.json
-2. The matching chapter model:
+2. The matching chapter model (the only per-chapter input):
    - .space/pipeline/<bookname>/chapters/<n>/model.json
-3. The current chapter draft:
-   - .space/pipeline/<bookname>/chapters/<n>/chapter.md
-4. The backlog sources:
+3. The backlog sources:
    - .space/backlog/epic/<bookname>/gist.md
    - .space/backlog/epic/<bookname>/epic.md
 
-The chapter_summary is the seed, not the finished work. The epic is the primary source of truth: extend every chapter from the epic's premise, setting, thematic threads, topical structure, and world-building, so each poem is grounded in the book's full narrative foundation rather than the one-line seed alone. Use the gist for the high concept and the epic for the concrete material. Do not invent historical claims, figures, events, or sources that are absent from those inputs.
+Never read `.space/pipeline/<bookname>/chapters/<n>/chapter.md` — it is an output file owned by the write path.
+
+The chapter_summary is the seed, not the finished work. The epic is the primary source of truth: derive every chapter's guidance from the epic's premise, setting, thematic threads, topical structure, and world-building, so each poem is grounded in the book's full narrative foundation rather than the one-line seed alone. Use the gist for the high concept and the epic for the concrete material. Do not invent historical claims, figures, events, or sources that are absent from those inputs.
 
 ## Story Requirement
 
-Every chapter must carry at least a basic story, not a bare meditation. A story means a concrete movement: a speaker or figure in a specific place and time, an event or image that happens, a turn or change, and a consequence that lands. Ground the story in the epic's topical structure and world-building — the ridge, the vanished river, the volcanic fire, the dynasties, the woman who is Delhi — so each poem reads as a scene with a beginning, a middle, and an end, not a list of abstractions. This story-bearing draft is the foundation that later filters (research, correctness, theme, syntax, override, quality) will refine into publish-ready verse, so it must be substantial and self-contained enough to survive that chain.
+Record guidance so the authored chapter carries at least a basic story, not a bare meditation. A story means a concrete movement: a speaker or figure in a specific place and time, an event or image that happens, a turn or change, and a consequence that lands. Ground it in the epic's topical structure and world-building — the ridge, the vanished river, the volcanic fire, the dynasties, the woman who is Delhi — so the poem reads as a scene with a beginning, a middle, and an end, not a list of abstractions. This guidance is the foundation the writer uses, so it must be substantial enough to survive the later filter chain (research, correctness, theme, syntax, override, quality).
 
-## Draft Contract
+## Shaping Contract
 
-Expand the current scaffolded draft into **flat, continuous poetic prose** — no section headings. The `## Question`, `## Oration`, and `## Benediction` headings are removed entirely; only the prose that followed them remains, merged into continuous paragraphs. The only heading permitted is the chapter title (`# {chapter_title}`). Do not leave empty headings, stray `#` markers, or orphaned labels.
+Record the shaping directive for the authored chapter: **flat, continuous poetic prose** — no `## Question`, `## Oration`, or `## Benediction` headings, merged into continuous paragraphs, the only permitted heading being the chapter title (`# {chapter_title}`). The writer enacts this; the workshop filter only records it.
 
-Keep the chapter title and topic. The prose should open with the chapter's central tension, carry the substantive image, context, movement, and reflection, and close with an earned consequence, opening, or responsibility. Do not add novel-only sections and do not force a signature or subject that the chapter metadata does not support.
-
-The prose must advance a story drawn from the epic: it names a concrete scene or figure and its tension, enacts an event, image, or turn grounded in the epic's setting and world-building, and delivers the consequence of that turn. A chapter that only restates the summary or lists abstractions is incomplete and must be expanded until it carries a basic story.
+Keep the chapter title and topic. Direct that the prose open with the chapter's central tension, carry the substantive image, context, movement, and reflection, and close with an earned consequence, opening, or responsibility. Do not add novel-only sections and do not force a signature or subject that the chapter metadata does not support.
 
 ## Word Target
 
-Resolve the target from chapter model word_target first, then the matching book plan entry, then the pipeline model default. The target is authoritative.
-
-Count words in the complete literary body of chapter.md, excluding Markdown headings. Expand or tighten the prose until the count matches word_target as closely as possible; treat a result within 2 percent as acceptable unless the workflow specifies an exact count. Record the measured count in chapter model word_count and retain word_target. Never claim completion without measuring the draft.
+Resolve the target from chapter model word_target first, then the matching book plan entry, then the pipeline model default. The target is authoritative and is recorded for the writer; the writer measures and retains it in `word_count` after authoring. The workshop filter writes no prose, so it never records a measured count.
 
 ## Metadata And Files
-
-Before replacing a non-empty chapter.md, copy it into the chapter history folder with a timestamped or incrementing filename. Then write the enriched draft to the live chapter.md.
 
 Merge into the existing chapter model without dropping unrelated fields:
 
@@ -54,9 +48,10 @@ Merge into the existing chapter model without dropping unrelated fields:
 - topic
 - chapter_summary
 - word_target
-- word_count
-- workshop_file: chapters/<n>/chapter.md
+- workshop: { expansion: <story/shaping guidance>, content_shape: flat-poetic-prose, source_context: gist-and-epic }
 - source_context: gist-and-epic
+
+Write nothing to `chapter.md`.
 
 Preserve chapter_index, level, segments, and all existing runtime fields.
 

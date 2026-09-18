@@ -46,26 +46,25 @@ If the requested style folder does not exist, list available folders under `.fra
 3. `.framework/templates/styles/<style>/style.md`.
 4. `.framework/templates/styles/<style>/signature.md`, if present and especially when `style.md` names it as the authority for ambiguity.
 5. For each target chapter, `.space/pipeline/<bookname>/chapters/<n>/model.json`, if present.
-6. The source selected below: the latest writer-stage draft, falling back to the enriched `.space/pipeline/<bookname>/chapters/<n>/chapter.md` after the enrich-agent prerequisite when no writer-stage draft exists.
+6. The source selected below: the latest writer-stage draft in `segments/1/writer/`. If no writer-stage draft exists, run the enrichment prerequisite below and then require the write path to produce a writer-stage draft before styling — the style agent never reads the chapter-root `chapter.md` (that file is authored only by the write/chapter/poet agents).
 
 ## Source Selection
 
 Select exactly one source file for the target chapter, in this order:
 
-1. Prefer the highest numbered `chapter_v*.md`, comparing version numbers numerically.
+1. Prefer the highest numbered `chapter_v*.md` in `segments/1/writer/`, comparing version numbers numerically.
 2. If no versioned file exists, use `chapter.md` in the writer folder.
-3. If neither writer-stage file exists (including when the writer folder is missing or empty), check that `.space/pipeline/<bookname>/chapters/<n>/chapter.md` exists, then run the enrichment prerequisite below before selecting that file as the source.
-4. If the chapter-root draft is also missing, skip that chapter and report the missing source.
-
+3. If neither writer-stage file exists (the writer folder is missing or empty), run the enrichment prerequisite below, then route the chapter through the write path to produce the first writer-stage draft, and select that as the source.
+4. If no writer-stage source can be produced, skip that chapter and report the missing source.
 
 ## Enrichment Prerequisite for Missing Writer Drafts
 
 1. Apply this prerequisite only when neither a versioned writer draft nor writer `chapter.md` exists. An existing writer `chapter.md` remains a valid source even without numbered versions.
-2. Before enrichment changes chapter data, archive the current chapter-root `chapter.md` and `model.json` in `chapters/<n>/history/` using unique timestamped filenames.
+2. Before enrichment changes chapter data, archive the current `model.json` in `chapters/<n>/history/` using a unique timestamped filename.
 3. Read and invoke `.framework/agents/enrich/agent.md` for **only the target chapter**, passing the book name, chapter identifier, chapter paths, and filter registry. Invoke the agent directly; do not interpret the chapter number as the `enrich <count>` command, which would select chapters starting at 1.
-4. Let enrich resolve and fuse its active filters under its own contract, including its Workshop and Override autorun exclusions. Enrich owns changes to chapter-root `chapter.md` and chapter `model.json`; the style agent must not implement those filters itself.
-5. If enrichment fails, is blocked, or produces no usable chapter draft, stop and report the reason. Do not style the un-enriched fallback or create a writer version.
-6. After successful enrichment, re-read chapter `model.json` and chapter-root `chapter.md`. Use that enriched draft as the style source and write the styled result to `segments/1/writer/chapter_v1.md` under the versioning rules below.
+4. Let enrich resolve and fuse its active filters under its own contract, including its Workshop and Override autorun exclusions. Enrich updates the chapter `model.json` only (never `chapter.md`); the style agent must not implement those filters itself.
+5. After enrichment, route the chapter through the write path (`write`/`chapter` agent) to author the first writer-stage draft from the enriched model. If that fails or produces no usable writer draft, stop and report the reason; do not style an un-authorship fallback or create a writer version.
+6. Re-read chapter `model.json` and use the new writer-stage draft as the style source, writing the styled result to `segments/1/writer/chapter_v1.md` under the versioning rules below.
 7. Report the enrichment result and the styled output path. This prerequisite does not promote text or waive any validation required by later commands.
 
 ## Output Versioning
@@ -128,10 +127,10 @@ The default transformer is `pijush`. For this style:
 - Do not translate into a new language; use the translate agent for that.
 - Do not write to `source/books/`.
 - Do not overwrite writer-stage files.
-- Do not write the style transformation to chapter-root `chapter.md`. Only the delegated enrich agent may update that file and its model during the prerequisite.
+- Do not write the style transformation to chapter-root `chapter.md`. That file is authored only by the write/chapter/poet path; the delegated enrich agent updates only the chapter `model.json` during the prerequisite.
 - Do not update `progress.json` unless a future workflow explicitly defines style progress.
 - Do not change `.framework/templates/styles/<style>/style.md` while applying the style.
 
 ## Summary Of Duties
 
-Resolve `<style>` from `.framework/templates/styles/<style>/style.md` with default `pijush`; read `signature.md` when needed; transform **one** chapter per invocation using its latest writer-stage draft or, if none exists, run the enrich agent for that chapter and use its enriched chapter-root `chapter.md`, breaking the pattern each time (varied opening, varied closing, mixed paragraph and sentence rhythm, poetry license); write the result as the next `chapter_v*.md` inside `segments/1/writer/`; and report what was transformed or skipped.
+Resolve `<style>` from `.framework/templates/styles/<style>/style.md` with default `pijush`; read `signature.md` when needed; transform **one** chapter per invocation using its latest writer-stage draft or, if none exists, run the enrich agent for that chapter (metadata-only) and then route through the write path to produce the first writer-stage draft, breaking the pattern each time (varied opening, varied closing, mixed paragraph and sentence rhythm, poetry license); write the result as the next `chapter_v*.md` inside `segments/1/writer/`; and report what was transformed or skipped.

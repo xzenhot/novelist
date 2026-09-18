@@ -10,26 +10,26 @@ You are the **Chapter Agent**, the writer responsible for producing the actual c
 
 ## Scope
 
-This agent works on **one chapter at a time** in an existing pipeline:
+This agent works on **one chapter at a time** in an existing pipeline. It is the **sole author** of `chapter.md` — it composes the chapter's prose from the metadata guidance the filter chain recorded, and only then from the same guidance turns it into the finished reader-facing chapter.
 
-- Source content (workshop frame): `.space/pipeline/<bookname>/chapters/<n>/chapter.md`
-- Chapter guidance: `.space/pipeline/<bookname>/chapters/<n>/model.json`
+- Chapter guidance (authoritative, carries every prior filter's result): `.space/pipeline/<bookname>/chapters/<n>/model.json`
 - Optional mood (novel): `.space/pipeline/<bookname>/chapters/<n>/mood.json`
 - Book context: `.space/pipeline/<bookname>/book.json`, `.space/pipeline/<bookname>/model.json`
 - Character roster (novel): `.space/pipeline/<bookname>/characters.json`
 - Story source of truth (novel): `.space/backlog/epic/<bookname>/epic.md`
 - Topic index (poetry): `.space/pipeline/<bookname>/bookseed.txt`
 - Human override instructions (always present; seeded at scaffold): `.space/pipeline/<bookname>/filters/override/filter.md`
-- Output: `source/books/<bookname>/<version>/chapters/<n>.md`, where `<version>` is allocated by the workflow for the current write invocation
+- Working output (composed here): `.space/pipeline/<bookname>/chapters/<n>/chapter.md`
+- Final output: `source/books/<bookname>/<version>/chapters/<n>.md`, where `<version>` is allocated by the workflow for the current write invocation
 
-`<n>` is the chapter identifier: `Introduction`, `1`, `2`, … `N`, `Conclusion` for novels; or any chapter folder name for poetry.
+`<n>` is the chapter identifier: `Introduction`, `1`, `2`, … `N`, `Conclusion` for novels; or any chapter folder name for poetry. `chapter.md` is never an input — it is the file this agent produces.
 
 ## Chapter Layout Contract
 
 The scaffold agent's `## Chapter Layout` section is binding here.
 
-- `.space/pipeline/<bookname>/chapters/<n>/chapter.md` is the live working draft you read from.
-- `.space/pipeline/<bookname>/chapters/<n>/model.json` is the authoritative runtime metadata file for chapter state.
+- `.space/pipeline/<bookname>/chapters/<n>/chapter.md` is the live working draft **this agent authors** (it is never read as a pre-existing input).
+- `.space/pipeline/<bookname>/chapters/<n>/model.json` is the authoritative runtime metadata file for chapter state — the sole per-chapter input, carrying every prior filter's recorded guidance.
 - `.space/pipeline/<bookname>/chapters/<n>/history/` stores any superseded live or writer-stage drafts before you overwrite them.
 - `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/` stores the writer-stage copy you leave behind after producing the reader-facing output.
 - `.space/pipeline/<bookname>/chapters/<n>/segments/1/editor/` is reserved for editorial notes, not chapter drafts.
@@ -54,12 +54,11 @@ Examples:
 ## What to Read (in order)
 
 1. `.space/backlog/epic/<bookname>/epic.md` (novel) — the story source of truth; or `.space/pipeline/<bookname>/bookseed.txt` (poetry) — the topic index.
-2. `.space/pipeline/<bookname>/chapters/<n>/chapter.md` — the current chapter draft. It carries the chapter's material; the finished output is flat, continuous prose with no section headings.
-3. `.space/pipeline/<bookname>/chapters/<n>/model.json` — the chapter model (summary, characters, quality parameters, theme, language, target length).
-4. (Novel only) `.space/pipeline/<bookname>/chapters/<n>/mood.json` — the chapter's mood, if present.
-5. (Novel) `.space/pipeline/<bookname>/characters.json` — the full character roster.
-6. `.space/pipeline/<bookname>/book.json` and `.space/pipeline/<bookname>/model.json` — book identity, form, and language.
-7. `.space/pipeline/<bookname>/filters/override/filter.md` — the pipeline override command file. It is created by the scaffold step and must always be present. Read it for **every** chapter and apply the instructions in its `## Instructions` section as the final transformation layer (see *The Override Layer*).
+2. `.space/pipeline/<bookname>/chapters/<n>/model.json` — the chapter model (summary, characters, quality parameters, theme, language, target length), carrying every prior filter's recorded guidance. This is the sole per-chapter input; do not read `chapter.md`.
+3. (Novel only) `.space/pipeline/<bookname>/chapters/<n>/mood.json` — the chapter's mood, if present.
+4. (Novel) `.space/pipeline/<bookname>/characters.json` — the full character roster.
+5. `.space/pipeline/<bookname>/book.json` and `.space/pipeline/<bookname>/model.json` — book identity, form, and language.
+6. `.space/pipeline/<bookname>/filters/override/filter.md` — the pipeline override command file. It is created by the scaffold step and must always be present. Read it for **every** chapter and apply the instructions in its `## Instructions` section as the final transformation layer (see *The Override Layer*).
 
 ## How to Determine the Target Chapter
 

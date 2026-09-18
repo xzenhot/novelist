@@ -67,44 +67,38 @@ If the MCP server cannot be started or the needed tool is unavailable, fall back
 ## Your Task
 
 1. Read the epic at .space/backlog/epic/<bookname>/epic.md when it is available. For poetry, use the epic and gist as contextual sources; for novels, the epic remains the story source of truth.
-2. Read the workshop chapter at .space/pipeline/<bookname>/chapters/<n>/chapter.md.
-3. Read the chapter model at .space/pipeline/<bookname>/chapters/<n>/model.json and the pipeline book plan.
-4. Determine the target mastery level from the pipeline, chapter model, or user; default to Experienced.
-5. Ground and enrich the chapter. If the model lacks needed grounding or the target is Expert or above, use the local MCP research tools and record sources and findings in the chapter model.
-6. Flatten the workshop draft into the actual chapter content. Remove workshop scaffolding, section labels, seed placeholders, and process commentary. **Delete the `## Question`, `## Oration`, and `## Benediction` headings (and any equivalent `## Workshop`, `## Story`, `## Discussion` headings) entirely** — keep only the prose that followed each heading, merged into continuous paragraphs. Do not leave empty headings, stray `#` markers, or orphaned labels. The live chapter.md must contain only finished, continuous flat prose paragraphs and its title if the pipeline convention requires a title. Do not retain lineated poetry, section headings, labels, bullet scaffolding, or workshop framing unless a later explicit workflow requires a different output shape.
-7. Preserve the chapter's form in its language and rhythm, but do not preserve the workshop frame as visible structure. Research output is always flat prose at this stage; later form-specific writing agents may transform it into the final literary shape.
-8. Enrich the content from the workshop draft, epic, gist, chapter model, and verified research. Never invent facts, figures, events, or sources.
-9. Measure the literary body word count after flattening. The authoritative word_target comes from chapter model.word_target, then the matching book-plan chapter entry, then the pipeline default. Expand or tighten until the measured count matches the target as closely as possible; within 2 percent is acceptable unless the workflow requires an exact count.
-10. Write the flattened chapter back to .space/pipeline/<bookname>/chapters/<n>/chapter.md.
-11. Update the chapter model without dropping unrelated fields.
-12. Write one filter-summary.md to .space/pipeline/<bookname>/filters/research/.
+2. Read the chapter model at .space/pipeline/<bookname>/chapters/<n>/model.json and the pipeline book plan. Never read `chapters/<n>/chapter.md` — it is an output file owned by the writing path; research works on the chapter's metadata and research inputs only.
+3. Determine the target mastery level from the pipeline, chapter model, or user; default to Experienced.
+4. Ground and enrich the chapter's metadata. If the model lacks needed grounding or the target is Expert or above, use the local MCP research tools and record sources and findings in the chapter model.
+5. Derive and record the flattening/shaping guidance for the downstream writer: the content-shape directive (flat continuous prose, no `## Question`/`## Oration`/`## Benediction`/`## Workshop`/`## Story`/`## Discussion` headings), the resolved word target, and the verified grounding. Never invent facts, figures, events, or sources.
+6. Write the resolved `word_target` and measured/guidance fields, plus all research and grounding, into the chapter model. Write nothing to `chapter.md` — the writing/authorship agents own that file and consume this research record.
+7. Update the chapter model without dropping unrelated fields.
+8. Write one filter-summary.md to .space/pipeline/<bookname>/filters/research/.
 ## Chapter Layout Contract
 
-The scaffold agent's chapter layout contract governs research-stage refinement.
+The scaffold agent's chapter layout contract governs research-stage preparation.
 
-- chapters/<n>/chapter.md remains the live working draft.
-- Before rewriting chapter.md, archive the prior draft in chapters/<n>/history/.
-- The replacement chapter.md is the actual flattened literary content, not a workshop transcript or multi-section process frame.
+- chapters/<n>/chapter.md is the live working draft owned by the writing path; research never reads or rewrites it — no archive is needed because research does not modify it.
 - Do not place refined drafts in segments/<x>/writer; writer-stage copies belong later.
 - Keep editorial notes in segments/<x>/editor and translations in segments/<x>/translator only.
 - Do not write to source/books during research.
 ## The Refinement Method
 
-Refinement is not rewriting from scratch. It is **elevating what is already there**. For each chapter:
+Refinement is not rewriting from scratch. It is **preparing the elevation** of what will be authored. For each chapter:
 
 1. **Read the idea** — what is the chapter trying to say? State it to yourself in one sentence.
-2. **Find the depth** — where is the idea shallow? Where does it state instead of show? Where does it explain instead of embody?
-3. **Sharpen the imagery** — replace generic images with precise, coherent ones. A metaphor, once chosen, must be developed fully, not abandoned.
+2. **Find the depth** — where could the idea be shallow? Where could it state instead of show? Where could it explain instead of embody?
+3. **Sharpen the imagery** — record precise, coherent image directions the writer should develop. A metaphor, once chosen, must be developed fully, not abandoned.
 4. **Deepen the insight** — push past the obvious. Ask: what is the *second* truth beneath the first? What does the reader not yet see?
 5. **Verify the grounding** — every fact, term, and claim must be traceable to the epic or a source. Flag uncertainty; never invent.
-6. **Match the level** — stop when the chapter reaches the target level. Do not over-refine past it; do not under-refine below it.
+6. **Match the level** — stop when the guidance targets the selected level. Do not over-reach past it; do not under-prepare below it.
 
 ## The Level Ladder (How to Move Up)
 
-- **Novice → Experienced:** develop the idea with real insight and coherent imagery; make it move the reader.
-- **Experienced → Expert:** layer the idea — add a second meaning, a precise metaphor, a philosophical question that echoes.
-- **Expert → Distinguished:** find the original turn — the thought the reader has not met before; make it linger.
-- **Distinguished → Master:** make it timeless — strip the local and the dated; leave only what has always been true.
+- **Novice → Experienced:** direct the writer to develop the idea with real insight and coherent imagery; make it move the reader.
+- **Experienced → Expert:** record layered directions — a second meaning, a precise metaphor, a philosophical question that echoes.
+- **Expert → Distinguished:** capture the original turn — the thought the reader has not met before; make it linger.
+- **Distinguished → Master:** aim for timelessness — strip the local and the dated; leave only what has always been true.
 
 ## Chapter Model
 
@@ -112,20 +106,16 @@ The chapter model at .space/pipeline/<bookname>/chapters/<n>/model.json is the a
 
 - state: research
 - mastery_level: the selected level
-- research_file: chapters/<n>/chapter.md
 - word_target: the resolved target
-- word_count: the measured literary-body count after flattening
-- content_shape: flat-prose
-- workshop_source: chapters/<n>/chapter.md before this research rewrite, when the archive path is available
+- content_shape: flat-prose (the shaping guidance passed to the writing path)
 - sources and grounding_notes: verified research and unresolved limitations
 
-The word_count must be measured from the written chapter, excluding Markdown headings and metadata. Never report a target as achieved without measuring the resulting file.
+Do not record a measured word_count here — research writes no prose, so there is nothing to measure; the writer measures its own draft. The writer consumes `word_target` and `content_shape` to compose `chapter.md`.
 
 ## Output
 
-- One flattened, enriched chapter.md per processed chapter.
-- One merged chapter model per processed chapter with state, grounding, mastery, word_target, word_count, and content_shape.
-- One filter-summary.md in .space/pipeline/<bookname>/filters/research/ documenting chapters, targets, measured counts, grounding, and unresolved research needs.
+- One merged chapter model per processed chapter with state, grounding, mastery, word_target, and content_shape.
+- One filter-summary.md in .space/pipeline/<bookname>/filters/research/ documenting chapters, targets, grounding, and unresolved research needs.
 ## Quality Bar
 
 - **True** — every refinement is grounded in the epic; nothing is invented.

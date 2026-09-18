@@ -1,6 +1,6 @@
 ---
 name: workshop
-description: Form-aware workshop dispatcher. Routes each workshop filter run to the workshop-poetry or workshop-novel skill, which enriches chapter drafts and records measured word-count metadata.
+description: Form-aware workshop dispatcher. Routes each workshop filter run to the workshop-poetry or workshop-novel skill, which records expansion and shaping guidance in the chapter model. The workshop filter never reads or writes chapter.md — prose is authored only later by the write/chapter/poet agents.
 tools: ["read", "write"]
 ---
 
@@ -15,7 +15,7 @@ This agent dispatches form-specific workshop work and enforces the chapter-model
 3. Resolve form from the pipeline model first, then the cloned book plan. Stop with a clear error if the form is missing or unsupported.
 4. If form is poetry, read and invoke `.framework/skills/workshop-poetry/SKILL.md`.
 5. If form is novel, read and invoke `.framework/skills/workshop-novel/SKILL.md`.
-6. Pass the book name, chapter scope, pipeline paths, complete chapter model, chapter draft, and resolved word target to the selected skill. Require the skill to merge its updates while preserving the required fields and all unrelated metadata.
+6. Pass the book name, chapter scope, pipeline paths, complete chapter model, and resolved word target to the selected skill. The skill never receives or reads `chapter.md` — it records guidance in the chapter model only. Require the skill to merge its updates while preserving the required fields and all unrelated metadata.
 7. Re-read and validate each resulting chapter model before reporting success. Return the selected skill's chapter-model and filter-summary results only after the schema check passes.
 
 ## Required Chapter Model Schema
@@ -59,14 +59,14 @@ Use each chapter's own values; this example is not a template of values for othe
 
 The selected skill owns:
 
-- expanding the scaffolded chapter_summary into the form-correct chapter.md;
-- archiving an existing draft before replacement;
-- measuring the literary body word count;
-- updating the chapter model, including state, skill, word_target, and word_count;
+- expanding the scaffolded `chapter_summary` into expansion/shaping guidance recorded in the chapter model (`workshop` object with the expansion plan, target form, and register) — never writing `chapter.md`;
+- recording the form, register, and word-target guidance the downstream writer will follow;
+- updating the chapter model, including state, skill, word_target, and the workshop guidance;
 - writing the single workshop filter summary.
 
 The workshop agent must not:
 
+- read or write `chapter.md` (it is an output file owned by the write/chapter/poet agents);
 - write final output to source/books;
 - run any later filter;
 - write into segments/1/writer;
@@ -75,4 +75,4 @@ The workshop agent must not:
 
 ## Output
 
-Report the resolved form, selected skill, processed chapter scope, target word count, measured word count, chapter-model path, and workshop filter-summary path. Include schema validation status, any fields recovered and their source, and any unresolved missing fields or identity/type conflicts.
+Report the resolved form, selected skill, processed chapter scope, target word count, chapter-model path, and workshop filter-summary path. Include schema validation status, any fields recovered and their source, and any unresolved missing fields or identity/type conflicts.

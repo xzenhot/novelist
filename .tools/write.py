@@ -30,6 +30,7 @@ REPO_ROOT = BASE_DIR.parent
 # The single-page Pijush/Dehlij master prompt lives in the framework.
 POETRY_FILE = REPO_ROOT / ".framework" / "templates" / "styles" / "pijush" / "poetry.md"
 STYLE_FILE = REPO_ROOT / ".framework" / "templates" / "styles" / "pijush" / "goddo.txt"
+SUBJECTS_FILE = REPO_ROOT / ".framework" / "templates" / "stereotypes" / "poetry" / "syntax" / "gosai_bangla.md"
 MODEL = "gemma4:latest"
 CONTEXT_WINDOW = 64000  # num_ctx: token context window size
 TEMPERATURE = 0.7      # low temperature for focused, consistent output
@@ -46,9 +47,9 @@ SYSTEM_PROMPT = (
     "প্রম্পটের চাহিদা অনুযায়ী চলিত/সাধু/কথ্য—যেকোনো এক রীতির ধারাবাহিকতা বজায় রাখো।\n"
     "২. ভাব ও গভীরতা: শব্দে থাকুক গভীর আবেগ, রূপক ও চিন্তার খোরাক; "
     "প্রতিটি পঙ্‌ক্তি সৃজনশীল, মৌলিক ও পাঠকের মনে গভীর ছাপ ফেলার মতো হোক—ক্লিশে এড়িয়ে চলো।\n"
-    "৫. সম্পাদনা: লেখার পর প্রয়োজনে নিজেই পঙ্‌ক্তিবিন্যাস, অন্ত্যমিল ও শব্দের দ্যোতনা যাচাই করে "
+    "৩. সম্পাদনা: লেখার পর প্রয়োজনে নিজেই পঙ্‌ক্তিবিন্যাস, অন্ত্যমিল ও শব্দের দ্যোতনা যাচাই করে "
     "পরিশীলিত রূপ দাও—একবার লিখে শেষ নয়, প্রয়োজনে পুনর্লিখন করো।\n"
-    "৬. আউটপুট: শুধু কবিতার মূল অংশ লিখো; শিরোনাম, মার্কডাউন কোড ব্লক বা ভূমিকা দিও না "
+    "৪. আউটপুট: শুধু কবিতার মূল অংশ লিখো; শিরোনাম, মার্কডাউন কোড ব্লক বা ভূমিকা দিও না "
     "(যদি না নির্দেশ দেওয়া হয়)।"
 )
 
@@ -67,7 +68,6 @@ SHOW_PROMPT = False
 # Retry behaviour for transient Ollama failures.
 MAX_RETRIES = 3
 RETRY_DELAY = 5.0  # seconds between attempts (linear backoff)
-
 
 
 def vlog(*args) -> None:
@@ -139,18 +139,36 @@ def load_style() -> str:
     return text
 
 
+def load_subjects() -> str:
+    """Load thematic subjects from gosai_bangla.md for aligned generation."""
+    vlog(f"Loading subjects from: {SUBJECTS_FILE}")
+    if not SUBJECTS_FILE.exists():
+        vlog(f"  subjects file not found, continuing without it")
+        return ""
+    text = SUBJECTS_FILE.read_text(encoding="utf-8")
+    vlog(f"  subjects loaded: {len(text)} chars, {text.count(chr(10)) + 1} lines")
+    return text
+
+
 def build_system_prompt() -> str:
-    """Combine the base persona directive with the goddo.txt style reference."""
+    """Combine the base persona directive with style and subject references."""
     style = load_style()
-    if not style:
-        return SYSTEM_PROMPT
-    return (
-        SYSTEM_PROMPT
-        + "\n\n"
-        + "শৈলী-নির্দেশনা (রেফারেন্স নমুনা): নিচের নমুনার বাক্যগঠন, ছন্দ, রূপক ও গাম্ভীর্য "
-        + "অনুসরণ করো, কিন্তু এর শব্দ বা বিষয়বস্তু হুবহু নকল করবে না।\n\n"
-        + style
-    )
+    subjects = load_subjects()
+    parts = [SYSTEM_PROMPT]
+    if subjects:
+        parts.append(
+            "\n\nথিম-নির্দেশনা (বিষয়ভিত্তিক রেফারেন্স): নিচের বিষয়বস্তু কাঠামো, রূপক পরিবার "
+            "এবং পবিত্র শব্দগুলির সাথে সামঞ্জস্যপূর্ণ থাকো, যেন রচনা নির্দিষ্ট থিমের "
+            "মর্মবাণী প্রতিফলিত করে।\n\n"
+            + subjects
+        )
+    if style:
+        parts.append(
+            "\n\nশৈলী-নির্দেশনা (রেফারেন্স নমুনা): নিচের নমুনার বাক্যগঠন, ছন্দ, রূপক ও গাম্ভীর্য "
+            "অনুসরণ করো, কিন্তু এর শব্দ বা বিষয়বস্তু হুবহু নকল করবে না।\n\n"
+            + style
+        )
+    return "".join(parts)
 
 
 def load_summary(model_file: Path) -> tuple[str, str, str]:

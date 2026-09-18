@@ -15,27 +15,25 @@ The chapter output is **always flat, continuous poetic prose** — never section
 
 This skill works on **one chapter at a time** in an existing pipeline, driven by the chapter's metadata:
 
-- Source content: `.space/pipeline/<bookname>/chapters/<n>/chapter.md`
-- Chapter guidance: `.space/pipeline/<bookname>/chapters/<n>/model.json` — the authoritative chapter metadata (topic/title, `chapter_summary`, `category`, `subject`, `era`, `place`, `figures`, `events`, `theme`, `theme_essence`, `metaphor_family`, `contemporary_mapping`, `stereotype` including `signature`/`reference`/`syntax_sample`/`theme_set`, and `word_target`)
+- Chapter guidance (authoritative, carries every prior filter's result): `.space/pipeline/<bookname>/chapters/<n>/model.json` — the authoritative chapter metadata (topic/title, `chapter_summary`, `category`, `subject`, `era`, `place`, `figures`, `events`, `theme`, `theme_essence`, `metaphor_family`, `contemporary_mapping`, `stereotype` including `signature`/`reference`/`syntax_sample`/`theme_set`, and `word_target`). This is the sole per-chapter input; `chapter.md` is not read as a source.
 - Human override instructions (always present; seeded at scaffold): `.space/pipeline/<bookname>/filters/override/filter.md`
 - Output: `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/chapter_v<n>.md`
 
 ## What to Read
 
-Before rewriting, read these files in order:
+Before writing, read these files in order:
 
-1. `.space/pipeline/<bookname>/chapters/<n>/chapter.md` — the current chapter draft.
-2. `.space/pipeline/<bookname>/chapters/<n>/model.json` — the chapter model.
-3. `.space/pipeline/<bookname>/book.json` — the book identity and summary, if you need broader context.
-4. `.space/pipeline/<bookname>/filters/override/filter.md` — the pipeline override command file (always present; created at scaffold). Read its `## Instructions` section for **every** rewrite and apply non-empty instructions to the new version (see *The Override Layer*).
-5. (When `<style>` is provided) `.framework/templates/styles/<style>/style.md` — the transformer style template. If the style folder contains `signature.md`, read it as the interpretive authority for resolving ambiguity in `style.md` (see *The Style Layer*).
+1. `.space/pipeline/<bookname>/chapters/<n>/model.json` — the chapter model (the only per-chapter input; never `chapter.md`).
+2. `.space/pipeline/<bookname>/book.json` — the book identity and summary, if you need broader context.
+3. `.space/pipeline/<bookname>/filters/override/filter.md` — the pipeline override command file (always present; created at scaffold). Read its `## Instructions` section for **every** rewrite and apply non-empty instructions to the new version (see *The Override Layer*).
+4. (When `<style>` is provided) `.framework/templates/styles/<style>/style.md` — the transformer style template. If the style folder contains `signature.md`, read it as the interpretive authority for resolving ambiguity in `style.md` (see *The Style Layer*).
 
 ## Chapter Layout Contract
 
-- `chapters/<n>/chapter.md` remains the live working draft in the chapter root.
+- `chapters/<n>/chapter.md` is the live working draft, authored only by the write/chapter/poet path — this skill never reads it as a source.
 - `chapters/<n>/model.json` remains the authoritative runtime metadata file.
 - Rewritten variants belong in `chapters/<n>/segments/1/writer/`, not in the chapter root.
-- Before overwriting a writer-stage copy or the live draft, archive the prior file into `chapters/<n>/history/`.
+- Before overwriting a writer-stage copy, archive the prior file into `chapters/<n>/history/`.
 - `segments/1/editor/` is for editorial notes only, and `segments/1/translator/` is for translated derivatives only.
 
 ## How to Determine the Next Version Number

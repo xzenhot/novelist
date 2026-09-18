@@ -22,7 +22,7 @@ This agent is only a dispatcher. It must not apply the theme assignment directly
 
 The selected skill owns:
 
-- reading the chapter's `model.json` and `chapter.md`;
+- reading the chapter's `model.json` (never `chapter.md` — that is an output file owned by the writing path);
 - selecting the signature, reference, and theme set from the matching stereotype templates;
 - assigning the chapter its theme and mapping it onto a present-day concern;
 - recording the `stereotype` object in the chapter's `model.json`.
