@@ -2,8 +2,8 @@
 """
 Pipeline chapter writer.
 
-Reads chapters/<n>/model.json, extracts the 'chapter_summary' field, builds a prompt
-from poetry.md + the summary, runs it through Ollama (model=gemma4:latest),
+Reads chapters/<n>/model.json, flattens the complete JSON into context.md,
+builds a prompt from poetry.md + that context, runs it through Ollama,
 and saves the result to chapters/<n>/chapter.md.
 
 Usage:
@@ -171,74 +171,54 @@ def build_system_prompt() -> str:
     return "".join(parts)
 
 
-def load_summary(model_file: Path) -> tuple[str, str, str]:
-    """Return (summary, title, description) from the supplied chapter model."""
-    number = int(model_file.parent.name)
-    vlog(f"[{number}] Looking for model file: {model_file}")
-    if not model_file.exists():
-        raise FileNotFoundError(f"Model file not found: {model_file}")
+def flatten_json_to_markdown(data: object) -> str:
+    """Render every JSON leaf with its unambiguous JSON path as a heading."""
+    sections = ["# Chapter model context"]
 
-    raw = model_file.read_text(encoding="utf-8")
-    vlog(f"[{number}] model.json size: {len(raw)} chars")
-    data = json.loads(raw)
-    vlog(f"[{number}] model.json type: {type(data).__name__}")
-    if isinstance(data, list):
-        vlog(f"[{number}] model.json is a list with {len(data)} entries")
-        # Prefer the entry whose 'sl' matches the chapter number.
-        entry = next((e for e in data if e.get("sl") == number), None)
-        if entry is not None:
-            vlog(f"[{number}] Found entry with matching 'sl'={number}")
+    def visit(value: object, path: str) -> None:
+        if isinstance(value, dict) and value:
+            for key, child in value.items():
+                visit(child, f"{path}[{json.dumps(key, ensure_ascii=False)}]")
+        elif isinstance(value, list) and value:
+            for index, child in enumerate(value):
+                visit(child, f"{path}[{index}]")
         else:
-            vlog(f"[{number}] No matching 'sl' found, falling back to first entry")
-            entry = data[0] if data else None
-    else:
-        vlog(f"[{number}] model.json is a single object")
-        entry = data
+            # JSON encoding preserves types, empty containers, and string escapes.
+            rendered = json.dumps(value, ensure_ascii=False, indent=2)
+            # Use a fence longer than any backtick run in user-authored values.
+            fence = "`" * max(3, 1 + max(
+                (len(run) for run in re.findall(r"`+", rendered)), default=0
+            ))
+            sections.append(f"## {path}\n\n{fence}json\n{rendered}\n{fence}")
 
-    if entry is None:
-        raise ValueError(f"No data found in {model_file}")
-
-    summary = entry.get("chapter_summary", entry.get("summary"))
-    title = entry.get("chapter_title", entry.get("title", ""))
-    description = entry.get("descriptions", "")
-    vlog(f"[{number}] Extracted title: {title!r}")
-    vlog(f"[{number}] Extracted description: {description!r}")
-    vlog(f"[{number}] Extracted summary ({len(summary or '')} chars): "
-         f"{(summary or '')[:80]}{'...' if len(summary or '') > 80 else ''}")
-    if not summary:
-        raise ValueError(f"No 'chapter_summary' or 'summary' field found in {model_file}")
-    return summary, title, description
+    visit(data, "$")
+    return "\n\n".join(sections) + "\n"
 
 
-def build_prompt(
-    poetry: str,
-    summary: str,
-    title: str,
-    number: int,
-    description: str = "",
-) -> str:
-    vlog(f"[{number}] Building prompt (poetry={len(poetry)} chars, "
-         f"summary={len(summary)} chars, description={len(description)} chars)")
+def load_context(model_file: Path) -> str:
+    """Flatten the entire model, save context.md beside it, and return Markdown."""
+    data = json.loads(model_file.read_text(encoding="utf-8-sig"))
+    context = flatten_json_to_markdown(data)
+    context_file = model_file.with_name("context.md")
+    context_file.write_text(context, encoding="utf-8")
+    vlog(f"Context saved -> {context_file} ({len(context)} chars)")
+    return context
 
-    description_block = ""
-    if description:
-        description_block = (
-            f"Theme keyword (the 'why' of the scene — weave this quality through "
-            f"the poem without naming it literally): {description}\n\n"
-        )
 
+def build_prompt(poetry: str, context: str, number: int) -> str:
+    """Use the complete model context, including nested filter guidance."""
     prompt = (
-        f"{poetry}\n\n"
-        f"---\n\n"
+        f"{poetry}\n\n---\n\n"
         f"Now write chapter {number}. "
-        f"Chapter title: {title}.\n\n"
-        f"{description_block}"
-        f"Use this summary as your seed (the 'what' of the scene). "
-        f"Embody the philosophy, voice, and structure defined above, and "
-        f"match the syntax and rhythm of the sample above. "
-        f"Write in poetic prose (Bengali), no headings, no markdown code blocks, "
-        f"no title unless asked.\n\n"
-        f"SUMMARY (seed):\n{summary}\n"
+        "Use the complete chapter model context below: its title, summary, "
+        "word target, references, themes, and any nested enrichment or filter "
+        "guidance that is present. Metadata describes the chapter; do not "
+        "reproduce JSON paths, state fields, or context headings in the output. "
+        "Embody the philosophy, voice, and structure defined above, and "
+        "match the syntax and rhythm of the sample above. "
+        "Write in poetic prose (Bengali), no headings, no markdown code blocks, "
+        "no title unless asked.\n\n"
+        f"CHAPTER CONTEXT (complete model.json):\n\n{context}"
     )
     vlog(f"[{number}] Final prompt size: {len(prompt)} chars "
          f"({len(prompt.encode('utf-8'))} bytes UTF-8)")
@@ -321,8 +301,8 @@ def write_chapter(model_file: Path) -> None:
     vlog(f"[{number}] Chapter dir ready: {chapter_dir}")
 
     poetry = load_poetry()
-    summary, title, description = load_summary(model_file)
-    prompt = build_prompt(poetry, summary, title, number, description)
+    context = load_context(model_file)
+    prompt = build_prompt(poetry, context, number)
 
     if SHOW_PROMPT:
         info(f"\n[{number}] ============ COMPLETE REQUEST ============")
@@ -340,7 +320,7 @@ def write_chapter(model_file: Path) -> None:
         info(f"[{number}] ----- END PROMPT -----")
         info(f"[{number}] ============ END REQUEST ============\n")
 
-    info(f"[{number}] Generating chapter '{title}' ...")
+    info(f"[{number}] Generating chapter from complete model context ...")
     t0 = time.time()
     output = run_ollama(prompt)
     elapsed = time.time() - t0
@@ -371,6 +351,7 @@ def main() -> int:
   python .tools/write.py --help           Show this help (also -h)
 
 Input:  .space/pipeline/<bookname>/chapters/<n>/model.json
+Context: .space/pipeline/<bookname>/chapters/<n>/context.md (regenerated from full JSON)
 Output: .space/pipeline/<bookname>/chapters/<n>/chapter.md
 Paths are resolved relative to the repository, regardless of your current directory.
 """,
