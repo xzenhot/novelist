@@ -1,29 +1,13 @@
 {
   "chapter_index": 14,
-  "topic": "The Police and the Curfew",
-  "syntax": {
-    "sample": "generic",
-    "form": "poetry"
-  },
-  "chapter_name": "14",
+  "name": "14",
+  "word_target": 500,
+  "chapter_title": "The Police and the Curfew",
+  "chapter_summary": "The city closes itself against the sickness, and she defies the checkpoints to reach the hospital every day. The context turns on a love that obeys a higher law.",
+  "further_references": [],
   "level": "chapter",
-  "stereotype": {
-    "theme_set": "generic.md",
-    "signature": "gibran",
-    "form": "poetry",
-    "reference": "aurilus.txt"
-  },
-  "state": "enriched",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "enrich": {
-    "status": "enriched",
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ]
-  }
+  ]
 }
