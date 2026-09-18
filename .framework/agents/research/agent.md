@@ -54,7 +54,7 @@ You can also call the underlying adapter directly from any terminal without star
 python .tools/search-cli.py "your research query" --backend searxng --max 5 --pretty
 ```
 
-Always run the command from the repository root `d:\lab\github\Gibran\novelist` (or its Unix equivalent). If `uv` is installed, prefer `uv run`; otherwise fall back to `python`. On Windows, use backslash paths; on Unix, use forward slashes.
+Always run the command from the repository root `d:\lab\github\writer` (or its Unix equivalent). If `uv` is installed, prefer `uv run`; otherwise fall back to `python`. On Windows, use backslash paths; on Unix, use forward slashes.
 
 ### When to use it
 

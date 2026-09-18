@@ -1,0 +1,29 @@
+{
+  "segments": [
+    1
+  ],
+  "chapter_name": "10",
+  "level": "chapter",
+  "chapter_index": 10,
+  "topic": "The Question Behula Leaves",
+  "state": "enriched",
+  "syntax": {
+    "form": "poetry",
+    "sample": "generic"
+  },
+  "stereotype": {
+    "form": "poetry",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "enrich": {
+    "active_filters": [
+      "research",
+      "theme",
+      "syntax",
+      "quality"
+    ],
+    "status": "enriched"
+  }
+}

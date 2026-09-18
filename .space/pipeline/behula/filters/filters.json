@@ -5,7 +5,7 @@
       "name": "workshop",
       "agent": ".framework/agents/workshop/agent.md",
       "summary_file": "filter-summary.md",
-      "autorun": false
+      "autorun": true
     },
     {
       "order": 2,
@@ -19,7 +19,7 @@
       "name": "correctness",
       "agent": ".framework/agents/correctness/agent.md",
       "summary_file": "filter-summary.md",
-      "autorun": false
+      "autorun": true
     },
     {
       "order": 4,
@@ -40,7 +40,7 @@
       "name": "override",
       "agent": ".framework/agents/override/agent.md",
       "summary_file": "filter-summary.md",
-      "autorun": false
+      "autorun": true
     },
     {
       "order": 7,

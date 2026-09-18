@@ -245,27 +245,29 @@ Responsibility: build the pipeline structure from the backlog book plan and form
 
 1. **Book plan is mandatory.** Before scaffolding, the init agent must have been run and `.space/backlog/epic/<bookname>/book.json` must exist. If it does not exist, stop and instruct the user to run `/book <bookname> init ` first. Do not silently fall back to a default template.
 2. If the pipeline already exists, skip scaffolding and work with the existing data.
-3. Determine the form: use `--form` if given; otherwise infer from the gist or book name (narrative premise → novel; topic/term list → poetry). Record it in the pipeline's `form` field.
-4. Determine the gist (required, single sentence) and the chapter count (default from `book.json` if it specifies one, otherwise 5).
+3. Read the form from the backlog book plan. If `--form` is supplied, it must match the plan; otherwise stop and require the backlog plan to be updated through `init` first. Do not infer or replace the cloned plan's form during scaffold.
+4. Read the gist and chapter count from `book.json`. Explicit gist/count arguments must agree with the plan; if they differ, stop and require `init` to update the backlog plan first. Do not silently rewrite the plan during scaffold.
 5. Stop if the backlog epic is missing for a novel; do not create or rewrite it. The actual story always comes from the existing epic.
 6. Invoke the scaffold agent at `.framework/agents/scaffold/agent.md`; do not invoke layout skills directly. Pass the epic (novel) or the gist/topic list (poetry), the chapter count, and **the path to the backlog book plan** `.space/backlog/epic/<bookname>/book.json`.
 7. The scaffold agent MUST invoke the prelayout agent (`.framework/agents/prelayout/agent.md`) as its first step, before any layout work, to resolve the form, validate the book plan, and produce the pre-layout plan. The layout skill runs only after the prelayout agent returns.
-8. The scaffold agent must read the book plan from `.space/backlog/epic/<bookname>/book.json` and use its declared `filter_chain` sequence to build `.space/pipeline/<bookname>/filters/filters.json`. It must **not** copy the layout skills' *Preset* sections directly; the backlog book plan is the authoritative source for the filter chain.
+8. **Clone the book plan and seed chapter models (mandatory).** After prelayout validation and before layout populates chapter folders, the scaffold agent must copy `.space/backlog/epic/<bookname>/book.json` to `.space/pipeline/<bookname>/model.json` in full. For Behula, this is `.space/backlog/epic/behula/book.json` → `.space/pipeline/behula/model.json`. Preserve every field, value, and chapter entry; do not substitute a template or a reduced runtime model. Seed each chapter model from its matching `chapters` entry according to the model contract below. Use the cloned plan's declared `filter_chain` sequence to build `filters/filters.json`, never the layout skills' preset chain. These requirements take precedence over conflicting scaffold-agent or layout-skill model templates.
 9. Apply form-specific initialization (below).
 10. **Seed the override command file.** The scaffold agent recreates `.space/pipeline/<bookname>/filters/override/filter.md` with form-customized content derived from `.framework/agents/override/agent.md` whenever `override` appears in the book plan's `filter_chain`.
 11. **Generate the dynamic master prompt.** After layout, the scaffold agent MUST invoke the postlayout agent (`.framework/agents/postlayout/agent.md`) to derive the pipeline's dynamic master prompt from the backlog idea (`.space/backlog/epic/<bookname>/override.txt`) and the resolved pipeline state, writing it to `.space/pipeline/<bookname>/override.txt`. This is a mandatory final step — a scaffold is not complete until the postlayout agent has run.
-12. Do not run filters or agents during scaffold. Structure only. After scaffold, the user must run `/book <bookname> filter <filter>|*|all` to populate filter outputs.
+12. **Verify the model contract before completing scaffold.** The root `model.json` must still equal the complete backlog `book.json` as parsed JSON after layout and postlayout. Each chapter model must contain all fields from its matching plan entry with identical values and types. Missing, duplicated, or mismatched chapter identities fail validation; do not report scaffold complete until resolved. Run only the scaffold, prelayout, and postlayout agents and delegated layout work here, not filter or writing agents. After scaffold, the user must run `/book <bookname> filter <filter>|*|all` to populate filter outputs.
 13. Write chapters only after all filter outputs have been produced.
 
 `.framework/templates/SCAFFOLD.md` is a short reference note only; scaffold execution goes through `.framework/agents/scaffold/agent.md`, and that agent invokes the selected form-specific layout skill.
 
 ### Form-specific initialization (after layout)
 
-**Novel:** update `model.json` with the `gist` attribute, `epic_path` (`.space/backlog/epic/<bookname>/epic.md`), and `"form": "novel"`; set `book_long_title` from the gist and derive `book_summary`.
+**Both forms:** preserve the cloned root `model.json` unchanged during scaffold, including form-specific initialization and postlayout. Read book settings from it; do not regenerate titles, summaries, chapter plans, or add template defaults to the root model. Any required missing book configuration must be resolved through backlog `init` before scaffold. Later explicit `config` or runtime operations may update the pipeline independently.
+
+**Novel:** use the cloned `gist`, `form`, `book_long_title`, and `book_summary`. Resolve the epic at `.space/backlog/epic/<bookname>/epic.md` without injecting an `epic_path` field into the cloned model.
 
 **Poetry:**
 1. Do not create any `source/books/` destination during scaffold; reader-facing version folders are created only by the `write` command.
-2. Create or update `model.json` with `"form": "poetry"`, title, language, register, quality, themes, reference, index, sacred vocabulary, and translation guide.
+2. Read poetry settings from the cloned `model.json`; do not replace it with a poetry template or inject extra root fields during scaffold.
 3. Copy or create `bookseed.txt` (human-editable chapter topics). The override command file is `filters/override/filter.md`, seeded by scaffold step 9 from `.framework/agents/override/agent.md` (dynamically customized for the poetry form and pipeline context). Do **not** create a pipeline-root `override.md`.
 4. Initialize `progress.json` with all topics pending if it does not already exist, using `.framework/templates/stereotypes/poetry/default/progress.json` as the template shape.
 
@@ -277,7 +279,32 @@ For **novels**, also scaffold `progress.json` at the book pipeline root. Use the
 
 ### Chapter layout contract
 
-The scaffold agent's `## Chapter Layout` section is the downstream contract for all filters, chapter-writing agents, poet agents, and any skills they invoke.
+The scaffold agent's `## Chapter Layout` section defines the downstream paths for all filters, chapter-writing agents, poet agents, and any skills they invoke. The model schema below is mandatory and takes precedence over conflicting model templates in that agent or its layout skills.
+
+#### Chapter model schema (both forms)
+
+For every entry in the cloned root model's `chapters` array, create `chapters/<name>/model.json` as a single JSON object copied from that entry, not an array or a book-level configuration object. Match by the entry's `name` and verify its `chapter_index`; never select an entry by an unrelated example or by array position alone. Preserve all source fields, including any additional fields present in the plan.
+
+The required base fields are `chapter_index` (integer), `name` (string), `word_target` (integer), `chapter_title` (string), `chapter_summary` (string), and `further_references` (array). Do not rename or replace them with `chapter_name`, `topic`, `title`, or `summary`. Runtime metadata such as `segments`, `level`, `state`, `syntax`, and filter history may be added without dropping or overwriting the copied source fields.
+
+For example, `.space/pipeline/behula/chapters/2/model.json` starts with the matching chapter 2 entry:
+
+```json
+{
+  "chapter_index": 2,
+  "name": "2",
+  "word_target": 500,
+  "chapter_title": "The Widow's Silence",
+  "chapter_summary": "Society arrives with its rituals and its pity, expecting a woman to be buried alive in mourning. The context turns on the refusal of that silence and the first stirring of defiance.",
+  "further_references": []
+}
+```
+
+The same schema applies to chapter 12, whose own entry (`"name": "12"`, `"chapter_title": "The Price of Medicine"`) belongs in `chapters/12/model.json`, not `chapters/2/model.json`. Named novel units such as `Introduction` and `Conclusion` likewise use their plan entry's `name` as the folder name and preserve its declared index.
+
+On an existing pipeline, preserve the incremental rule: do not re-clone over an edited root model or replace existing chapter state merely to enforce this schema. During explicitly requested repair, read existing models and fill missing source fields from the matching plan entries; preserve runtime metadata and report conflicting existing values. A full replacement requires an explicit re-scaffold request.
+
+#### Chapter paths
 
 - `chapters/<n>/chapter.md` is the live working draft for the chapter. Scaffold seeds it with the bare minimum chapter content and every filter that rewrites the chapter updates this file in place.
 - `chapters/<n>/model.json` is the runtime state for the chapter. Filters, chapter agents, poet agents, and supporting skills must merge their metadata here rather than inventing parallel state files.

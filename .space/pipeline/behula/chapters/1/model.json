@@ -1,29 +1,13 @@
 {
+  "chapter_index": 1,
+  "name": "1",
+  "word_target": 500,
+  "chapter_title": "The Wedding Night",
+  "chapter_summary": "The serpent's shadow falls across the wedding chamber, and a bride's world ends in a single night. The context draws on the epic's opening wound: love struck down before it could begin.",
+  "further_references": [],
+  "level": "chapter",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "chapter_name": "1",
-  "level": "chapter",
-  "chapter_index": 1,
-  "topic": "The Wedding Night",
-  "state": "enriched",
-  "syntax": {
-    "form": "poetry",
-    "sample": "generic"
-  },
-  "stereotype": {
-    "form": "poetry",
-    "signature": "gibran",
-    "reference": "aurilus.txt",
-    "theme_set": "generic.md"
-  },
-  "enrich": {
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  ]
 }

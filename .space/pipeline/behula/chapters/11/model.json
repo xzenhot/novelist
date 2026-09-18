@@ -1,29 +1,13 @@
 {
   "chapter_index": 11,
-  "topic": "The Long Vigil",
-  "syntax": {
-    "sample": "generic",
-    "form": "poetry"
-  },
-  "chapter_name": "11",
+  "name": "11",
+  "word_target": 500,
+  "chapter_title": "The Long Vigil",
+  "chapter_summary": "The days in the ward become a single long night, and waiting becomes its own labour. The context turns on the thousand small acts of staying that no one sees.",
+  "further_references": [],
   "level": "chapter",
-  "stereotype": {
-    "theme_set": "generic.md",
-    "signature": "gibran",
-    "form": "poetry",
-    "reference": "aurilus.txt"
-  },
-  "state": "enriched",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "enrich": {
-    "status": "enriched",
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ]
-  }
+  ]
 }

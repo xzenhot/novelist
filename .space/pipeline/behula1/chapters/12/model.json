@@ -1,0 +1,29 @@
+{
+  "chapter_index": 12,
+  "topic": "The Price of Medicine",
+  "syntax": {
+    "sample": "generic",
+    "form": "poetry"
+  },
+  "chapter_name": "12",
+  "level": "chapter",
+  "stereotype": {
+    "theme_set": "generic.md",
+    "signature": "gibran",
+    "form": "poetry",
+    "reference": "aurilus.txt"
+  },
+  "state": "enriched",
+  "segments": [
+    1
+  ],
+  "enrich": {
+    "status": "enriched",
+    "active_filters": [
+      "research",
+      "theme",
+      "syntax",
+      "quality"
+    ]
+  }
+}

@@ -1,29 +1,13 @@
 {
+  "chapter_index": 4,
+  "name": "4",
+  "word_target": 500,
+  "chapter_title": "The River's Road",
+  "chapter_summary": "Storms, hunger, and the loneliness of the water mark the long voyage. The context follows the river as both enemy and road, the threshold between the living and the dead.",
+  "further_references": [],
+  "level": "chapter",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "chapter_name": "4",
-  "level": "chapter",
-  "chapter_index": 4,
-  "topic": "The River's Road",
-  "state": "enriched",
-  "syntax": {
-    "form": "poetry",
-    "sample": "generic"
-  },
-  "stereotype": {
-    "form": "poetry",
-    "signature": "gibran",
-    "reference": "aurilus.txt",
-    "theme_set": "generic.md"
-  },
-  "enrich": {
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  ]
 }

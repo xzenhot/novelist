@@ -1,0 +1,29 @@
+{
+  "segments": [
+    1
+  ],
+  "chapter_name": "6",
+  "level": "chapter",
+  "chapter_index": 6,
+  "topic": "The Court of the Gods",
+  "state": "enriched",
+  "syntax": {
+    "form": "poetry",
+    "sample": "generic"
+  },
+  "stereotype": {
+    "form": "poetry",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "enrich": {
+    "active_filters": [
+      "research",
+      "theme",
+      "syntax",
+      "quality"
+    ],
+    "status": "enriched"
+  }
+}

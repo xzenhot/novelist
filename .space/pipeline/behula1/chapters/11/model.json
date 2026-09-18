@@ -1,0 +1,29 @@
+{
+  "chapter_index": 11,
+  "topic": "The Long Vigil",
+  "syntax": {
+    "sample": "generic",
+    "form": "poetry"
+  },
+  "chapter_name": "11",
+  "level": "chapter",
+  "stereotype": {
+    "theme_set": "generic.md",
+    "signature": "gibran",
+    "form": "poetry",
+    "reference": "aurilus.txt"
+  },
+  "state": "enriched",
+  "segments": [
+    1
+  ],
+  "enrich": {
+    "status": "enriched",
+    "active_filters": [
+      "research",
+      "theme",
+      "syntax",
+      "quality"
+    ]
+  }
+}

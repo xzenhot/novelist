@@ -1,29 +1,13 @@
 {
+  "chapter_index": 5,
+  "name": "5",
+  "word_target": 500,
+  "chapter_title": "The Mockery of the World",
+  "chapter_summary": "People on the banks call her mad, a woman chasing a dead man. The context turns on her answer: that love is not measured by what the world can see.",
+  "further_references": [],
+  "level": "chapter",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "chapter_name": "5",
-  "level": "chapter",
-  "chapter_index": 5,
-  "topic": "The Mockery of the World",
-  "state": "enriched",
-  "syntax": {
-    "form": "poetry",
-    "sample": "generic"
-  },
-  "stereotype": {
-    "form": "poetry",
-    "signature": "gibran",
-    "reference": "aurilus.txt",
-    "theme_set": "generic.md"
-  },
-  "enrich": {
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  ]
 }

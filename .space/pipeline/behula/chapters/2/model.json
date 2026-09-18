@@ -1,29 +1,13 @@
 {
+  "chapter_index": 2,
+  "name": "2",
+  "word_target": 500,
+  "chapter_title": "The Widow's Silence",
+  "chapter_summary": "Society arrives with its rituals and its pity, expecting a woman to be buried alive in mourning. The context turns on the refusal of that silence and the first stirring of defiance.",
+  "further_references": [],
+  "level": "chapter",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "chapter_name": "2",
-  "level": "chapter",
-  "chapter_index": 2,
-  "topic": "The Widow's Silence",
-  "state": "enriched",
-  "syntax": {
-    "form": "poetry",
-    "sample": "generic"
-  },
-  "stereotype": {
-    "form": "poetry",
-    "signature": "gibran",
-    "reference": "aurilus.txt",
-    "theme_set": "generic.md"
-  },
-  "enrich": {
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  ]
 }

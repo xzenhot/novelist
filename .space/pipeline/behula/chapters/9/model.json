@@ -1,29 +1,13 @@
 {
+  "chapter_index": 9,
+  "name": "9",
+  "word_target": 500,
+  "chapter_title": "The Return",
+  "chapter_summary": "She returns with her husband restored, but she is no longer the sheltered bride who left. The context turns on what the journey has made of her.",
+  "further_references": [],
+  "level": "chapter",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "chapter_name": "9",
-  "level": "chapter",
-  "chapter_index": 9,
-  "topic": "The Return",
-  "state": "enriched",
-  "syntax": {
-    "form": "poetry",
-    "sample": "generic"
-  },
-  "stereotype": {
-    "form": "poetry",
-    "signature": "gibran",
-    "reference": "aurilus.txt",
-    "theme_set": "generic.md"
-  },
-  "enrich": {
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ],
-    "status": "enriched"
-  }
+  ]
 }

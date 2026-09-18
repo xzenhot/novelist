@@ -13,12 +13,15 @@ The book plan (book.json) must already exist (run `/book <bookname> init` first)
 """
 import json
 import os
+import shutil
 import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
 def scaffold(bookname: str) -> None:
+    if not bookname or bookname in {".", ".."} or any(c in bookname for c in '/\\:<>"|?*'):
+        sys.exit("ERROR: expected a single book folder name")
     BOOK = bookname
     PIPE = os.path.join(ROOT, ".space", "pipeline", BOOK)
     BACKLOG = os.path.join(ROOT, ".space", "backlog", "epic", BOOK)
@@ -30,54 +33,46 @@ def scaffold(bookname: str) -> None:
     with open(plan_path, encoding="utf-8") as f:
         plan = json.load(f)
 
+    if os.path.exists(PIPE):
+        sys.exit(f"ERROR: pipeline already exists: {PIPE}; preserving existing state.")
+    if plan.get("form") != "poetry" or plan.get("book_name") != BOOK:
+        sys.exit("ERROR: plan identity/form does not match the requested poetry book")
     chapters = plan["chapters"]
+    if not chapters or plan.get("chapter_count") != len(chapters):
+        sys.exit("ERROR: chapter count does not match the plan")
+    for index, chapter in enumerate(chapters, 1):
+        if type(chapter.get("chapter_index")) is not int or chapter["chapter_index"] != index or chapter.get("name") != str(index):
+            sys.exit("ERROR: poetry chapter identities must be sequential")
+        if type(chapter.get("word_target")) is not int or chapter["word_target"] <= 0:
+            sys.exit("ERROR: chapter word_target must be a positive integer")
+        if any(not isinstance(chapter.get(k), str) or not chapter[k].strip() for k in ("chapter_title", "chapter_summary")) or not isinstance(chapter.get("further_references"), list):
+            sys.exit("ERROR: incomplete chapter schema")
+    chain = plan.get("filter_chain", [])
+    if not chain or len(set(chain)) != len(chain):
+        sys.exit("ERROR: missing or duplicate filter chain")
+    for name in chain:
+        if not isinstance(name, str) or not name.isidentifier() or not os.path.isfile(os.path.join(ROOT, ".framework", "agents", name, "agent.md")):
+            sys.exit("ERROR: invalid or missing filter agent")
     count = len(chapters)
     filter_chain = plan["filter_chain"]
     word_target = plan.get("word_target", 500)
 
     os.makedirs(PIPE, exist_ok=True)
 
-    # model.json
-    model = {
-        "form": "poetry",
-        "book_name": BOOK,
-        "book_long_title": plan["book_long_title"],
-        "language": plan["language"],
-        "register": "archaic/literary",
-        "quality": ".framework/templates/stereotypes/poetry/qualities/aurilus.md",
-        "themes": ".framework/templates/stereotypes/poetry/themes/generic.md",
-        "reference": ".framework/templates/stereotypes/poetry/references/aurilus.txt",
-        "index": "bookseed.txt",
-        "sacred_vocabulary": {},
-        "translation_guide": {},
-        "chapter_count": count,
-        "source_terms": [c["chapter_title"] for c in chapters],
-        "gist": plan["gist"],
-        "book_summary": plan["book_summary"],
-        "created_at": plan["created_at"],
-    }
-    with open(os.path.join(PIPE, "model.json"), "w", encoding="utf-8") as f:
-        json.dump(model, f, indent=2, ensure_ascii=False)
+    # Exact root-model clone required by the workflow.
+    shutil.copyfile(plan_path, os.path.join(PIPE, "model.json"))
 
     # bookseed.txt
     with open(os.path.join(PIPE, "bookseed.txt"), "w", encoding="utf-8") as f:
         for c in chapters:
             f.write(c["chapter_title"] + "\n")
 
-    # book.json (pipeline clone)
-    with open(os.path.join(PIPE, "book.json"), "w", encoding="utf-8") as f:
-        json.dump(plan, f, indent=2, ensure_ascii=False)
-
-    # override.txt (default)
-    with open(os.path.join(PIPE, "override.txt"), "w", encoding="utf-8") as f:
-        f.write("No transform required.\n")
-
     # progress.json
     progress = {
         "title": plan["book_long_title"],
         "language": plan["language"],
         "source_terms": [c["chapter_title"] for c in chapters],
-        "context": "../context/qualities/aurilus.md + writer.md",
+        "context": "model.json",
         "total_chapters": count,
         "completed_chapters": 0,
         "current_chapter": 1,
@@ -85,7 +80,7 @@ def scaffold(bookname: str) -> None:
             {
                 "chapter_number": c["chapter_index"],
                 "topic": c["chapter_title"],
-                "category": "The Woman Who Is Delhi",
+                "category": c.get("category", ""),
                 "status": "pending",
                 "file_path": f"chapters\\{c['chapter_index']}\\chapter.md",
                 "completed_date": None,
@@ -120,17 +115,20 @@ def scaffold(bookname: str) -> None:
         with open(os.path.join(fd, "filter.md"), "w", encoding="utf-8") as f:
             f.write(f"# {name} filter\n")
         with open(os.path.join(fd, "filter-summary.md"), "w", encoding="utf-8") as f:
-            f.write(f"# {name} Filter Summary\n\n(Not yet run.)\n")
+            f.write("")
         with open(os.path.join(fd, "content-input.md"), "w", encoding="utf-8") as f:
-            f.write(f"# {name} Content Input\n\n(Snapshot of the upstream input this filter consumed. Populated when the filter runs; used for undo/rollback.)\n")
+            f.write("")
         with open(os.path.join(fd, "content-output.md"), "w", encoding="utf-8") as f:
-            f.write(f"# {name} Content Output\n\n(Not yet run.)\n")
+            f.write("")
 
-    # override command file
-    with open(os.path.join(filters_dir, "override", "filter.md"), "w", encoding="utf-8") as f:
-        f.write(f"# {BOOK} poetry override command file\n\n")
-        f.write(f"Applies to every poem in the {BOOK} pipeline. The operative form is flat, continuous poetic prose. Add transformation instructions below.\n\n")
-        f.write("---\n\n## Instructions\n")
+    # Seed the poetry command file from the responsible agent.
+    if "override" in filter_chain:
+        with open(os.path.join(ROOT, ".framework", "agents", "override", "agent.md"), encoding="utf-8") as f:
+            override = f.read()
+        override = override.replace("<bookname>", BOOK).replace("agent of the pipeline", "agent of the poetry pipeline")
+        override = override.replace("every chapter", "every poem").replace("Every chapter", "Every poem")
+        with open(os.path.join(filters_dir, "override", "filter.md"), "w", encoding="utf-8") as f:
+            f.write(override.rstrip() + "\n\n---\n\n## Instructions\n")
 
     # chapters
     chapters_dir = os.path.join(PIPE, "chapters")
@@ -145,17 +143,8 @@ def scaffold(bookname: str) -> None:
         os.makedirs(os.path.join(seg, "editor"), exist_ok=True)
         os.makedirs(os.path.join(seg, "translator"), exist_ok=True)
 
-        cm = {
-            "level": "chapter",
-            "state": "scaffolded",
-            "chapter_index": n,
-            "chapter_name": str(n),
-            "topic": c["chapter_title"],
-            "chapter_title": c["chapter_title"],
-            "chapter_summary": c["chapter_summary"],
-            "word_target": c.get("word_target", word_target),
-            "segments": [1],
-        }
+        cm = dict(c)
+        cm.update({"level": "chapter", "state": "scaffolded", "segments": [1]})
         with open(os.path.join(cd, "model.json"), "w", encoding="utf-8") as f:
             json.dump(cm, f, indent=2, ensure_ascii=False)
 
@@ -167,8 +156,9 @@ def scaffold(bookname: str) -> None:
             f.write(f"# {c['chapter_title']}\n\n")
             f.write(f"{c['chapter_summary']}\n")
 
-    # source destination
-    os.makedirs(os.path.join(ROOT, "source", "books", BOOK, "chapters"), exist_ok=True)
+    # Postlayout default for a plain scaffold; never create reader-facing output.
+    with open(os.path.join(PIPE, "override.txt"), "w", encoding="utf-8") as f:
+        f.write("No transform required.\n")
 
     print(f"Scaffolded {BOOK}: {count} chapters, filter chain {filter_chain}")
 

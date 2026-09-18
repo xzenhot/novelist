@@ -1,0 +1,29 @@
+{
+  "segments": [
+    1
+  ],
+  "chapter_name": "8",
+  "level": "chapter",
+  "chapter_index": 8,
+  "topic": "The Bhat Flower Weeps",
+  "state": "enriched",
+  "syntax": {
+    "form": "poetry",
+    "sample": "generic"
+  },
+  "stereotype": {
+    "form": "poetry",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "enrich": {
+    "active_filters": [
+      "research",
+      "theme",
+      "syntax",
+      "quality"
+    ],
+    "status": "enriched"
+  }
+}

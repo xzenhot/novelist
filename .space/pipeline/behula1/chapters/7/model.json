@@ -1,0 +1,29 @@
+{
+  "segments": [
+    1
+  ],
+  "chapter_name": "7",
+  "level": "chapter",
+  "chapter_index": 7,
+  "topic": "Indra's Honour",
+  "state": "enriched",
+  "syntax": {
+    "form": "poetry",
+    "sample": "generic"
+  },
+  "stereotype": {
+    "form": "poetry",
+    "signature": "gibran",
+    "reference": "aurilus.txt",
+    "theme_set": "generic.md"
+  },
+  "enrich": {
+    "active_filters": [
+      "research",
+      "theme",
+      "syntax",
+      "quality"
+    ],
+    "status": "enriched"
+  }
+}

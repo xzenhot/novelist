@@ -4,7 +4,14 @@
       "type": "stdio",
       "command": "python",
       "args": [
-        "d:\\lab\\github\\Gibran\\novelist\\.tools\\server.py"
+        "d:\\lab\\github\\writer\\.tools\\server.py"
+      ]
+    },
+    "novelist-book": {
+      "type": "stdio",
+      "command": "python",
+      "args": [
+        "d:\\lab\\github\\writer\\.tools\\book_server.py"
       ]
     }
   }

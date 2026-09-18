@@ -1,29 +1,13 @@
 {
   "chapter_index": 12,
-  "topic": "The Price of Medicine",
-  "syntax": {
-    "sample": "generic",
-    "form": "poetry"
-  },
-  "chapter_name": "12",
+  "name": "12",
+  "word_target": 500,
+  "chapter_title": "The Price of Medicine",
+  "chapter_summary": "The medicine has a price not written on the bottle, and she pays it coin by coin without paying with her soul. The context turns on the refusal to be bought.",
+  "further_references": [],
   "level": "chapter",
-  "stereotype": {
-    "theme_set": "generic.md",
-    "signature": "gibran",
-    "form": "poetry",
-    "reference": "aurilus.txt"
-  },
-  "state": "enriched",
+  "state": "scaffolded",
   "segments": [
     1
-  ],
-  "enrich": {
-    "status": "enriched",
-    "active_filters": [
-      "research",
-      "theme",
-      "syntax",
-      "quality"
-    ]
-  }
+  ]
 }
