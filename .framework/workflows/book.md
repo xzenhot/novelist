@@ -228,6 +228,7 @@ The `form` field drives: stereotype template folder, filter chain, chapter struc
 - **Bare bookname creates backlog epic.** The bare `/book <bookname>` command checks `.space/backlog/epic/<bookname>/epic.md`; if it is missing, create it with an auto-generated gist. It does not scaffold a pipeline.
 - **Pipeline first.** No chapter may be written until `.space/pipeline/<bookname>/` exists and its per-chapter research is produced. Always check whether the pipeline exists; if it does, work with its data — never re-scaffold from scratch.
 - **Filters never scaffold.** The `filter` command is read/write on existing pipeline data only: it never creates folders, seeds planning artifacts, or runs layout or research scaffold steps.
+- **Archive before replacing drafts.** Every write/chapter/poet agent must copy and verify the existing `chapter.md` as the next `segments/<x>/version/chapter_v<k>.md` before overwriting it; see **Mandatory Draft Version Before Overwrite**.
 - **Version, never overwrite.** Every `write` invocation creates a fresh numeric version under `source/books/<bookname>/`; `write continue` chooses the next pending pipeline chapter, then writes it into that new version folder.
 - **The epic is the single source of truth for a novel's story.** Chapter narratives are drawn from the epic, never invented from the gist. The gist is indicative only. `model.json` + `bookseed.txt` are the source of truth for poetry: `model.json` holds *how* to write (language, register, quality, themes, reference, index); `bookseed.txt` holds *what* to write (one topic per line).
 - **Gist vs. summary.** The gist is exactly one sentence (used for `book_long_title`). The book summary is a 5–10 sentence paragraph outlining the complete story, derived from the epic and stored as `book_summary`. When the epic changes, regenerate the gist and update `model.json`.
@@ -309,13 +310,13 @@ On an existing pipeline, preserve the incremental rule: do not re-clone over an 
 - `chapters/<n>/chapter.md` is the live working draft for the chapter. Scaffold seeds it with the bare minimum chapter content. It is reserved exclusively for the writing stage (chapter/write agents); **filters (workshop, research, correctness, theme, syntax, override, quality, enrich) must never read or modify it** — filters operate solely on `chapters/<n>/model.json` (e.g. `.space/pipeline/lau/chapters/4/model.json`) and their own `filters/<filter>/` inputs/outputs.
 - `chapters/<n>/model.json` is the runtime state for the chapter. Filters, chapter agents, poet agents, and supporting skills must merge their metadata here rather than inventing parallel state files.
 - `chapters/<n>/mood.json` describes how the chapter is shaped across segments and must remain the continuity/readability guide for downstream writing.
-- `chapters/<n>/history/` stores superseded copies of `chapter.md` or writer-stage drafts before an agent overwrites them.
+- `chapters/<n>/segments/<x>/version/` stores verified copies of the prior `chapter.md` and writer-stage drafts before replacement, following **Mandatory Draft Version Before Overwrite**. Other metadata snapshots may remain directly under `history/`.
 - `chapters/<n>/segments/<x>/model.json` is the runtime state for that segment.
 - `chapters/<n>/segments/<x>/writer/` stores the writer-stage copy of the current chapter or segment draft.
 - `chapters/<n>/segments/<x>/editor/` stores editor comments, assessments, and quality notes.
 - `chapters/<n>/segments/<x>/translator/` stores translated outputs of the latest chapter or segment draft, named by language such as `en.md`, `hn.md`, or `bn.md`.
 
-No downstream step may create alternate chapter-version files in the chapter root unless the scaffold agent's contract is updated to allow them. The chapter root holds the live `chapter.md`; versioned or translated derivatives belong in `history/`, `writer/`, `editor/`, or `translator/`.
+No downstream step may create alternate chapter-version files in the chapter root unless the scaffold agent's contract is updated to allow them. The chapter root holds the live `chapter.md`; versioned or translated derivatives belong in segment `version/`, `writer/`, `editor/`, or `translator/` folders (legacy archives remain in `history/`).
 
 ## The Epic (Novel only)
 
@@ -510,6 +511,20 @@ Responsibility: translate the latest writer-stage chapter version for one or mor
 7. Do not modify `chapters/<n>/chapter.md`, do not modify writer-stage files, do not write to `source/books/`, and do not update `progress.json` unless a future workflow explicitly adds translation progress tracking.
 
 The translate agent and any skill it invokes must treat `segments/1/writer/` as the only source for translation and `segments/1/translator/` as the only destination.
+## Mandatory Draft Version Before Overwrite
+
+Every write agent, chapter agent, poet agent, and any delegated skill or helper that replaces an existing `chapter.md` MUST preserve the previous file in a new version folder **before** opening the live file for writing, truncating it, or replacing it. This applies to direct agent calls, revisions, retries, `write all`, and `write continue`, not only the top-level write command.
+
+1. Read the existing draft and retain its original bytes. If `chapter.md` does not exist, this is a first write and no prior-version copy is required. An existing empty file must still be archived.
+2. Resolve the owning segment `<x>`: poetry always uses `1`; novels use the actual segment number (`1`, `2`, ...), incrementing as the chapter advances through its segments. A revision does not itself advance the segment number. If the owning novel segment is ambiguous, require an explicit segment selection.
+3. Copy the previous chapter bytes to `.space/pipeline/<bookname>/chapters/<n>/segments/<x>/version/chapter_v<k>.md`. Choose `<k>` as one greater than the highest existing chapter revision, starting at `1`, and create the file exclusively; on a collision, choose the next unused number. When archiving a distinct writer-stage `chapter.md`, use `writer_chapter_v<k>.md` in the same version folder with its own incrementing sequence. Never overwrite or move existing copies.
+4. Read the archived copy back and verify byte-for-byte equality with the previous live file. If the copy or verification fails, stop that chapter without overwriting the live draft or marking the write complete.
+5. Immediately before replacement, verify that the live file still matches the bytes archived. If another process or agent changed it, stop and re-read the latest file rather than overwriting an unarchived revision. Save the new draft through a temporary file and atomic replacement only after the archive is verified.
+6. Take a new snapshot before every subsequent replacement, including another revision within the same invocation. A previously published version, a backup of `model.json`, or the newly generated text does not substitute for a copy of the actual draft being replaced.
+7. Report each overwritten draft's archive path alongside its new output path. A successful write requires the prior-version copy whenever a previous draft existed.
+
+These are pipeline draft versions, separate from the reader-facing versions under `source/books/`. They do not promote unfinished text or bypass validation. This workflow explicitly authorizes a `version/` folder under each segment and takes precedence over less specific archive instructions in writing agents and skills.
+
 ## Source Versioning
 
 Reader-facing output is always versioned. The workflow must never write finished chapters directly under `source/books/<bookname>/` or an unversioned `source/books/<bookname>/chapters/` folder.
@@ -535,11 +550,11 @@ Responsibility: turn pipeline filter outputs into finished reader-facing chapter
 2. Stop if upstream filters for the target chapter(s) are missing; require the relevant filter outputs in `.space/pipeline/<bookname>/filters/`.
 3. Resolve target chapter(s) (`1..N`, `all`, or `continue`).
 4. Ensure the override command file is always present: `.space/pipeline/<bookname>/filters/override/filter.md` is created at scaffold time; if it is missing, recreate its baseline by seeding it from `.framework/agents/override/agent.md` (form-customized, empty `## Instructions`) before continuing.
-5. For each target chapter, route the writing work through **the chapter agent** at `.framework/agents/chapter/agent.md`. The agent reads the workshop frame at `chapters/<n>/chapter.md`, the chapter `model.json`, `mood.json` (novel), `characters.json`/`book.json`, the epic (novel) or `bookseed.txt` (poetry), and the override command file `.space/pipeline/<bookname>/filters/override/filter.md`.
+5. For each target chapter, require the **Mandatory Draft Version Before Overwrite** contract for every existing live or writer-stage `chapter.md` the agent will replace, then route the writing work through **the chapter agent** at `.framework/agents/chapter/agent.md`. The agent reads the workshop frame at `chapters/<n>/chapter.md`, the chapter `model.json`, `mood.json` (novel), `characters.json`/`book.json`, the epic (novel) or `bookseed.txt` (poetry), and the override command file `.space/pipeline/<bookname>/filters/override/filter.md`.
 6. Before invoking the chapter agent, allocate a new output version folder: inspect `source/books/<bookname>/` for numeric child folders, choose the next integer (`1` when none exist), and create `source/books/<bookname>/<version>/chapters/`. The agent writes the finished chapter to `source/books/<bookname>/<version>/chapters/<n>.md` in the configured language and style, preserving the frame sections and applying the override command file's `## Instructions` (if any) as the final transformation layer.
 7. **Write the writer-stage segment.** Before or after writing the finished chapter, ensure the segment writer folder `.space/pipeline/<bookname>/chapters/<n>/segments/1/writer/` exists:
    - **If no segment has been written yet** (the folder is missing or empty), write the segment there **with metadata**: the segment draft (e.g. `chapter.md`) plus a segment metadata record (e.g. `segment.json` or front matter) carrying `chapter_index`, `chapter_name`/`chapter_title`, `segment_number`, `language`, `state` (e.g. `written`), `word_count`, `written_at` timestamp, and the source filter outputs used.
-   - **If a segment is already written**, **overwrite it** with the newly written chapter. Archive the prior writer copy to the chapter's `history/` folder first (per the chapter layout contract), then replace the segment file and refresh its metadata (`updated_at`, `state`, `word_count`).
+   - **If a segment is already written**, **overwrite it** with the newly written chapter. Archive and verify the prior writer copy as the next `segments/<x>/version/writer_chapter_v<k>.md` first (per **Mandatory Draft Version Before Overwrite**), then replace the segment file and refresh its metadata (`updated_at`, `state`, `word_count`).
 8. Update `progress.json` after each completed chapter.
 9. Do not run filter agents during this phase; their outputs are inputs here.
 

@@ -98,6 +98,7 @@ This section is the binding downstream contract for scaffolded chapter state. Fi
         │
         ├───editor - Any Editor comments are kept here. It shows the content quality score.
         ├───translator - It contains translated version of latest chapter.md ( if translated ). The name like: en.md, hn.md, bn.md etc
+        ├───version - It contains published/promoted snapshots of the segment's output (versioned copies)
         └───writer - It contains final copy of chapter.md
 
       - `chapter.md` stays the live working draft in the chapter root, authored only by the write/chapter/poet path; filters never read or write it.
@@ -105,3 +106,4 @@ This section is the binding downstream contract for scaffolded chapter state. Fi
       - `writer/` stores the writer-stage output for the current segment or chapter.
       - `editor/` stores commentary and quality feedback only.
       - `translator/` stores translated derivatives only.
+      - `version/` stores versioned/promoted snapshots of the segment's published output.

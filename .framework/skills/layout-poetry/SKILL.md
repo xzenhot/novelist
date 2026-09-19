@@ -82,6 +82,7 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
                 |-- model.json
                 |-- writer/
                 |-- editor/
+                |-- version/
                 `-- translator/
 ```
 
@@ -94,7 +95,7 @@ This is mandatory.
 - Chapter folders live only under `.space/pipeline/<bookname>/chapters/`.
 - Segment folders live only under `.space/pipeline/<bookname>/chapters/<chapter>/segments/`.
 - Poetry chapters always have exactly one segment: `segments/1/`.
-- Writer, editor, and translator folders live only under `segments/1/`.
+- Writer, editor, translator, and version folders live only under `segments/1/`.
 - Each chapter has a `history/` folder (`.space/pipeline/<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
 - Do not create `mood.json` for poetry.
 - Do not create `book.json`, `characters.json`, `masterprompt.md`, or `workshop_metadata.md` for poetry unless the user explicitly asks for a hybrid project.
@@ -110,6 +111,7 @@ The scaffold agent's `## Chapter Layout` section is the runtime semantics for th
 - `history/` stores superseded copies of `chapter.md` or writer-stage drafts before overwrite.
 - `segments/1/writer/` stores writer-stage poem copies.
 - `segments/1/editor/` stores editorial notes and quality feedback.
+- `segments/1/version/` stores versioned/promoted snapshots of the segment's published output.
 - `segments/1/translator/` stores translated derivatives only.
 
 ## Topic And Chapter Set
@@ -268,8 +270,8 @@ Before reporting completion, verify:
 - `filters/filters.json` exists and names all seven poetry filters in order.
 - Every filter folder has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
 - Every topic has one numeric chapter folder.
+- Every `segments/1/` has `writer/`, `editor/`, `version/`, and `translator/` folders.
 - Every chapter has `model.json`, a `history/` folder, and `segments/1/model.json`.
-- Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
 - No `mood.json` files exist in poetry chapter folders.
 - No chapter or segment folders were created outside the canonical paths.
 - `source/books/<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.

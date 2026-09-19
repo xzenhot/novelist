@@ -142,6 +142,7 @@ def scaffold(bookname: str) -> None:
         os.makedirs(os.path.join(seg, "writer"), exist_ok=True)
         os.makedirs(os.path.join(seg, "editor"), exist_ok=True)
         os.makedirs(os.path.join(seg, "translator"), exist_ok=True)
+        os.makedirs(os.path.join(seg, "version"), exist_ok=True)
 
         cm = dict(c)
         cm.update({"level": "chapter", "state": "scaffolded", "segments": [1]})

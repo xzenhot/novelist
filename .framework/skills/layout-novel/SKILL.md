@@ -88,6 +88,7 @@ workshop -> research -> seeds -> correctness -> theme -> syntax
     |           |-- model.json
     |           |-- writer/
     |           |-- editor/
+    |           |-- version/
     |           `-- translator/
     |-- 1/
     |-- ...
@@ -102,7 +103,7 @@ This is mandatory.
 
 - Chapter folders live only under `.space/pipeline/<bookname>/chapters/`.
 - Segment folders live only under `.space/pipeline/<bookname>/chapters/<chapter>/segments/`.
-- Writer, editor, and translator folders live only under `.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/`.
+- Writer, editor, translator, and version folders live only under `.space/pipeline/<bookname>/chapters/<chapter>/segments/<segment>/`.
 - Each chapter has a `history/` folder (`.space/pipeline/<bookname>/chapters/<n>/history/`) that holds superseded drafts of `chapter.md`; the live `chapter.md` always holds the current state.
 - Do not create root-level chapter folders under `.space/pipeline/<bookname>/`.
 - Do not create `chapter_<n>` or `segment_<n>` folders in new scaffolds; use `1`, `2`, etc.
@@ -232,6 +233,7 @@ The scaffold agent's `## Chapter Layout` section is the runtime semantics for th
 - `history/` stores superseded copies of `chapter.md` or writer-stage drafts before overwrite.
 - `segments/<x>/writer/` stores writer-stage chapter copies.
 - `segments/<x>/editor/` stores editorial notes and quality feedback.
+- `segments/<x>/version/` stores versioned/promoted snapshots of the segment's published output.
 - `segments/<x>/translator/` stores translated derivatives only.
 
 Chapter-level `model.json` should include the chapter identity and initial planning data:
@@ -334,6 +336,6 @@ Before reporting completion, verify:
 - `filters/filters.json` exists and names the filters selected from `book.json`'s `filter_chain` (or the default novel preset chain if no book plan exists) in the exact order declared.
 - Every filter folder selected from the book plan has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
 - Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, a `history/` folder, and `segments/1/model.json`.
-- Every `segments/1/` has `writer/`, `editor/`, and `translator/` folders.
+- Every `segments/1/` has `writer/`, `editor/`, `version/`, and `translator/` folders.
 - No chapter or segment folders were created outside the canonical paths.
 - `source/books/<bookname>/chapters/` exists and contains no unfinished generated prose unless a later workflow created it.

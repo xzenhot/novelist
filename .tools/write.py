@@ -17,6 +17,8 @@ Usage:
 
 import argparse
 import json
+import os
+import tempfile
 import re
 import sys
 import time
@@ -294,12 +296,82 @@ def run_ollama(prompt: str) -> str:
     raise RuntimeError(f"Ollama request failed: {last_error}")
 
 
-def write_chapter(model_file: Path) -> None:
+def resolve_version_dir(model_file: Path, segment: int | None = None) -> Path:
+    """Resolve the owning segment; segment indices are not revision numbers."""
+    chapter = json.loads(model_file.read_text(encoding="utf-8-sig"))
+    book_file = model_file.parents[2] / "model.json"
+    book = json.loads(book_file.read_text(encoding="utf-8-sig"))
+    form = book.get("form", chapter.get("form"))
+    if form == "poetry":
+        if segment not in (None, 1):
+            raise ValueError("Poetry has exactly one segment: 1")
+        segment = 1
+    elif form == "novel":
+        segments = chapter.get("segments", [])
+        if not segments:
+            segments = [int(p.name) for p in (model_file.parent / "segments").iterdir()
+                        if p.is_dir() and p.name.isdecimal()]
+        if segment is None:
+            if len(segments) != 1:
+                raise ValueError("Specify --segment <x> for a novel chapter with multiple segments")
+            segment = segments[0]
+        if type(segment) is not int or segment < 1 or segment not in segments:
+            raise ValueError("Segment must match an existing novel chapter segment")
+    else:
+        raise ValueError("Book model must declare form as poetry or novel")
+    folder = model_file.parent / "segments" / str(segment)
+    if not folder.is_dir():
+        raise ValueError(f"Segment directory not found: {folder}")
+    return folder / "version"
+
+
+def save_chapter(out_file: Path, output: str, previous: bytes | None, version_dir: Path) -> Path | None:
+    """Verify and archive the prior draft, then atomically install its replacement."""
+    def check_unchanged():
+        current = out_file.read_bytes() if out_file.exists() else None
+        if current != previous:
+            raise RuntimeError(f"Draft changed during generation; not overwriting {out_file}")
+
+    check_unchanged()
+    backup = None
+    if previous is not None:
+        version_dir.mkdir(parents=True, exist_ok=True)
+        versions = [int(match.group(1)) for path in version_dir.iterdir()
+                    if (match := re.fullmatch(r"chapter_v([0-9]+)\.md", path.name))]
+        version = max(versions, default=0) + 1
+        while True:
+            backup = version_dir / f"chapter_v{version}.md"
+            try:
+                with backup.open("xb") as stream:
+                    stream.write(previous)
+                break
+            except FileExistsError:
+                version += 1
+        if backup.read_bytes() != previous:
+            raise RuntimeError(f"Backup verification failed: {backup}")
+
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=out_file.parent, prefix=".chapter-", suffix=".tmp", delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write((output + "\n").encode("utf-8"))
+        check_unchanged()
+        os.replace(temporary, out_file)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+    return backup
+
+
+def write_chapter(model_file: Path, segment: int | None = None) -> None:
     number = int(model_file.parent.name)
     info(f"\n=== Chapter {number} ===")
     chapter_dir = model_file.parent
     vlog(f"[{number}] Chapter dir ready: {chapter_dir}")
 
+    out_file = chapter_dir / "chapter.md"
+    previous = out_file.read_bytes() if out_file.exists() else None
+    version_dir = resolve_version_dir(model_file, segment)
     poetry = load_poetry()
     context = load_context(model_file)
     prompt = build_prompt(poetry, context, number)
@@ -325,8 +397,9 @@ def write_chapter(model_file: Path) -> None:
     output = run_ollama(prompt)
     elapsed = time.time() - t0
 
-    out_file = chapter_dir / "chapter.md"
-    out_file.write_text(output + "\n", encoding="utf-8")
+    backup = save_chapter(out_file, output, previous, version_dir)
+    if backup is not None:
+        info(f"[{number}] Previous version -> {backup}")
     word_count = len(output.split())
     vlog(f"[{number}] Output: {len(output)} chars, ~{word_count} words")
     info(f"[{number}] Saved -> {out_file} "
@@ -353,6 +426,8 @@ def main() -> int:
 Input:  .space/pipeline/<bookname>/chapters/<n>/model.json
 Context: .space/pipeline/<bookname>/chapters/<n>/context.md (regenerated from full JSON)
 Output: .space/pipeline/<bookname>/chapters/<n>/chapter.md
+Previous drafts: chapters/<n>/segments/<x>/version/chapter_v<k>.md
+Poetry: x=1. Novels: --segment selects an existing segment (1, 2, ...).
 Paths are resolved relative to the repository, regardless of your current directory.
 """,
     )
@@ -374,6 +449,7 @@ Paths are resolved relative to the repository, regardless of your current direct
     if sys.argv[1:] == ["help"]:
         parser.print_help()
         return 0
+    parser.add_argument("--segment", type=int, help="Owning novel segment number; poetry always uses 1.")
     args = parser.parse_args()
     VERBOSE = args.verbose
     SHOW_PROMPT = args.show_prompt
@@ -395,7 +471,7 @@ Paths are resolved relative to the repository, regardless of your current direct
     for number in numbers:
         model_file = chapters_root / str(number) / "model.json"
         try:
-            write_chapter(model_file)
+            write_chapter(model_file, args.segment)
         except Exception as e:
             print(f"[{number}] FAILED: {e}", file=sys.stderr)
             failures += 1

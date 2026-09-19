@@ -65,7 +65,7 @@ The `book.json` must contain:
   - `chapter_index` — `Introduction`, `1..N`, `Conclusion` for novels; `1..N` for poetry.
   - `name` — the chapter's canonical name (matches `chapter_index`).
   - `chapter_title` — a short, evocative title.
-  - chapter_summary - a short, form-neutral contextual seed of 1-4 sentences, derived only from gist.md and epic.md. Select a concrete subject, place, event, image, tension, or question from the source material with varied generation; do not reuse a fixed opening or sentence pattern. Keep it usable for poetry, prose, and other literary content, and do not invent details beyond the gist and epic.
+  - `chapter_summary` - a short, form-neutral contextual seed of 2-4 sentences around 150-200 words, derived only from gist.md and epic.md. Select a concrete subject, place, event, image, tension, or question from the source material with varied generation; do not reuse a fixed opening or sentence pattern. Keep it usable for poetry, prose, and other literary content, and do not invent details beyond the gist and epic.
   - `further_references` — an array of `{ "no", "reference", "weblink" }` grounding sources (optional but recommended).
 - **`all_characters`** — an array of `{ "character_id", "full_name", "role", "identity", "psychological_depth" }` for novels; omit or leave empty for poetry.
 - **`history`** — a short paragraph of historical/contextual grounding (novels).
@@ -81,7 +81,7 @@ The `book.json` must contain:
 This file gives the complete hint of how many chapters will be written, how each is laid out, and the ordered filter chain, so `scaffold` can build the pipeline without re-deriving the plan.
 
 
-For normal init, keep each chapter_summary simple and contextual. Do not force a poetry or prose voice, and do not expand it into a long four-bullet treatment; the summary is a neutral seed that later agents can use for any literary form. Init is the only backlog-plan command; its summaries stay simple and form-neutral. Layout is an alias of init, not a separate workflow.
+For normal init, keep each chapter_summary contextual and informative. Do not force a poetry or prose voice, and do not expand it into a long four-bullet treatment; the summary is a neutral seed that later agents can use for any literary form. Init is the only backlog-plan command; its summaries stay simple and form-neutral. Layout is an alias of init, not a separate workflow.
 
 ## Operation
 

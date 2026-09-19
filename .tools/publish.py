@@ -1,128 +1,109 @@
 #!/usr/bin/env python3
+"""Publish chapter-root drafts with titles from their chapter models.
+
+Usage: python .tools/publish.py <bookname>
+Reads only chapters/<n>/chapter.md and chapters/<n>/model.json.
+Creates source/books/<bookname>/version<k>/chapters/<n>/chapter.md and book.md.
 """
-Reusable publish tool.
-
-Promotes the latest writer-stage (or translator-stage) segments from the
-pipeline to a new versioned folder under `source/books/<bookname>/` and
-assembles the consolidated `book.md`.
-
-Usage:
-    python .tools/publish.py <bookname> [<language>]
-
-- Without <language>: publishes writer-stage segments (latest chapter_v*.md).
-- With <language>: publishes translator-stage segments matching that language.
-"""
+import argparse
 import datetime
 import json
 import os
-import shutil
-import sys
+import re
+from pathlib import Path
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
-def publish(bookname: str, language: str | None = None) -> None:
-    BOOK = bookname
-    PIPE = os.path.join(ROOT, ".space", "pipeline", BOOK)
-    SRC = os.path.join(ROOT, "source", "books", BOOK)
+def publish(bookname: str) -> None:
+    if not bookname or bookname in {".", ".."} or any(c in bookname for c in '/\\:<>"|?*'):
+        raise ValueError("Expected a single book folder name")
+    pipeline = Path(ROOT) / ".space" / "pipeline" / bookname
+    chapters_root = pipeline / "chapters"
+    if not chapters_root.is_dir():
+        raise ValueError(f"Pipeline chapters missing for {bookname!r}; run scaffold first")
+    model = json.loads((pipeline / "model.json").read_text(encoding="utf-8-sig"))
+    progress_path = pipeline / "progress.json"
+    progress = json.loads(progress_path.read_text(encoding="utf-8-sig")) if progress_path.exists() else None
 
-    if not os.path.isdir(PIPE):
-        sys.exit(f"ERROR: pipeline missing for '{BOOK}'. Run scaffold first.")
+    def chapter_order(folder):
+        if folder.name == "Introduction":
+            return (0, 0)
+        if folder.name.isdecimal():
+            return (1, int(folder.name))
+        return (2, 0)  # Conclusion
 
-    os.makedirs(SRC, exist_ok=True)
+    folders = sorted((p for p in chapters_root.iterdir() if p.is_dir() and
+                      (p.name.isdecimal() or p.name in {"Introduction", "Conclusion"})),
+                     key=chapter_order)
+    published, skipped = [], []
+    for folder in folders:
+        draft = folder / "chapter.md"
+        chapter_model = folder / "model.json"
+        try:
+            body = draft.read_text(encoding="utf-8-sig").strip()
+            metadata = json.loads(chapter_model.read_text(encoding="utf-8-sig"))
+            title = metadata.get("chapter_title")
+            if not body:
+                raise ValueError("empty chapter.md")
+            if not isinstance(title, str) or not title.strip():
+                raise ValueError("missing chapter_title in model.json")
+            title = " ".join(title.split())
+            # Replace an existing leading title; metadata is authoritative.
+            lines = body.splitlines()
+            if re.match(r"^#{1,6}\s+", lines[0]):
+                body = "\n".join(lines[1:]).strip()
+            if not body:
+                raise ValueError("chapter.md contains only a heading")
+            published.append((folder.name, title, body))
+        except (OSError, ValueError, AttributeError) as error:
+            skipped.append((folder.name, str(error)))
 
-    # version allocation
-    existing = [d for d in os.listdir(SRC) if d.startswith("version") and os.path.isdir(os.path.join(SRC, d))]
-    nums = [int(d.replace("version", "")) for d in existing if d.replace("version", "").isdigit()]
-    k = max(nums) + 1 if nums else 1
-    ver = f"version{k}"
-    ver_dir = os.path.join(SRC, ver)
-    chapters_out = os.path.join(ver_dir, "chapters")
-    os.makedirs(chapters_out, exist_ok=True)
+    for name, reason in skipped:
+        print(f"Skipped chapter {name}: {reason}")
+    if not published:
+        raise ValueError("No usable chapter-root drafts with model titles; nothing published")
 
-    # canonical order
-    with open(os.path.join(PIPE, "bookseed.txt"), encoding="utf-8") as f:
-        topics = [l.strip() for l in f if l.strip()]
-    total = len(topics)
+    destination = Path(ROOT) / "source" / "books" / bookname
+    destination.mkdir(parents=True, exist_ok=True)
+    numbers = [int(match.group(1)) for p in destination.iterdir()
+               if p.is_dir() and (match := re.fullmatch(r"version([0-9]+)", p.name))]
+    version = max(numbers, default=0) + 1
+    while True:
+        version_dir = destination / f"version{version}"
+        try:
+            version_dir.mkdir()
+            break
+        except FileExistsError:
+            version += 1
 
-    def version_key(fname):
-        if fname.startswith("chapter_v") and fname[len("chapter_v"):-3].isdigit():
-            return int(fname[len("chapter_v"):-3])
-        return 0
+    sections = []
+    for name, title, body in published:
+        chapter_out = version_dir / "chapters" / name
+        chapter_out.mkdir(parents=True)
+        (chapter_out / "chapter.md").write_text(f"# {title}\n\n{body}\n", encoding="utf-8")
+        sections.append(f"## {title}\n\n{body}")
+    book_title = model.get("book_long_title") or bookname
+    book_file = version_dir / "book.md"
+    book_file.write_text(f"# {book_title}\n\n" + "\n\n---\n\n".join(sections) + "\n", encoding="utf-8")
 
-    published = []  # list of (n, out_chapter_path)
-    skipped = []
-    for n in range(1, total + 1):
-        if language:
-            seg_dir = os.path.join(PIPE, "chapters", str(n), "segments", "1", "translator")
-            if not os.path.isdir(seg_dir):
-                skipped.append((n, f"no translator segment for '{language}'"))
-                continue
-            candidates = [f for f in os.listdir(seg_dir) if f.lower().startswith(language.lower()) and f.endswith(".md")]
-            if not candidates:
-                skipped.append((n, f"no translator segment for '{language}'"))
-                continue
-            src_file = os.path.join(seg_dir, candidates[0])
-            out_dir = os.path.join(chapters_out, str(n), language)
-        else:
-            seg_dir = os.path.join(PIPE, "chapters", str(n), "segments", "1", "writer")
-            if not os.path.isdir(seg_dir):
-                skipped.append((n, "no writer segment"))
-                continue
-            files = [f for f in os.listdir(seg_dir) if f.endswith(".md")]
-            if not files:
-                skipped.append((n, "no writer segment"))
-                continue
-            files.sort(key=version_key)
-            src_file = os.path.join(seg_dir, files[-1])
-            out_dir = os.path.join(chapters_out, str(n))
-
-        os.makedirs(out_dir, exist_ok=True)
-        out_chapter = os.path.join(out_dir, "chapter.md")
-        shutil.copyfile(src_file, out_chapter)
-        published.append((n, out_chapter))
-
-    # assemble book.md
-    title = "Book"
-    model_path = os.path.join(PIPE, "model.json")
-    if os.path.exists(model_path):
-        with open(model_path, encoding="utf-8") as f:
-            model = json.load(f)
-        title = model.get("book_long_title", "Book")
-
-    parts = [f"# {title}\n"]
-    for n, cp in published:
-        with open(cp, encoding="utf-8") as f:
-            parts.append(f.read().strip())
-        parts.append("\n---\n")
-    book_md = "\n\n".join(parts).rstrip() + "\n"
-
-    book_name = f"book_{language}.md" if language else "book.md"
-    with open(os.path.join(ver_dir, book_name), "w", encoding="utf-8") as f:
-        f.write(book_md)
-
-    # progress update
-    pp = os.path.join(PIPE, "progress.json")
-    if os.path.exists(pp):
-        with open(pp, encoding="utf-8") as f:
-            prog = json.load(f)
-        prog["published"] = True
-        prog["published_at"] = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-        prog["published_version"] = k
-        if language:
-            prog["published_language"] = language
-        with open(pp, "w", encoding="utf-8") as f:
-            json.dump(prog, f, indent=2, ensure_ascii=False)
-
-    print(f"Published {len(published)} chapters to {ver_dir}")
-    print(f"Skipped: {len(skipped)}")
-    for n, r in skipped:
-        print(f"  chapter {n}: {r}")
-    print(f"Assembled: {os.path.join(ver_dir, book_name)}")
+    if progress is not None:
+        progress.update(published=not skipped,
+                        published_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                        published_version=version,
+                        published_chapters=[name for name, _, _ in published],
+                        skipped_chapters=[name for name, _ in skipped])
+        progress.pop("published_language", None)
+        progress_path.write_text(json.dumps(progress, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Published {len(published)} chapters to {version_dir}; skipped {len(skipped)}")
+    print(f"Assembled: {book_file}")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        sys.exit("Usage: python .tools/publish.py <bookname> [<language>]")
-    lang = sys.argv[2] if len(sys.argv) > 2 else None
-    publish(sys.argv[1], lang)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("bookname")
+    args = parser.parse_args()
+    try:
+        publish(args.bookname)
+    except (OSError, ValueError) as error:
+        parser.exit(1, f"ERROR: {error}\n")
