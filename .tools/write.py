@@ -177,36 +177,17 @@ def build_system_prompt() -> str:
     return "".join(parts)
 
 
-def flatten_json_to_markdown(data: object) -> str:
-    """Render every JSON leaf with its unambiguous JSON path as a heading."""
-    sections = ["# Chapter model context"]
-
-    def visit(value: object, path: str) -> None:
-        if isinstance(value, dict) and value:
-            for key, child in value.items():
-                visit(child, f"{path}[{json.dumps(key, ensure_ascii=False)}]")
-        elif isinstance(value, list) and value:
-            for index, child in enumerate(value):
-                visit(child, f"{path}[{index}]")
-        else:
-            # JSON encoding preserves types, empty containers, and string escapes.
-            rendered = json.dumps(value, ensure_ascii=False, indent=2)
-            # Use a fence longer than any backtick run in user-authored values.
-            fence = "`" * max(3, 1 + max(
-                (len(run) for run in re.findall(r"`+", rendered)), default=0
-            ))
-            sections.append(f"## {path}\n\n{fence}json\n{rendered}\n{fence}")
-
-    visit(data, "$")
-    return "\n\n".join(sections) + "\n"
-
-
 def load_context(model_file: Path) -> str:
-    """Flatten the entire model, save context.md beside it, and return Markdown."""
-    data = json.loads(model_file.read_text(encoding="utf-8-sig"))
-    context = flatten_json_to_markdown(data)
-    context_file = model_file.with_name("context.md")
-    context_file.write_text(context, encoding="utf-8")
+    """Flatten the model via flatten.py, save context.md, and return Markdown.
+
+    The shared flatten routine lives in flatten.py (single source of truth).
+    Every chapter is flattened fresh, immediately before writing, so context.md
+    always reflects the current model.json.
+    """
+    import flatten as flatten_module
+
+    context_file = flatten_module.flatten_chapter(model_file)
+    context = context_file.read_text(encoding="utf-8")
     vlog(f"Context saved -> {context_file} ({len(context)} chars)")
     return context
 

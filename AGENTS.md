@@ -241,8 +241,8 @@ The `/book` command surface is split across two start-point workflow specs:
 .framework/agents/override/agent.md
 .framework/agents/quality/agent.md
 .framework/agents/enrich/agent.md
-.framework/agents/write/agent.md
-.framework/agents/chapter/agent.md
+.framework/agents/poetry/agent.md
+.framework/agents/story/agent.md
 .framework/agents/style/agent.md
 .framework/agents/translate/agent.md
 .framework/agents/publish/agent.md

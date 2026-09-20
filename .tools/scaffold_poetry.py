@@ -107,28 +107,8 @@ def scaffold(bookname: str) -> None:
     with open(os.path.join(filters_dir, "filters.json"), "w", encoding="utf-8") as f:
         json.dump(registry, f, indent=2, ensure_ascii=False)
 
-    for name in filter_chain:
-        fd = os.path.join(filters_dir, name)
-        os.makedirs(fd, exist_ok=True)
-        with open(os.path.join(fd, f"{name}.md"), "w", encoding="utf-8") as f:
-            f.write(f"# {name}\n\nRole agent: .framework/agents/{name}/agent.md\n")
-        with open(os.path.join(fd, "filter.md"), "w", encoding="utf-8") as f:
-            f.write(f"# {name} filter\n")
-        with open(os.path.join(fd, "filter-summary.md"), "w", encoding="utf-8") as f:
-            f.write("")
-        with open(os.path.join(fd, "content-input.md"), "w", encoding="utf-8") as f:
-            f.write("")
-        with open(os.path.join(fd, "content-output.md"), "w", encoding="utf-8") as f:
-            f.write("")
-
-    # Seed the poetry command file from the responsible agent.
-    if "override" in filter_chain:
-        with open(os.path.join(ROOT, ".framework", "agents", "override", "agent.md"), encoding="utf-8") as f:
-            override = f.read()
-        override = override.replace("<bookname>", BOOK).replace("agent of the pipeline", "agent of the poetry pipeline")
-        override = override.replace("every chapter", "every poem").replace("Every chapter", "Every poem")
-        with open(os.path.join(filters_dir, "override", "filter.md"), "w", encoding="utf-8") as f:
-            f.write(override.rstrip() + "\n\n---\n\n## Instructions\n")
+    # Per-filter folders (and the override command file) are created lazily on
+    # first run, not at scaffold. Scaffold writes only filters/filters.json.
 
     # chapters
     chapters_dir = os.path.join(PIPE, "chapters")

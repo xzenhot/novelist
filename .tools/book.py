@@ -982,7 +982,7 @@ def scaffold_novel(bookname: str, chapter_count: int, gist: str = "") -> None:
 
     The pipeline structure created:
         model.json, bookseed.txt, characters.json, override.txt
-        filters/filters.json + one folder per filter in the chain
+        filters/filters.json (registry only — no per-filter folders)
         chapters/<name>/model.json, chapter.md, history/
         chapters/<name>/segments/1/{model.json, writer/, editor/, translator/, version/}
 
@@ -1044,7 +1044,7 @@ def scaffold_novel(bookname: str, chapter_count: int, gist: str = "") -> None:
     )
     (pipeline / "override.txt").write_text("No transform required.\n", encoding="utf-8")
 
-    # --- Filter registry and folders ---
+    # --- Filter registry (filters.json only; no per-filter folders) ---
     filter_chain = plan.get("filter_chain", FILTER_CHAIN_NOVEL)
     filters_dir = pipeline / "filters"
     filters_dir.mkdir()
@@ -1066,21 +1066,7 @@ def scaffold_novel(bookname: str, chapter_count: int, gist: str = "") -> None:
         encoding="utf-8",
     )
 
-    # Scaffold one folder per filter with standard placeholder files
-    for name in filter_chain:
-        folder = filters_dir / name
-        folder.mkdir()
-        (folder / f"{name}.md").write_text(f"# {name}\n", encoding="utf-8")
-        (folder / "filter.md").write_text(
-            f"# {name} filter\n\n## Instructions\n\n", encoding="utf-8"
-        )
-        (folder / "filter-summary.md").write_text("_Not yet run._\n", encoding="utf-8")
-        (folder / "content-input.md").write_text(
-            "_Populated when the filter runs._\n", encoding="utf-8"
-        )
-        (folder / "content-output.md").write_text(
-            "_Populated when the filter runs._\n", encoding="utf-8"
-        )
+    # Filter folders are created lazily on first run, not at scaffold.
 
     # --- Chapter folders ---
     chapters_dir = pipeline / "chapters"

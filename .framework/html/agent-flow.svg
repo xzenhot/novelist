@@ -202,10 +202,10 @@
   <text x="60" y="898" class="phase-label">Phase 3 — Write</text>
   <text x="60" y="916" class="phase-num">source/books/book_&lt;bookname&gt;/chapters/</text>
 
-  <!-- chapter agent -->
+  <!-- story agent -->
   <rect x="200" y="930" width="240" height="90" class="box"/>
-  <text x="320" y="958" text-anchor="middle" class="box-title">chapter agent</text>
-  <text x="320" y="978" text-anchor="middle" class="box-agent">.framework/agents/chapter/</text>
+  <text x="320" y="958" text-anchor="middle" class="box-title">story agent</text>
+  <text x="320" y="978" text-anchor="middle" class="box-agent">.framework/agents/story/</text>
   <text x="320" y="998" text-anchor="middle" class="box-output">→ chapters/&lt;n&gt;.md (novel + poetry)</text>
 
   <!-- poet agent -->

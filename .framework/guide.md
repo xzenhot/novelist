@@ -59,7 +59,7 @@ init [gist] [count] [preset] [form] [refresh] (aliases: backlog, layout) fully c
 | `scaffold <gist> count\|chapter-count <number>` | Creates or repairs `.space/pipeline/<bookname>/` through the scaffold agent (prelayout -> layout skill -> postlayout), gated by the existence of `book.json`. Never creates or modifies `epic.md`. |
 | `<agentname> <chapter>\|<n>\|all\|continue` | Runs any registered agent (`.framework/agents/<agentname>/agent.md`) against selected chapters in an existing pipeline. Does not promote output to `source/books/`. |
 | `poet` | Invokes the poet agent to produce a single finished poem from the human-authored override file (poetry pipelines only). |
-| `chapter <chapter>\|<n>\|all\|continue` | Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters, routed through the chapter agent. |
+| `chapter <chapter>\|<n>\|all\|continue` | Writes one chapter, a numbered chapter, all chapters, or the remaining missing chapters, routed through the story agent. |
 | `filter <filter>` | Runs a single named filter on an existing pipeline. |
 | `enrich <count>\|range\|*` | Fuses the active (`autorun: true`) filters into one combined agent and runs them in a single pass over the selected chapters. |
 | `form <formname>` | Sets or changes the pipeline form (`novel` or `poetry`). |
