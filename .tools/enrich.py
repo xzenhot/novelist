@@ -206,15 +206,26 @@ def load_book_model(bookname):
 
 STYLE_BASE = REPO_ROOT / ".framework" / "templates" / "styles" / "pijush" / "poetry.md"
 
+STYLE_REGENERATE_SYSTEM_PROMPT = """You are the style-grounding editor for a literary pipeline.
+Given a book's identity (title, summary, topic list) and its current style document,
+rewrite the style document so its subject matter is grounded in THIS book — not any
+other book's narrative. Keep the persona, voice, philosophy, register, and structural
+formula intact; only re-ground the "what" (subject matter, topics, and examples).
+Remove every reference to a different book's story (e.g. a Behula / Manasamangal saga,
+Lakhindar, a bamboo raft, a wedding chamber) and replace it with this book's own
+subjects, images, and topics. Return only the full rewritten style document as
+Markdown — no commentary, no fences, no preamble."""
+
 
 def regenerate_style_md(bookname, book):
-    """Ensure the pipeline style.md exists and is grounded in the current book.
+    """Ensure the pipeline style.md exists and regenerate it from the current book.
 
-    Mirrors the quality/enrich agents' style-reference step: copy the base
-    Pijush poetry prompt if style.md is missing, then re-ground its subject
-    matter (title + topic list) to this book's model.json topics so the voice
-    stays contextual. Never overwrites a human-edited style.md's non-subject
-    content; only the title line and the SUBJECT MATTER section are refreshed.
+    Mirrors the quality/enrich agents' style-reference step. The rewrite is driven
+    by an Ollama call, not deterministic string replacement: the model re-grounds
+    the style document's subject matter to this book's summary and topics, removing
+    any prior/foreign narrative (e.g. a Behula template) and re-rooting the persona,
+    examples, and topic list in the current book. On any model failure the existing
+    (or freshly seeded) style.md is left intact.
     """
     pipeline = REPO_ROOT / ".space" / "pipeline" / check_bookname(bookname)
     style_file = pipeline / "style.md"
@@ -222,53 +233,53 @@ def regenerate_style_md(bookname, book):
     # Ensure the base exists (copy the template if missing).
     if not style_file.exists():
         if not STYLE_BASE.is_file():
-            return
+            return None
         style_file.write_text(STYLE_BASE.read_text(encoding="utf-8"), encoding="utf-8")
         vlog(f"style.md seeded from template -> {style_file}")
 
-    text = style_file.read_text(encoding="utf-8")
-
-    # Refresh the title line to name the current book.
+    current = style_file.read_text(encoding="utf-8")
     title = book.get("book_long_title") or book.get("book_name") or bookname
-    text = re.sub(
-        r"^# PROMPT:.*$",
-        f"# PROMPT: {title}",
-        text,
-        count=1,
-        flags=re.MULTILINE,
+    summary = book.get("book_summary", "")
+    chapters = book.get("chapters") or []
+    topics = [
+        f"{ch.get('chapter_index')}. {ch.get('chapter_title') or ch.get('name')}"
+        for ch in chapters
+        if isinstance(ch, dict) and (ch.get("chapter_title") or ch.get("name"))
+    ]
+
+    prompt = (
+        "Regenerate the style document below so its subject matter is grounded in "
+        "THIS book, removing any prior or foreign narrative (e.g. Behula, Lakhindar, "
+        "a bamboo raft, a wedding chamber) and re-rooting the persona, examples, and "
+        "topic list in the current book.\n\n"
+        f"BOOK TITLE: {title}\n\n"
+        f"BOOK SUMMARY:\n{clip(summary, 2000)}\n\n"
+        f"BOOK TOPICS:\n" + "\n".join(topics) + "\n\n"
+        "CURRENT STYLE DOCUMENT:\n" + current + "\n\n"
+        "Return the full rewritten style document as Markdown only."
     )
 
-    # Rebuild the SUBJECT MATTER topic list from the book's chapters.
-    chapters = book.get("chapters") or []
-    topics = []
-    for ch in chapters:
-        if not isinstance(ch, dict):
-            continue
-        index = ch.get("chapter_index")
-        name = ch.get("chapter_title") or ch.get("name") or ""
-        if name:
-            topics.append(f"{index}. **{name}**" if index is not None else f"- **{name}**")
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            raw = run_ollama(
+                prompt,
+                secrets.randbelow(2**31) + attempt,
+                0.5,
+                MODEL,
+                system=STYLE_REGENERATE_SYSTEM_PROMPT,
+                format_json=False,
+            )
+            regenerated = (raw or "").strip()
+            if regenerated and len(regenerated) > 200:
+                style_file.write_text(regenerated + "\n", encoding="utf-8")
+                vlog(f"style.md regenerated via Ollama -> {style_file}")
+                return style_file
+            raise ValueError("Ollama returned an empty or too-short style document")
+        except (RuntimeError, ValueError) as exc:
+            vlog(f"style regeneration attempt {attempt}/{MAX_RETRIES} failed: {exc}")
 
-    if topics:
-        bullet = "\n".join(topics)
-        subject_block = (
-            f"## 3. SUBJECT MATTER (The \"What\")\n\n"
-            f"{clip(book.get('book_summary', ''), 1400)}\n\n"
-            f"**The Topics (The Parameter Context):**\n{bullet}\n\n"
-            f"**Requirement:** In any given piece, **randomly select 2-3 topics** to anchor "
-            f"the piece. Do not list them; embody them through scene, body, and object.\n"
-        )
-        # Replace the section between "## 3." and the next "## 4." (or "## " heading).
-        text = re.sub(
-            r"^## 3\..*?(?=^## \d+\.|^## [A-Z]|\Z)",
-            subject_block,
-            text,
-            count=1,
-            flags=re.MULTILINE | re.DOTALL,
-        )
-
-    style_file.write_text(text, encoding="utf-8")
-    vlog(f"style.md regenerated -> {style_file}")
+    # Fall back: keep the existing (or seeded) style.md unchanged.
+    vlog("style regeneration failed; keeping existing style.md")
     return style_file
 
 
@@ -697,17 +708,18 @@ def repair_prompt(previous, problems):
     )
 
 
-def run_ollama(prompt, seed, temperature, model_name):
+def run_ollama(prompt, seed, temperature, model_name, system=None, format_json=True):
     payload = {
         "model": model_name,
-        "system": ENRICH_SYSTEM_PROMPT,
+        "system": system if system is not None else ENRICH_SYSTEM_PROMPT,
         "prompt": prompt,
-        "format": "json",
         "stream": False,
         "think": False,
         "options": {"num_ctx": CONTEXT_WINDOW, "temperature": temperature, "top_p": 0.95,
                     "top_k": 60, "repeat_penalty": 1.12, "seed": seed},
     }
+    if format_json:
+        payload["format"] = "json"
     vlog(f"[ollama] POST {OLLAMA_URL} model={model_name} seed={seed} temperature={temperature} prompt={len(prompt)} chars")
     for attempt in range(MAX_RETRIES):
         request = urllib.request.Request(OLLAMA_URL, data=json.dumps(payload).encode("utf-8"),

@@ -1193,6 +1193,9 @@ def enrich_workflow(bookname: str, target: str) -> None:
     numbers = enrich.parse_chapter_input(target, chapters_root)
     book = enrich.load_book_model(bookname)
 
+    # Ensure the pipeline style.md exists and is grounded in the current book.
+    enrich.regenerate_style_md(bookname, book)
+
     # Pre-load all chapter models to give the enrich engine cross-chapter context
     all_models: dict[int, object] = {}
     for num in enrich.parse_chapter_input("all", chapters_root):
