@@ -204,6 +204,74 @@ def load_book_model(bookname):
     return book
 
 
+STYLE_BASE = REPO_ROOT / ".framework" / "templates" / "styles" / "pijush" / "poetry.md"
+
+
+def regenerate_style_md(bookname, book):
+    """Ensure the pipeline style.md exists and is grounded in the current book.
+
+    Mirrors the quality/enrich agents' style-reference step: copy the base
+    Pijush poetry prompt if style.md is missing, then re-ground its subject
+    matter (title + topic list) to this book's model.json topics so the voice
+    stays contextual. Never overwrites a human-edited style.md's non-subject
+    content; only the title line and the SUBJECT MATTER section are refreshed.
+    """
+    pipeline = REPO_ROOT / ".space" / "pipeline" / check_bookname(bookname)
+    style_file = pipeline / "style.md"
+
+    # Ensure the base exists (copy the template if missing).
+    if not style_file.exists():
+        if not STYLE_BASE.is_file():
+            return
+        style_file.write_text(STYLE_BASE.read_text(encoding="utf-8"), encoding="utf-8")
+        vlog(f"style.md seeded from template -> {style_file}")
+
+    text = style_file.read_text(encoding="utf-8")
+
+    # Refresh the title line to name the current book.
+    title = book.get("book_long_title") or book.get("book_name") or bookname
+    text = re.sub(
+        r"^# PROMPT:.*$",
+        f"# PROMPT: {title}",
+        text,
+        count=1,
+        flags=re.MULTILINE,
+    )
+
+    # Rebuild the SUBJECT MATTER topic list from the book's chapters.
+    chapters = book.get("chapters") or []
+    topics = []
+    for ch in chapters:
+        if not isinstance(ch, dict):
+            continue
+        index = ch.get("chapter_index")
+        name = ch.get("chapter_title") or ch.get("name") or ""
+        if name:
+            topics.append(f"{index}. **{name}**" if index is not None else f"- **{name}**")
+
+    if topics:
+        bullet = "\n".join(topics)
+        subject_block = (
+            f"## 3. SUBJECT MATTER (The \"What\")\n\n"
+            f"{clip(book.get('book_summary', ''), 1400)}\n\n"
+            f"**The Topics (The Parameter Context):**\n{bullet}\n\n"
+            f"**Requirement:** In any given piece, **randomly select 2-3 topics** to anchor "
+            f"the piece. Do not list them; embody them through scene, body, and object.\n"
+        )
+        # Replace the section between "## 3." and the next "## 4." (or "## " heading).
+        text = re.sub(
+            r"^## 3\..*?(?=^## \d+\.|^## [A-Z]|\Z)",
+            subject_block,
+            text,
+            count=1,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+
+    style_file.write_text(text, encoding="utf-8")
+    vlog(f"style.md regenerated -> {style_file}")
+    return style_file
+
+
 def parse_chapter_input(value, chapters_root=None):
     """Parse numbers/ranges, or discover all numeric chapter folders in order."""
     if value.strip().lower() in {"all", "*"}:
@@ -793,6 +861,7 @@ Writes:  only the target model.json; chapter.md is never read or written.
         chapters_root = resolve_chapters_root(args.bookname)
         numbers = parse_chapter_input(args.chapters, chapters_root)
         book = load_book_model(args.bookname)
+        regenerate_style_md(args.bookname, book)
         if args.lens:
             forced_lens(args.lens)
     except ValueError as error:

@@ -125,12 +125,19 @@ def resolve_chapters_root(bookname: str) -> Path:
     return chapters_root
 
 
-def load_poetry() -> str:
-    vlog(f"Loading poetry prompt from: {POETRY_FILE}")
-    if not POETRY_FILE.exists():
-        raise FileNotFoundError(f"Poetry prompt file not found: {POETRY_FILE}")
-    text = POETRY_FILE.read_text(encoding="utf-8")
-    vlog(f"  poetry.md loaded: {len(text)} chars, {text.count(chr(10)) + 1} lines")
+def load_poetry(style_md: Path | None = None) -> str:
+    """Load the style prompt from the pipeline's style.md, falling back to the framework template.
+
+    Prefer `.space/pipeline/<bookname>/style.md` (the book-contextual style the
+    filters regenerate). If it is missing, fall back to the shared framework
+    template (``POETRY_FILE``).
+    """
+    source = style_md if (style_md is not None and style_md.exists()) else POETRY_FILE
+    vlog(f"Loading poetry prompt from: {source}")
+    if not source.exists():
+        raise FileNotFoundError(f"Poetry prompt file not found: {source}")
+    text = source.read_text(encoding="utf-8")
+    vlog(f"  poetry prompt loaded: {len(text)} chars, {text.count(chr(10)) + 1} lines")
     return text
 
 
@@ -357,7 +364,8 @@ def write_chapter(model_file: Path, segment: int | None = None) -> None:
     out_file = chapter_dir / "chapter.md"
     previous = out_file.read_bytes() if out_file.exists() else None
     version_dir = resolve_version_dir(model_file, segment)
-    poetry = load_poetry()
+    style_md = chapter_dir.parents[1] / "style.md"
+    poetry = load_poetry(style_md)
     context = load_context(model_file)
     prompt = build_prompt(poetry, context, number)
 

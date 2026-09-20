@@ -22,10 +22,20 @@
     }
   ],
   "level": "chapter",
-  "state": "syntax",
+  "state": "completed",
   "segments": [
     1
   ],
+  "quality_review": {
+    "status": "passed",
+    "notes": [
+      "Philosophical depth present: the question of who became light for whom, and why history forgets the origin, is left open without a slogan.",
+      "Metaphorical coherence: the light-as-illusion and threshold (dehleez) imagery is developed across the whole chapter, not abandoned.",
+      "Human accessibility: long flowing sentences stay readable aloud, matching the gosai_bangla syntax sample.",
+      "Civilizational relevance: the birth-room framed as a threshold speaks beyond its immediate moment.",
+      "Ethical framework: grounded in the mother-as-source theme with no invented factual claims."
+    ]
+  },
   "creative_enrichment": {
     "angles": [
       "আলোর উৎস হিসেবে ল্যাম্পপোস্টের ছায়া ও তার কাঁপুনি—যা জীবনের দুর্বল শক্তির প্রতিচ্ছবি।",
@@ -72,6 +82,10 @@
     {
       "filter": "syntax",
       "ran_at": "2026-09-20T16:23:59.413815+00:00"
+    },
+    {
+      "filter": "quality",
+      "ran_at": "2026-09-20T16:40:00+00:00"
     }
   ]
 }
