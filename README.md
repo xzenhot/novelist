@@ -18,7 +18,7 @@ The system is split into two layers:
 ```
 writer/
 ├── .framework/              # the engine
-│   ├── workflows/           # book.md — the single orchestration spec for /book
+│   ├── workflows/           # pipeline.md — the single orchestration spec for /book
 │   ├── agents/              # role agents (scaffold, research, theme, enrich, write, publish, …)
 │   ├── skills/              # form-specific skills (layout-poetry, layout-novel, workshop-*, …)
 │   ├── rules/               # shared rules
@@ -36,7 +36,7 @@ writer/
 
 ## The `/book` Command
 
-`/book` is the primary command surface. It is interpreted left-to-right, and its full specification lives in `.framework/workflows/book.md`. The command families are:
+`/book` is the primary command surface. It is interpreted left-to-right, and its full specification lives in `.framework/workflows/pipeline.md`. The command families are:
 
 ```text
 /book <bookname> [<gist>] [form] [refresh]                          # create/update the backlog epic
@@ -160,5 +160,5 @@ Skills are invoked **only through an agent** — never directly. Form-specific l
 /book behula publish bengali                           # promote to source/books
 ```
 
-See `AGENTS.md` for the runtime steering contract and `.framework/workflows/book.md` for the full command specification.
+See `AGENTS.md` for the runtime steering contract and `.framework/workflows/pipeline.md` for the full command specification.
 

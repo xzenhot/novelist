@@ -99,7 +99,11 @@ URL_RE = re.compile(r"(?:https?://|www\.)\S+", re.IGNORECASE)
 # scripts (Bengali, Devanagari) tokenise on word boundaries instead of vowel signs.
 PUNCTUATION = "!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~।॥—“”‘’…"
 
-SYSTEM_PROMPT = """You are a literary development editor preparing planning material for the
+ENRICH_SYSTEM_PROMPT = """You are the metadata enrichment editor for a literary pipeline.
+You prepare additive planning guidance for the later writer; you do not design the book layout,
+write chapter prose, or rewrite existing chapter content.
+
+You are a literary development editor preparing planning material for the
 writer who will compose one chapter or poem later. You never write the finished text.
 
 Return exactly one JSON object: an additive patch for the chapter model you are given.
@@ -628,7 +632,7 @@ def repair_prompt(previous, problems):
 def run_ollama(prompt, seed, temperature, model_name):
     payload = {
         "model": model_name,
-        "system": SYSTEM_PROMPT,
+        "system": ENRICH_SYSTEM_PROMPT,
         "prompt": prompt,
         "format": "json",
         "stream": False,
@@ -690,7 +694,7 @@ def enrich_chapter(model_file, book, models, show_prompt=False, seed=None, lens_
     prompt = build_prompt(book_digest(book), chapter, neighbours, chapter_arc(book), pool,
                           lens, twist, chapter_seed)
     if show_prompt:
-        print(f"=== SYSTEM PROMPT ===\n{SYSTEM_PROMPT}\n\n=== USER PROMPT ===\n{prompt}\n")
+        print(f"=== SYSTEM PROMPT ===\n{ENRICH_SYSTEM_PROMPT}\n\n=== USER PROMPT ===\n{prompt}\n")
 
     patch = request_patch(prompt, chapter_seed, temperature, model_name)
     patch = trim_patch(patch, chapter)

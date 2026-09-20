@@ -1,12 +1,12 @@
 ---
 name: writer
-description: Book-specific instance of the dynamic writer agent (see ../book.md). Writes Gibran-esque Bengali chapters grounded in Marcus Aurelius's "Meditations", transforming physics/science terms into philosophical poetic prose. This file only supplies the subject-specific inputs; the full writing engine lives in book.md.
+description: Book-specific instance of the dynamic writer agent (see ../../../../workflows/pipeline.md). Writes Gibran-esque Bengali chapters grounded in Marcus Aurelius's "Meditations", transforming physics/science terms into philosophical poetic prose. This file only supplies the subject-specific inputs; the full writing engine lives in pipeline.md.
 tools: ["read", "write"]
 ---
 
 # Book Instance: The Invisible Law - A Prophet of Science and Soul
 
-This is a **book-specific instance** of the dynamic writer agent. The complete writing engine, voice guidelines, structural formula, and execution instructions live in [`../book.md`](../book.md). Read that file first — it defines how to write.
+This is a **book-specific instance** of the dynamic writer agent. The complete writing engine, voice guidelines, structural formula, and execution instructions live in [`../../../../workflows/pipeline.md`](../../../../workflows/pipeline.md). Read that file first — it defines how to write.
 
 This file only supplies the **subject-specific inputs** for this particular book.
 
@@ -77,13 +77,13 @@ Assign each term to one of these Stoic categories, cycling through them:
 
 ## How to Invoke
 
-> "Writer, use the dynamic agent at `book.md` with these inputs:
+> "Writer, use the dynamic agent at `pipeline.md` with these inputs:
 > - **Seed file**: `../context/qualities/aurilus.md`
 > - **Index file**: `bookseed.txt`
 > - **Reference book**: `../context/references/aurilus.txt`
 >
 > Write [N] chapters on the next [N] topics from the index."
 
-The dynamic agent will read `book.md` for the writing engine, then apply the subject-specific configuration above to generate chapters grounded in Marcus Aurelius's Stoic wisdom, rendered in Gibran's prophetic Bengali voice.
+The dynamic agent will read `pipeline.md` for the writing engine, then apply the subject-specific configuration above to generate chapters grounded in Marcus Aurelius's Stoic wisdom, rendered in Gibran's prophetic Bengali voice.
 
 

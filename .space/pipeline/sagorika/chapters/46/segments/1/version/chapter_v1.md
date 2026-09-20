@@ -1,0 +1,15 @@
+# The Asola Bhatti Lakes
+
+Sagorika reached the imagined lake at Asola Bhatti with a stone in her hand, intending to hear how deep the water was. The hollow before her held a dark reflection of evening. She had come carrying the chapter's wound inside her: earth opened for taking, then filled by something no hand could lift away entire. Behind her the city continued to gather its lights. Before her the water made no promise that beauty meant the hurt beneath it had healed.
+
+Her beloved raised his phone. In its narrow frame the lake became serenity, a blue answer to the dust of the day. She saw him searching for a place where the broken margin would not appear. The stone waited between her fingers. Both of them, she realized, were asking the hollow to perform: give us a lovely surface, give us a satisfying sound, assure us that what was damaged has found a purpose. She lowered her hand, ashamed of its small authority.
+
+A rustle travelled through the scrub. He turned quickly, eager for another image, but whatever moved remained hidden. She would not name it a leopard merely because the dusk invited magnificence. In her mind the creature of the seed passed unseen through the dark, entitled to a life beyond their certainty. The forested outcrop was no empty theatre. Their inability to witness everything was part of its freedom, and part of the distance they had come to learn.
+
+They stood still. Wind touched the lake, breaking their reflected figures into long trembling strips. Sagorika had called herself the living ground, yet here she felt how little that grand identification excused. To be earth in a poem was not to own every creature's passage or enter every silence. The vanished river in her remembered the cruelty of thirst; this water, present and withholding, asked for a different discipline. She must let presence remain unpossessed.
+
+Her beloved put the phone away. At the path's edge he noticed a bright wrapper snagged against a thorn. He reached for it, stopped when the branch caught his sleeve, and eased himself free. Sagorika held the fabric while he worked. Their awkwardness made them laugh, quietly. They collected the litter within reach, leaving the scrub its shadows. No ceremony marked this poor offering. It could neither refill a mountain nor redeem the names of those who had emptied it.
+
+As the light diminished, they returned along the path. She laid her stone where other stones lay, beyond the reach of a careless foot. The anticipated splash never happened. In its place came the sound of their steps growing farther from the shore, and then the irregular breath of someone climbing.
+
+At home he showed her the photograph he had taken before he understood. She asked him to keep the broken margin in the telling. He wrote a sentence beneath it about what the picture left outside. Sagorika read the sentence twice. The lake remained dark within her, neither accusation ended nor paradise recovered, but a wound they had ceased asking to entertain them.

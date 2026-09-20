@@ -12,19 +12,20 @@ The primary command surface is:
 /book [args...]
 ```
 
-When a user invokes `/book`, parse the arguments, inspect the current repository state, then execute the matching workflow defined in:
+When a user invokes `/book`, parse the arguments, inspect the current repository state, then execute the matching workflow defined in one of the two start-point specs under `.framework/workflows/`:
 
 ```text
-.framework/workflows/book.md
+.framework/workflows/backlog.md    # Phase 0–1: backlog creation (bare bookname + init/backlog/layout)
+.framework/workflows/pipeline.md   # Phase 2 onward: scaffold, filters, write, style, translate, publish
 ```
 
-`book.md` is the primary orchestration specification for command syntax, book lifecycle, filter order, progress tracking, form handling, and output promotion.
+`backlog.md` is the authoritative spec for backlog creation — the bare bookname command (create/update the backlog epic and its seed gist) and the init/backlog/layout command (configure the backlog book plan and derive the ordered filter chain). `pipeline.md` is the authoritative spec for everything after the backlog — command syntax, book lifecycle, filter order, progress tracking, form handling, and output promotion.
 
 ## Strict Slash Command Protocol
 
 All `/book` commands must be interpreted from left to right. Preserve user-provided argument text exactly unless the workflow explicitly normalizes it.
 
-Supported command families are defined by `.framework/workflows/book.md`. At minimum, the runtime must recognize these shapes:
+Supported command families are defined by the two start-point specs. The backlog-creation families (below) are defined by `.framework/workflows/backlog.md`; the pipeline families are defined by `.framework/workflows/pipeline.md`. At minimum, the runtime must recognize these shapes:
 
 ```text
 /book <bookname> [<gist>] [form] [refresh]
@@ -215,11 +216,14 @@ Use these framework locations as authoritative inputs.
 
 ### Workflow
 
+The `/book` command surface is split across two start-point workflow specs:
+
 ```text
-.framework/workflows/book.md
+.framework/workflows/backlog.md   # backlog creation — bare bookname, init/backlog/layout
+.framework/workflows/pipeline.md  # scaffold onward — filters, write, style, translate, publish
 ```
 
-Primary orchestration spec for `/book`.
+`backlog.md` owns Phase 0 (Backlog) and Phase 1 (Init): the bare bookname command and the init/backlog/layout command, operating only inside `.space/backlog/epic/<bookname>/`. `pipeline.md` owns Phase 2 onward: scaffold, the filter chain, write, style, translate, enrich, form, config, add, and publish, operating only inside `.space/pipeline/<bookname>/` and `source/books/`.
 
 ### Agents
 
@@ -359,7 +363,7 @@ summary_file
 autorun
 ```
 
-If no registry exists, follow `.framework/workflows/book.md` and the current pipeline layout.
+If no registry exists, follow `.framework/workflows/pipeline.md` and the current pipeline layout.
 
 ### Final Output
 
@@ -374,7 +378,7 @@ Only promote text after the required validation filters have passed.
 
 ## Validation And Promotion Rules
 
-Before writing to `source/books/`, apply the pipeline filters in the order specified by `.framework/workflows/book.md`.
+Before writing to `source/books/`, apply the pipeline filters in the order specified by `.framework/workflows/pipeline.md`.
 
 For novels, the full validation chain is:
 
@@ -408,7 +412,7 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
 For every `/book` request:
 
 1. Read this `AGENTS.md` file.
-2. Read `.framework/workflows/book.md`.
+2. Read the matching start-point spec — `.framework/workflows/backlog.md` for backlog creation (bare bookname, init/backlog/layout), `.framework/workflows/pipeline.md` for scaffold onward.
 3. Parse the target book, unit/chapter/segment, signature/persona, and stage/role from the user arguments.
 4. Inspect the relevant `.space/backlog/`, `.space/pipeline/`, and `source/books/` paths before writing.
 5. Select the responsible agent from `.framework/agents/`.

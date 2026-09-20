@@ -2,7 +2,7 @@
 
 This guide explains how to use the **writer agent**: a subject-agnostic literary engine that turns backlog epics, workshop narratives, and poetry topic lists into finished book chapters. It weaves three things at runtime: **Context** (reference and grounding), **Style** (the selected voice), and **Theme** (the selected thematic lens).
 
-The authoritative engine lives in `.framework/workflows/book.md`. This guide is a practical map of that workflow, not a replacement for it.
+The authoritative engine lives in two start-point workflow specs under `.framework/workflows/`: `backlog.md` (backlog creation — bare bookname, init/backlog/layout) and `pipeline.md` (scaffold onward — filters, write, style, translate, publish). This guide is a practical map of that workflow, not a replacement for it.
 
 > **Shared rule:** the filter concept is defined in `.framework/rules/filters.md` and applies to all workflows. Every book pipeline passes its material through ordered filters, each owning a folder in the pipeline.
 
@@ -12,7 +12,8 @@ The authoritative engine lives in `.framework/workflows/book.md`. This guide is 
 
 | File | Role |
 |------|------|
-| `.framework/workflows/book.md` | **The writing engine.** Defines commands, scaffolding, filter execution, form selection, config, and writing rules. |
+| `.framework/workflows/backlog.md` | **The backlog-creation workflow.** Owns the bare bookname command (create/update the backlog epic and seed gist) and the init/backlog/layout command (configure the backlog book plan and derive the ordered filter chain). |
+| `.framework/workflows/pipeline.md` | **The writing engine.** Defines scaffold onward: commands, scaffolding, filter execution, form selection, config, and writing rules. |
 | `.framework/skills/layout-novel/SKILL.md` | **The novel layout authority.** Owns novel scaffold shape, `book.json`, characters, moods, workshop metadata, filters, and chapter/segment path invariants. |
 | `.framework/skills/layout-poetry/SKILL.md` | **The poetry layout authority.** Owns poetry scaffold shape, `model.json`, `bookseed.txt`, progress, override, filters, and one-segment chapter layout. |
 | `.framework/skills/research/SKILL.md` | **The scaffold research step.** Runs after layout before chapters are written. |

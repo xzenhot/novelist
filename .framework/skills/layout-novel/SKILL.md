@@ -21,9 +21,9 @@ source/books/<bookname>/
 
 ## Source Of Truth
 
-Use this skill together with `.framework/workflows/book.md`. Do not inspect existing book pipelines such as `.space/pipeline/<bookname>/` to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
+Use this skill together with `.framework/workflows/pipeline.md`. Do not inspect existing book pipelines such as `.space/pipeline/<bookname>/` to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
 
-If this skill conflicts with `.framework/workflows/book.md`, prefer the workflow for command semantics and filter-chain naming, then update this skill. Do not resolve conflicts by sampling another book pipeline.
+If this skill conflicts with `.framework/workflows/pipeline.md`, prefer the workflow for command semantics and filter-chain naming, then update this skill. Do not resolve conflicts by sampling another book pipeline.
 
 For novel story content, use the backlog epic:
 
@@ -65,18 +65,7 @@ workshop -> research -> seeds -> correctness -> theme -> syntax
 |-- progress.json
 |-- filters/
 |   |-- filters.json
-|   |-- workshop/
-|   |   |-- workshop.md
-|   |   |-- filter.md
-|   |   |-- filter-summary.md
-|   |   `-- content-output.md
-|   |-- research/
-|   |-- seeds/
-|   |-- correctness/
-|   |-- theme/
-|   |-- syntax/
-|   |-- override/
-|   `-- quality/
+|   `-- (per-filter folders created lazily on first run)
 `-- chapters/
     |-- Introduction/
     |   |-- model.json
@@ -296,13 +285,7 @@ Each registry entry must include:
 - `agent`
 - `autorun` — a boolean (`true` or `false`). Default `true` for every filter in the chain. The human may set any filter to `false` to skip it; `/book <bookname> filter *` (and `filter all`) runs only the filters whose `autorun` is `true`, in order, skipping disabled ones. A single named filter (`/book <bookname> filter <filter>`) still runs that filter explicitly regardless of its `autorun` flag.
 
-For each named filter folder, scaffold only:
-
-- `<filter>.md`
-- `filter.md`
-- `filter-summary.md`
-- `content-input.md`
-- `content-output.md`
+For each named filter, scaffold only the registry entry in `filters.json` — **do not pre-create the folder or its files**. The filter creates its own `filters/<filter>/` folder (and its `<filter>.md`, `filter.md`, `filter-summary.md`, `content-input.md`, `content-output.md` files) on first run if missing:
 
 `content-input.md` is the **input snapshot** — when the filter runs, it records the upstream material the filter consumed (previous filter's output, chapter drafts, context). It exists so a filter pass can be undone: restoring the input and the prior state reverses the run. Leave it as an empty placeholder at scaffold time.
 
@@ -311,12 +294,12 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 **Override command file (novel customization):** the `override` filter is the one structural exception. Its exact seeding content is **dynamically derived at scaffold time** from the novel stereotype index at `.framework/templates/stereotypes/novel/readme.md` — do not treat this paragraph as the fixed recipe. Before you create the override files, read that readme and let it govern the shape:
 
 1. **Read `.framework/templates/stereotypes/novel/readme.md`** — the master index of the novel stereotype folder. It tells you the canonical contents and conventions: the `qualities/` (seed analyses), `references/` (source texts), `signatures/` (prose voices), `syntax/`, and `themes/` sub-indexes. Use the readme's published conventions as the source of truth for how a novel pipeline's override layer is structured.
-2. **Seed the pipeline override command file from the readme's declared structure.** The human-facing command file for a novel pipeline is `.space/pipeline/<bookname>/filters/override/filter.md` — recreate it with the agent-driven role content (see step 3) and leave the `## Instructions` section empty for the human below the `---` line.
+2. **Seed the pipeline override command file from the readme's declared structure.** The human-facing command file for a novel pipeline is `.space/pipeline/<bookname>/filters/override/filter.md` — create it on first use (not at scaffold) with the agent-driven role content (see step 3) and leave the `## Instructions` section empty for the human below the `---` line.
 3. **Derive the role content from `.framework/agents/override/agent.md`**, customized to the novel form per the readme conventions: identity "novel pipeline", applies to every chapter, command file at `.space/pipeline/<bookname>/filters/override/filter.md`, model updates on `.space/pipeline/<bookname>/chapters/<n>/model.json`, instruction scope "every chapter" (`Introduction`, `1..N`, `Conclusion`).
 4. **Align with whatever the readme's sub-indexes declare** (the prose voice/signature set, reference texts, syntax samples, and theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
 5. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
 
-**Important:** Only create filter folders and registry entries for filters named in the selected book plan's `filter_chain`. Do not create folders for default filters that the book plan omits. The order must match the book plan exactly.
+**Important:** Only create registry entries in `filters/filters.json` for filters named in the selected book plan's `filter_chain`. Do not create filter folders at scaffold (folders are created lazily on first run), and do not add registry entries for default filters that the book plan omits. The order must match the book plan exactly.
 
 ## Source Destination
 
@@ -333,8 +316,7 @@ Do not write finished chapters or `book.md` during layout.
 Before reporting completion, verify:
 
 - Root files exist: `model.json`, `book.json`, `characters.json`, `masterprompt.md`, `workshop_metadata.md`, `progress.json`.
-- `filters/filters.json` exists and names the filters selected from `book.json`'s `filter_chain` (or the default novel preset chain if no book plan exists) in the exact order declared.
-- Every filter folder selected from the book plan has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
+- `filters/filters.json` exists and names the filters selected from `book.json`'s `filter_chain` (or the default novel preset chain if no book plan exists) in the exact order declared. No per-filter folders are created at scaffold; each filter creates its folder on first run.
 - Every chapter in `Introduction -> 1..N -> Conclusion` has `model.json`, `mood.json`, `chapter.md`, a `history/` folder, and `segments/1/model.json`.
 - Every `segments/1/` has `writer/`, `editor/`, `version/`, and `translator/` folders.
 - No chapter or segment folders were created outside the canonical paths.

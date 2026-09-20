@@ -46,4 +46,4 @@ Next steps:
 - Optional: `/book <bookname> <command>` — short reason
 ```
 
-Keep each reason to one line. Do not invent commands that do not exist in `.framework/workflows/book.md`.
+Keep each reason to one line. Do not invent commands that do not exist in `.framework/workflows/pipeline.md`.

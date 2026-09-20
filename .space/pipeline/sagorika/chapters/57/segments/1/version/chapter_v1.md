@@ -1,0 +1,15 @@
+# The Feroz Shah Kotla
+
+At Feroz Shah Kotla, Sagorika unfolded a letter she had written to nobody living. Around the broken stone her imagination had gathered the djinns of the chapter's seed, presences to whom the unanswered might be carried. She did not know what another visitor believed, and would not put her longing into their mouths. Her own letter began with a complaint so ordinary that she nearly laughed: someone she loved had stopped answering her.
+
+From beyond the quiet came a sudden cheer, distant and collective. A game somewhere had found its moment. The sound struck her solitude with an almost insulting happiness. How could the city rejoice while a sentence remained lodged beneath her ribs? Then she heard the absurdity of the demand. Delhi had carried dynasties into dust without suspending the need for bread. It could carry her unanswered message and still allow strangers the fierce delight of a score.
+
+She read the letter again. Much of it was accusation dressed as prayer. Return him to me, she had written, as though a beloved were a thing misplaced among the stones. The woman who called herself earth had forgotten how fiercely she resisted being held as property. She crossed out the sentence. The torn quiet inside her did not mend, but it widened enough to admit his separate life, his cowardice perhaps, his confusion perhaps, the reasons she could neither forgive nor invent.
+
+Her pen stopped working. She shook it, tried the margin, and made a small blot upon her hand. A man passing nearby offered another. The practical kindness embarrassed her into gratitude. She borrowed it, finished one sentence, and returned it with the cap firmly replaced. What she wrote was less commanding than what she had brought: let me hear the truth, and bear hearing it. Even this she addressed partly to herself.
+
+The cheer rose again. This time it entered the scene without breaking it. Her grief had not become smaller; the world around it had recovered its dimensions. In the dimness, stone held the day's warmth. She thought of the vanished river, how absence could persist without entitling her to call every hollow its bed. The djinns remained within the poem as figures of listening, not witnesses she could summon to certify her account.
+
+She folded the letter and put it back in her bag. Nothing required the place to keep her paper in order to hold her thought. Before leaving, she sent one plain message to the person who had gone silent, asking for clarity without offering threats or endless waiting. Then she turned the phone face down.
+
+On the journey home, the city carried other passengers' voices around her. Someone recounted the game with extravagant certainty. Sagorika almost smiled. At Dwarka she bought what she needed for supper and climbed to her room. No answer had arrived. She ate nonetheless, the unfinished letter beside her, discovering that feeding a living body could be a form of fidelity to the truth she had requested, even before any voice returned from the dark.

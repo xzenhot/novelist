@@ -1,0 +1,15 @@
+# The Yogmaya Shrine
+
+Sagorika arrived near the Yogmaya shrine carrying a flower she had bought without knowing what she intended to ask. The city had already filled her morning with demands: be lovely, be prompt, be agreeable, remember what everyone else had forgotten. Here she wished to become small enough to receive an answer. Yet even as she approached, the thought of a goddess older than the kings rose within her like another duty laid upon a woman's shoulders: endure, and call thy endurance sacred.
+
+She paused before entering the current of people. Beside her, a woman adjusted a child's clothing, patiently redoing a fastening that would not hold. The child struggled, eager to go forward. Sagorika offered to carry the woman's bag. Permission came in a nod. Freed of its weight, the woman finished the fastening and wiped the child's face with the end of her cloth. Nothing in the gesture announced eternity, but its attention steadied Sagorika more than the grand petition she had prepared.
+
+Inside her imagination, the earth wore the goddess's silence as it wore the city's red mouth: a face through which human longing addressed what exceeded it. She would not make that likeness a claim about another person's faith. The woman beside her had her own reasons for coming, words and hopes Sagorika was not entitled to supply. They moved together a little way, then parted. She returned the bag with both hands.
+
+The flower had bent in her grasp. One petal clung to her damp palm. She had wanted to offer something unblemished, as though devotion were a portrait that must conceal the journey. Now the crushed edge seemed inseparable from the morning's haste. She did not buy another. Whatever offering she made would have to include the hand that had held it too tightly, the woman who had almost asked a goddess to make obedience feel like peace.
+
+A call came upon her phone. Someone wanted her to change her afternoon so that his might remain undisturbed. Usually she agreed before hearing her own reluctance. This time she stepped aside and said she could not. The refusal required no witness. When the conversation ended, she feared she had shattered the stillness. But people continued past, the child laughed somewhere ahead, and a little air moved against her cheek. The world had survived her boundary.
+
+She stayed until the urgency within her loosened. The ridge, the river, the dynasties remained part of the long inward body she carried, yet none demanded that she erase the living hour. A woman might be ground without consenting to every footstep. Sagorika let that sentence form, then tested it against the simple relief of having kept an afternoon.
+
+On her way home she purchased bread, as planned, and sat by her own window to eat. No revelation altered the room. The flower's loose petal lay in her pocket. She placed it beside the plate and watched its edge dry. For that hour she owed nobody a performance of inexhaustibility, and the city within her rested without ceasing to exist.

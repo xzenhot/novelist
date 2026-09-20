@@ -1,0 +1,181 @@
+# Chapter model context
+
+## $["level"]
+
+```json
+"chapter"
+```
+
+## $["chapter_index"]
+
+```json
+1
+```
+
+## $["chapter_name"]
+
+```json
+"1"
+```
+
+## $["topic"]
+
+```json
+"The Woman in Red"
+```
+
+## $["chapter_title"]
+
+```json
+"The Woman in Red"
+```
+
+## $["chapter_summary"]
+
+```json
+"Sagorika appears as the modern woman of Dwarka: red lipstick, high heels, slim, fair, young, beloved. The context turns on the question of whether beauty is a surface or a memory."
+```
+
+## $["segments"][0]
+
+```json
+1
+```
+
+## $["stereotype"]["form"]
+
+```json
+"poetry"
+```
+
+## $["stereotype"]["signature"]
+
+```json
+"gibran"
+```
+
+## $["stereotype"]["reference"]
+
+```json
+"aurilus.txt"
+```
+
+## $["stereotype"]["theme_set"]
+
+```json
+"generic.md"
+```
+
+## $["quality_review"]["status"]
+
+```json
+"passed"
+```
+
+## $["quality_review"]["notes"][0]
+
+```json
+"audited against seed analysis quality parameters"
+```
+
+## $["theme"]
+
+```json
+"The Inner Citadel"
+```
+
+## $["theme_essence"]
+
+```json
+"the self as an unbreachable refuge; the mind as the only true fortress"
+```
+
+## $["contemporary_mapping"]
+
+```json
+"the modern obsession with surface beauty and image, and the forgotten depth beneath it"
+```
+
+## $["source_context"]
+
+```json
+"gist-and-epic"
+```
+
+## $["word_count"]
+
+```json
+500
+```
+
+## $["workshop_skill"]
+
+```json
+"workshop-poetry"
+```
+
+## $["word_target"]
+
+```json
+500
+```
+
+## $["state"]
+
+```json
+"workshop"
+```
+
+## $["workshop_file"]
+
+```json
+"chapters/1/chapter.md"
+```
+
+## $["filter_history"][0]["filter"]
+
+```json
+"workshop"
+```
+
+## $["filter_history"][0]["ran_at"]
+
+```json
+"2026-09-11"
+```
+
+## $["filter_history"][1]["filter"]
+
+```json
+"theme"
+```
+
+## $["filter_history"][1]["ran_at"]
+
+```json
+"2026-09-11"
+```
+
+## $["filter_history"][2]["filter"]
+
+```json
+"quality"
+```
+
+## $["filter_history"][2]["ran_at"]
+
+```json
+"2026-09-11"
+```
+
+## $["filter_history"][3]["filter"]
+
+```json
+"workshop"
+```
+
+## $["filter_history"][3]["ran_at"]
+
+```json
+"2026-09-11T16:59:01.8498502Z"
+```

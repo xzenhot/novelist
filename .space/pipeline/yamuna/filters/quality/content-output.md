@@ -65,4 +65,4 @@ Book: yamuna (poetry, 60 chapters). Scope: all 60. Input snapshot written to fil
 | 59 | Before We Call Her Sacred |
 | 60 | The Question Keeps Flowing |
 
-Per-chapter analysis embodied in the chapter drafts; see book.md workflow for the chain position.
+Per-chapter analysis embodied in the chapter drafts; see pipeline.md workflow for the chain position.

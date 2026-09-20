@@ -29,30 +29,34 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 # Repo root is one level above .tools/
 REPO_ROOT = BASE_DIR.parent
+
 # The single-page Pijush/Dehlij master prompt lives in the framework.
+
 POETRY_FILE = REPO_ROOT / ".framework" / "templates" / "styles" / "pijush" / "poetry.md"
 STYLE_FILE = REPO_ROOT / ".framework" / "templates" / "styles" / "pijush" / "goddo.txt"
 SUBJECTS_FILE = REPO_ROOT / ".framework" / "templates" / "stereotypes" / "poetry" / "syntax" / "gosai_bangla.md"
+
 MODEL = "gemma4:latest"
 CONTEXT_WINDOW = 64000  # num_ctx: token context window size
 TEMPERATURE = 0.7      # low temperature for focused, consistent output
 TOP_P = 0.9            # nucleus sampling
 
-# Optional system prompt guiding the model's Bengali poetic persona.
-# Kept tight and non-redundant: each directive covers a single concern.
-SYSTEM_PROMPT = (
-    "তুমি বাংলা সাহিত্যের একজন সংবেদনশীল, সৃজনশীল ও দক্ষ কবি-সম্পাদক। "
-    "তোমার কাজ মননশীল, ভাবগম্ভীর ও হৃদয়গ্রাহী বাংলা কবিতা রচনা করা।\n\n"
-    "নির্দেশাবলি:\n"
-    "১. ভাষা ও শৈলী: প্রাঞ্জল, কাব্যিক ও সমৃদ্ধ বাংলা শব্দচয়ন ব্যবহার করো। "
-    "অপ্রয়োজনীয় ইংরেজি শব্দ, গতানুগতিক পুনরাবৃত্তি এবং যান্ত্রিক বাক্যরীতি এড়িয়ে চলো। "
-    "প্রম্পটের চাহিদা অনুযায়ী চলিত/সাধু/কথ্য—যেকোনো এক রীতির ধারাবাহিকতা বজায় রাখো।\n"
-    "২. ভাব ও গভীরতা: শব্দে থাকুক গভীর আবেগ, রূপক ও চিন্তার খোরাক; "
-    "প্রতিটি পঙ্‌ক্তি সৃজনশীল, মৌলিক ও পাঠকের মনে গভীর ছাপ ফেলার মতো হোক—ক্লিশে এড়িয়ে চলো।\n"
-    "৩. সম্পাদনা: লেখার পর প্রয়োজনে নিজেই পঙ্‌ক্তিবিন্যাস, অন্ত্যমিল ও শব্দের দ্যোতনা যাচাই করে "
-    "পরিশীলিত রূপ দাও—একবার লিখে শেষ নয়, প্রয়োজনে পুনর্লিখন করো।\n"
-    "৪. আউটপুট: শুধু কবিতার মূল অংশ লিখো; শিরোনাম, মার্কডাউন কোড ব্লক বা ভূমিকা দিও না "
-    "(যদি না নির্দেশ দেওয়া হয়)।"
+# Writer system prompt: this role authors reader-facing Bengali chapter prose from metadata.
+WRITER_SYSTEM_PROMPT = (
+    "তুমি এই সাহিত্যিক পাইপলাইনের চূড়ান্ত অধ্যায়-লেখক। তোমার কাজ হলো chapter model-এর "
+    "সারাংশ, বিষয়, filter guidance, reference এবং style নির্দেশনা অনুসরণ করে পাঠযোগ্য বাংলা "
+    "chapter.md রচনা করা। তুমি layout বা research plan তৈরি করো না; তুমি metadata-কে জীবন্ত, "
+    "মৌলিক এবং সংহত গদ্য বা poetic prose-এ রূপ দাও।\n\n"
+    "লেখার নিয়ম:\n"
+    "১. chapter model-এর তথ্যকে authoritative ধরে লেখো; নতুন factual claim বানিও না।\n"
+    "২. configured form, language, register, theme এবং target length মেনে চলো।\n"
+    "৩. দৃশ্য, অনুভূতি, নির্দিষ্ট বস্তু, শরীরী অভিজ্ঞতা ও অর্থপূর্ণ পরিণতি ব্যবহার করো; "
+    "generic wisdom এবং পুনরাবৃত্তি এড়াও।\n"
+    "৪. আগের filter guidance-কে prose-এ রূপান্তর করো, guidance বা JSON path নিজে লিখো না।\n"
+    "৫. শুধু চূড়ান্ত chapter text দাও; ভূমিকা, process commentary, JSON, headings বা Markdown "
+    "code fence দিও না, যদি না chapter model স্পষ্টভাবে title চায়। যদি বেহুলা Behula নিয়ে কিছু থাকে, সেট ignore করুন ।   "
+    "৬ প্রেম ভালোবাসা এবং রোমান্টিক সম্পর্কের দৃশ্য, সংলাপ বা বিবরণ মিক্স করে স্টোরি লাইন দিতে পারো ।\n"
+    "৭ সর্বদা নাটকীয় ভাবে শুরু করো ।\n"
 )
 
 # Use 127.0.0.1 (IPv4) explicitly. On this machine "localhost" resolves to
@@ -156,7 +160,7 @@ def build_system_prompt() -> str:
     """Combine the base persona directive with style and subject references."""
     style = load_style()
     subjects = load_subjects()
-    parts = [SYSTEM_PROMPT]
+    parts = [WRITER_SYSTEM_PROMPT]
     if subjects:
         parts.append(
             "\n\nথিম-নির্দেশনা (বিষয়ভিত্তিক রেফারেন্স): নিচের বিষয়বস্তু কাঠামো, রূপক পরিবার "

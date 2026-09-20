@@ -21,7 +21,7 @@ source/books/<bookname>/
 
 ## Source Of Truth
 
-Use this skill together with `.framework/workflows/book.md`. Do not inspect existing book pipelines to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
+Use this skill together with `.framework/workflows/pipeline.md`. Do not inspect existing book pipelines to discover or imitate layout conventions; existing books may be legacy, experimental, or partially migrated.
 
 Poetry uses these root files as source of truth:
 
@@ -58,21 +58,7 @@ workshop -> research -> correctness -> theme -> syntax -> override -> quality
 |-- progress.json
 |-- filters/
 |   |-- filters.json
-|   |-- workshop/
-|   |   |-- workshop.md
-|   |   |-- filter.md
-|   |   |-- filter-summary.md
-|   |   `-- content-output.md
-|   |-- research/
-|   |   |-- research.md
-|   |   |-- filter.md
-|   |   |-- filter-summary.md
-|   |   `-- content-output.md
-|   |-- correctness/
-|   |-- theme/
-|   |-- syntax/
-|   |-- override/
-|   `-- quality/
+|   `-- (per-filter folders created lazily on first run)
 `-- chapters/
     `-- 1/
         |-- model.json
@@ -230,13 +216,7 @@ Each registry entry must include:
 - `agent`
 - `autorun` — a boolean (`true` or `false`). Default `true` for every filter in the chain. The human may set any filter to `false` to skip it; `/book <bookname> filter *` (and `filter all`) runs only the filters whose `autorun` is `true`, in order, skipping disabled ones. A single named filter (`/book <bookname> filter <filter>`) still runs that filter explicitly regardless of its `autorun` flag.
 
-For each named filter folder, scaffold only:
-
-- `<filter>.md`
-- `filter.md`
-- `filter-summary.md`
-- `content-input.md`
-- `content-output.md`
+For each named filter folder, scaffold only the registry entry in `filters.json` — **do not pre-create the folder or its files**. The filter creates its own `filters/<filter>/` folder (and its `<filter>.md`, `filter.md`, `filter-summary.md`, `content-input.md`, `content-output.md` files) on first run if missing:
 
 `content-input.md` is the **input snapshot** — when the filter runs, it records the upstream material the filter consumed (previous filter's output, chapter drafts, context). It exists so a filter pass can be undone: restoring the input and the prior state reverses the run. Leave it as an empty placeholder at scaffold time.
 
@@ -246,7 +226,7 @@ Leave runtime content empty unless the active workflow explicitly runs that filt
 
 1. **Read `.framework/agents/override/agent.md`** — the base content for the command file: the override command file is `.space/pipeline/<bookname>/filters/override/filter.md`, and it is generated/refreshed from the chapter (or poem) models' context so the human instructions are grounded in what the poems actually contain.
 2. **Read `.framework/templates/stereotypes/poetry/readme.md`** — the master index of the poetry stereotype folder, for the identity wording and conventions of the poetry form.
-3. **Seed `.space/pipeline/<bookname>/filters/override/filter.md`**, customized for poetry: identity "poetry pipeline", applies to every **poem**, model updates on the poem chapter models under `chapters/<n>/`, instruction scope "every poem" (each topic in `bookseed.txt`).
+3. **Seed `.space/pipeline/<bookname>/filters/override/filter.md`** on first use (not at scaffold), customized for poetry: identity "poetry pipeline", applies to every **poem**, model updates on the poem chapter models under `chapters/<n>/`, instruction scope "every poem" (each topic in `bookseed.txt`).
 4. **Do not create a pipeline-root `override.md`.** All forms share the single override command file at `filters/override/filter.md`.
 5. Align with whatever the readme's sub-indexes declare (singer/signature set, reference texts, syntax samples, theme sets under `signatures/`, `references/`, `syntax/`, `themes/`) — the override layer must not contradict the stereotype set the pipeline will use.
 6. Leave the trailing `## Instructions` section empty below the `---` line and never overwrite existing human instructions there.
@@ -267,8 +247,7 @@ Before reporting completion, verify:
 
 - Root files exist: `model.json`, `bookseed.txt`, and `progress.json`.
 - `filters/override/filter.md` exists — the override command file (no pipeline-root `override.md`).
-- `filters/filters.json` exists and names all seven poetry filters in order.
-- Every filter folder has its role file, `filter.md`, `filter-summary.md`, and `content-output.md`.
+- `filters/filters.json` exists and names all seven poetry filters in order. No per-filter folders are created at scaffold; each filter creates its folder on first run.
 - Every topic has one numeric chapter folder.
 - Every `segments/1/` has `writer/`, `editor/`, `version/`, and `translator/` folders.
 - Every chapter has `model.json`, a `history/` folder, and `segments/1/model.json`.

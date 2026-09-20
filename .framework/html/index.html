@@ -204,7 +204,7 @@
   <main class="content">
     <h1>Writer Agent — Implementation Guide</h1>
     <p>This guide explains how to use the <strong>writer agent</strong>: a subject-agnostic literary engine that turns backlog epics, workshop narratives, and poetry topic lists into finished book chapters. It weaves three things at runtime: <strong>Context</strong> (reference and grounding), <strong>Style</strong> (the selected voice), and <strong>Theme</strong> (the selected thematic lens).</p>
-    <p>The authoritative engine lives in <code>.framework/workflows/book.md</code>. This guide is a practical map of that workflow, not a replacement for it.</p>
+    <p>The authoritative engine lives in <code>.framework/workflows/pipeline.md</code>. This guide is a practical map of that workflow, not a replacement for it.</p>
 
     <div class="callout">
       <div class="label">Shared rule</div>
@@ -215,7 +215,7 @@
     <table>
       <thead><tr><th>File</th><th>Role</th></tr></thead>
       <tbody>
-        <tr><td><code>.framework/workflows/book.md</code></td><td><strong>The writing engine.</strong> Defines commands, scaffolding, filter execution, form selection, config, and writing rules.</td></tr>
+        <tr><td><code>.framework/workflows/pipeline.md</code></td><td><strong>The writing engine.</strong> Defines commands, scaffolding, filter execution, form selection, config, and writing rules.</td></tr>
         <tr><td><code>.framework/skills/layout-novel/SKILL.md</code></td><td><strong>The novel layout authority.</strong> Owns novel scaffold shape, <code>book.json</code>, characters, moods, workshop metadata, filters, and chapter/segment path invariants.</td></tr>
         <tr><td><code>.framework/skills/layout-poetry/SKILL.md</code></td><td><strong>The poetry layout authority.</strong> Owns poetry scaffold shape, <code>model.json</code>, <code>bookseed.txt</code>, progress, override, filters, and one-segment chapter layout.</td></tr>
         <tr><td><code>.framework/skills/research/SKILL.md</code></td><td><strong>The scaffold research step.</strong> Runs after layout before chapters are written.</td></tr>

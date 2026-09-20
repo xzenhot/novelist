@@ -29,17 +29,17 @@ Then retry the scaffold command.
 6. If the form cannot be determined, infer conservatively: a narrative premise is `novel`; a topic/term list is `poetry`.
 7. Record the chosen form in the pipeline root `model.json` during scaffolding.
 8. Create or update `.space/pipeline/<bookname>/filters/filters.json` from the book plan's ordered `filter_chain` list. The book plan is the sole source for this registry. Each registry entry carries an `autorun` flag (boolean, default `true`); the human may set any filter to `false` to skip it, and `/book <bookname> filter *` / `filter all` runs only the `autorun: true` filters in order. A single named filter still runs explicitly regardless of its flag.
-9. Do not run any filter agent or skill during scaffold. Create only structure and empty filter folders; leave all runtime outputs empty.
-10. **Seed the override command file.** If the book plan's `filter_chain` includes `override`, recreate `.space/pipeline/<bookname>/filters/override/filter.md` with the form-customized content derived from `.framework/agents/override/agent.md` (see *Override Command File Seeding*). This is structural scaffold output for the human to edit, not a runtime filter result.
+9. Do not run any filter agent or skill during scaffold. Create only structure and the `filters/filters.json` registry; do not create per-filter folders (each filter creates its own folder on first run). Leave all runtime outputs empty.
+10. **Seed the override command file lazily.** If the book plan's `filter_chain` includes `override`, the command file `.space/pipeline/<bookname>/filters/override/filter.md` is created on first use — by the override filter or the write/poet path — with form-customized content derived from `.framework/agents/override/agent.md` (see *Override Command File Seeding*). Scaffold does not pre-create it.
 11. **Generate the dynamic master prompt.** After the layout skill has built the pipeline, invoke the postlayout agent (`.framework/agents/postlayout/agent.md`) to derive the pipeline's dynamic master prompt from the backlog idea (`.space/backlog/epic/<bookname>/override.txt`) and the resolved pipeline state, writing it to `.space/pipeline/<bookname>/override.txt`. This is the final scaffold step.
 
 ## Override Command File Seeding
 
-The `override` human-in-the-loop filter needs a ready-made command file, not an empty placeholder. After the layout skill has built the pipeline:
+The `override` human-in-the-loop filter needs a ready-made command file, not an empty placeholder. Seeding is **lazy — on first use, not at scaffold** (scaffold creates only `filters/filters.json`). When the override filter first runs, or when the write/poet path needs the command file:
 
 1. If `override` is not in the book plan's `filter_chain`, skip this step — no registry entry, no override folder, no `filter.md`.
 2. Read `.framework/agents/override/agent.md` — its content is the base for `filter.md`.
-3. Recreate `.space/pipeline/<bookname>/filters/override/filter.md` by reproducing the override agent's content with these form-specific customizations:
+3. Create `.space/pipeline/<bookname>/filters/override/filter.md` by reproducing the override agent's content with these form-specific customizations:
    - **Identity and units.** Novel: the "novel pipeline", applying to every **chapter**. Poetry: the "poetry pipeline", applying to every **poem**.
    - **Command file path.** All forms: `.space/pipeline/<bookname>/filters/override/filter.md`. There is no pipeline-root `override.md` in any form; the backlog `.space/backlog/epic/<bookname>/override.md` is only a planning copy.
    - **Model updates.** Novel: `.space/pipeline/<bookname>/chapters/<n>/model.json`. Poetry: the poem chapter models under `chapters/<n>/`.
@@ -59,14 +59,14 @@ The scaffold agent does not derive a full master prompt during a plain scaffold;
 
 ## Source Of Truth
 
-Use `.framework/workflows/book.md` and the selected form-specific layout skill as the source of scaffold truth. Do not inspect existing book pipelines such as `.space/pipeline/book_wife/` to infer layout conventions; existing books may be legacy or partially migrated examples.
+Use `.framework/workflows/pipeline.md` and the selected form-specific layout skill as the source of scaffold truth. Do not inspect existing book pipelines such as `.space/pipeline/book_wife/` to infer layout conventions; existing books may be legacy or partially migrated examples.
 
 ## Responsibilities
 
 - **Invoke the prelayout agent first.** Before the layout skill runs, the scaffold agent MUST call `.framework/agents/prelayout/agent.md` to resolve the form, validate the book plan, and produce the pre-layout plan. This is the mandatory first step of scaffold.
 - Create or repair `.space/pipeline/<bookname>/` using the selected layout skill.
 - Preserve the selected skill's path invariants.
-- Create only structural scaffold files, planning artifacts, and empty filter folders owned by the scaffold step.
+- Create only structural scaffold files, planning artifacts, and the `filters/filters.json` registry. Do not create per-filter folders; each filter owns its folder at runtime.
 - **Invoke the postlayout agent after every scaffold.** Once the layout skill has built the pipeline, the scaffold agent MUST call `.framework/agents/postlayout/agent.md` to generate the dynamic master prompt at `.space/pipeline/<bookname>/override.txt`. This is a mandatory final step, not optional — a scaffold is not complete until the postlayout agent has run.
 - Do not write runtime filter outputs, research results, or finished chapters.
 - Do not run any filter agent or skill (the prelayout and postlayout agents are the sole exceptions, and they run only at the start and end of scaffold, respectively).
